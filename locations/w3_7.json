@@ -6,9 +6,9 @@
         "name": "Mine Cart Rail Set",
         "map_locations": [
           {
-            "map": "w3_7",
-            "x": 160,
-            "y": 180
+            "map": "w3_7_burrow",
+            "x": 220,
+            "y": 170
           }
         ],
         "sections": [
@@ -26,9 +26,9 @@
         "name": "Mini Star / Stage Clear",
         "map_locations": [
           {
-            "map": "w3_7",
-            "x": 450,
-            "y": 150
+            "map": "w3_7_minecart",
+            "x": 650,
+            "y": 170
           }
         ],
         "sections": [

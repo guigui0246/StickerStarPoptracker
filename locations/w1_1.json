@@ -6,9 +6,9 @@
         "name": "Wooden Bridge Scrap",
         "map_locations": [
           {
-            "map": "w1_1",
-            "x": 160,
-            "y": 180
+            "map": "w1_1_entrance",
+            "x": 220,
+            "y": 170
           }
         ],
         "sections": [
@@ -26,9 +26,9 @@
         "name": "Mini Star / Stage Clear",
         "map_locations": [
           {
-            "map": "w1_1",
-            "x": 450,
-            "y": 150
+            "map": "w1_1_bridge",
+            "x": 650,
+            "y": 170
           }
         ],
         "sections": [

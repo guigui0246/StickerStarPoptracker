@@ -6,9 +6,9 @@
         "name": "Stone Entry Scrap",
         "map_locations": [
           {
-            "map": "w2_5",
-            "x": 160,
-            "y": 180
+            "map": "w2_5_exterior",
+            "x": 220,
+            "y": 170
           }
         ],
         "sections": [
@@ -26,9 +26,9 @@
         "name": "Royal Sticker",
         "map_locations": [
           {
-            "map": "w2_5",
-            "x": 450,
-            "y": 150
+            "map": "w2_5_tower",
+            "x": 650,
+            "y": 170
           }
         ],
         "sections": [

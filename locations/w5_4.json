@@ -6,9 +6,9 @@
         "name": "Ruin Repair Set",
         "map_locations": [
           {
-            "map": "w5_4",
-            "x": 160,
-            "y": 180
+            "map": "w5_4_outer",
+            "x": 220,
+            "y": 170
           }
         ],
         "sections": [
@@ -26,9 +26,9 @@
         "name": "Mini Star / Stage Clear",
         "map_locations": [
           {
-            "map": "w5_4",
-            "x": 450,
-            "y": 150
+            "map": "w5_4_inner",
+            "x": 650,
+            "y": 170
           }
         ],
         "sections": [

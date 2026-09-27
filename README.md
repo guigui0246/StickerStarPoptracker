@@ -2,7 +2,7 @@
 
 A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 
-- an original SVG world map and SVG level maps for every stage,
+- an original SVG world map and SVG level maps for every stage, with multi-section splits for more complex routes,
 - an **Items** tab for abilities, level clears, major paperization objects, and boss tools,
 - a **Museum** tab that lets you check every sticker exhibit one by one,
 - location logic notes for mini stars / Royal Stickers, special objects, and major required stickers or Things.
@@ -15,9 +15,10 @@ A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 - `layouts/` – root tabs plus item-grid layouts
 - `maps/maps.json` – world / level map registration
 - `locations/` – world map and per-stage map markers
-- `images/maps/*.svg` – original SVG art used by the tracker
+- `images/maps/*.svg` – bundled fallback map art used by the tracker
 
 ## Notes
 
-- The issue requested official world-map art. This repository intentionally uses an **original SVG world map** instead, so the pack can be redistributed without bundling Nintendo-owned artwork.
+- This repository currently ships **redistributable fallback SVG art** instead of bundling Nintendo-owned images. If licensed or first-party assets are provided later, they can replace these tracker assets privately without changing the tracker data files.
+- The tracker now splits several multi-route stages into separate map sections so route checks are easier to read.
 - The tracker focuses on major progression: stage clears, mini stars / Royal Stickers, special paperization objects, and required boss tools.

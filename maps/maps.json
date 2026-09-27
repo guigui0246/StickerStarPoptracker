@@ -232,5 +232,83 @@
     "location_size": 20,
     "location_border_thickness": 2,
     "img": "images/maps/w6_3.svg"
+  },
+  {
+    "name": "w1_1_entrance",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w1_1_entrance.svg"
+  },
+  {
+    "name": "w1_1_bridge",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w1_1_bridge.svg"
+  },
+  {
+    "name": "w2_5_exterior",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w2_5_exterior.svg"
+  },
+  {
+    "name": "w2_5_tower",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w2_5_tower.svg"
+  },
+  {
+    "name": "w3_7_burrow",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w3_7_burrow.svg"
+  },
+  {
+    "name": "w3_7_minecart",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w3_7_minecart.svg"
+  },
+  {
+    "name": "w4_3_foyer",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w4_3_foyer.svg"
+  },
+  {
+    "name": "w4_3_upper",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w4_3_upper.svg"
+  },
+  {
+    "name": "w4_3_boo",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w4_3_boo.svg"
+  },
+  {
+    "name": "w5_4_outer",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w5_4_outer.svg"
+  },
+  {
+    "name": "w5_4_inner",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w5_4_inner.svg"
+  },
+  {
+    "name": "w6_3_approach",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w6_3_approach.svg"
+  },
+  {
+    "name": "w6_3_finale",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/w6_3_finale.svg"
   }
 ]

@@ -6,9 +6,9 @@
         "name": "Mansion Scrap Set",
         "map_locations": [
           {
-            "map": "w4_3",
-            "x": 160,
-            "y": 180
+            "map": "w4_3_foyer",
+            "x": 180,
+            "y": 170
           }
         ],
         "sections": [
@@ -26,8 +26,8 @@
         "name": "Thing: Fan / Vacuum Route",
         "map_locations": [
           {
-            "map": "w4_3",
-            "x": 450,
+            "map": "w4_3_upper",
+            "x": 470,
             "y": 150
           }
         ],
@@ -46,9 +46,9 @@
         "name": "Mini Star / Stage Clear",
         "map_locations": [
           {
-            "map": "w4_3",
-            "x": 740,
-            "y": 185
+            "map": "w4_3_boo",
+            "x": 760,
+            "y": 180
           }
         ],
         "sections": [

@@ -6,9 +6,9 @@
         "name": "Final Battle Thing Set",
         "map_locations": [
           {
-            "map": "w6_3",
-            "x": 160,
-            "y": 180
+            "map": "w6_3_approach",
+            "x": 220,
+            "y": 170
           }
         ],
         "sections": [
@@ -26,9 +26,9 @@
         "name": "Gold Royal Sticker",
         "map_locations": [
           {
-            "map": "w6_3",
-            "x": 450,
-            "y": 150
+            "map": "w6_3_finale",
+            "x": 650,
+            "y": 170
           }
         ],
         "sections": [

@@ -172,9 +172,26 @@
             {
               "title": "1-1",
               "content": {
-                "type": "map",
-                "maps": [
-                  "w1_1"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Entrance",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w1_1_entrance"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Bridge Route",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w1_1_bridge"
+                      ]
+                    }
+                  }
                 ]
               }
             },
@@ -270,9 +287,26 @@
             {
               "title": "2-5",
               "content": {
-                "type": "map",
-                "maps": [
-                  "w2_5"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Exterior",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w2_5_exterior"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Tower",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w2_5_tower"
+                      ]
+                    }
+                  }
                 ]
               }
             }
@@ -341,9 +375,26 @@
             {
               "title": "3-7",
               "content": {
-                "type": "map",
-                "maps": [
-                  "w3_7"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Burrow",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w3_7_burrow"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Mine Cart",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w3_7_minecart"
+                      ]
+                    }
+                  }
                 ]
               }
             },
@@ -421,9 +472,35 @@
             {
               "title": "4-3",
               "content": {
-                "type": "map",
-                "maps": [
-                  "w4_3"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Foyer",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w4_3_foyer"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Upper Floors",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w4_3_upper"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Big Boo Hall",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w4_3_boo"
+                      ]
+                    }
+                  }
                 ]
               }
             },
@@ -492,9 +569,26 @@
             {
               "title": "5-4",
               "content": {
-                "type": "map",
-                "maps": [
-                  "w5_4"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Outer Ruins",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w5_4_outer"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Inner Ruins",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w5_4_inner"
+                      ]
+                    }
+                  }
                 ]
               }
             },
@@ -545,9 +639,26 @@
             {
               "title": "6-3",
               "content": {
-                "type": "map",
-                "maps": [
-                  "w6_3"
+                "type": "tabbed",
+                "tabs": [
+                  {
+                    "title": "Approach",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w6_3_approach"
+                      ]
+                    }
+                  },
+                  {
+                    "title": "Finale",
+                    "content": {
+                      "type": "map",
+                      "maps": [
+                        "w6_3_finale"
+                      ]
+                    }
+                  }
                 ]
               }
             }
