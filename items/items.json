@@ -1,0 +1,1598 @@
+[
+  {
+    "name": "Hammer",
+    "type": "toggle",
+    "img": "images/items/hammer.svg",
+    "codes": "hammer"
+  },
+  {
+    "name": "Paperization",
+    "type": "toggle",
+    "img": "images/items/paperization.svg",
+    "codes": "paperization"
+  },
+  {
+    "name": "Book of Sealing",
+    "type": "toggle",
+    "img": "images/items/req_book_of_sealing.svg",
+    "codes": "req_book_of_sealing"
+  },
+  {
+    "name": "Clear 1-1 Warm Fuzzy Plains",
+    "type": "toggle",
+    "img": "images/items/clear_w1_1.svg",
+    "codes": "clear_w1_1"
+  },
+  {
+    "name": "Clear 1-2 Bouquet Gardens",
+    "type": "toggle",
+    "img": "images/items/clear_w1_2.svg",
+    "codes": "clear_w1_2"
+  },
+  {
+    "name": "Clear 1-3 Water's Edge Way",
+    "type": "toggle",
+    "img": "images/items/clear_w1_3.svg",
+    "codes": "clear_w1_3"
+  },
+  {
+    "name": "Clear 1-4 Hither Thither Hill",
+    "type": "toggle",
+    "img": "images/items/clear_w1_4.svg",
+    "codes": "clear_w1_4"
+  },
+  {
+    "name": "Clear 1-5 Whammino Mountain",
+    "type": "toggle",
+    "img": "images/items/clear_w1_5.svg",
+    "codes": "clear_w1_5"
+  },
+  {
+    "name": "Clear 1-6 Goomba Fortress",
+    "type": "toggle",
+    "img": "images/items/clear_w1_6.svg",
+    "codes": "clear_w1_6"
+  },
+  {
+    "name": "Royal Sticker (World 1)",
+    "type": "toggle",
+    "img": "images/items/royal_w1.svg",
+    "codes": "royal_w1"
+  },
+  {
+    "name": "Clear 2-1 Drybake Desert",
+    "type": "toggle",
+    "img": "images/items/clear_w2_1.svg",
+    "codes": "clear_w2_1"
+  },
+  {
+    "name": "Clear 2-2 Yoshi Sphinx",
+    "type": "toggle",
+    "img": "images/items/clear_w2_2.svg",
+    "codes": "clear_w2_2"
+  },
+  {
+    "name": "Clear 2-3 Sandshifter Ruins",
+    "type": "toggle",
+    "img": "images/items/clear_w2_3.svg",
+    "codes": "clear_w2_3"
+  },
+  {
+    "name": "Clear 2-4 Damp Oasis",
+    "type": "toggle",
+    "img": "images/items/clear_w2_4.svg",
+    "codes": "clear_w2_4"
+  },
+  {
+    "name": "Clear 2-5 Drybake Stadium",
+    "type": "toggle",
+    "img": "images/items/clear_w2_5.svg",
+    "codes": "clear_w2_5"
+  },
+  {
+    "name": "Royal Sticker (World 2)",
+    "type": "toggle",
+    "img": "images/items/royal_w2.svg",
+    "codes": "royal_w2"
+  },
+  {
+    "name": "Clear 3-1 Leaflitter Path",
+    "type": "toggle",
+    "img": "images/items/clear_w3_1.svg",
+    "codes": "clear_w3_1"
+  },
+  {
+    "name": "Clear 3-2 Loop Loop River",
+    "type": "toggle",
+    "img": "images/items/clear_w3_2.svg",
+    "codes": "clear_w3_2"
+  },
+  {
+    "name": "Clear 3-3 The Bafflewood",
+    "type": "toggle",
+    "img": "images/items/clear_w3_3.svg",
+    "codes": "clear_w3_3"
+  },
+  {
+    "name": "Clear 3-4 Tree Branch Trail",
+    "type": "toggle",
+    "img": "images/items/clear_w3_4.svg",
+    "codes": "clear_w3_4"
+  },
+  {
+    "name": "Clear 3-5 Strike Lake",
+    "type": "toggle",
+    "img": "images/items/clear_w3_5.svg",
+    "codes": "clear_w3_5"
+  },
+  {
+    "name": "Clear 3-6 Wiggler's Tree House",
+    "type": "toggle",
+    "img": "images/items/clear_w3_6.svg",
+    "codes": "clear_w3_6"
+  },
+  {
+    "name": "Clear 3-7 Rustle Burrow",
+    "type": "toggle",
+    "img": "images/items/clear_w3_7.svg",
+    "codes": "clear_w3_7"
+  },
+  {
+    "name": "Clear 3-8 Holey Thicket",
+    "type": "toggle",
+    "img": "images/items/clear_w3_8.svg",
+    "codes": "clear_w3_8"
+  },
+  {
+    "name": "Clear 3-9 Gauntlet Pond",
+    "type": "toggle",
+    "img": "images/items/clear_w3_9.svg",
+    "codes": "clear_w3_9"
+  },
+  {
+    "name": "Clear 3-10 Stump Glade",
+    "type": "toggle",
+    "img": "images/items/clear_w3_10.svg",
+    "codes": "clear_w3_10"
+  },
+  {
+    "name": "Clear 3-11 Outlook Point",
+    "type": "toggle",
+    "img": "images/items/clear_w3_11.svg",
+    "codes": "clear_w3_11"
+  },
+  {
+    "name": "Clear 3-12 Whitecap Beach",
+    "type": "toggle",
+    "img": "images/items/clear_w3_12.svg",
+    "codes": "clear_w3_12"
+  },
+  {
+    "name": "Royal Sticker (World 3)",
+    "type": "toggle",
+    "img": "images/items/royal_w3.svg",
+    "codes": "royal_w3"
+  },
+  {
+    "name": "Clear 4-1 Snow Rise",
+    "type": "toggle",
+    "img": "images/items/clear_w4_1.svg",
+    "codes": "clear_w4_1"
+  },
+  {
+    "name": "Clear 4-2 Ice Flow",
+    "type": "toggle",
+    "img": "images/items/clear_w4_2.svg",
+    "codes": "clear_w4_2"
+  },
+  {
+    "name": "Clear 4-3 The Enigmansion",
+    "type": "toggle",
+    "img": "images/items/clear_w4_3.svg",
+    "codes": "clear_w4_3"
+  },
+  {
+    "name": "Clear 4-4 Whiteout Valley",
+    "type": "toggle",
+    "img": "images/items/clear_w4_4.svg",
+    "codes": "clear_w4_4"
+  },
+  {
+    "name": "Clear 4-5 Bowser's Snow Fort",
+    "type": "toggle",
+    "img": "images/items/clear_w4_5.svg",
+    "codes": "clear_w4_5"
+  },
+  {
+    "name": "Clear 4-6 Shaved-Ice Cave",
+    "type": "toggle",
+    "img": "images/items/clear_w4_6.svg",
+    "codes": "clear_w4_6"
+  },
+  {
+    "name": "Royal Sticker (World 4)",
+    "type": "toggle",
+    "img": "images/items/royal_w4.svg",
+    "codes": "royal_w4"
+  },
+  {
+    "name": "Clear 5-1 Shy Guy Jungle",
+    "type": "toggle",
+    "img": "images/items/clear_w5_1.svg",
+    "codes": "clear_w5_1"
+  },
+  {
+    "name": "Clear 5-2 Jungle Rapids",
+    "type": "toggle",
+    "img": "images/items/clear_w5_2.svg",
+    "codes": "clear_w5_2"
+  },
+  {
+    "name": "Clear 5-3 Long Fall Falls",
+    "type": "toggle",
+    "img": "images/items/clear_w5_3.svg",
+    "codes": "clear_w5_3"
+  },
+  {
+    "name": "Clear 5-4 Chomp Ruins",
+    "type": "toggle",
+    "img": "images/items/clear_w5_4.svg",
+    "codes": "clear_w5_4"
+  },
+  {
+    "name": "Clear 5-5 Rugged Road",
+    "type": "toggle",
+    "img": "images/items/clear_w5_5.svg",
+    "codes": "clear_w5_5"
+  },
+  {
+    "name": "Clear 5-6 Rumble Volcano",
+    "type": "toggle",
+    "img": "images/items/clear_w5_6.svg",
+    "codes": "clear_w5_6"
+  },
+  {
+    "name": "Royal Sticker (World 5)",
+    "type": "toggle",
+    "img": "images/items/royal_w5.svg",
+    "codes": "royal_w5"
+  },
+  {
+    "name": "Clear 6-1 Gate Cliff",
+    "type": "toggle",
+    "img": "images/items/clear_w6_1.svg",
+    "codes": "clear_w6_1"
+  },
+  {
+    "name": "Clear 6-2 Bowser Jr.'s Flotilla",
+    "type": "toggle",
+    "img": "images/items/clear_w6_2.svg",
+    "codes": "clear_w6_2"
+  },
+  {
+    "name": "Clear 6-3 Bowser's Sky Castle",
+    "type": "toggle",
+    "img": "images/items/clear_w6_3.svg",
+    "codes": "clear_w6_3"
+  },
+  {
+    "name": "Gold Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/royal_w6.svg",
+    "codes": "royal_w6"
+  },
+  {
+    "name": "Wooden Bridge Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_wooden_bridge.svg",
+    "codes": "scrap_wooden_bridge"
+  },
+  {
+    "name": "Comet Piece Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_comet_piece.svg",
+    "codes": "scrap_comet_piece"
+  },
+  {
+    "name": "Green Warp Pipe Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_green_warp_pipe.svg",
+    "codes": "scrap_green_warp_pipe"
+  },
+  {
+    "name": "White Gate Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_white_gate.svg",
+    "codes": "scrap_white_gate"
+  },
+  {
+    "name": "Block Switch Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_block_switch.svg",
+    "codes": "scrap_block_switch"
+  },
+  {
+    "name": "Tablet Piece 1 Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_tablet_piece_1.svg",
+    "codes": "scrap_tablet_piece_1"
+  },
+  {
+    "name": "Tablet Piece 2 Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_tablet_piece_2.svg",
+    "codes": "scrap_tablet_piece_2"
+  },
+  {
+    "name": "Tablet Piece 3 Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_tablet_piece_3.svg",
+    "codes": "scrap_tablet_piece_3"
+  },
+  {
+    "name": "Stone Entry Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_stone_entry.svg",
+    "codes": "scrap_stone_entry"
+  },
+  {
+    "name": "Tree Stump Left Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_tree_stump_left.svg",
+    "codes": "scrap_tree_stump_left"
+  },
+  {
+    "name": "Tree Stump Right Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_tree_stump_right.svg",
+    "codes": "scrap_tree_stump_right"
+  },
+  {
+    "name": "Burrow Door Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_burrow_door.svg",
+    "codes": "scrap_burrow_door"
+  },
+  {
+    "name": "Mine Cart Rail Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mine_cart_rail.svg",
+    "codes": "scrap_mine_cart_rail"
+  },
+  {
+    "name": "Diagonal Rail Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_diagonal_rail.svg",
+    "codes": "scrap_diagonal_rail"
+  },
+  {
+    "name": "Mine Cart Exit Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mine_cart_exit.svg",
+    "codes": "scrap_mine_cart_exit"
+  },
+  {
+    "name": "Bridge Part 1 Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_bridge_part_1.svg",
+    "codes": "scrap_bridge_part_1"
+  },
+  {
+    "name": "Bridge Part 2 Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_bridge_part_2.svg",
+    "codes": "scrap_bridge_part_2"
+  },
+  {
+    "name": "Bridge Part 3 Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_bridge_part_3.svg",
+    "codes": "scrap_bridge_part_3"
+  },
+  {
+    "name": "Mansion Bookcase Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mansion_bookcase.svg",
+    "codes": "scrap_mansion_bookcase"
+  },
+  {
+    "name": "Mansion Wall Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mansion_wall.svg",
+    "codes": "scrap_mansion_wall"
+  },
+  {
+    "name": "Mansion Safe Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mansion_safe.svg",
+    "codes": "scrap_mansion_safe"
+  },
+  {
+    "name": "Brown Door Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mansion_door_brown.svg",
+    "codes": "scrap_mansion_door_brown"
+  },
+  {
+    "name": "Steward Portrait Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_stewards_portrait.svg",
+    "codes": "scrap_stewards_portrait"
+  },
+  {
+    "name": "Green Door Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mansion_door_green.svg",
+    "codes": "scrap_mansion_door_green"
+  },
+  {
+    "name": "Big Bookcase Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_big_bookcase.svg",
+    "codes": "scrap_big_bookcase"
+  },
+  {
+    "name": "Forebears Portrait Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_forebears_portrait.svg",
+    "codes": "scrap_forebears_portrait"
+  },
+  {
+    "name": "Jungle Floodgate Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_jungle_floodgate.svg",
+    "codes": "scrap_jungle_floodgate"
+  },
+  {
+    "name": "Ruin Slope Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_ruin_slope.svg",
+    "codes": "scrap_ruin_slope"
+  },
+  {
+    "name": "Bomp Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_bomp.svg",
+    "codes": "scrap_bomp"
+  },
+  {
+    "name": "Ruin Floor Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_ruin_floor.svg",
+    "codes": "scrap_ruin_floor"
+  },
+  {
+    "name": "Mountain Hole Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mountain_hole.svg",
+    "codes": "scrap_mountain_hole"
+  },
+  {
+    "name": "Mountain Boulder Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_mountain_boulder.svg",
+    "codes": "scrap_mountain_boulder"
+  },
+  {
+    "name": "Cracked Boulder Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_cracked_boulder.svg",
+    "codes": "scrap_cracked_boulder"
+  },
+  {
+    "name": "Huge Mountain Slab Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_huge_mountain_slab.svg",
+    "codes": "scrap_huge_mountain_slab"
+  },
+  {
+    "name": "Hidden Bowser Castle Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_hidden_bowser_castle.svg",
+    "codes": "scrap_hidden_bowser_castle"
+  },
+  {
+    "name": "Banzai Bill Cannon Scrap",
+    "type": "toggle",
+    "img": "images/items/scrap_banzai_bill_cannon.svg",
+    "codes": "scrap_banzai_bill_cannon"
+  },
+  {
+    "name": "Secret Door",
+    "type": "toggle",
+    "img": "images/items/sticker_secret_door.svg",
+    "codes": "sticker_secret_door"
+  },
+  {
+    "name": "Fire Flower",
+    "type": "toggle",
+    "img": "images/items/sticker_fire_flower.svg",
+    "codes": "sticker_fire_flower"
+  },
+  {
+    "name": "Ice Flower",
+    "type": "toggle",
+    "img": "images/items/sticker_ice_flower.svg",
+    "codes": "sticker_ice_flower"
+  },
+  {
+    "name": "Scissors",
+    "type": "toggle",
+    "img": "images/items/req_thing_scissors.svg",
+    "codes": "req_thing_scissors"
+  },
+  {
+    "name": "Bat",
+    "type": "toggle",
+    "img": "images/items/req_thing_bat.svg",
+    "codes": "req_thing_bat"
+  },
+  {
+    "name": "Trumpet",
+    "type": "toggle",
+    "img": "images/items/req_thing_trumpet.svg",
+    "codes": "req_thing_trumpet"
+  },
+  {
+    "name": "Faucet",
+    "type": "toggle",
+    "img": "images/items/req_thing_faucet.svg",
+    "codes": "req_thing_faucet"
+  },
+  {
+    "name": "Lightbulb",
+    "type": "toggle",
+    "img": "images/items/req_thing_lightbulb.svg",
+    "codes": "req_thing_lightbulb"
+  },
+  {
+    "name": "Fishhook",
+    "type": "toggle",
+    "img": "images/items/req_thing_fishhook.svg",
+    "codes": "req_thing_fishhook"
+  },
+  {
+    "name": "Fan",
+    "type": "toggle",
+    "img": "images/items/req_thing_fan.svg",
+    "codes": "req_thing_fan"
+  },
+  {
+    "name": "Vacuum",
+    "type": "toggle",
+    "img": "images/items/req_thing_vacuum.svg",
+    "codes": "req_thing_vacuum"
+  },
+  {
+    "name": "Refrigerator",
+    "type": "toggle",
+    "img": "images/items/req_thing_refrigerator.svg",
+    "codes": "req_thing_refrigerator"
+  },
+  {
+    "name": "Sponge",
+    "type": "toggle",
+    "img": "images/items/req_thing_sponge.svg",
+    "codes": "req_thing_sponge"
+  },
+  {
+    "name": "Goat",
+    "type": "toggle",
+    "img": "images/items/req_thing_goat.svg",
+    "codes": "req_thing_goat"
+  },
+  {
+    "name": "Battery",
+    "type": "toggle",
+    "img": "images/items/req_thing_battery.svg",
+    "codes": "req_thing_battery"
+  },
+  {
+    "name": "Worn-Out Jump",
+    "type": "toggle",
+    "img": "images/items/museum_worn_out_jump.svg",
+    "codes": "museum_worn_out_jump"
+  },
+  {
+    "name": "Jump",
+    "type": "toggle",
+    "img": "images/items/museum_jump.svg",
+    "codes": "museum_jump"
+  },
+  {
+    "name": "Shiny Jump",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_jump.svg",
+    "codes": "museum_shiny_jump"
+  },
+  {
+    "name": "Flashy Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_jump.svg",
+    "codes": "museum_flashy_jump"
+  },
+  {
+    "name": "Big Shiny Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_jump.svg",
+    "codes": "museum_big_shiny_jump"
+  },
+  {
+    "name": "Megaflash Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_jump.svg",
+    "codes": "museum_megaflash_jump"
+  },
+  {
+    "name": "Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_iron_jump.svg",
+    "codes": "museum_iron_jump"
+  },
+  {
+    "name": "Shiny Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_iron_jump.svg",
+    "codes": "museum_shiny_iron_jump"
+  },
+  {
+    "name": "Flashy Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_iron_jump.svg",
+    "codes": "museum_flashy_iron_jump"
+  },
+  {
+    "name": "Big Shiny Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_iron_jump.svg",
+    "codes": "museum_big_shiny_iron_jump"
+  },
+  {
+    "name": "Megaflash Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_iron_jump.svg",
+    "codes": "museum_megaflash_iron_jump"
+  },
+  {
+    "name": "Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_hopslipper.svg",
+    "codes": "museum_hopslipper"
+  },
+  {
+    "name": "Shiny Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_hopslipper.svg",
+    "codes": "museum_shiny_hopslipper"
+  },
+  {
+    "name": "Flashy Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_hopslipper.svg",
+    "codes": "museum_flashy_hopslipper"
+  },
+  {
+    "name": "Big Shiny Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_hopslipper.svg",
+    "codes": "museum_big_shiny_hopslipper"
+  },
+  {
+    "name": "Megaflash Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_hopslipper.svg",
+    "codes": "museum_megaflash_hopslipper"
+  },
+  {
+    "name": "Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_line_jump.svg",
+    "codes": "museum_line_jump"
+  },
+  {
+    "name": "Shiny Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_line_jump.svg",
+    "codes": "museum_shiny_line_jump"
+  },
+  {
+    "name": "Flashy Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_line_jump.svg",
+    "codes": "museum_flashy_line_jump"
+  },
+  {
+    "name": "Big Shiny Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_line_jump.svg",
+    "codes": "museum_big_shiny_line_jump"
+  },
+  {
+    "name": "Megaflash Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_line_jump.svg",
+    "codes": "museum_megaflash_line_jump"
+  },
+  {
+    "name": "Flashy Clone Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_clone_jump.svg",
+    "codes": "museum_flashy_clone_jump"
+  },
+  {
+    "name": "Big Shiny Clone Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_clone_jump.svg",
+    "codes": "museum_big_shiny_clone_jump"
+  },
+  {
+    "name": "Megaflash Clone Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_clone_jump.svg",
+    "codes": "museum_megaflash_clone_jump"
+  },
+  {
+    "name": "Super Boot",
+    "type": "toggle",
+    "img": "images/items/museum_super_boot.svg",
+    "codes": "museum_super_boot"
+  },
+  {
+    "name": "Shiny Super Boot",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_super_boot.svg",
+    "codes": "museum_shiny_super_boot"
+  },
+  {
+    "name": "Worn-Out Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_worn_out_hammer.svg",
+    "codes": "museum_worn_out_hammer"
+  },
+  {
+    "name": "Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_hammer.svg",
+    "codes": "museum_hammer"
+  },
+  {
+    "name": "Shiny Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_hammer.svg",
+    "codes": "museum_shiny_hammer"
+  },
+  {
+    "name": "Flashy Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_hammer.svg",
+    "codes": "museum_flashy_hammer"
+  },
+  {
+    "name": "Big Shiny Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_hammer.svg",
+    "codes": "museum_big_shiny_hammer"
+  },
+  {
+    "name": "Megaflash Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_hammer.svg",
+    "codes": "museum_megaflash_hammer"
+  },
+  {
+    "name": "Flashy Infinijump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_infinijump.svg",
+    "codes": "museum_flashy_infinijump"
+  },
+  {
+    "name": "Big Shiny Infinijump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_infinijump.svg",
+    "codes": "museum_big_shiny_infinijump"
+  },
+  {
+    "name": "Megaflash Infinijump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_infinijump.svg",
+    "codes": "museum_megaflash_infinijump"
+  },
+  {
+    "name": "Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_slaphammer.svg",
+    "codes": "museum_slaphammer"
+  },
+  {
+    "name": "Shiny Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_slaphammer.svg",
+    "codes": "museum_shiny_slaphammer"
+  },
+  {
+    "name": "Flashy Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_slaphammer.svg",
+    "codes": "museum_flashy_slaphammer"
+  },
+  {
+    "name": "Big Shiny Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_slaphammer.svg",
+    "codes": "museum_big_shiny_slaphammer"
+  },
+  {
+    "name": "Megaflash Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_slaphammer.svg",
+    "codes": "museum_megaflash_slaphammer"
+  },
+  {
+    "name": "Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_eekhammer.svg",
+    "codes": "museum_eekhammer"
+  },
+  {
+    "name": "Shiny Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_eekhammer.svg",
+    "codes": "museum_shiny_eekhammer"
+  },
+  {
+    "name": "Flashy Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_eekhammer.svg",
+    "codes": "museum_flashy_eekhammer"
+  },
+  {
+    "name": "Big Shiny Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_eekhammer.svg",
+    "codes": "museum_big_shiny_eekhammer"
+  },
+  {
+    "name": "Megaflash Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_eekhammer.svg",
+    "codes": "museum_megaflash_eekhammer"
+  },
+  {
+    "name": "Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_hurlhammer.svg",
+    "codes": "museum_hurlhammer"
+  },
+  {
+    "name": "Shiny Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_hurlhammer.svg",
+    "codes": "museum_shiny_hurlhammer"
+  },
+  {
+    "name": "Flashy Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_hurlhammer.svg",
+    "codes": "museum_flashy_hurlhammer"
+  },
+  {
+    "name": "Big Shiny Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_hurlhammer.svg",
+    "codes": "museum_big_shiny_hurlhammer"
+  },
+  {
+    "name": "Megaflash Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_hurlhammer.svg",
+    "codes": "museum_megaflash_hurlhammer"
+  },
+  {
+    "name": "Baahammer",
+    "type": "toggle",
+    "img": "images/items/museum_baahammer.svg",
+    "codes": "museum_baahammer"
+  },
+  {
+    "name": "Big Shiny Baahammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_baahammer.svg",
+    "codes": "museum_big_shiny_baahammer"
+  },
+  {
+    "name": "Megaflash Baahammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_baahammer.svg",
+    "codes": "museum_megaflash_baahammer"
+  },
+  {
+    "name": "Burnhammer",
+    "type": "toggle",
+    "img": "images/items/museum_burnhammer.svg",
+    "codes": "museum_burnhammer"
+  },
+  {
+    "name": "Big Shiny Burnhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_burnhammer.svg",
+    "codes": "museum_big_shiny_burnhammer"
+  },
+  {
+    "name": "Megaflash Burnhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_burnhammer.svg",
+    "codes": "museum_megaflash_burnhammer"
+  },
+  {
+    "name": "Chillhammer",
+    "type": "toggle",
+    "img": "images/items/museum_chillhammer.svg",
+    "codes": "museum_chillhammer"
+  },
+  {
+    "name": "Big Shiny Chillhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_chillhammer.svg",
+    "codes": "museum_big_shiny_chillhammer"
+  },
+  {
+    "name": "Megaflash Chillhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_chillhammer.svg",
+    "codes": "museum_megaflash_chillhammer"
+  },
+  {
+    "name": "Tail",
+    "type": "toggle",
+    "img": "images/items/museum_tail.svg",
+    "codes": "museum_tail"
+  },
+  {
+    "name": "Shiny Tail",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_tail.svg",
+    "codes": "museum_shiny_tail"
+  },
+  {
+    "name": "Frog Suit",
+    "type": "toggle",
+    "img": "images/items/museum_frog_suit.svg",
+    "codes": "museum_frog_suit"
+  },
+  {
+    "name": "Shiny Frog Suit",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_frog_suit.svg",
+    "codes": "museum_shiny_frog_suit"
+  },
+  {
+    "name": "Spike Helmet",
+    "type": "toggle",
+    "img": "images/items/museum_spike_helmet.svg",
+    "codes": "museum_spike_helmet"
+  },
+  {
+    "name": "Shiny Spike Helmet",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_spike_helmet.svg",
+    "codes": "museum_shiny_spike_helmet"
+  },
+  {
+    "name": "Flashy Spike Helmet",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_spike_helmet.svg",
+    "codes": "museum_flashy_spike_helmet"
+  },
+  {
+    "name": "Fire Flower",
+    "type": "toggle",
+    "img": "images/items/museum_fire_flower.svg",
+    "codes": "museum_fire_flower"
+  },
+  {
+    "name": "Shiny Fire Flower",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_fire_flower.svg",
+    "codes": "museum_shiny_fire_flower"
+  },
+  {
+    "name": "Flashy Fire Flower",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_fire_flower.svg",
+    "codes": "museum_flashy_fire_flower"
+  },
+  {
+    "name": "Ice Flower",
+    "type": "toggle",
+    "img": "images/items/museum_ice_flower.svg",
+    "codes": "museum_ice_flower"
+  },
+  {
+    "name": "Shiny Ice Flower",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_ice_flower.svg",
+    "codes": "museum_shiny_ice_flower"
+  },
+  {
+    "name": "Flashy Ice Flower",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_ice_flower.svg",
+    "codes": "museum_flashy_ice_flower"
+  },
+  {
+    "name": "POW Block",
+    "type": "toggle",
+    "img": "images/items/museum_pow_block.svg",
+    "codes": "museum_pow_block"
+  },
+  {
+    "name": "Shiny POW Block",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_pow_block.svg",
+    "codes": "museum_shiny_pow_block"
+  },
+  {
+    "name": "Flashy POW Block",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_pow_block.svg",
+    "codes": "museum_flashy_pow_block"
+  },
+  {
+    "name": "Shell",
+    "type": "toggle",
+    "img": "images/items/museum_shell.svg",
+    "codes": "museum_shell"
+  },
+  {
+    "name": "Shiny Shell",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_shell.svg",
+    "codes": "museum_shiny_shell"
+  },
+  {
+    "name": "Flashy Shell",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_shell.svg",
+    "codes": "museum_flashy_shell"
+  },
+  {
+    "name": "Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_mushroom.svg",
+    "codes": "museum_mushroom"
+  },
+  {
+    "name": "Shiny Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_mushroom.svg",
+    "codes": "museum_shiny_mushroom"
+  },
+  {
+    "name": "Flashy Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_mushroom.svg",
+    "codes": "museum_flashy_mushroom"
+  },
+  {
+    "name": "Big 1UP",
+    "type": "toggle",
+    "img": "images/items/museum_big_1up.svg",
+    "codes": "museum_big_1up"
+  },
+  {
+    "name": "Big Shiny 1UP",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_1up.svg",
+    "codes": "museum_big_shiny_1up"
+  },
+  {
+    "name": "Poison Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_poison_mushroom.svg",
+    "codes": "museum_poison_mushroom"
+  },
+  {
+    "name": "Leaf",
+    "type": "toggle",
+    "img": "images/items/museum_leaf.svg",
+    "codes": "museum_leaf"
+  },
+  {
+    "name": "Shiny Leaf",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_leaf.svg",
+    "codes": "museum_shiny_leaf"
+  },
+  {
+    "name": "Secret Door",
+    "type": "toggle",
+    "img": "images/items/museum_secret_door.svg",
+    "codes": "museum_secret_door"
+  },
+  {
+    "name": "Snowball",
+    "type": "toggle",
+    "img": "images/items/museum_snowball.svg",
+    "codes": "museum_snowball"
+  },
+  {
+    "name": "Spike Ball",
+    "type": "toggle",
+    "img": "images/items/museum_spike_ball.svg",
+    "codes": "museum_spike_ball"
+  },
+  {
+    "name": "Barrel",
+    "type": "toggle",
+    "img": "images/items/museum_barrel.svg",
+    "codes": "museum_barrel"
+  },
+  {
+    "name": "Wrench",
+    "type": "toggle",
+    "img": "images/items/museum_wrench.svg",
+    "codes": "museum_wrench"
+  },
+  {
+    "name": "Bone",
+    "type": "toggle",
+    "img": "images/items/museum_bone.svg",
+    "codes": "museum_bone"
+  },
+  {
+    "name": "Boomerang",
+    "type": "toggle",
+    "img": "images/items/museum_boomerang.svg",
+    "codes": "museum_boomerang"
+  },
+  {
+    "name": "Bomb",
+    "type": "toggle",
+    "img": "images/items/museum_bomb.svg",
+    "codes": "museum_bomb"
+  },
+  {
+    "name": "Sombrero",
+    "type": "toggle",
+    "img": "images/items/museum_sombrero.svg",
+    "codes": "museum_sombrero"
+  },
+  {
+    "name": "Throwing Star",
+    "type": "toggle",
+    "img": "images/items/museum_throwing_star.svg",
+    "codes": "museum_throwing_star"
+  },
+  {
+    "name": "Sandal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_sandal_sticker.svg",
+    "codes": "museum_sandal_sticker"
+  },
+  {
+    "name": "Kersti Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_kersti_sticker.svg",
+    "codes": "museum_kersti_sticker"
+  },
+  {
+    "name": "Sewing Scissors",
+    "type": "toggle",
+    "img": "images/items/museum_sewing_scissors.svg",
+    "codes": "museum_sewing_scissors"
+  },
+  {
+    "name": "Hair Shears",
+    "type": "toggle",
+    "img": "images/items/museum_hair_shears.svg",
+    "codes": "museum_hair_shears"
+  },
+  {
+    "name": "Scissors",
+    "type": "toggle",
+    "img": "images/items/museum_scissors.svg",
+    "codes": "museum_scissors"
+  },
+  {
+    "name": "Tailor Shears",
+    "type": "toggle",
+    "img": "images/items/museum_tailor_shears.svg",
+    "codes": "museum_tailor_shears"
+  },
+  {
+    "name": "Bellows",
+    "type": "toggle",
+    "img": "images/items/museum_bellows.svg",
+    "codes": "museum_bellows"
+  },
+  {
+    "name": "Paper Fan",
+    "type": "toggle",
+    "img": "images/items/museum_paper_fan.svg",
+    "codes": "museum_paper_fan"
+  },
+  {
+    "name": "Fan",
+    "type": "toggle",
+    "img": "images/items/museum_fan.svg",
+    "codes": "museum_fan"
+  },
+  {
+    "name": "Mini Vacuum",
+    "type": "toggle",
+    "img": "images/items/museum_mini_vacuum.svg",
+    "codes": "museum_mini_vacuum"
+  },
+  {
+    "name": "Upright Vacuum",
+    "type": "toggle",
+    "img": "images/items/museum_upright_vacuum.svg",
+    "codes": "museum_upright_vacuum"
+  },
+  {
+    "name": "Vacuum",
+    "type": "toggle",
+    "img": "images/items/museum_vacuum.svg",
+    "codes": "museum_vacuum"
+  },
+  {
+    "name": "Watering Can",
+    "type": "toggle",
+    "img": "images/items/museum_watering_can.svg",
+    "codes": "museum_watering_can"
+  },
+  {
+    "name": "Faucet",
+    "type": "toggle",
+    "img": "images/items/museum_faucet.svg",
+    "codes": "museum_faucet"
+  },
+  {
+    "name": "Teapot",
+    "type": "toggle",
+    "img": "images/items/museum_teapot.svg",
+    "codes": "museum_teapot"
+  },
+  {
+    "name": "Trumpet",
+    "type": "toggle",
+    "img": "images/items/museum_trumpet.svg",
+    "codes": "museum_trumpet"
+  },
+  {
+    "name": "Violin",
+    "type": "toggle",
+    "img": "images/items/museum_violin.svg",
+    "codes": "museum_violin"
+  },
+  {
+    "name": "Guitar",
+    "type": "toggle",
+    "img": "images/items/museum_guitar.svg",
+    "codes": "museum_guitar"
+  },
+  {
+    "name": "Newspaper",
+    "type": "toggle",
+    "img": "images/items/museum_newspaper.svg",
+    "codes": "museum_newspaper"
+  },
+  {
+    "name": "Toy Bat",
+    "type": "toggle",
+    "img": "images/items/museum_toy_bat.svg",
+    "codes": "museum_toy_bat"
+  },
+  {
+    "name": "Bat",
+    "type": "toggle",
+    "img": "images/items/museum_bat.svg",
+    "codes": "museum_bat"
+  },
+  {
+    "name": "Square Can",
+    "type": "toggle",
+    "img": "images/items/museum_square_can.svg",
+    "codes": "museum_square_can"
+  },
+  {
+    "name": "Basin",
+    "type": "toggle",
+    "img": "images/items/museum_basin.svg",
+    "codes": "museum_basin"
+  },
+  {
+    "name": "Drum",
+    "type": "toggle",
+    "img": "images/items/museum_drum.svg",
+    "codes": "museum_drum"
+  },
+  {
+    "name": "Lightbulb",
+    "type": "toggle",
+    "img": "images/items/museum_lightbulb.svg",
+    "codes": "museum_lightbulb"
+  },
+  {
+    "name": "Flashlight",
+    "type": "toggle",
+    "img": "images/items/museum_flashlight.svg",
+    "codes": "museum_flashlight"
+  },
+  {
+    "name": "Searchlight",
+    "type": "toggle",
+    "img": "images/items/museum_searchlight.svg",
+    "codes": "museum_searchlight"
+  },
+  {
+    "name": "Watch Battery",
+    "type": "toggle",
+    "img": "images/items/museum_watch_battery.svg",
+    "codes": "museum_watch_battery"
+  },
+  {
+    "name": "D-Cell Battery",
+    "type": "toggle",
+    "img": "images/items/museum_d_cell_battery.svg",
+    "codes": "museum_d_cell_battery"
+  },
+  {
+    "name": "Car Battery",
+    "type": "toggle",
+    "img": "images/items/museum_car_battery.svg",
+    "codes": "museum_car_battery"
+  },
+  {
+    "name": "Billiard Ball",
+    "type": "toggle",
+    "img": "images/items/museum_billiard_ball.svg",
+    "codes": "museum_billiard_ball"
+  },
+  {
+    "name": "Curling Stone",
+    "type": "toggle",
+    "img": "images/items/museum_curling_stone.svg",
+    "codes": "museum_curling_stone"
+  },
+  {
+    "name": "Bowling Ball",
+    "type": "toggle",
+    "img": "images/items/museum_bowling_ball.svg",
+    "codes": "museum_bowling_ball"
+  },
+  {
+    "name": "Trophy",
+    "type": "toggle",
+    "img": "images/items/museum_trophy.svg",
+    "codes": "museum_trophy"
+  },
+  {
+    "name": "Cell Phone",
+    "type": "toggle",
+    "img": "images/items/museum_cell_phone.svg",
+    "codes": "museum_cell_phone"
+  },
+  {
+    "name": "Jackhammer",
+    "type": "toggle",
+    "img": "images/items/museum_jackhammer.svg",
+    "codes": "museum_jackhammer"
+  },
+  {
+    "name": "Radiator",
+    "type": "toggle",
+    "img": "images/items/museum_radiator.svg",
+    "codes": "museum_radiator"
+  },
+  {
+    "name": "Hair Dryer",
+    "type": "toggle",
+    "img": "images/items/museum_hair_dryer.svg",
+    "codes": "museum_hair_dryer"
+  },
+  {
+    "name": "Oven",
+    "type": "toggle",
+    "img": "images/items/museum_oven.svg",
+    "codes": "museum_oven"
+  },
+  {
+    "name": "Magnifying Glass",
+    "type": "toggle",
+    "img": "images/items/museum_magnifying_glass.svg",
+    "codes": "museum_magnifying_glass"
+  },
+  {
+    "name": "Matches",
+    "type": "toggle",
+    "img": "images/items/museum_matches.svg",
+    "codes": "museum_matches"
+  },
+  {
+    "name": "Lighter",
+    "type": "toggle",
+    "img": "images/items/museum_lighter.svg",
+    "codes": "museum_lighter"
+  },
+  {
+    "name": "Shaved Ice",
+    "type": "toggle",
+    "img": "images/items/museum_shaved_ice.svg",
+    "codes": "museum_shaved_ice"
+  },
+  {
+    "name": "Air Conditioner",
+    "type": "toggle",
+    "img": "images/items/museum_air_conditioner.svg",
+    "codes": "museum_air_conditioner"
+  },
+  {
+    "name": "Refrigerator",
+    "type": "toggle",
+    "img": "images/items/museum_refrigerator.svg",
+    "codes": "museum_refrigerator"
+  },
+  {
+    "name": "Soda",
+    "type": "toggle",
+    "img": "images/items/museum_soda.svg",
+    "codes": "museum_soda"
+  },
+  {
+    "name": "Squirt Gun",
+    "type": "toggle",
+    "img": "images/items/museum_squirt_gun.svg",
+    "codes": "museum_squirt_gun"
+  },
+  {
+    "name": "Rubber Ducky",
+    "type": "toggle",
+    "img": "images/items/museum_rubber_ducky.svg",
+    "codes": "museum_rubber_ducky"
+  },
+  {
+    "name": "Powder Puff",
+    "type": "toggle",
+    "img": "images/items/museum_powder_puff.svg",
+    "codes": "museum_powder_puff"
+  },
+  {
+    "name": "Sponge",
+    "type": "toggle",
+    "img": "images/items/museum_sponge.svg",
+    "codes": "museum_sponge"
+  },
+  {
+    "name": "Car Sponge",
+    "type": "toggle",
+    "img": "images/items/museum_car_sponge.svg",
+    "codes": "museum_car_sponge"
+  },
+  {
+    "name": "Pillow",
+    "type": "toggle",
+    "img": "images/items/museum_pillow.svg",
+    "codes": "museum_pillow"
+  },
+  {
+    "name": "Bed",
+    "type": "toggle",
+    "img": "images/items/museum_bed.svg",
+    "codes": "museum_bed"
+  },
+  {
+    "name": "Luxurious Bed",
+    "type": "toggle",
+    "img": "images/items/museum_luxurious_bed.svg",
+    "codes": "museum_luxurious_bed"
+  },
+  {
+    "name": "Tape",
+    "type": "toggle",
+    "img": "images/items/museum_tape.svg",
+    "codes": "museum_tape"
+  },
+  {
+    "name": "Thumbtack",
+    "type": "toggle",
+    "img": "images/items/museum_thumbtack.svg",
+    "codes": "museum_thumbtack"
+  },
+  {
+    "name": "Stapler",
+    "type": "toggle",
+    "img": "images/items/museum_stapler.svg",
+    "codes": "museum_stapler"
+  },
+  {
+    "name": "Fishhook",
+    "type": "toggle",
+    "img": "images/items/museum_fishhook.svg",
+    "codes": "museum_fishhook"
+  },
+  {
+    "name": "Balloon",
+    "type": "toggle",
+    "img": "images/items/museum_balloon.svg",
+    "codes": "museum_balloon"
+  },
+  {
+    "name": "Pocket Watch",
+    "type": "toggle",
+    "img": "images/items/museum_pocket_watch.svg",
+    "codes": "museum_pocket_watch"
+  },
+  {
+    "name": "Cat-o-Luck",
+    "type": "toggle",
+    "img": "images/items/museum_cat_o_luck.svg",
+    "codes": "museum_cat_o_luck"
+  },
+  {
+    "name": "High Heel",
+    "type": "toggle",
+    "img": "images/items/museum_high_heel.svg",
+    "codes": "museum_high_heel"
+  },
+  {
+    "name": "Goat",
+    "type": "toggle",
+    "img": "images/items/museum_goat.svg",
+    "codes": "museum_goat"
+  },
+  {
+    "name": "Turkey",
+    "type": "toggle",
+    "img": "images/items/museum_turkey.svg",
+    "codes": "museum_turkey"
+  },
+  {
+    "name": "Cake",
+    "type": "toggle",
+    "img": "images/items/museum_cake.svg",
+    "codes": "museum_cake"
+  },
+  {
+    "name": "Boom Box",
+    "type": "toggle",
+    "img": "images/items/museum_boom_box.svg",
+    "codes": "museum_boom_box"
+  },
+  {
+    "name": "Red Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_red_royal_sticker.svg",
+    "codes": "museum_red_royal_sticker"
+  },
+  {
+    "name": "Orange Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_orange_royal_sticker.svg",
+    "codes": "museum_orange_royal_sticker"
+  },
+  {
+    "name": "Purple Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_purple_royal_sticker.svg",
+    "codes": "museum_purple_royal_sticker"
+  },
+  {
+    "name": "Blue Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_blue_royal_sticker.svg",
+    "codes": "museum_blue_royal_sticker"
+  },
+  {
+    "name": "Green Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_green_royal_sticker.svg",
+    "codes": "museum_green_royal_sticker"
+  },
+  {
+    "name": "Gold Royal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_gold_royal_sticker.svg",
+    "codes": "museum_gold_royal_sticker"
+  }
+]

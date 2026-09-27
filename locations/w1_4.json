@@ -1,0 +1,47 @@
+[
+  {
+    "name": "1-4: Hither Thither Hill",
+    "children": [
+      {
+        "name": "Green Warp Pipe Scrap",
+        "map_locations": [
+          {
+            "map": "w1_4",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Green Warp Pipe Scrap \u2014 Collect the paperized pipe piece.",
+            "access_rules": [
+              "clear_w1_3"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w1_4",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Set the Green Warp Pipe to reach the goal.",
+            "access_rules": [
+              "$W1_PIPE"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

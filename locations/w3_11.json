@@ -1,0 +1,47 @@
+[
+  {
+    "name": "3-11: Outlook Point",
+    "children": [
+      {
+        "name": "Thing: Fishhook",
+        "map_locations": [
+          {
+            "map": "w3_11",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Fishhook \u2014 Use the repaired bridge to reach the coast and pick up Fishhook.",
+            "access_rules": [
+              "$W3_BRIDGE"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w3_11",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Sail onward once the bridge is restored.",
+            "access_rules": [
+              "$W3_BRIDGE"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

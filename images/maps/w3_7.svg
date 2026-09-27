@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">
+  <rect width="900" height="320" rx="24" fill="#5d4037"/>
+  <rect x="18" y="18" width="864" height="284" rx="20" fill="#00000018" stroke="#ffffff55" stroke-width="3"/>
+  <text x="40" y="56" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#fff">3-7: Rustle Burrow</text>
+  <text x="40" y="86" font-family="Arial, sans-serif" font-size="16" fill="#fff">Original tracker SVG with major progression checks.</text>
+  <line x1="130" y1="180" x2="450" y2="155" stroke="#ffffff88" stroke-width="10" stroke-linecap="round"/><line x1="450" y1="155" x2="760" y2="190" stroke="#ffffff88" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="130" cy="180" r="24" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-width="4"/><circle cx="450" cy="155" r="24" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-width="4"/><circle cx="760" cy="190" r="24" fill="#fff" fill-opacity="0.18" stroke="#fff" stroke-width="4"/>
+  <text x="130" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff">Start</text><text x="450" y="201" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff">Route</text><text x="760" y="236" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff">Goal</text>
+</svg>

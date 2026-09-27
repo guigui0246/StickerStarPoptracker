@@ -1,0 +1,47 @@
+[
+  {
+    "name": "3-9: Gauntlet Pond",
+    "children": [
+      {
+        "name": "Bridge Part 2 Scrap",
+        "map_locations": [
+          {
+            "map": "w3_9",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Bridge Part 2 Scrap \u2014 Second bridge repair part.",
+            "access_rules": [
+              "clear_w3_8"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w3_9",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Clear the gauntlet of hazards.",
+            "access_rules": [
+              "clear_w3_8"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

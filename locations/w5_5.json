@@ -1,0 +1,47 @@
+[
+  {
+    "name": "5-5: Rugged Road",
+    "children": [
+      {
+        "name": "Mountain Repair Set",
+        "map_locations": [
+          {
+            "map": "w5_5",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mountain Repair Set \u2014 Mountain hole, boulder, cracked boulder, and huge slab scraps reshape the climb.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w5_5",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Reach the volcano ascent.",
+            "access_rules": [
+              "clear_w5_4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

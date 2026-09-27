@@ -1,0 +1,47 @@
+[
+  {
+    "name": "3-7: Rustle Burrow",
+    "children": [
+      {
+        "name": "Mine Cart Rail Set",
+        "map_locations": [
+          {
+            "map": "w3_7",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mine Cart Rail Set \u2014 Rail, diagonal rail, and exit scraps for the burrow.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w3_7",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Complete the mine cart section.",
+            "access_rules": [
+              "clear_w3_6"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

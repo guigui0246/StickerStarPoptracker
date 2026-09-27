@@ -1,0 +1,47 @@
+[
+  {
+    "name": "6-3: Bowser's Sky Castle",
+    "children": [
+      {
+        "name": "Final Battle Thing Set",
+        "map_locations": [
+          {
+            "map": "w6_3",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Final Battle Thing Set \u2014 Track any finale tools you want on hand (Battery / Sponge / Fan / Scissors are common).",
+            "access_rules": [
+              "clear_w6_2"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Gold Royal Sticker",
+        "map_locations": [
+          {
+            "map": "w6_3",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Gold Royal Sticker \u2014 Bring Paperization and your finale thing set for Bowser.",
+            "access_rules": [
+              "clear_w6_2, $W6_FINAL"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

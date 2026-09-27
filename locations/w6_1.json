@@ -1,0 +1,47 @@
+[
+  {
+    "name": "6-1: Gate Cliff",
+    "children": [
+      {
+        "name": "Hidden Bowser Castle Scrap",
+        "map_locations": [
+          {
+            "map": "w6_1",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Hidden Bowser Castle Scrap \u2014 World 6 opens after all five Royal Stickers.",
+            "access_rules": [
+              "$ALL_ROYALS"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w6_1",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Open the hidden castle route.",
+            "access_rules": [
+              "$ALL_ROYALS"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

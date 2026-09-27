@@ -1,0 +1,47 @@
+[
+  {
+    "name": "5-4: Chomp Ruins",
+    "children": [
+      {
+        "name": "Ruin Repair Set",
+        "map_locations": [
+          {
+            "map": "w5_4",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Ruin Repair Set \u2014 Ruin Slope, Bomp, and Ruin Floor scraps rebuild the chomp ruins.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w5_4",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Finish the ancient ruins path.",
+            "access_rules": [
+              "clear_w5_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]
