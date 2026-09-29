@@ -19,6 +19,8 @@ A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 
 ## Notes
 
-- This repository currently ships **redistributable fallback SVG art** instead of bundling Nintendo-owned images. If licensed or first-party assets are provided later, they can replace these tracker assets privately without changing the tracker data files.
+- Item icons use original **Paper Mario: Sticker Star** artwork and game sprites where matching images are available, sourced from the [Super Mario Wiki gallery](https://www.mariowiki.com/Gallery:Paper_Mario:_Sticker_Star). Nintendo / Intelligent Systems retain ownership of this artwork; it is not covered by any repository code license. Per-image source links are recorded in `images/official-assets.json`.
+- Custom SVG fallbacks remain for unmatched items and the maps. The map artwork is tailored to the tracker’s location coordinates, so screenshots cannot be substituted without remapping the markers.
+- To refresh available official icons, run `tools/import-official-assets.ps1` with PowerShell. It checks downloaded PNG signatures and only changes references for successfully downloaded images.
 - The tracker now splits several multi-route stages into separate map sections so route checks are easier to read.
 - The tracker focuses on major progression: stage clears, mini stars / Royal Stickers, special paperization objects, and required boss tools.

@@ -1,0 +1,1232 @@
+﻿[
+    {
+        "asset":  "images/items/hammer.png",
+        "name":  "Hammer",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Hammer_render.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/54/PMSS_Hammer_render.png"
+    },
+    {
+        "asset":  "images/items/paperization.png",
+        "name":  "Paperization",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Kersti_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/50/PMSS_Kersti_sticker.png"
+    },
+    {
+        "asset":  "images/items/scrap_wooden_bridge.png",
+        "name":  "Wooden Bridge Scrap",
+        "source_page":  "https://www.mariowiki.com/File:WoodenbridgePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/6e/WoodenbridgePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_comet_piece.png",
+        "name":  "Comet Piece Scrap",
+        "source_page":  "https://www.mariowiki.com/File:CometpiecePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/85/CometpiecePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_green_warp_pipe.png",
+        "name":  "Green Warp Pipe Scrap",
+        "source_page":  "https://www.mariowiki.com/File:GreenwarppipePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1f/GreenwarppipePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_white_gate.png",
+        "name":  "White Gate Scrap",
+        "source_page":  "https://www.mariowiki.com/File:WhitegatePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/3f/WhitegatePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_block_switch.png",
+        "name":  "Block Switch Scrap",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Block_Switch_render.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/e0/PMSS_Block_Switch_render.png"
+    },
+    {
+        "asset":  "images/items/scrap_tablet_piece_3.png",
+        "name":  "Tablet Piece 3 Scrap",
+        "source_page":  "https://www.mariowiki.com/File:TabletpiecePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/61/TabletpiecePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_stone_entry.png",
+        "name":  "Stone Entry Scrap",
+        "source_page":  "https://www.mariowiki.com/File:StoneentryPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/09/StoneentryPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_burrow_door.png",
+        "name":  "Burrow Door Scrap",
+        "source_page":  "https://www.mariowiki.com/File:BurrowdoorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a2/BurrowdoorPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mine_cart_rail.png",
+        "name":  "Mine Cart Rail Scrap",
+        "source_page":  "https://www.mariowiki.com/File:MinecartrailPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c6/MinecartrailPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_diagonal_rail.png",
+        "name":  "Diagonal Rail Scrap",
+        "source_page":  "https://www.mariowiki.com/File:DiagonalrailPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/6d/DiagonalrailPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mine_cart_exit.png",
+        "name":  "Mine Cart Exit Scrap",
+        "source_page":  "https://www.mariowiki.com/File:MinecartexitPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/4d/MinecartexitPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_bridge_part_3.png",
+        "name":  "Bridge Part 3 Scrap",
+        "source_page":  "https://www.mariowiki.com/File:BridgepartPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/9d/BridgepartPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mansion_bookcase.png",
+        "name":  "Mansion Bookcase Scrap",
+        "source_page":  "https://www.mariowiki.com/File:Bigbookcase2PMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/10/Bigbookcase2PMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mansion_wall.png",
+        "name":  "Mansion Wall Scrap",
+        "source_page":  "https://www.mariowiki.com/File:MansionwallPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f3/MansionwallPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mansion_safe.png",
+        "name":  "Mansion Safe Scrap",
+        "source_page":  "https://www.mariowiki.com/File:MansionsafePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/8a/MansionsafePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_big_bookcase.png",
+        "name":  "Big Bookcase Scrap",
+        "source_page":  "https://www.mariowiki.com/File:BigbookcasePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d5/BigbookcasePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_forebears_portrait.png",
+        "name":  "Forebears Portrait Scrap",
+        "source_page":  "https://www.mariowiki.com/File:ForebearportraitPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/61/ForebearportraitPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_jungle_floodgate.png",
+        "name":  "Jungle Floodgate Scrap",
+        "source_page":  "https://www.mariowiki.com/File:JunglefloodgatePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f7/JunglefloodgatePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_ruin_slope.png",
+        "name":  "Ruin Slope Scrap",
+        "source_page":  "https://www.mariowiki.com/File:RuinslopePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/0b/RuinslopePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_bomp.png",
+        "name":  "Bomp Scrap",
+        "source_page":  "https://www.mariowiki.com/File:BompPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/74/BompPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_ruin_floor.png",
+        "name":  "Ruin Floor Scrap",
+        "source_page":  "https://www.mariowiki.com/File:RuinfloorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/97/RuinfloorPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mountain_hole.png",
+        "name":  "Mountain Hole Scrap",
+        "source_page":  "https://www.mariowiki.com/File:MountainholePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/2f/MountainholePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_mountain_boulder.png",
+        "name":  "Mountain Boulder Scrap",
+        "source_page":  "https://www.mariowiki.com/File:MountainboulderPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/df/MountainboulderPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_cracked_boulder.png",
+        "name":  "Cracked Boulder Scrap",
+        "source_page":  "https://www.mariowiki.com/File:CrackedboulderPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/93/CrackedboulderPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_huge_mountain_slab.png",
+        "name":  "Huge Mountain Slab Scrap",
+        "source_page":  "https://www.mariowiki.com/File:HugemountainslabPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d4/HugemountainslabPMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_hidden_bowser_castle.png",
+        "name":  "Hidden Bowser Castle Scrap",
+        "source_page":  "https://www.mariowiki.com/File:HiddenBowsergatePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/60/HiddenBowsergatePMSS.png"
+    },
+    {
+        "asset":  "images/items/scrap_banzai_bill_cannon.png",
+        "name":  "Banzai Bill Cannon Scrap",
+        "source_page":  "https://www.mariowiki.com/File:BanzaibillcannonPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/4d/BanzaibillcannonPMSS.png"
+    },
+    {
+        "asset":  "images/items/sticker_secret_door.png",
+        "name":  "Secret Door",
+        "source_page":  "https://www.mariowiki.com/File:SecretDoorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/65/SecretDoorPMSS.png"
+    },
+    {
+        "asset":  "images/items/sticker_fire_flower.png",
+        "name":  "Fire Flower",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Fire_Flower_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/52/PMSS_Fire_Flower_sticker.png"
+    },
+    {
+        "asset":  "images/items/sticker_ice_flower.png",
+        "name":  "Ice Flower",
+        "source_page":  "https://www.mariowiki.com/File:IceFlowerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/df/IceFlowerPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_scissors.png",
+        "name":  "Scissors",
+        "source_page":  "https://www.mariowiki.com/File:ScissorsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a0/ScissorsPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_bat.png",
+        "name":  "Bat",
+        "source_page":  "https://www.mariowiki.com/File:BatPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/8e/BatPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_trumpet.png",
+        "name":  "Trumpet",
+        "source_page":  "https://www.mariowiki.com/File:TrumpetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a7/TrumpetPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_faucet.png",
+        "name":  "Faucet",
+        "source_page":  "https://www.mariowiki.com/File:FaucetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b9/FaucetPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_lightbulb.png",
+        "name":  "Lightbulb",
+        "source_page":  "https://www.mariowiki.com/File:LightbulbPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/96/LightbulbPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_fishhook.png",
+        "name":  "Fishhook",
+        "source_page":  "https://www.mariowiki.com/File:FishhookPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/71/FishhookPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_fan.png",
+        "name":  "Fan",
+        "source_page":  "https://www.mariowiki.com/File:FanPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1f/FanPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_vacuum.png",
+        "name":  "Vacuum",
+        "source_page":  "https://www.mariowiki.com/File:VacuumPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a4/VacuumPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_refrigerator.png",
+        "name":  "Refrigerator",
+        "source_page":  "https://www.mariowiki.com/File:RefrigeratorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/56/RefrigeratorPMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_sponge.png",
+        "name":  "Sponge",
+        "source_page":  "https://www.mariowiki.com/File:SpongePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/49/SpongePMSS.png"
+    },
+    {
+        "asset":  "images/items/req_thing_goat.png",
+        "name":  "Goat",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Goat_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c1/PMSS_Goat_sticker.png"
+    },
+    {
+        "asset":  "images/items/req_thing_battery.png",
+        "name":  "Battery",
+        "source_page":  "https://www.mariowiki.com/File:DcellbatteryPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/21/DcellbatteryPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_worn_out_jump.png",
+        "name":  "Worn-Out Jump",
+        "source_page":  "https://www.mariowiki.com/File:Wornoutjumpsticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c4/Wornoutjumpsticker.png"
+    },
+    {
+        "asset":  "images/items/museum_jump.png",
+        "name":  "Jump",
+        "source_page":  "https://www.mariowiki.com/File:JumpSticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/5a/JumpSticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_jump.png",
+        "name":  "Shiny Jump",
+        "source_page":  "https://www.mariowiki.com/File:Shinyjumpsticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c2/Shinyjumpsticker.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_jump.png",
+        "name":  "Flashy Jump",
+        "source_page":  "https://www.mariowiki.com/File:Flashyjumpsticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/29/Flashyjumpsticker.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_jump.png",
+        "name":  "Big Shiny Jump",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyjump.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/0c/Bigshinyjump.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_jump.png",
+        "name":  "Megaflash Jump",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashjump.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/9f/Megaflashjump.png"
+    },
+    {
+        "asset":  "images/items/museum_iron_jump.png",
+        "name":  "Iron Jump",
+        "source_page":  "https://www.mariowiki.com/File:Ironjumpsticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1b/Ironjumpsticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_iron_jump.png",
+        "name":  "Shiny Iron Jump",
+        "source_page":  "https://www.mariowiki.com/File:ShinyIronJumpPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d6/ShinyIronJumpPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_iron_jump.png",
+        "name":  "Flashy Iron Jump",
+        "source_page":  "https://www.mariowiki.com/File:Flashyironjump.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/5a/Flashyironjump.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_iron_jump.png",
+        "name":  "Big Shiny Iron Jump",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyironjump.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d7/Bigshinyironjump.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_iron_jump.png",
+        "name":  "Megaflash Iron Jump",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashironjump.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/19/Megaflashironjump.png"
+    },
+    {
+        "asset":  "images/items/museum_hopslipper.png",
+        "name":  "Hopslipper",
+        "source_page":  "https://www.mariowiki.com/File:Hopslippersticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c4/Hopslippersticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_hopslipper.png",
+        "name":  "Shiny Hopslipper",
+        "source_page":  "https://www.mariowiki.com/File:ShinyHopslipperPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/46/ShinyHopslipperPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_hopslipper.png",
+        "name":  "Flashy Hopslipper",
+        "source_page":  "https://www.mariowiki.com/File:FlashyhopslipperPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/76/FlashyhopslipperPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_hopslipper.png",
+        "name":  "Big Shiny Hopslipper",
+        "source_page":  "https://www.mariowiki.com/File:BigshinyhopslipperPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/bf/BigshinyhopslipperPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_hopslipper.png",
+        "name":  "Megaflash Hopslipper",
+        "source_page":  "https://www.mariowiki.com/File:MegaflashhopslipperPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/ee/MegaflashhopslipperPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_line_jump.png",
+        "name":  "Line Jump",
+        "source_page":  "https://www.mariowiki.com/File:LineJumpPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/e7/LineJumpPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_line_jump.png",
+        "name":  "Shiny Line Jump",
+        "source_page":  "https://www.mariowiki.com/File:ShinyLineJumpPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/3d/ShinyLineJumpPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_line_jump.png",
+        "name":  "Flashy Line Jump",
+        "source_page":  "https://www.mariowiki.com/File:Flashylinejump.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/81/Flashylinejump.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_line_jump.png",
+        "name":  "Big Shiny Line Jump",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinylinejump.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/fa/Bigshinylinejump.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_line_jump.png",
+        "name":  "Megaflash Line Jump",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashlinejump.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/3a/Megaflashlinejump.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_clone_jump.png",
+        "name":  "Flashy Clone Jump",
+        "source_page":  "https://www.mariowiki.com/File:Flashyclonejump.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/fb/Flashyclonejump.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_clone_jump.png",
+        "name":  "Big Shiny Clone Jump",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyclonejump.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/38/Bigshinyclonejump.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_clone_jump.png",
+        "name":  "Megaflash Clone Jump",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashclonejump.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/18/Megaflashclonejump.png"
+    },
+    {
+        "asset":  "images/items/museum_super_boot.png",
+        "name":  "Super Boot",
+        "source_page":  "https://www.mariowiki.com/File:SuperbootPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/97/SuperbootPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_super_boot.png",
+        "name":  "Shiny Super Boot",
+        "source_page":  "https://www.mariowiki.com/File:ShinySuperBoots.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/90/ShinySuperBoots.png"
+    },
+    {
+        "asset":  "images/items/museum_worn_out_hammer.png",
+        "name":  "Worn-Out Hammer",
+        "source_page":  "https://www.mariowiki.com/File:WornOutHammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/3c/WornOutHammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_hammer.png",
+        "name":  "Hammer",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Hammer_render.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/54/PMSS_Hammer_render.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_hammer.png",
+        "name":  "Shiny Hammer",
+        "source_page":  "https://www.mariowiki.com/File:Shinyhammersticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/01/Shinyhammersticker.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_hammer.png",
+        "name":  "Flashy Hammer",
+        "source_page":  "https://www.mariowiki.com/File:Flashyhammersticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c1/Flashyhammersticker.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_hammer.png",
+        "name":  "Big Shiny Hammer",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/6b/Bigshinyhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_hammer.png",
+        "name":  "Megaflash Hammer",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/95/Megaflashhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_infinijump.png",
+        "name":  "Flashy Infinijump",
+        "source_page":  "https://www.mariowiki.com/File:Flashyinfinijump.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/9e/Flashyinfinijump.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_infinijump.png",
+        "name":  "Big Shiny Infinijump",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyinfinijump.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/38/Bigshinyinfinijump.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_infinijump.png",
+        "name":  "Megaflash Infinijump",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashinfinijump.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1a/Megaflashinfinijump.png"
+    },
+    {
+        "asset":  "images/items/museum_slaphammer.png",
+        "name":  "Slaphammer",
+        "source_page":  "https://www.mariowiki.com/File:Slaphammersticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c6/Slaphammersticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_slaphammer.png",
+        "name":  "Shiny Slaphammer",
+        "source_page":  "https://www.mariowiki.com/File:Shinyslaphammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/fd/Shinyslaphammer.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_slaphammer.png",
+        "name":  "Flashy Slaphammer",
+        "source_page":  "https://www.mariowiki.com/File:Flashyslaphammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/88/Flashyslaphammer.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_slaphammer.png",
+        "name":  "Big Shiny Slaphammer",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyslaphammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/e5/Bigshinyslaphammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_slaphammer.png",
+        "name":  "Megaflash Slaphammer",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashslaphammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/2c/Megaflashslaphammer.png"
+    },
+    {
+        "asset":  "images/items/museum_eekhammer.png",
+        "name":  "Eekhammer",
+        "source_page":  "https://www.mariowiki.com/File:EekhammerstickerSprite.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/cc/EekhammerstickerSprite.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_eekhammer.png",
+        "name":  "Shiny Eekhammer",
+        "source_page":  "https://www.mariowiki.com/File:ShinyEekhammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a9/ShinyEekhammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_eekhammer.png",
+        "name":  "Flashy Eekhammer",
+        "source_page":  "https://www.mariowiki.com/File:Flashyeekhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/01/Flashyeekhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_eekhammer.png",
+        "name":  "Big Shiny Eekhammer",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyeekhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c7/Bigshinyeekhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_eekhammer.png",
+        "name":  "Megaflash Eekhammer",
+        "source_page":  "https://www.mariowiki.com/File:Megaflasheekhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/9f/Megaflasheekhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_hurlhammer.png",
+        "name":  "Hurlhammer",
+        "source_page":  "https://www.mariowiki.com/File:Hurlhammersticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/db/Hurlhammersticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_hurlhammer.png",
+        "name":  "Shiny Hurlhammer",
+        "source_page":  "https://www.mariowiki.com/File:ShinyHurlhammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/e2/ShinyHurlhammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_hurlhammer.png",
+        "name":  "Flashy Hurlhammer",
+        "source_page":  "https://www.mariowiki.com/File:Flashyhurlhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/10/Flashyhurlhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_hurlhammer.png",
+        "name":  "Big Shiny Hurlhammer",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinyhurlhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c1/Bigshinyhurlhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_hurlhammer.png",
+        "name":  "Megaflash Hurlhammer",
+        "source_page":  "https://www.mariowiki.com/File:MegaflashhurlhammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/04/MegaflashhurlhammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_baahammer.png",
+        "name":  "Baahammer",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Baahammer_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/73/PMSS_Baahammer_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_baahammer.png",
+        "name":  "Big Shiny Baahammer",
+        "source_page":  "https://www.mariowiki.com/File:Bigshinybaahammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/50/Bigshinybaahammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_baahammer.png",
+        "name":  "Megaflash Baahammer",
+        "source_page":  "https://www.mariowiki.com/File:Megaflashbaahammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d6/Megaflashbaahammer.png"
+    },
+    {
+        "asset":  "images/items/museum_burnhammer.png",
+        "name":  "Burnhammer",
+        "source_page":  "https://www.mariowiki.com/File:BurnhammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b4/BurnhammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_burnhammer.png",
+        "name":  "Big Shiny Burnhammer",
+        "source_page":  "https://www.mariowiki.com/File:PMSSBigShinyBurnhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/9c/PMSSBigShinyBurnhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_burnhammer.png",
+        "name":  "Megaflash Burnhammer",
+        "source_page":  "https://www.mariowiki.com/File:PMSSMegaflashBurnhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/bb/PMSSMegaflashBurnhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_chillhammer.png",
+        "name":  "Chillhammer",
+        "source_page":  "https://www.mariowiki.com/File:ChillhammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/af/ChillhammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_chillhammer.png",
+        "name":  "Big Shiny Chillhammer",
+        "source_page":  "https://www.mariowiki.com/File:BigShinyChillhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d2/BigShinyChillhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_megaflash_chillhammer.png",
+        "name":  "Megaflash Chillhammer",
+        "source_page":  "https://www.mariowiki.com/File:MegaflashChillhammer.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/cd/MegaflashChillhammer.png"
+    },
+    {
+        "asset":  "images/items/museum_tail.png",
+        "name":  "Tail",
+        "source_page":  "https://www.mariowiki.com/File:TailPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/82/TailPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_tail.png",
+        "name":  "Shiny Tail",
+        "source_page":  "https://www.mariowiki.com/File:ShinytailPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a9/ShinytailPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_frog_suit.png",
+        "name":  "Frog Suit",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Frog_Suit_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/be/PMSS_Frog_Suit_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_frog_suit.png",
+        "name":  "Shiny Frog Suit",
+        "source_page":  "https://www.mariowiki.com/File:ShinyfrogsuitPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/43/ShinyfrogsuitPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_spike_helmet.png",
+        "name":  "Spike Helmet",
+        "source_page":  "https://www.mariowiki.com/File:SpikeHelmetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/24/SpikeHelmetPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_spike_helmet.png",
+        "name":  "Shiny Spike Helmet",
+        "source_page":  "https://www.mariowiki.com/File:ShinyspikehelmetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/21/ShinyspikehelmetPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_spike_helmet.png",
+        "name":  "Flashy Spike Helmet",
+        "source_page":  "https://www.mariowiki.com/File:FlashyspikehelmetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/35/FlashyspikehelmetPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_fire_flower.png",
+        "name":  "Fire Flower",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Fire_Flower_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/52/PMSS_Fire_Flower_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_fire_flower.png",
+        "name":  "Shiny Fire Flower",
+        "source_page":  "https://www.mariowiki.com/File:ShinyFireFlowerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/8d/ShinyFireFlowerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_fire_flower.png",
+        "name":  "Flashy Fire Flower",
+        "source_page":  "https://www.mariowiki.com/File:FlashyFFPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/de/FlashyFFPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_ice_flower.png",
+        "name":  "Ice Flower",
+        "source_page":  "https://www.mariowiki.com/File:IceFlowerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/df/IceFlowerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_ice_flower.png",
+        "name":  "Shiny Ice Flower",
+        "source_page":  "https://www.mariowiki.com/File:ShinyIceFlowerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/db/ShinyIceFlowerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_ice_flower.png",
+        "name":  "Flashy Ice Flower",
+        "source_page":  "https://www.mariowiki.com/File:FlashyIceFlowerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/30/FlashyIceFlowerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_pow_block.png",
+        "name":  "POW Block",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_POW_Block_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/0a/PMSS_POW_Block_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_pow_block.png",
+        "name":  "Shiny POW Block",
+        "source_page":  "https://www.mariowiki.com/File:ShinyPOWblockPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a5/ShinyPOWblockPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_pow_block.png",
+        "name":  "Flashy POW Block",
+        "source_page":  "https://www.mariowiki.com/File:FlashyPOWBlockPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f6/FlashyPOWBlockPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shell.png",
+        "name":  "Shell",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Shell_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/84/PMSS_Shell_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_shell.png",
+        "name":  "Shiny Shell",
+        "source_page":  "https://www.mariowiki.com/File:ShinyShellPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f7/ShinyShellPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_shell.png",
+        "name":  "Flashy Shell",
+        "source_page":  "https://www.mariowiki.com/File:FlashyShellPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/57/FlashyShellPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_mushroom.png",
+        "name":  "Mushroom",
+        "source_page":  "https://www.mariowiki.com/File:MushroomPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d6/MushroomPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_mushroom.png",
+        "name":  "Shiny Mushroom",
+        "source_page":  "https://www.mariowiki.com/File:ShinyMushroomPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a5/ShinyMushroomPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashy_mushroom.png",
+        "name":  "Flashy Mushroom",
+        "source_page":  "https://www.mariowiki.com/File:FlashyMushroomPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/02/FlashyMushroomPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_big_1up.png",
+        "name":  "Big 1UP",
+        "source_page":  "https://www.mariowiki.com/File:Big1UPPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/7a/Big1UPPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_big_shiny_1up.png",
+        "name":  "Big Shiny 1UP",
+        "source_page":  "https://www.mariowiki.com/File:BigShiny1UpPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1e/BigShiny1UpPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_poison_mushroom.png",
+        "name":  "Poison Mushroom",
+        "source_page":  "https://www.mariowiki.com/File:PoisonMushroomPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/96/PoisonMushroomPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_leaf.png",
+        "name":  "Leaf",
+        "source_page":  "https://www.mariowiki.com/File:LeafPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/91/LeafPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shiny_leaf.png",
+        "name":  "Shiny Leaf",
+        "source_page":  "https://www.mariowiki.com/File:Shinyleaf.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/30/Shinyleaf.png"
+    },
+    {
+        "asset":  "images/items/museum_secret_door.png",
+        "name":  "Secret Door",
+        "source_page":  "https://www.mariowiki.com/File:SecretDoorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/65/SecretDoorPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_snowball.png",
+        "name":  "Snowball",
+        "source_page":  "https://www.mariowiki.com/File:SnowballPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b0/SnowballPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_spike_ball.png",
+        "name":  "Spike Ball",
+        "source_page":  "https://www.mariowiki.com/File:SpikeballPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/06/SpikeballPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_barrel.png",
+        "name":  "Barrel",
+        "source_page":  "https://www.mariowiki.com/File:BarrelPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/83/BarrelPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_wrench.png",
+        "name":  "Wrench",
+        "source_page":  "https://www.mariowiki.com/File:WrenchPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/42/WrenchPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_bone.png",
+        "name":  "Bone",
+        "source_page":  "https://www.mariowiki.com/File:BonePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/08/BonePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_boomerang.png",
+        "name":  "Boomerang",
+        "source_page":  "https://www.mariowiki.com/File:BoomerangPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1e/BoomerangPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_bomb.png",
+        "name":  "Bomb",
+        "source_page":  "https://www.mariowiki.com/File:BombPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c6/BombPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_sombrero.png",
+        "name":  "Sombrero",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Sombrero_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/10/PMSS_Sombrero_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_throwing_star.png",
+        "name":  "Throwing Star",
+        "source_page":  "https://www.mariowiki.com/File:ThrowingstarPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/5b/ThrowingstarPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_kersti_sticker.png",
+        "name":  "Kersti Sticker",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Kersti_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/50/PMSS_Kersti_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_sewing_scissors.png",
+        "name":  "Sewing Scissors",
+        "source_page":  "https://www.mariowiki.com/File:SewingscissorsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a1/SewingscissorsPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_hair_shears.png",
+        "name":  "Hair Shears",
+        "source_page":  "https://www.mariowiki.com/File:HairshearsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/67/HairshearsPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_scissors.png",
+        "name":  "Scissors",
+        "source_page":  "https://www.mariowiki.com/File:ScissorsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a0/ScissorsPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_tailor_shears.png",
+        "name":  "Tailor Shears",
+        "source_page":  "https://www.mariowiki.com/File:TailorshearsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/68/TailorshearsPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_bellows.png",
+        "name":  "Bellows",
+        "source_page":  "https://www.mariowiki.com/File:BellowsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/49/BellowsPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_paper_fan.png",
+        "name":  "Paper Fan",
+        "source_page":  "https://www.mariowiki.com/File:PaperfanPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/22/PaperfanPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_fan.png",
+        "name":  "Fan",
+        "source_page":  "https://www.mariowiki.com/File:FanPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1f/FanPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_mini_vacuum.png",
+        "name":  "Mini Vacuum",
+        "source_page":  "https://www.mariowiki.com/File:MinivacuumPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/bc/MinivacuumPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_upright_vacuum.png",
+        "name":  "Upright Vacuum",
+        "source_page":  "https://www.mariowiki.com/File:UprightvacuumPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/1/1b/UprightvacuumPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_vacuum.png",
+        "name":  "Vacuum",
+        "source_page":  "https://www.mariowiki.com/File:VacuumPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a4/VacuumPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_watering_can.png",
+        "name":  "Watering Can",
+        "source_page":  "https://www.mariowiki.com/File:WateringcanPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a7/WateringcanPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_faucet.png",
+        "name":  "Faucet",
+        "source_page":  "https://www.mariowiki.com/File:FaucetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b9/FaucetPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_teapot.png",
+        "name":  "Teapot",
+        "source_page":  "https://www.mariowiki.com/File:TeapotPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/9f/TeapotPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_trumpet.png",
+        "name":  "Trumpet",
+        "source_page":  "https://www.mariowiki.com/File:TrumpetPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a7/TrumpetPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_violin.png",
+        "name":  "Violin",
+        "source_page":  "https://www.mariowiki.com/File:ViolinPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c3/ViolinPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_guitar.png",
+        "name":  "Guitar",
+        "source_page":  "https://www.mariowiki.com/File:GuitarPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/00/GuitarPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_newspaper.png",
+        "name":  "Newspaper",
+        "source_page":  "https://www.mariowiki.com/File:NewspaperPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b9/NewspaperPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_toy_bat.png",
+        "name":  "Toy Bat",
+        "source_page":  "https://www.mariowiki.com/File:ToybatPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/28/ToybatPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_bat.png",
+        "name":  "Bat",
+        "source_page":  "https://www.mariowiki.com/File:BatPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/8e/BatPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_square_can.png",
+        "name":  "Square Can",
+        "source_page":  "https://www.mariowiki.com/File:SquarecanPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/23/SquarecanPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_basin.png",
+        "name":  "Basin",
+        "source_page":  "https://www.mariowiki.com/File:BasinPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/0/0c/BasinPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_drum.png",
+        "name":  "Drum",
+        "source_page":  "https://www.mariowiki.com/File:DrumPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/36/DrumPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_lightbulb.png",
+        "name":  "Lightbulb",
+        "source_page":  "https://www.mariowiki.com/File:LightbulbPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/96/LightbulbPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_flashlight.png",
+        "name":  "Flashlight",
+        "source_page":  "https://www.mariowiki.com/File:FlashlightPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/34/FlashlightPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_searchlight.png",
+        "name":  "Searchlight",
+        "source_page":  "https://www.mariowiki.com/File:SearchlightPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/bf/SearchlightPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_watch_battery.png",
+        "name":  "Watch Battery",
+        "source_page":  "https://www.mariowiki.com/File:WatchbatteryPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b4/WatchbatteryPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_d_cell_battery.png",
+        "name":  "D-Cell Battery",
+        "source_page":  "https://www.mariowiki.com/File:DcellbatteryPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/21/DcellbatteryPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_car_battery.png",
+        "name":  "Car Battery",
+        "source_page":  "https://www.mariowiki.com/File:CarbatteryPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d0/CarbatteryPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_billiard_ball.png",
+        "name":  "Billiard Ball",
+        "source_page":  "https://www.mariowiki.com/File:BillardballsPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f3/BillardballsPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_curling_stone.png",
+        "name":  "Curling Stone",
+        "source_page":  "https://www.mariowiki.com/File:CurlingstonePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/a8/CurlingstonePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_bowling_ball.png",
+        "name":  "Bowling Ball",
+        "source_page":  "https://www.mariowiki.com/File:BowlingBallPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/ea/BowlingBallPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_trophy.png",
+        "name":  "Trophy",
+        "source_page":  "https://www.mariowiki.com/File:TrophyPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/e3/TrophyPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_cell_phone.png",
+        "name":  "Cell Phone",
+        "source_page":  "https://www.mariowiki.com/File:CellphonePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/56/CellphonePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_jackhammer.png",
+        "name":  "Jackhammer",
+        "source_page":  "https://www.mariowiki.com/File:JackhammerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/85/JackhammerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_radiator.png",
+        "name":  "Radiator",
+        "source_page":  "https://www.mariowiki.com/File:RadiatorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/4f/RadiatorPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_hair_dryer.png",
+        "name":  "Hair Dryer",
+        "source_page":  "https://www.mariowiki.com/File:HairdryerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/6/6d/HairdryerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_oven.png",
+        "name":  "Oven",
+        "source_page":  "https://www.mariowiki.com/File:OvenPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/5b/OvenPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_magnifying_glass.png",
+        "name":  "Magnifying Glass",
+        "source_page":  "https://www.mariowiki.com/File:MagnifyinglassPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/4c/MagnifyinglassPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_matches.png",
+        "name":  "Matches",
+        "source_page":  "https://www.mariowiki.com/File:MatchesPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d7/MatchesPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_lighter.png",
+        "name":  "Lighter",
+        "source_page":  "https://www.mariowiki.com/File:LighterPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/2/20/LighterPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_shaved_ice.png",
+        "name":  "Shaved Ice",
+        "source_page":  "https://www.mariowiki.com/File:ShavedicePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/3f/ShavedicePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_air_conditioner.png",
+        "name":  "Air Conditioner",
+        "source_page":  "https://www.mariowiki.com/File:AirconditionerPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/96/AirconditionerPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_refrigerator.png",
+        "name":  "Refrigerator",
+        "source_page":  "https://www.mariowiki.com/File:RefrigeratorPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/56/RefrigeratorPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_soda.png",
+        "name":  "Soda",
+        "source_page":  "https://www.mariowiki.com/File:SodaPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/ce/SodaPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_squirt_gun.png",
+        "name":  "Squirt Gun",
+        "source_page":  "https://www.mariowiki.com/File:SquirtgunPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/9/99/SquirtgunPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_rubber_ducky.png",
+        "name":  "Rubber Ducky",
+        "source_page":  "https://www.mariowiki.com/File:RubberduckyPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b9/RubberduckyPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_powder_puff.png",
+        "name":  "Powder Puff",
+        "source_page":  "https://www.mariowiki.com/File:PowderpuffPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/3/32/PowderpuffPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_sponge.png",
+        "name":  "Sponge",
+        "source_page":  "https://www.mariowiki.com/File:SpongePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/49/SpongePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_car_sponge.png",
+        "name":  "Car Sponge",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Car_Sponge_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f2/PMSS_Car_Sponge_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_pillow.png",
+        "name":  "Pillow",
+        "source_page":  "https://www.mariowiki.com/File:PillowPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c1/PillowPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_bed.png",
+        "name":  "Bed",
+        "source_page":  "https://www.mariowiki.com/File:BedPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/7e/BedPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_luxurious_bed.png",
+        "name":  "Luxurious Bed",
+        "source_page":  "https://www.mariowiki.com/File:LuxuriousbedPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/a/aa/LuxuriousbedPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_tape.png",
+        "name":  "Tape",
+        "source_page":  "https://www.mariowiki.com/File:TapePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/b/b7/TapePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_thumbtack.png",
+        "name":  "Thumbtack",
+        "source_page":  "https://www.mariowiki.com/File:ThumbtackPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/d6/ThumbtackPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_stapler.png",
+        "name":  "Stapler",
+        "source_page":  "https://www.mariowiki.com/File:StaplePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/4/4a/StaplePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_fishhook.png",
+        "name":  "Fishhook",
+        "source_page":  "https://www.mariowiki.com/File:FishhookPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/7/71/FishhookPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_balloon.png",
+        "name":  "Balloon",
+        "source_page":  "https://www.mariowiki.com/File:BalloonPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/e/e0/BalloonPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_pocket_watch.png",
+        "name":  "Pocket Watch",
+        "source_page":  "https://www.mariowiki.com/File:StopwatchPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c5/StopwatchPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_cat_o_luck.png",
+        "name":  "Cat-o-Luck",
+        "source_page":  "https://www.mariowiki.com/File:CatoluckPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/5/56/CatoluckPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_high_heel.png",
+        "name":  "High Heel",
+        "source_page":  "https://www.mariowiki.com/File:HighHeelPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/d/dc/HighHeelPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_goat.png",
+        "name":  "Goat",
+        "source_page":  "https://www.mariowiki.com/File:PMSS_Goat_sticker.png",
+        "source_image":  "https://mario.wiki.gallery/images/c/c1/PMSS_Goat_sticker.png"
+    },
+    {
+        "asset":  "images/items/museum_turkey.png",
+        "name":  "Turkey",
+        "source_page":  "https://www.mariowiki.com/File:TurkeyPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f8/TurkeyPMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_cake.png",
+        "name":  "Cake",
+        "source_page":  "https://www.mariowiki.com/File:CakePMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/8/86/CakePMSS.png"
+    },
+    {
+        "asset":  "images/items/museum_boom_box.png",
+        "name":  "Boom Box",
+        "source_page":  "https://www.mariowiki.com/File:BoomboxPMSS.png",
+        "source_image":  "https://mario.wiki.gallery/images/f/f1/BoomboxPMSS.png"
+    }
+]

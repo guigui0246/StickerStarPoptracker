@@ -2,13 +2,13 @@
   {
     "name": "Hammer",
     "type": "toggle",
-    "img": "images/items/hammer.svg",
+    "img": "images/items/hammer.png",
     "codes": "hammer"
   },
   {
     "name": "Paperization",
     "type": "toggle",
-    "img": "images/items/paperization.svg",
+    "img": "images/items/paperization.png",
     "codes": "paperization"
   },
   {
@@ -284,31 +284,31 @@
   {
     "name": "Wooden Bridge Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_wooden_bridge.svg",
+    "img": "images/items/scrap_wooden_bridge.png",
     "codes": "scrap_wooden_bridge"
   },
   {
     "name": "Comet Piece Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_comet_piece.svg",
+    "img": "images/items/scrap_comet_piece.png",
     "codes": "scrap_comet_piece"
   },
   {
     "name": "Green Warp Pipe Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_green_warp_pipe.svg",
+    "img": "images/items/scrap_green_warp_pipe.png",
     "codes": "scrap_green_warp_pipe"
   },
   {
     "name": "White Gate Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_white_gate.svg",
+    "img": "images/items/scrap_white_gate.png",
     "codes": "scrap_white_gate"
   },
   {
     "name": "Block Switch Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_block_switch.svg",
+    "img": "images/items/scrap_block_switch.png",
     "codes": "scrap_block_switch"
   },
   {
@@ -326,13 +326,13 @@
   {
     "name": "Tablet Piece 3 Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_tablet_piece_3.svg",
+    "img": "images/items/scrap_tablet_piece_3.png",
     "codes": "scrap_tablet_piece_3"
   },
   {
     "name": "Stone Entry Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_stone_entry.svg",
+    "img": "images/items/scrap_stone_entry.png",
     "codes": "scrap_stone_entry"
   },
   {
@@ -350,25 +350,25 @@
   {
     "name": "Burrow Door Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_burrow_door.svg",
+    "img": "images/items/scrap_burrow_door.png",
     "codes": "scrap_burrow_door"
   },
   {
     "name": "Mine Cart Rail Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mine_cart_rail.svg",
+    "img": "images/items/scrap_mine_cart_rail.png",
     "codes": "scrap_mine_cart_rail"
   },
   {
     "name": "Diagonal Rail Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_diagonal_rail.svg",
+    "img": "images/items/scrap_diagonal_rail.png",
     "codes": "scrap_diagonal_rail"
   },
   {
     "name": "Mine Cart Exit Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mine_cart_exit.svg",
+    "img": "images/items/scrap_mine_cart_exit.png",
     "codes": "scrap_mine_cart_exit"
   },
   {
@@ -386,25 +386,25 @@
   {
     "name": "Bridge Part 3 Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_bridge_part_3.svg",
+    "img": "images/items/scrap_bridge_part_3.png",
     "codes": "scrap_bridge_part_3"
   },
   {
     "name": "Mansion Bookcase Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mansion_bookcase.svg",
+    "img": "images/items/scrap_mansion_bookcase.png",
     "codes": "scrap_mansion_bookcase"
   },
   {
     "name": "Mansion Wall Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mansion_wall.svg",
+    "img": "images/items/scrap_mansion_wall.png",
     "codes": "scrap_mansion_wall"
   },
   {
     "name": "Mansion Safe Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mansion_safe.svg",
+    "img": "images/items/scrap_mansion_safe.png",
     "codes": "scrap_mansion_safe"
   },
   {
@@ -428,739 +428,739 @@
   {
     "name": "Big Bookcase Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_big_bookcase.svg",
+    "img": "images/items/scrap_big_bookcase.png",
     "codes": "scrap_big_bookcase"
   },
   {
     "name": "Forebears Portrait Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_forebears_portrait.svg",
+    "img": "images/items/scrap_forebears_portrait.png",
     "codes": "scrap_forebears_portrait"
   },
   {
     "name": "Jungle Floodgate Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_jungle_floodgate.svg",
+    "img": "images/items/scrap_jungle_floodgate.png",
     "codes": "scrap_jungle_floodgate"
   },
   {
     "name": "Ruin Slope Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_ruin_slope.svg",
+    "img": "images/items/scrap_ruin_slope.png",
     "codes": "scrap_ruin_slope"
   },
   {
     "name": "Bomp Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_bomp.svg",
+    "img": "images/items/scrap_bomp.png",
     "codes": "scrap_bomp"
   },
   {
     "name": "Ruin Floor Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_ruin_floor.svg",
+    "img": "images/items/scrap_ruin_floor.png",
     "codes": "scrap_ruin_floor"
   },
   {
     "name": "Mountain Hole Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mountain_hole.svg",
+    "img": "images/items/scrap_mountain_hole.png",
     "codes": "scrap_mountain_hole"
   },
   {
     "name": "Mountain Boulder Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_mountain_boulder.svg",
+    "img": "images/items/scrap_mountain_boulder.png",
     "codes": "scrap_mountain_boulder"
   },
   {
     "name": "Cracked Boulder Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_cracked_boulder.svg",
+    "img": "images/items/scrap_cracked_boulder.png",
     "codes": "scrap_cracked_boulder"
   },
   {
     "name": "Huge Mountain Slab Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_huge_mountain_slab.svg",
+    "img": "images/items/scrap_huge_mountain_slab.png",
     "codes": "scrap_huge_mountain_slab"
   },
   {
     "name": "Hidden Bowser Castle Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_hidden_bowser_castle.svg",
+    "img": "images/items/scrap_hidden_bowser_castle.png",
     "codes": "scrap_hidden_bowser_castle"
   },
   {
     "name": "Banzai Bill Cannon Scrap",
     "type": "toggle",
-    "img": "images/items/scrap_banzai_bill_cannon.svg",
+    "img": "images/items/scrap_banzai_bill_cannon.png",
     "codes": "scrap_banzai_bill_cannon"
   },
   {
     "name": "Secret Door",
     "type": "toggle",
-    "img": "images/items/sticker_secret_door.svg",
+    "img": "images/items/sticker_secret_door.png",
     "codes": "sticker_secret_door"
   },
   {
     "name": "Fire Flower",
     "type": "toggle",
-    "img": "images/items/sticker_fire_flower.svg",
+    "img": "images/items/sticker_fire_flower.png",
     "codes": "sticker_fire_flower"
   },
   {
     "name": "Ice Flower",
     "type": "toggle",
-    "img": "images/items/sticker_ice_flower.svg",
+    "img": "images/items/sticker_ice_flower.png",
     "codes": "sticker_ice_flower"
   },
   {
     "name": "Scissors",
     "type": "toggle",
-    "img": "images/items/req_thing_scissors.svg",
+    "img": "images/items/req_thing_scissors.png",
     "codes": "req_thing_scissors"
   },
   {
     "name": "Bat",
     "type": "toggle",
-    "img": "images/items/req_thing_bat.svg",
+    "img": "images/items/req_thing_bat.png",
     "codes": "req_thing_bat"
   },
   {
     "name": "Trumpet",
     "type": "toggle",
-    "img": "images/items/req_thing_trumpet.svg",
+    "img": "images/items/req_thing_trumpet.png",
     "codes": "req_thing_trumpet"
   },
   {
     "name": "Faucet",
     "type": "toggle",
-    "img": "images/items/req_thing_faucet.svg",
+    "img": "images/items/req_thing_faucet.png",
     "codes": "req_thing_faucet"
   },
   {
     "name": "Lightbulb",
     "type": "toggle",
-    "img": "images/items/req_thing_lightbulb.svg",
+    "img": "images/items/req_thing_lightbulb.png",
     "codes": "req_thing_lightbulb"
   },
   {
     "name": "Fishhook",
     "type": "toggle",
-    "img": "images/items/req_thing_fishhook.svg",
+    "img": "images/items/req_thing_fishhook.png",
     "codes": "req_thing_fishhook"
   },
   {
     "name": "Fan",
     "type": "toggle",
-    "img": "images/items/req_thing_fan.svg",
+    "img": "images/items/req_thing_fan.png",
     "codes": "req_thing_fan"
   },
   {
     "name": "Vacuum",
     "type": "toggle",
-    "img": "images/items/req_thing_vacuum.svg",
+    "img": "images/items/req_thing_vacuum.png",
     "codes": "req_thing_vacuum"
   },
   {
     "name": "Refrigerator",
     "type": "toggle",
-    "img": "images/items/req_thing_refrigerator.svg",
+    "img": "images/items/req_thing_refrigerator.png",
     "codes": "req_thing_refrigerator"
   },
   {
     "name": "Sponge",
     "type": "toggle",
-    "img": "images/items/req_thing_sponge.svg",
+    "img": "images/items/req_thing_sponge.png",
     "codes": "req_thing_sponge"
   },
   {
     "name": "Goat",
     "type": "toggle",
-    "img": "images/items/req_thing_goat.svg",
+    "img": "images/items/req_thing_goat.png",
     "codes": "req_thing_goat"
   },
   {
     "name": "Battery",
     "type": "toggle",
-    "img": "images/items/req_thing_battery.svg",
+    "img": "images/items/req_thing_battery.png",
     "codes": "req_thing_battery"
   },
   {
     "name": "Worn-Out Jump",
     "type": "toggle",
-    "img": "images/items/museum_worn_out_jump.svg",
+    "img": "images/items/museum_worn_out_jump.png",
     "codes": "museum_worn_out_jump"
   },
   {
     "name": "Jump",
     "type": "toggle",
-    "img": "images/items/museum_jump.svg",
+    "img": "images/items/museum_jump.png",
     "codes": "museum_jump"
   },
   {
     "name": "Shiny Jump",
     "type": "toggle",
-    "img": "images/items/museum_shiny_jump.svg",
+    "img": "images/items/museum_shiny_jump.png",
     "codes": "museum_shiny_jump"
   },
   {
     "name": "Flashy Jump",
     "type": "toggle",
-    "img": "images/items/museum_flashy_jump.svg",
+    "img": "images/items/museum_flashy_jump.png",
     "codes": "museum_flashy_jump"
   },
   {
     "name": "Big Shiny Jump",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_jump.svg",
+    "img": "images/items/museum_big_shiny_jump.png",
     "codes": "museum_big_shiny_jump"
   },
   {
     "name": "Megaflash Jump",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_jump.svg",
+    "img": "images/items/museum_megaflash_jump.png",
     "codes": "museum_megaflash_jump"
   },
   {
     "name": "Iron Jump",
     "type": "toggle",
-    "img": "images/items/museum_iron_jump.svg",
+    "img": "images/items/museum_iron_jump.png",
     "codes": "museum_iron_jump"
   },
   {
     "name": "Shiny Iron Jump",
     "type": "toggle",
-    "img": "images/items/museum_shiny_iron_jump.svg",
+    "img": "images/items/museum_shiny_iron_jump.png",
     "codes": "museum_shiny_iron_jump"
   },
   {
     "name": "Flashy Iron Jump",
     "type": "toggle",
-    "img": "images/items/museum_flashy_iron_jump.svg",
+    "img": "images/items/museum_flashy_iron_jump.png",
     "codes": "museum_flashy_iron_jump"
   },
   {
     "name": "Big Shiny Iron Jump",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_iron_jump.svg",
+    "img": "images/items/museum_big_shiny_iron_jump.png",
     "codes": "museum_big_shiny_iron_jump"
   },
   {
     "name": "Megaflash Iron Jump",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_iron_jump.svg",
+    "img": "images/items/museum_megaflash_iron_jump.png",
     "codes": "museum_megaflash_iron_jump"
   },
   {
     "name": "Hopslipper",
     "type": "toggle",
-    "img": "images/items/museum_hopslipper.svg",
+    "img": "images/items/museum_hopslipper.png",
     "codes": "museum_hopslipper"
   },
   {
     "name": "Shiny Hopslipper",
     "type": "toggle",
-    "img": "images/items/museum_shiny_hopslipper.svg",
+    "img": "images/items/museum_shiny_hopslipper.png",
     "codes": "museum_shiny_hopslipper"
   },
   {
     "name": "Flashy Hopslipper",
     "type": "toggle",
-    "img": "images/items/museum_flashy_hopslipper.svg",
+    "img": "images/items/museum_flashy_hopslipper.png",
     "codes": "museum_flashy_hopslipper"
   },
   {
     "name": "Big Shiny Hopslipper",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_hopslipper.svg",
+    "img": "images/items/museum_big_shiny_hopslipper.png",
     "codes": "museum_big_shiny_hopslipper"
   },
   {
     "name": "Megaflash Hopslipper",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_hopslipper.svg",
+    "img": "images/items/museum_megaflash_hopslipper.png",
     "codes": "museum_megaflash_hopslipper"
   },
   {
     "name": "Line Jump",
     "type": "toggle",
-    "img": "images/items/museum_line_jump.svg",
+    "img": "images/items/museum_line_jump.png",
     "codes": "museum_line_jump"
   },
   {
     "name": "Shiny Line Jump",
     "type": "toggle",
-    "img": "images/items/museum_shiny_line_jump.svg",
+    "img": "images/items/museum_shiny_line_jump.png",
     "codes": "museum_shiny_line_jump"
   },
   {
     "name": "Flashy Line Jump",
     "type": "toggle",
-    "img": "images/items/museum_flashy_line_jump.svg",
+    "img": "images/items/museum_flashy_line_jump.png",
     "codes": "museum_flashy_line_jump"
   },
   {
     "name": "Big Shiny Line Jump",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_line_jump.svg",
+    "img": "images/items/museum_big_shiny_line_jump.png",
     "codes": "museum_big_shiny_line_jump"
   },
   {
     "name": "Megaflash Line Jump",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_line_jump.svg",
+    "img": "images/items/museum_megaflash_line_jump.png",
     "codes": "museum_megaflash_line_jump"
   },
   {
     "name": "Flashy Clone Jump",
     "type": "toggle",
-    "img": "images/items/museum_flashy_clone_jump.svg",
+    "img": "images/items/museum_flashy_clone_jump.png",
     "codes": "museum_flashy_clone_jump"
   },
   {
     "name": "Big Shiny Clone Jump",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_clone_jump.svg",
+    "img": "images/items/museum_big_shiny_clone_jump.png",
     "codes": "museum_big_shiny_clone_jump"
   },
   {
     "name": "Megaflash Clone Jump",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_clone_jump.svg",
+    "img": "images/items/museum_megaflash_clone_jump.png",
     "codes": "museum_megaflash_clone_jump"
   },
   {
     "name": "Super Boot",
     "type": "toggle",
-    "img": "images/items/museum_super_boot.svg",
+    "img": "images/items/museum_super_boot.png",
     "codes": "museum_super_boot"
   },
   {
     "name": "Shiny Super Boot",
     "type": "toggle",
-    "img": "images/items/museum_shiny_super_boot.svg",
+    "img": "images/items/museum_shiny_super_boot.png",
     "codes": "museum_shiny_super_boot"
   },
   {
     "name": "Worn-Out Hammer",
     "type": "toggle",
-    "img": "images/items/museum_worn_out_hammer.svg",
+    "img": "images/items/museum_worn_out_hammer.png",
     "codes": "museum_worn_out_hammer"
   },
   {
     "name": "Hammer",
     "type": "toggle",
-    "img": "images/items/museum_hammer.svg",
+    "img": "images/items/museum_hammer.png",
     "codes": "museum_hammer"
   },
   {
     "name": "Shiny Hammer",
     "type": "toggle",
-    "img": "images/items/museum_shiny_hammer.svg",
+    "img": "images/items/museum_shiny_hammer.png",
     "codes": "museum_shiny_hammer"
   },
   {
     "name": "Flashy Hammer",
     "type": "toggle",
-    "img": "images/items/museum_flashy_hammer.svg",
+    "img": "images/items/museum_flashy_hammer.png",
     "codes": "museum_flashy_hammer"
   },
   {
     "name": "Big Shiny Hammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_hammer.svg",
+    "img": "images/items/museum_big_shiny_hammer.png",
     "codes": "museum_big_shiny_hammer"
   },
   {
     "name": "Megaflash Hammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_hammer.svg",
+    "img": "images/items/museum_megaflash_hammer.png",
     "codes": "museum_megaflash_hammer"
   },
   {
     "name": "Flashy Infinijump",
     "type": "toggle",
-    "img": "images/items/museum_flashy_infinijump.svg",
+    "img": "images/items/museum_flashy_infinijump.png",
     "codes": "museum_flashy_infinijump"
   },
   {
     "name": "Big Shiny Infinijump",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_infinijump.svg",
+    "img": "images/items/museum_big_shiny_infinijump.png",
     "codes": "museum_big_shiny_infinijump"
   },
   {
     "name": "Megaflash Infinijump",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_infinijump.svg",
+    "img": "images/items/museum_megaflash_infinijump.png",
     "codes": "museum_megaflash_infinijump"
   },
   {
     "name": "Slaphammer",
     "type": "toggle",
-    "img": "images/items/museum_slaphammer.svg",
+    "img": "images/items/museum_slaphammer.png",
     "codes": "museum_slaphammer"
   },
   {
     "name": "Shiny Slaphammer",
     "type": "toggle",
-    "img": "images/items/museum_shiny_slaphammer.svg",
+    "img": "images/items/museum_shiny_slaphammer.png",
     "codes": "museum_shiny_slaphammer"
   },
   {
     "name": "Flashy Slaphammer",
     "type": "toggle",
-    "img": "images/items/museum_flashy_slaphammer.svg",
+    "img": "images/items/museum_flashy_slaphammer.png",
     "codes": "museum_flashy_slaphammer"
   },
   {
     "name": "Big Shiny Slaphammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_slaphammer.svg",
+    "img": "images/items/museum_big_shiny_slaphammer.png",
     "codes": "museum_big_shiny_slaphammer"
   },
   {
     "name": "Megaflash Slaphammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_slaphammer.svg",
+    "img": "images/items/museum_megaflash_slaphammer.png",
     "codes": "museum_megaflash_slaphammer"
   },
   {
     "name": "Eekhammer",
     "type": "toggle",
-    "img": "images/items/museum_eekhammer.svg",
+    "img": "images/items/museum_eekhammer.png",
     "codes": "museum_eekhammer"
   },
   {
     "name": "Shiny Eekhammer",
     "type": "toggle",
-    "img": "images/items/museum_shiny_eekhammer.svg",
+    "img": "images/items/museum_shiny_eekhammer.png",
     "codes": "museum_shiny_eekhammer"
   },
   {
     "name": "Flashy Eekhammer",
     "type": "toggle",
-    "img": "images/items/museum_flashy_eekhammer.svg",
+    "img": "images/items/museum_flashy_eekhammer.png",
     "codes": "museum_flashy_eekhammer"
   },
   {
     "name": "Big Shiny Eekhammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_eekhammer.svg",
+    "img": "images/items/museum_big_shiny_eekhammer.png",
     "codes": "museum_big_shiny_eekhammer"
   },
   {
     "name": "Megaflash Eekhammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_eekhammer.svg",
+    "img": "images/items/museum_megaflash_eekhammer.png",
     "codes": "museum_megaflash_eekhammer"
   },
   {
     "name": "Hurlhammer",
     "type": "toggle",
-    "img": "images/items/museum_hurlhammer.svg",
+    "img": "images/items/museum_hurlhammer.png",
     "codes": "museum_hurlhammer"
   },
   {
     "name": "Shiny Hurlhammer",
     "type": "toggle",
-    "img": "images/items/museum_shiny_hurlhammer.svg",
+    "img": "images/items/museum_shiny_hurlhammer.png",
     "codes": "museum_shiny_hurlhammer"
   },
   {
     "name": "Flashy Hurlhammer",
     "type": "toggle",
-    "img": "images/items/museum_flashy_hurlhammer.svg",
+    "img": "images/items/museum_flashy_hurlhammer.png",
     "codes": "museum_flashy_hurlhammer"
   },
   {
     "name": "Big Shiny Hurlhammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_hurlhammer.svg",
+    "img": "images/items/museum_big_shiny_hurlhammer.png",
     "codes": "museum_big_shiny_hurlhammer"
   },
   {
     "name": "Megaflash Hurlhammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_hurlhammer.svg",
+    "img": "images/items/museum_megaflash_hurlhammer.png",
     "codes": "museum_megaflash_hurlhammer"
   },
   {
     "name": "Baahammer",
     "type": "toggle",
-    "img": "images/items/museum_baahammer.svg",
+    "img": "images/items/museum_baahammer.png",
     "codes": "museum_baahammer"
   },
   {
     "name": "Big Shiny Baahammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_baahammer.svg",
+    "img": "images/items/museum_big_shiny_baahammer.png",
     "codes": "museum_big_shiny_baahammer"
   },
   {
     "name": "Megaflash Baahammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_baahammer.svg",
+    "img": "images/items/museum_megaflash_baahammer.png",
     "codes": "museum_megaflash_baahammer"
   },
   {
     "name": "Burnhammer",
     "type": "toggle",
-    "img": "images/items/museum_burnhammer.svg",
+    "img": "images/items/museum_burnhammer.png",
     "codes": "museum_burnhammer"
   },
   {
     "name": "Big Shiny Burnhammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_burnhammer.svg",
+    "img": "images/items/museum_big_shiny_burnhammer.png",
     "codes": "museum_big_shiny_burnhammer"
   },
   {
     "name": "Megaflash Burnhammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_burnhammer.svg",
+    "img": "images/items/museum_megaflash_burnhammer.png",
     "codes": "museum_megaflash_burnhammer"
   },
   {
     "name": "Chillhammer",
     "type": "toggle",
-    "img": "images/items/museum_chillhammer.svg",
+    "img": "images/items/museum_chillhammer.png",
     "codes": "museum_chillhammer"
   },
   {
     "name": "Big Shiny Chillhammer",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_chillhammer.svg",
+    "img": "images/items/museum_big_shiny_chillhammer.png",
     "codes": "museum_big_shiny_chillhammer"
   },
   {
     "name": "Megaflash Chillhammer",
     "type": "toggle",
-    "img": "images/items/museum_megaflash_chillhammer.svg",
+    "img": "images/items/museum_megaflash_chillhammer.png",
     "codes": "museum_megaflash_chillhammer"
   },
   {
     "name": "Tail",
     "type": "toggle",
-    "img": "images/items/museum_tail.svg",
+    "img": "images/items/museum_tail.png",
     "codes": "museum_tail"
   },
   {
     "name": "Shiny Tail",
     "type": "toggle",
-    "img": "images/items/museum_shiny_tail.svg",
+    "img": "images/items/museum_shiny_tail.png",
     "codes": "museum_shiny_tail"
   },
   {
     "name": "Frog Suit",
     "type": "toggle",
-    "img": "images/items/museum_frog_suit.svg",
+    "img": "images/items/museum_frog_suit.png",
     "codes": "museum_frog_suit"
   },
   {
     "name": "Shiny Frog Suit",
     "type": "toggle",
-    "img": "images/items/museum_shiny_frog_suit.svg",
+    "img": "images/items/museum_shiny_frog_suit.png",
     "codes": "museum_shiny_frog_suit"
   },
   {
     "name": "Spike Helmet",
     "type": "toggle",
-    "img": "images/items/museum_spike_helmet.svg",
+    "img": "images/items/museum_spike_helmet.png",
     "codes": "museum_spike_helmet"
   },
   {
     "name": "Shiny Spike Helmet",
     "type": "toggle",
-    "img": "images/items/museum_shiny_spike_helmet.svg",
+    "img": "images/items/museum_shiny_spike_helmet.png",
     "codes": "museum_shiny_spike_helmet"
   },
   {
     "name": "Flashy Spike Helmet",
     "type": "toggle",
-    "img": "images/items/museum_flashy_spike_helmet.svg",
+    "img": "images/items/museum_flashy_spike_helmet.png",
     "codes": "museum_flashy_spike_helmet"
   },
   {
     "name": "Fire Flower",
     "type": "toggle",
-    "img": "images/items/museum_fire_flower.svg",
+    "img": "images/items/museum_fire_flower.png",
     "codes": "museum_fire_flower"
   },
   {
     "name": "Shiny Fire Flower",
     "type": "toggle",
-    "img": "images/items/museum_shiny_fire_flower.svg",
+    "img": "images/items/museum_shiny_fire_flower.png",
     "codes": "museum_shiny_fire_flower"
   },
   {
     "name": "Flashy Fire Flower",
     "type": "toggle",
-    "img": "images/items/museum_flashy_fire_flower.svg",
+    "img": "images/items/museum_flashy_fire_flower.png",
     "codes": "museum_flashy_fire_flower"
   },
   {
     "name": "Ice Flower",
     "type": "toggle",
-    "img": "images/items/museum_ice_flower.svg",
+    "img": "images/items/museum_ice_flower.png",
     "codes": "museum_ice_flower"
   },
   {
     "name": "Shiny Ice Flower",
     "type": "toggle",
-    "img": "images/items/museum_shiny_ice_flower.svg",
+    "img": "images/items/museum_shiny_ice_flower.png",
     "codes": "museum_shiny_ice_flower"
   },
   {
     "name": "Flashy Ice Flower",
     "type": "toggle",
-    "img": "images/items/museum_flashy_ice_flower.svg",
+    "img": "images/items/museum_flashy_ice_flower.png",
     "codes": "museum_flashy_ice_flower"
   },
   {
     "name": "POW Block",
     "type": "toggle",
-    "img": "images/items/museum_pow_block.svg",
+    "img": "images/items/museum_pow_block.png",
     "codes": "museum_pow_block"
   },
   {
     "name": "Shiny POW Block",
     "type": "toggle",
-    "img": "images/items/museum_shiny_pow_block.svg",
+    "img": "images/items/museum_shiny_pow_block.png",
     "codes": "museum_shiny_pow_block"
   },
   {
     "name": "Flashy POW Block",
     "type": "toggle",
-    "img": "images/items/museum_flashy_pow_block.svg",
+    "img": "images/items/museum_flashy_pow_block.png",
     "codes": "museum_flashy_pow_block"
   },
   {
     "name": "Shell",
     "type": "toggle",
-    "img": "images/items/museum_shell.svg",
+    "img": "images/items/museum_shell.png",
     "codes": "museum_shell"
   },
   {
     "name": "Shiny Shell",
     "type": "toggle",
-    "img": "images/items/museum_shiny_shell.svg",
+    "img": "images/items/museum_shiny_shell.png",
     "codes": "museum_shiny_shell"
   },
   {
     "name": "Flashy Shell",
     "type": "toggle",
-    "img": "images/items/museum_flashy_shell.svg",
+    "img": "images/items/museum_flashy_shell.png",
     "codes": "museum_flashy_shell"
   },
   {
     "name": "Mushroom",
     "type": "toggle",
-    "img": "images/items/museum_mushroom.svg",
+    "img": "images/items/museum_mushroom.png",
     "codes": "museum_mushroom"
   },
   {
     "name": "Shiny Mushroom",
     "type": "toggle",
-    "img": "images/items/museum_shiny_mushroom.svg",
+    "img": "images/items/museum_shiny_mushroom.png",
     "codes": "museum_shiny_mushroom"
   },
   {
     "name": "Flashy Mushroom",
     "type": "toggle",
-    "img": "images/items/museum_flashy_mushroom.svg",
+    "img": "images/items/museum_flashy_mushroom.png",
     "codes": "museum_flashy_mushroom"
   },
   {
     "name": "Big 1UP",
     "type": "toggle",
-    "img": "images/items/museum_big_1up.svg",
+    "img": "images/items/museum_big_1up.png",
     "codes": "museum_big_1up"
   },
   {
     "name": "Big Shiny 1UP",
     "type": "toggle",
-    "img": "images/items/museum_big_shiny_1up.svg",
+    "img": "images/items/museum_big_shiny_1up.png",
     "codes": "museum_big_shiny_1up"
   },
   {
     "name": "Poison Mushroom",
     "type": "toggle",
-    "img": "images/items/museum_poison_mushroom.svg",
+    "img": "images/items/museum_poison_mushroom.png",
     "codes": "museum_poison_mushroom"
   },
   {
     "name": "Leaf",
     "type": "toggle",
-    "img": "images/items/museum_leaf.svg",
+    "img": "images/items/museum_leaf.png",
     "codes": "museum_leaf"
   },
   {
     "name": "Shiny Leaf",
     "type": "toggle",
-    "img": "images/items/museum_shiny_leaf.svg",
+    "img": "images/items/museum_shiny_leaf.png",
     "codes": "museum_shiny_leaf"
   },
   {
     "name": "Secret Door",
     "type": "toggle",
-    "img": "images/items/museum_secret_door.svg",
+    "img": "images/items/museum_secret_door.png",
     "codes": "museum_secret_door"
   },
   {
     "name": "Snowball",
     "type": "toggle",
-    "img": "images/items/museum_snowball.svg",
+    "img": "images/items/museum_snowball.png",
     "codes": "museum_snowball"
   },
   {
     "name": "Spike Ball",
     "type": "toggle",
-    "img": "images/items/museum_spike_ball.svg",
+    "img": "images/items/museum_spike_ball.png",
     "codes": "museum_spike_ball"
   },
   {
     "name": "Barrel",
     "type": "toggle",
-    "img": "images/items/museum_barrel.svg",
+    "img": "images/items/museum_barrel.png",
     "codes": "museum_barrel"
   },
   {
     "name": "Wrench",
     "type": "toggle",
-    "img": "images/items/museum_wrench.svg",
+    "img": "images/items/museum_wrench.png",
     "codes": "museum_wrench"
   },
   {
     "name": "Bone",
     "type": "toggle",
-    "img": "images/items/museum_bone.svg",
+    "img": "images/items/museum_bone.png",
     "codes": "museum_bone"
   },
   {
     "name": "Boomerang",
     "type": "toggle",
-    "img": "images/items/museum_boomerang.svg",
+    "img": "images/items/museum_boomerang.png",
     "codes": "museum_boomerang"
   },
   {
     "name": "Bomb",
     "type": "toggle",
-    "img": "images/items/museum_bomb.svg",
+    "img": "images/items/museum_bomb.png",
     "codes": "museum_bomb"
   },
   {
     "name": "Sombrero",
     "type": "toggle",
-    "img": "images/items/museum_sombrero.svg",
+    "img": "images/items/museum_sombrero.png",
     "codes": "museum_sombrero"
   },
   {
     "name": "Throwing Star",
     "type": "toggle",
-    "img": "images/items/museum_throwing_star.svg",
+    "img": "images/items/museum_throwing_star.png",
     "codes": "museum_throwing_star"
   },
   {
@@ -1172,391 +1172,391 @@
   {
     "name": "Kersti Sticker",
     "type": "toggle",
-    "img": "images/items/museum_kersti_sticker.svg",
+    "img": "images/items/museum_kersti_sticker.png",
     "codes": "museum_kersti_sticker"
   },
   {
     "name": "Sewing Scissors",
     "type": "toggle",
-    "img": "images/items/museum_sewing_scissors.svg",
+    "img": "images/items/museum_sewing_scissors.png",
     "codes": "museum_sewing_scissors"
   },
   {
     "name": "Hair Shears",
     "type": "toggle",
-    "img": "images/items/museum_hair_shears.svg",
+    "img": "images/items/museum_hair_shears.png",
     "codes": "museum_hair_shears"
   },
   {
     "name": "Scissors",
     "type": "toggle",
-    "img": "images/items/museum_scissors.svg",
+    "img": "images/items/museum_scissors.png",
     "codes": "museum_scissors"
   },
   {
     "name": "Tailor Shears",
     "type": "toggle",
-    "img": "images/items/museum_tailor_shears.svg",
+    "img": "images/items/museum_tailor_shears.png",
     "codes": "museum_tailor_shears"
   },
   {
     "name": "Bellows",
     "type": "toggle",
-    "img": "images/items/museum_bellows.svg",
+    "img": "images/items/museum_bellows.png",
     "codes": "museum_bellows"
   },
   {
     "name": "Paper Fan",
     "type": "toggle",
-    "img": "images/items/museum_paper_fan.svg",
+    "img": "images/items/museum_paper_fan.png",
     "codes": "museum_paper_fan"
   },
   {
     "name": "Fan",
     "type": "toggle",
-    "img": "images/items/museum_fan.svg",
+    "img": "images/items/museum_fan.png",
     "codes": "museum_fan"
   },
   {
     "name": "Mini Vacuum",
     "type": "toggle",
-    "img": "images/items/museum_mini_vacuum.svg",
+    "img": "images/items/museum_mini_vacuum.png",
     "codes": "museum_mini_vacuum"
   },
   {
     "name": "Upright Vacuum",
     "type": "toggle",
-    "img": "images/items/museum_upright_vacuum.svg",
+    "img": "images/items/museum_upright_vacuum.png",
     "codes": "museum_upright_vacuum"
   },
   {
     "name": "Vacuum",
     "type": "toggle",
-    "img": "images/items/museum_vacuum.svg",
+    "img": "images/items/museum_vacuum.png",
     "codes": "museum_vacuum"
   },
   {
     "name": "Watering Can",
     "type": "toggle",
-    "img": "images/items/museum_watering_can.svg",
+    "img": "images/items/museum_watering_can.png",
     "codes": "museum_watering_can"
   },
   {
     "name": "Faucet",
     "type": "toggle",
-    "img": "images/items/museum_faucet.svg",
+    "img": "images/items/museum_faucet.png",
     "codes": "museum_faucet"
   },
   {
     "name": "Teapot",
     "type": "toggle",
-    "img": "images/items/museum_teapot.svg",
+    "img": "images/items/museum_teapot.png",
     "codes": "museum_teapot"
   },
   {
     "name": "Trumpet",
     "type": "toggle",
-    "img": "images/items/museum_trumpet.svg",
+    "img": "images/items/museum_trumpet.png",
     "codes": "museum_trumpet"
   },
   {
     "name": "Violin",
     "type": "toggle",
-    "img": "images/items/museum_violin.svg",
+    "img": "images/items/museum_violin.png",
     "codes": "museum_violin"
   },
   {
     "name": "Guitar",
     "type": "toggle",
-    "img": "images/items/museum_guitar.svg",
+    "img": "images/items/museum_guitar.png",
     "codes": "museum_guitar"
   },
   {
     "name": "Newspaper",
     "type": "toggle",
-    "img": "images/items/museum_newspaper.svg",
+    "img": "images/items/museum_newspaper.png",
     "codes": "museum_newspaper"
   },
   {
     "name": "Toy Bat",
     "type": "toggle",
-    "img": "images/items/museum_toy_bat.svg",
+    "img": "images/items/museum_toy_bat.png",
     "codes": "museum_toy_bat"
   },
   {
     "name": "Bat",
     "type": "toggle",
-    "img": "images/items/museum_bat.svg",
+    "img": "images/items/museum_bat.png",
     "codes": "museum_bat"
   },
   {
     "name": "Square Can",
     "type": "toggle",
-    "img": "images/items/museum_square_can.svg",
+    "img": "images/items/museum_square_can.png",
     "codes": "museum_square_can"
   },
   {
     "name": "Basin",
     "type": "toggle",
-    "img": "images/items/museum_basin.svg",
+    "img": "images/items/museum_basin.png",
     "codes": "museum_basin"
   },
   {
     "name": "Drum",
     "type": "toggle",
-    "img": "images/items/museum_drum.svg",
+    "img": "images/items/museum_drum.png",
     "codes": "museum_drum"
   },
   {
     "name": "Lightbulb",
     "type": "toggle",
-    "img": "images/items/museum_lightbulb.svg",
+    "img": "images/items/museum_lightbulb.png",
     "codes": "museum_lightbulb"
   },
   {
     "name": "Flashlight",
     "type": "toggle",
-    "img": "images/items/museum_flashlight.svg",
+    "img": "images/items/museum_flashlight.png",
     "codes": "museum_flashlight"
   },
   {
     "name": "Searchlight",
     "type": "toggle",
-    "img": "images/items/museum_searchlight.svg",
+    "img": "images/items/museum_searchlight.png",
     "codes": "museum_searchlight"
   },
   {
     "name": "Watch Battery",
     "type": "toggle",
-    "img": "images/items/museum_watch_battery.svg",
+    "img": "images/items/museum_watch_battery.png",
     "codes": "museum_watch_battery"
   },
   {
     "name": "D-Cell Battery",
     "type": "toggle",
-    "img": "images/items/museum_d_cell_battery.svg",
+    "img": "images/items/museum_d_cell_battery.png",
     "codes": "museum_d_cell_battery"
   },
   {
     "name": "Car Battery",
     "type": "toggle",
-    "img": "images/items/museum_car_battery.svg",
+    "img": "images/items/museum_car_battery.png",
     "codes": "museum_car_battery"
   },
   {
     "name": "Billiard Ball",
     "type": "toggle",
-    "img": "images/items/museum_billiard_ball.svg",
+    "img": "images/items/museum_billiard_ball.png",
     "codes": "museum_billiard_ball"
   },
   {
     "name": "Curling Stone",
     "type": "toggle",
-    "img": "images/items/museum_curling_stone.svg",
+    "img": "images/items/museum_curling_stone.png",
     "codes": "museum_curling_stone"
   },
   {
     "name": "Bowling Ball",
     "type": "toggle",
-    "img": "images/items/museum_bowling_ball.svg",
+    "img": "images/items/museum_bowling_ball.png",
     "codes": "museum_bowling_ball"
   },
   {
     "name": "Trophy",
     "type": "toggle",
-    "img": "images/items/museum_trophy.svg",
+    "img": "images/items/museum_trophy.png",
     "codes": "museum_trophy"
   },
   {
     "name": "Cell Phone",
     "type": "toggle",
-    "img": "images/items/museum_cell_phone.svg",
+    "img": "images/items/museum_cell_phone.png",
     "codes": "museum_cell_phone"
   },
   {
     "name": "Jackhammer",
     "type": "toggle",
-    "img": "images/items/museum_jackhammer.svg",
+    "img": "images/items/museum_jackhammer.png",
     "codes": "museum_jackhammer"
   },
   {
     "name": "Radiator",
     "type": "toggle",
-    "img": "images/items/museum_radiator.svg",
+    "img": "images/items/museum_radiator.png",
     "codes": "museum_radiator"
   },
   {
     "name": "Hair Dryer",
     "type": "toggle",
-    "img": "images/items/museum_hair_dryer.svg",
+    "img": "images/items/museum_hair_dryer.png",
     "codes": "museum_hair_dryer"
   },
   {
     "name": "Oven",
     "type": "toggle",
-    "img": "images/items/museum_oven.svg",
+    "img": "images/items/museum_oven.png",
     "codes": "museum_oven"
   },
   {
     "name": "Magnifying Glass",
     "type": "toggle",
-    "img": "images/items/museum_magnifying_glass.svg",
+    "img": "images/items/museum_magnifying_glass.png",
     "codes": "museum_magnifying_glass"
   },
   {
     "name": "Matches",
     "type": "toggle",
-    "img": "images/items/museum_matches.svg",
+    "img": "images/items/museum_matches.png",
     "codes": "museum_matches"
   },
   {
     "name": "Lighter",
     "type": "toggle",
-    "img": "images/items/museum_lighter.svg",
+    "img": "images/items/museum_lighter.png",
     "codes": "museum_lighter"
   },
   {
     "name": "Shaved Ice",
     "type": "toggle",
-    "img": "images/items/museum_shaved_ice.svg",
+    "img": "images/items/museum_shaved_ice.png",
     "codes": "museum_shaved_ice"
   },
   {
     "name": "Air Conditioner",
     "type": "toggle",
-    "img": "images/items/museum_air_conditioner.svg",
+    "img": "images/items/museum_air_conditioner.png",
     "codes": "museum_air_conditioner"
   },
   {
     "name": "Refrigerator",
     "type": "toggle",
-    "img": "images/items/museum_refrigerator.svg",
+    "img": "images/items/museum_refrigerator.png",
     "codes": "museum_refrigerator"
   },
   {
     "name": "Soda",
     "type": "toggle",
-    "img": "images/items/museum_soda.svg",
+    "img": "images/items/museum_soda.png",
     "codes": "museum_soda"
   },
   {
     "name": "Squirt Gun",
     "type": "toggle",
-    "img": "images/items/museum_squirt_gun.svg",
+    "img": "images/items/museum_squirt_gun.png",
     "codes": "museum_squirt_gun"
   },
   {
     "name": "Rubber Ducky",
     "type": "toggle",
-    "img": "images/items/museum_rubber_ducky.svg",
+    "img": "images/items/museum_rubber_ducky.png",
     "codes": "museum_rubber_ducky"
   },
   {
     "name": "Powder Puff",
     "type": "toggle",
-    "img": "images/items/museum_powder_puff.svg",
+    "img": "images/items/museum_powder_puff.png",
     "codes": "museum_powder_puff"
   },
   {
     "name": "Sponge",
     "type": "toggle",
-    "img": "images/items/museum_sponge.svg",
+    "img": "images/items/museum_sponge.png",
     "codes": "museum_sponge"
   },
   {
     "name": "Car Sponge",
     "type": "toggle",
-    "img": "images/items/museum_car_sponge.svg",
+    "img": "images/items/museum_car_sponge.png",
     "codes": "museum_car_sponge"
   },
   {
     "name": "Pillow",
     "type": "toggle",
-    "img": "images/items/museum_pillow.svg",
+    "img": "images/items/museum_pillow.png",
     "codes": "museum_pillow"
   },
   {
     "name": "Bed",
     "type": "toggle",
-    "img": "images/items/museum_bed.svg",
+    "img": "images/items/museum_bed.png",
     "codes": "museum_bed"
   },
   {
     "name": "Luxurious Bed",
     "type": "toggle",
-    "img": "images/items/museum_luxurious_bed.svg",
+    "img": "images/items/museum_luxurious_bed.png",
     "codes": "museum_luxurious_bed"
   },
   {
     "name": "Tape",
     "type": "toggle",
-    "img": "images/items/museum_tape.svg",
+    "img": "images/items/museum_tape.png",
     "codes": "museum_tape"
   },
   {
     "name": "Thumbtack",
     "type": "toggle",
-    "img": "images/items/museum_thumbtack.svg",
+    "img": "images/items/museum_thumbtack.png",
     "codes": "museum_thumbtack"
   },
   {
     "name": "Stapler",
     "type": "toggle",
-    "img": "images/items/museum_stapler.svg",
+    "img": "images/items/museum_stapler.png",
     "codes": "museum_stapler"
   },
   {
     "name": "Fishhook",
     "type": "toggle",
-    "img": "images/items/museum_fishhook.svg",
+    "img": "images/items/museum_fishhook.png",
     "codes": "museum_fishhook"
   },
   {
     "name": "Balloon",
     "type": "toggle",
-    "img": "images/items/museum_balloon.svg",
+    "img": "images/items/museum_balloon.png",
     "codes": "museum_balloon"
   },
   {
     "name": "Pocket Watch",
     "type": "toggle",
-    "img": "images/items/museum_pocket_watch.svg",
+    "img": "images/items/museum_pocket_watch.png",
     "codes": "museum_pocket_watch"
   },
   {
     "name": "Cat-o-Luck",
     "type": "toggle",
-    "img": "images/items/museum_cat_o_luck.svg",
+    "img": "images/items/museum_cat_o_luck.png",
     "codes": "museum_cat_o_luck"
   },
   {
     "name": "High Heel",
     "type": "toggle",
-    "img": "images/items/museum_high_heel.svg",
+    "img": "images/items/museum_high_heel.png",
     "codes": "museum_high_heel"
   },
   {
     "name": "Goat",
     "type": "toggle",
-    "img": "images/items/museum_goat.svg",
+    "img": "images/items/museum_goat.png",
     "codes": "museum_goat"
   },
   {
     "name": "Turkey",
     "type": "toggle",
-    "img": "images/items/museum_turkey.svg",
+    "img": "images/items/museum_turkey.png",
     "codes": "museum_turkey"
   },
   {
     "name": "Cake",
     "type": "toggle",
-    "img": "images/items/museum_cake.svg",
+    "img": "images/items/museum_cake.png",
     "codes": "museum_cake"
   },
   {
     "name": "Boom Box",
     "type": "toggle",
-    "img": "images/items/museum_boom_box.svg",
+    "img": "images/items/museum_boom_box.png",
     "codes": "museum_boom_box"
   },
   {
