@@ -1,27 +1,30 @@
 [
   {
-    "name": "4-5: Bowser's Snow Fort",
+    "name": "4-5: Whiteout Valley",
     "children": [
       {
-        "name": "Royal Sticker",
+        "name": "Mini Star",
         "map_locations": [
           {
             "map": "w4_5",
-            "x": 160,
-            "y": 180
+            "x": 130,
+            "y": 170
           }
         ],
         "sections": [
           {
-            "name": "Royal Sticker \u2014 The snow fort route expects a strong wind tool; Fan is the safest marker.",
+            "name": "Mini Star check \u2014 restore the Forebear's Portrait to use the chairlift.",
             "access_rules": [
-              "clear_w4_4, req_thing_fan"
+              "paperization, scrap_forebears_portrait"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W4_5"
     ]
   }
 ]

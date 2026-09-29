@@ -1,27 +1,7 @@
 [
   {
-    "name": "3-3: The Bafflewood",
+    "name": "3-3: Wiggler's Tree House",
     "children": [
-      {
-        "name": "Burrow Door Scrap",
-        "map_locations": [
-          {
-            "map": "w3_3",
-            "x": 160,
-            "y": 180
-          }
-        ],
-        "sections": [
-          {
-            "name": "Burrow Door Scrap \u2014 Paperize the hidden door deeper into the woods.",
-            "access_rules": [
-              "clear_w3_2"
-            ],
-            "chest_unopened_img": "images/chests/special_false.png",
-            "chest_opened_img": "images/chests/special_true.png"
-          }
-        ]
-      },
       {
         "name": "Mini Star / Stage Clear",
         "map_locations": [
@@ -33,15 +13,16 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Untangle the Bafflewood route.",
-            "access_rules": [
-              "clear_w3_2"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W3_3"
     ]
   }
 ]

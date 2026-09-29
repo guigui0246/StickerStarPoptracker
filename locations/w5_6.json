@@ -3,26 +3,6 @@
     "name": "5-6: Rumble Volcano",
     "children": [
       {
-        "name": "Thing: Goat",
-        "map_locations": [
-          {
-            "map": "w5_6",
-            "x": 160,
-            "y": 180
-          }
-        ],
-        "sections": [
-          {
-            "name": "Thing: Goat \u2014 The classic volcano boss tool.",
-            "access_rules": [
-              "clear_w5_5"
-            ],
-            "chest_unopened_img": "images/chests/thing_false.png",
-            "chest_opened_img": "images/chests/thing_true.png"
-          }
-        ]
-      },
-      {
         "name": "Royal Sticker",
         "map_locations": [
           {
@@ -33,15 +13,18 @@
         ],
         "sections": [
           {
-            "name": "Royal Sticker \u2014 Bring Goat for Petey Piranha and claim the fifth Royal Sticker.",
+            "name": "Boss reward check \u2014 boss unlock required; reward is shuffled.",
             "access_rules": [
-              "clear_w5_5, req_thing_goat"
+              "boss_unlock_w5"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W5_6"
     ]
   }
 ]

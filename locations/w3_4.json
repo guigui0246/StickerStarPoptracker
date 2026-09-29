@@ -1,6 +1,6 @@
 [
   {
-    "name": "3-4: Tree Branch Trail",
+    "name": "3-4: Strike Lake",
     "children": [
       {
         "name": "Mini Star / Stage Clear",
@@ -13,15 +13,16 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Advance the Wiggler chase.",
-            "access_rules": [
-              "clear_w3_3"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W3_4"
     ]
   }
 ]

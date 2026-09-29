@@ -13,9 +13,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Paperize the missing bridge.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization"
+              "$ACCESS_W1_1"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -33,9 +33,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: After clearing Warm Fuzzy Plains.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w1_1"
+              "$ACCESS_W1_2"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -53,9 +53,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Recover the stolen mini-star scrap.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w1_2"
+              "$ACCESS_W1_3"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -73,9 +73,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Collect the paperized pipe piece.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w1_3"
+              "$ACCESS_W1_4"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -93,9 +93,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Restore the gate with Paperization.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w1_4"
+              "$ACCESS_W1_5"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -113,9 +113,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Collect the hidden block-switch paper piece.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w1_5"
+              "$ACCESS_W1_6"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -138,9 +138,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: World 2 opens after the first Royal Sticker.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "royal_w1"
+              "$ACCESS_W2_1"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -158,9 +158,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Start the Yoshi Sphinx tablet puzzle.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w2_1"
+              "$ACCESS_W2_2"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -178,9 +178,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Second tablet scrap for the ruins.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w2_2"
+              "$ACCESS_W2_3"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -198,9 +198,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Final tablet scrap.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w2_3"
+              "$ACCESS_W2_4"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -218,9 +218,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Open the tower after assembling the tablet.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization, scrap_tablet_piece_1, scrap_tablet_piece_2, scrap_tablet_piece_3"
+              "$ACCESS_W2_5"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -243,9 +243,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: First Wiggler route repair piece.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "royal_w2"
+              "$ACCESS_W3_1"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -253,7 +253,7 @@
         ]
       },
       {
-        "name": "3-2: Loop Loop River",
+        "name": "3-2: The Bafflewood",
         "map_locations": [
           {
             "map": "world_map",
@@ -263,9 +263,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Second Wiggler route repair piece.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_1"
+              "$ACCESS_W3_2"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -273,7 +273,7 @@
         ]
       },
       {
-        "name": "3-3: The Bafflewood",
+        "name": "3-3: Wiggler's Tree House",
         "map_locations": [
           {
             "map": "world_map",
@@ -283,9 +283,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Paperize the hidden door deeper into the woods.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_2"
+              "$ACCESS_W3_3"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -293,7 +293,7 @@
         ]
       },
       {
-        "name": "3-4: Tree Branch Trail",
+        "name": "3-4: Strike Lake",
         "map_locations": [
           {
             "map": "world_map",
@@ -303,9 +303,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Advance the Wiggler chase.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_3"
+              "$ACCESS_W3_4"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -313,7 +313,7 @@
         ]
       },
       {
-        "name": "3-5: Strike Lake",
+        "name": "3-5: Loop Loop River",
         "map_locations": [
           {
             "map": "world_map",
@@ -323,9 +323,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Cross Strike Lake.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_4"
+              "$ACCESS_W3_5"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -333,7 +333,7 @@
         ]
       },
       {
-        "name": "3-6: Wiggler's Tree House",
+        "name": "3-6: Outlook Point",
         "map_locations": [
           {
             "map": "world_map",
@@ -343,9 +343,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Reach Wiggler's Tree House.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_5"
+              "$ACCESS_W3_6"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -363,9 +363,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Rail, diagonal rail, and exit scraps for the burrow.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization"
+              "$ACCESS_W3_7"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -373,7 +373,7 @@
         ]
       },
       {
-        "name": "3-8: Holey Thicket",
+        "name": "3-8: Tree Branch Trail",
         "map_locations": [
           {
             "map": "world_map",
@@ -383,9 +383,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: First bridge repair part.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_7"
+              "$ACCESS_W3_8"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -403,9 +403,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Second bridge repair part.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_8"
+              "$ACCESS_W3_9"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -423,9 +423,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Final bridge repair part.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_9"
+              "$ACCESS_W3_10"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -433,7 +433,7 @@
         ]
       },
       {
-        "name": "3-11: Outlook Point",
+        "name": "3-11: Holey Thicket",
         "map_locations": [
           {
             "map": "world_map",
@@ -443,9 +443,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Use the repaired bridge to reach the coast and pick up Fishhook.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization, scrap_bridge_part_1, scrap_bridge_part_2, scrap_bridge_part_3"
+              "$ACCESS_W3_11"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -463,9 +463,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Useful for the harbor / blooper sequence.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w3_11"
+              "$ACCESS_W3_12"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -488,9 +488,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: World 4 opens after the third Royal Sticker.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "royal_w3"
+              "$ACCESS_W4_1"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -508,9 +508,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Skate along the frozen route.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w4_1"
+              "$ACCESS_W4_2"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -528,9 +528,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Bookcase, wall, safe, portrait, and locked-door scraps all live in the mansion.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization"
+              "$ACCESS_W4_3"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -538,7 +538,7 @@
         ]
       },
       {
-        "name": "4-4: Whiteout Valley",
+        "name": "4-4: Shaved-Ice Cave",
         "map_locations": [
           {
             "map": "world_map",
@@ -548,9 +548,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Ride the chairlift route to the summit.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w4_3"
+              "$ACCESS_W4_4"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -558,7 +558,7 @@
         ]
       },
       {
-        "name": "4-5: Bowser's Snow Fort",
+        "name": "4-5: Whiteout Valley",
         "map_locations": [
           {
             "map": "world_map",
@@ -568,9 +568,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: The snow fort route expects a strong wind tool; Fan is the safest marker.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w4_4, req_thing_fan"
+              "$ACCESS_W4_5"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -578,7 +578,7 @@
         ]
       },
       {
-        "name": "4-6: Shaved-Ice Cave",
+        "name": "4-6: Bowser's Snow Fort",
         "map_locations": [
           {
             "map": "world_map",
@@ -588,9 +588,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Major optional thing sticker before the next world.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w4_4"
+              "$ACCESS_W4_6"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -613,9 +613,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Open the jungle waterworks.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "royal_w4"
+              "$ACCESS_W5_1"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -633,9 +633,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Run the rapids deeper into the jungle.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w5_1"
+              "$ACCESS_W5_2"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -653,9 +653,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Climb the waterfall route.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w5_2"
+              "$ACCESS_W5_3"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -673,9 +673,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Ruin Slope, Bomp, and Ruin Floor scraps rebuild the chomp ruins.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization"
+              "$ACCESS_W5_4"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -693,9 +693,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Mountain hole, boulder, cracked boulder, and huge slab scraps reshape the climb.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "paperization"
+              "$ACCESS_W5_5"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -713,9 +713,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: The classic volcano boss tool.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w5_5"
+              "$ACCESS_W5_6"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -738,9 +738,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: World 6 opens after all five Royal Stickers.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "royal_w1, royal_w2, royal_w3, royal_w4, royal_w5"
+              "$ACCESS_W6_1"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -758,9 +758,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Paperize the cannon route to the castle.",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w6_1"
+              "$ACCESS_W6_2"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
@@ -778,9 +778,9 @@
         ],
         "sections": [
           {
-            "name": "Unlocked when: Track any finale tools you want on hand (Battery / Sponge / Fan / Scissors are common).",
+            "name": "Stage access \u2014 received exit star or manual entrance override.",
             "access_rules": [
-              "clear_w6_2"
+              "$ACCESS_W6_3"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"

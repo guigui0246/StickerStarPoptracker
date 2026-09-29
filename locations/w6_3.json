@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Final Battle Thing Set \u2014 Track any finale tools you want on hand (Battery / Sponge / Fan / Scissors are common).",
-            "access_rules": [
-              "clear_w6_2"
-            ],
+            "name": "Final Battle Thing Set \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/thing_false.png",
             "chest_opened_img": "images/chests/thing_true.png"
           }
@@ -33,15 +31,18 @@
         ],
         "sections": [
           {
-            "name": "Gold Royal Sticker \u2014 Bring Paperization and your finale thing set for Bowser.",
+            "name": "Boss reward check \u2014 boss unlock required; reward is shuffled.",
             "access_rules": [
-              "clear_w6_2, $W6_FINAL"
+              "boss_unlock_w6"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W6_3"
     ]
   }
 ]

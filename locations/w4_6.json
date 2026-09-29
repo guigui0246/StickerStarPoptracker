@@ -1,47 +1,48 @@
 [
   {
-    "name": "4-6: Shaved-Ice Cave",
+    "name": "4-6: Bowser's Snow Fort",
     "children": [
       {
-        "name": "Thing: Refrigerator",
+        "name": "Mine Cart Rail Set",
         "map_locations": [
           {
             "map": "w4_6",
-            "x": 160,
-            "y": 180
+            "x": 430,
+            "y": 170
           }
         ],
         "sections": [
           {
-            "name": "Thing: Refrigerator \u2014 Major optional thing sticker before the next world.",
-            "access_rules": [
-              "clear_w4_4"
-            ],
-            "chest_unopened_img": "images/chests/thing_false.png",
-            "chest_opened_img": "images/chests/thing_true.png"
+            "name": "Mine Cart Rail Set \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
           }
         ]
       },
       {
-        "name": "Optional Cave Clear",
+        "name": "Royal Sticker",
         "map_locations": [
           {
             "map": "w4_6",
-            "x": 450,
-            "y": 150
+            "x": 730,
+            "y": 170
           }
         ],
         "sections": [
           {
-            "name": "Optional Cave Clear \u2014 Side route for completionists.",
+            "name": "Royal Sticker \u2014 shuffled reward check.",
             "access_rules": [
-              "clear_w4_4"
+              "boss_unlock_w4, paperization, scrap_mine_cart_rail, scrap_mine_cart_exit"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W4_6"
     ]
   }
 ]

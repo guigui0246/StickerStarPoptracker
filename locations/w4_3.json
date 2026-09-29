@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Mansion Scrap Set \u2014 Bookcase, wall, safe, portrait, and locked-door scraps all live in the mansion.",
-            "access_rules": [
-              "paperization"
-            ],
+            "name": "Mansion Scrap Set \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/special_false.png",
             "chest_opened_img": "images/chests/special_true.png"
           }
@@ -33,10 +31,8 @@
         ],
         "sections": [
           {
-            "name": "Thing: Fan / Vacuum Route \u2014 Bring a wind / suction thing sticker for the Big Boo fight.",
-            "access_rules": [
-              "clear_w4_2"
-            ],
+            "name": "Thing: Fan / Vacuum Route \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/thing_false.png",
             "chest_opened_img": "images/chests/thing_true.png"
           }
@@ -53,7 +49,7 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Use the Book of Sealing to finish the mansion.",
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
             "access_rules": [
               "$W4_BOO"
             ],
@@ -61,7 +57,28 @@
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
+      },
+      {
+        "name": "Thing: Refrigerator",
+        "map_locations": [
+          {
+            "map": "w4_3",
+            "x": 130,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Refrigerator \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/thing_false.png",
+            "chest_opened_img": "images/chests/thing_true.png"
+          }
+        ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W4_3"
     ]
   }
 ]

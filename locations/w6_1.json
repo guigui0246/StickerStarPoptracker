@@ -13,9 +13,9 @@
         ],
         "sections": [
           {
-            "name": "Hidden Bowser Castle Scrap \u2014 World 6 opens after all five Royal Stickers.",
+            "name": "Hidden Bowser Castle Scrap \u2014 shuffled reward check.",
             "access_rules": [
-              "$ALL_ROYALS"
+              "$ALL_ROYALS, paperization"
             ],
             "chest_unopened_img": "images/chests/special_false.png",
             "chest_opened_img": "images/chests/special_true.png"
@@ -33,15 +33,18 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Open the hidden castle route.",
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
             "access_rules": [
-              "$ALL_ROYALS"
+              "$ALL_ROYALS, paperization"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W6_1"
     ]
   }
 ]

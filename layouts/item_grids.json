@@ -13,6 +13,9 @@
             "hammer",
             "paperization",
             "req_book_of_sealing"
+          ],
+          [
+            "door_place_w1_2"
           ]
         ]
       }
@@ -62,18 +65,18 @@
       {
         "type": "itemgrid",
         "h_alignment": "center",
-        "item_size": "96",
-        "item_margin": "8,8",
+        "item_size": "80",
+        "item_margin": "6,6",
         "rows": [
           [
-            "clear_w1_1",
-            "clear_w1_2",
-            "clear_w1_3",
-            "clear_w1_4"
+            "star_w1_1",
+            "star_w1_2",
+            "star_w1_3",
+            "star_w1_3_alt",
+            "star_w1_4",
+            "star_w1_5"
           ],
           [
-            "clear_w1_5",
-            "clear_w1_6",
             "royal_w1"
           ]
         ]
@@ -110,17 +113,14 @@
       {
         "type": "itemgrid",
         "h_alignment": "center",
-        "item_size": "96",
-        "item_margin": "8,8",
+        "item_size": "80",
+        "item_margin": "6,6",
         "rows": [
           [
-            "clear_w2_1",
-            "clear_w2_2",
-            "clear_w2_3",
-            "clear_w2_4"
-          ],
-          [
-            "clear_w2_5",
+            "star_w2_1",
+            "star_w2_2",
+            "star_w2_3",
+            "star_w2_3_alt",
             "royal_w2"
           ]
         ]
@@ -154,28 +154,27 @@
       {
         "type": "itemgrid",
         "h_alignment": "center",
-        "item_size": "96",
-        "item_margin": "8,8",
+        "item_size": "80",
+        "item_margin": "6,6",
         "rows": [
           [
-            "clear_w3_1",
-            "clear_w3_2",
-            "clear_w3_3",
-            "clear_w3_4"
+            "star_w3_1",
+            "star_w3_10",
+            "star_w3_11",
+            "star_w3_11_alt",
+            "star_w3_2",
+            "star_w3_3"
           ],
           [
-            "clear_w3_5",
-            "clear_w3_6",
-            "clear_w3_7",
-            "clear_w3_8"
+            "star_w3_3_left",
+            "star_w3_3_middle",
+            "star_w3_4",
+            "star_w3_4_alt",
+            "star_w3_5",
+            "star_w3_7"
           ],
           [
-            "clear_w3_9",
-            "clear_w3_10",
-            "clear_w3_11",
-            "clear_w3_12"
-          ],
-          [
+            "star_w3_9",
             "royal_w3"
           ]
         ]
@@ -218,18 +217,15 @@
       {
         "type": "itemgrid",
         "h_alignment": "center",
-        "item_size": "96",
-        "item_margin": "8,8",
+        "item_size": "80",
+        "item_margin": "6,6",
         "rows": [
           [
-            "clear_w4_1",
-            "clear_w4_2",
-            "clear_w4_3",
-            "clear_w4_4"
-          ],
-          [
-            "clear_w4_5",
-            "clear_w4_6",
+            "star_w4_1",
+            "star_w4_1_alt",
+            "star_w4_2",
+            "star_w4_3",
+            "star_w4_5",
             "royal_w4"
           ]
         ]
@@ -269,18 +265,15 @@
       {
         "type": "itemgrid",
         "h_alignment": "center",
-        "item_size": "96",
-        "item_margin": "8,8",
+        "item_size": "80",
+        "item_margin": "6,6",
         "rows": [
           [
-            "clear_w5_1",
-            "clear_w5_2",
-            "clear_w5_3",
-            "clear_w5_4"
-          ],
-          [
-            "clear_w5_5",
-            "clear_w5_6",
+            "star_w5_1",
+            "star_w5_2",
+            "star_w5_3",
+            "star_w5_4",
+            "star_w5_5",
             "royal_w5"
           ]
         ]
@@ -320,13 +313,11 @@
       {
         "type": "itemgrid",
         "h_alignment": "center",
-        "item_size": "96",
-        "item_margin": "8,8",
+        "item_size": "80",
+        "item_margin": "6,6",
         "rows": [
           [
-            "clear_w6_1",
-            "clear_w6_2",
-            "clear_w6_3",
+            "star_w6_2",
             "royal_w6"
           ]
         ]
@@ -666,6 +657,462 @@
             "museum_blue_royal_sticker",
             "museum_green_royal_sticker",
             "museum_gold_royal_sticker"
+          ]
+        ]
+      }
+    ]
+  },
+  "jump_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "sticker_worn_out_jump",
+            "sticker_jump",
+            "sticker_shiny_jump",
+            "sticker_flashy_jump",
+            "sticker_big_shiny_jump",
+            "sticker_megaflash_jump"
+          ],
+          [
+            "sticker_iron_jump",
+            "sticker_shiny_iron_jump",
+            "sticker_flashy_iron_jump",
+            "sticker_big_shiny_iron_jump",
+            "sticker_megaflash_iron_jump",
+            "sticker_hopslipper"
+          ],
+          [
+            "sticker_shiny_hopslipper",
+            "sticker_flashy_hopslipper",
+            "sticker_big_shiny_hopslipper",
+            "sticker_megaflash_hopslipper",
+            "sticker_line_jump",
+            "sticker_shiny_line_jump"
+          ],
+          [
+            "sticker_flashy_line_jump",
+            "sticker_big_shiny_line_jump",
+            "sticker_megaflash_line_jump",
+            "sticker_flashy_clone_jump",
+            "sticker_big_shiny_clone_jump",
+            "sticker_megaflash_clone_jump"
+          ],
+          [
+            "sticker_super_boot",
+            "sticker_shiny_super_boot"
+          ]
+        ]
+      }
+    ]
+  },
+  "hammer_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "sticker_worn_out_hammer",
+            "sticker_hammer",
+            "sticker_shiny_hammer",
+            "sticker_flashy_hammer",
+            "sticker_big_shiny_hammer",
+            "sticker_megaflash_hammer"
+          ]
+        ]
+      }
+    ]
+  },
+  "battle_utility_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "sticker_flashy_infinijump",
+            "sticker_big_shiny_infinijump",
+            "sticker_megaflash_infinijump",
+            "sticker_slaphammer",
+            "sticker_shiny_slaphammer",
+            "sticker_flashy_slaphammer",
+            "sticker_big_shiny_slaphammer",
+            "sticker_megaflash_slaphammer"
+          ],
+          [
+            "sticker_eekhammer",
+            "sticker_shiny_eekhammer",
+            "sticker_flashy_eekhammer",
+            "sticker_big_shiny_eekhammer",
+            "sticker_megaflash_eekhammer",
+            "sticker_hurlhammer",
+            "sticker_shiny_hurlhammer",
+            "sticker_flashy_hurlhammer"
+          ],
+          [
+            "sticker_big_shiny_hurlhammer",
+            "sticker_megaflash_hurlhammer",
+            "sticker_baahammer",
+            "sticker_big_shiny_baahammer",
+            "sticker_megaflash_baahammer",
+            "sticker_burnhammer",
+            "sticker_big_shiny_burnhammer",
+            "sticker_megaflash_burnhammer"
+          ],
+          [
+            "sticker_chillhammer",
+            "sticker_big_shiny_chillhammer",
+            "sticker_megaflash_chillhammer",
+            "sticker_tail",
+            "sticker_shiny_tail",
+            "sticker_frog_suit",
+            "sticker_shiny_frog_suit",
+            "sticker_spike_helmet"
+          ],
+          [
+            "sticker_shiny_spike_helmet",
+            "sticker_flashy_spike_helmet",
+            "sticker_fire_flower",
+            "sticker_shiny_fire_flower",
+            "sticker_flashy_fire_flower",
+            "sticker_ice_flower",
+            "sticker_shiny_ice_flower",
+            "sticker_flashy_ice_flower"
+          ],
+          [
+            "sticker_pow_block",
+            "sticker_shiny_pow_block",
+            "sticker_flashy_pow_block",
+            "sticker_shell",
+            "sticker_shiny_shell",
+            "sticker_flashy_shell",
+            "sticker_mushroom",
+            "sticker_shiny_mushroom"
+          ],
+          [
+            "sticker_flashy_mushroom",
+            "sticker_big_1up",
+            "sticker_big_shiny_1up",
+            "sticker_poison_mushroom",
+            "sticker_leaf",
+            "sticker_shiny_leaf",
+            "sticker_secret_door",
+            "sticker_snowball"
+          ],
+          [
+            "sticker_spike_ball",
+            "sticker_barrel",
+            "sticker_wrench",
+            "sticker_bone",
+            "sticker_boomerang",
+            "sticker_bomb",
+            "sticker_sombrero",
+            "sticker_throwing_star"
+          ],
+          [
+            "sticker_sandal_sticker",
+            "sticker_kersti_sticker"
+          ]
+        ]
+      }
+    ]
+  },
+  "things_i_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "req_thing_sewing_scissors",
+            "req_thing_hair_shears",
+            "req_thing_scissors",
+            "req_thing_tailor_shears",
+            "req_thing_bellows",
+            "req_thing_paper_fan"
+          ],
+          [
+            "req_thing_fan",
+            "req_thing_mini_vacuum",
+            "req_thing_upright_vacuum",
+            "req_thing_vacuum",
+            "req_thing_watering_can",
+            "req_thing_faucet"
+          ],
+          [
+            "req_thing_teapot",
+            "req_thing_trumpet",
+            "req_thing_violin",
+            "req_thing_guitar",
+            "req_thing_newspaper",
+            "req_thing_toy_bat"
+          ],
+          [
+            "req_thing_bat",
+            "req_thing_square_can",
+            "req_thing_basin",
+            "req_thing_drum",
+            "req_thing_lightbulb",
+            "req_thing_flashlight"
+          ]
+        ]
+      }
+    ]
+  },
+  "things_ii_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "req_thing_searchlight",
+            "req_thing_watch_battery",
+            "req_thing_battery",
+            "req_thing_car_battery",
+            "req_thing_billiard_ball",
+            "req_thing_curling_stone"
+          ],
+          [
+            "req_thing_bowling_ball",
+            "req_thing_trophy",
+            "req_thing_cell_phone",
+            "req_thing_jackhammer",
+            "req_thing_radiator",
+            "req_thing_hair_dryer"
+          ],
+          [
+            "req_thing_oven",
+            "req_thing_magnifying_glass",
+            "req_thing_matches",
+            "req_thing_lighter",
+            "req_thing_shaved_ice",
+            "req_thing_air_conditioner"
+          ],
+          [
+            "req_thing_refrigerator",
+            "req_thing_soda",
+            "req_thing_squirt_gun",
+            "req_thing_rubber_ducky",
+            "req_thing_powder_puff",
+            "req_thing_sponge"
+          ]
+        ]
+      }
+    ]
+  },
+  "things_iii_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "req_thing_car_sponge",
+            "req_thing_pillow",
+            "req_thing_bed",
+            "req_thing_luxurious_bed",
+            "req_thing_tape",
+            "req_thing_thumbtack"
+          ],
+          [
+            "req_thing_stapler",
+            "req_thing_fishhook",
+            "req_thing_balloon",
+            "req_thing_pocket_watch",
+            "req_thing_cat_o_luck",
+            "req_thing_high_heel"
+          ],
+          [
+            "req_thing_goat",
+            "req_thing_turkey",
+            "req_thing_cake",
+            "req_thing_boom_box"
+          ]
+        ]
+      }
+    ]
+  },
+  "w1_access_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "access_w1_1",
+            "access_w1_2",
+            "access_w1_3",
+            "access_w1_4",
+            "access_w1_5",
+            "access_w1_6"
+          ]
+        ]
+      }
+    ]
+  },
+  "w2_access_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "access_w2_1",
+            "access_w2_2",
+            "access_w2_3",
+            "access_w2_4",
+            "access_w2_5"
+          ]
+        ]
+      }
+    ]
+  },
+  "w3_access_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "access_w3_1",
+            "access_w3_10",
+            "access_w3_11",
+            "access_w3_12",
+            "access_w3_2",
+            "access_w3_3"
+          ],
+          [
+            "access_w3_4",
+            "access_w3_5",
+            "access_w3_6",
+            "access_w3_7",
+            "access_w3_8",
+            "access_w3_9"
+          ]
+        ]
+      }
+    ]
+  },
+  "w4_access_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "access_w4_1",
+            "access_w4_2",
+            "access_w4_3",
+            "access_w4_4",
+            "access_w4_5",
+            "access_w4_6"
+          ]
+        ]
+      }
+    ]
+  },
+  "w5_access_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "access_w5_1",
+            "access_w5_2",
+            "access_w5_3",
+            "access_w5_4",
+            "access_w5_5",
+            "access_w5_6"
+          ]
+        ]
+      }
+    ]
+  },
+  "w6_access_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "access_w6_1",
+            "access_w6_2",
+            "access_w6_3"
+          ]
+        ]
+      }
+    ]
+  },
+  "boss_unlocks_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "80",
+        "item_margin": "6,6",
+        "rows": [
+          [
+            "boss_unlock_w1",
+            "boss_unlock_w2",
+            "boss_unlock_w3",
+            "boss_unlock_w4",
+            "boss_unlock_w5",
+            "boss_unlock_w6"
           ]
         ]
       }

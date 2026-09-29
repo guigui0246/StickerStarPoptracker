@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Block Switch Scrap \u2014 Collect the hidden block-switch paper piece.",
-            "access_rules": [
-              "clear_w1_5"
-            ],
+            "name": "Block Switch Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/special_false.png",
             "chest_opened_img": "images/chests/special_true.png"
           }
@@ -33,7 +31,7 @@
         ],
         "sections": [
           {
-            "name": "Royal Sticker \u2014 Use Paperization, restore the switch, and bring Scissors for Megasparkle Goomba.",
+            "name": "Boss reward check \u2014 boss unlock required; reward is shuffled.",
             "access_rules": [
               "$W1_FORTRESS"
             ],
@@ -42,6 +40,9 @@
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W1_6"
     ]
   }
 ]

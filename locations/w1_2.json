@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 After clearing Warm Fuzzy Plains.",
-            "access_rules": [
-              "clear_w1_1"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
@@ -33,7 +31,7 @@
         ],
         "sections": [
           {
-            "name": "Secret Door Route \u2014 Optional shortcut that uses Secret Door.",
+            "name": "Secret Door Route \u2014 shuffled reward check.",
             "access_rules": [
               "$W1_SECRET"
             ],
@@ -42,6 +40,9 @@
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W1_2"
     ]
   }
 ]

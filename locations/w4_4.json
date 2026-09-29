@@ -1,9 +1,9 @@
 [
   {
-    "name": "4-4: Whiteout Valley",
+    "name": "4-4: Shaved-Ice Cave",
     "children": [
       {
-        "name": "Mini Star / Stage Clear",
+        "name": "Shop Toad \u2014 first conversation",
         "map_locations": [
           {
             "map": "w4_4",
@@ -13,15 +13,16 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Ride the chairlift route to the summit.",
-            "access_rules": [
-              "clear_w4_3"
-            ],
+            "name": "Shop Toad check \u2014 first conversation only.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W4_4"
     ]
   }
 ]

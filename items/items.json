@@ -18,76 +18,10 @@
     "codes": "req_book_of_sealing"
   },
   {
-    "name": "Clear 1-1 Warm Fuzzy Plains",
-    "type": "toggle",
-    "img": "images/items/clear_w1_1.png",
-    "codes": "clear_w1_1"
-  },
-  {
-    "name": "Clear 1-2 Bouquet Gardens",
-    "type": "toggle",
-    "img": "images/items/clear_w1_2.png",
-    "codes": "clear_w1_2"
-  },
-  {
-    "name": "Clear 1-3 Water's Edge Way",
-    "type": "toggle",
-    "img": "images/items/clear_w1_3.png",
-    "codes": "clear_w1_3"
-  },
-  {
-    "name": "Clear 1-4 Hither Thither Hill",
-    "type": "toggle",
-    "img": "images/items/clear_w1_4.png",
-    "codes": "clear_w1_4"
-  },
-  {
-    "name": "Clear 1-5 Whammino Mountain",
-    "type": "toggle",
-    "img": "images/items/clear_w1_5.png",
-    "codes": "clear_w1_5"
-  },
-  {
-    "name": "Clear 1-6 Goomba Fortress",
-    "type": "toggle",
-    "img": "images/items/clear_w1_6.png",
-    "codes": "clear_w1_6"
-  },
-  {
     "name": "Royal Sticker (World 1)",
     "type": "toggle",
     "img": "images/items/royal_w1.png",
     "codes": "royal_w1"
-  },
-  {
-    "name": "Clear 2-1 Drybake Desert",
-    "type": "toggle",
-    "img": "images/items/clear_w2_1.png",
-    "codes": "clear_w2_1"
-  },
-  {
-    "name": "Clear 2-2 Yoshi Sphinx",
-    "type": "toggle",
-    "img": "images/items/clear_w2_2.png",
-    "codes": "clear_w2_2"
-  },
-  {
-    "name": "Clear 2-3 Sandshifter Ruins",
-    "type": "toggle",
-    "img": "images/items/clear_w2_3.png",
-    "codes": "clear_w2_3"
-  },
-  {
-    "name": "Clear 2-4 Damp Oasis",
-    "type": "toggle",
-    "img": "images/items/clear_w2_4.png",
-    "codes": "clear_w2_4"
-  },
-  {
-    "name": "Clear 2-5 Drybake Stadium",
-    "type": "toggle",
-    "img": "images/items/clear_w2_5.png",
-    "codes": "clear_w2_5"
   },
   {
     "name": "Royal Sticker (World 2)",
@@ -96,118 +30,10 @@
     "codes": "royal_w2"
   },
   {
-    "name": "Clear 3-1 Leaflitter Path",
-    "type": "toggle",
-    "img": "images/items/clear_w3_1.png",
-    "codes": "clear_w3_1"
-  },
-  {
-    "name": "Clear 3-2 Loop Loop River",
-    "type": "toggle",
-    "img": "images/items/clear_w3_2.png",
-    "codes": "clear_w3_2"
-  },
-  {
-    "name": "Clear 3-3 The Bafflewood",
-    "type": "toggle",
-    "img": "images/items/clear_w3_3.png",
-    "codes": "clear_w3_3"
-  },
-  {
-    "name": "Clear 3-4 Tree Branch Trail",
-    "type": "toggle",
-    "img": "images/items/clear_w3_4.png",
-    "codes": "clear_w3_4"
-  },
-  {
-    "name": "Clear 3-5 Strike Lake",
-    "type": "toggle",
-    "img": "images/items/clear_w3_5.png",
-    "codes": "clear_w3_5"
-  },
-  {
-    "name": "Clear 3-6 Wiggler's Tree House",
-    "type": "toggle",
-    "img": "images/items/clear_w3_6.png",
-    "codes": "clear_w3_6"
-  },
-  {
-    "name": "Clear 3-7 Rustle Burrow",
-    "type": "toggle",
-    "img": "images/items/clear_w3_7.png",
-    "codes": "clear_w3_7"
-  },
-  {
-    "name": "Clear 3-8 Holey Thicket",
-    "type": "toggle",
-    "img": "images/items/clear_w3_8.png",
-    "codes": "clear_w3_8"
-  },
-  {
-    "name": "Clear 3-9 Gauntlet Pond",
-    "type": "toggle",
-    "img": "images/items/clear_w3_9.png",
-    "codes": "clear_w3_9"
-  },
-  {
-    "name": "Clear 3-10 Stump Glade",
-    "type": "toggle",
-    "img": "images/items/clear_w3_10.png",
-    "codes": "clear_w3_10"
-  },
-  {
-    "name": "Clear 3-11 Outlook Point",
-    "type": "toggle",
-    "img": "images/items/clear_w3_11.png",
-    "codes": "clear_w3_11"
-  },
-  {
-    "name": "Clear 3-12 Whitecap Beach",
-    "type": "toggle",
-    "img": "images/items/clear_w3_12.png",
-    "codes": "clear_w3_12"
-  },
-  {
     "name": "Royal Sticker (World 3)",
     "type": "toggle",
     "img": "images/items/royal_w3.png",
     "codes": "royal_w3"
-  },
-  {
-    "name": "Clear 4-1 Snow Rise",
-    "type": "toggle",
-    "img": "images/items/clear_w4_1.png",
-    "codes": "clear_w4_1"
-  },
-  {
-    "name": "Clear 4-2 Ice Flow",
-    "type": "toggle",
-    "img": "images/items/clear_w4_2.png",
-    "codes": "clear_w4_2"
-  },
-  {
-    "name": "Clear 4-3 The Enigmansion",
-    "type": "toggle",
-    "img": "images/items/clear_w4_3.png",
-    "codes": "clear_w4_3"
-  },
-  {
-    "name": "Clear 4-4 Whiteout Valley",
-    "type": "toggle",
-    "img": "images/items/clear_w4_4.png",
-    "codes": "clear_w4_4"
-  },
-  {
-    "name": "Clear 4-5 Bowser's Snow Fort",
-    "type": "toggle",
-    "img": "images/items/clear_w4_5.png",
-    "codes": "clear_w4_5"
-  },
-  {
-    "name": "Clear 4-6 Shaved-Ice Cave",
-    "type": "toggle",
-    "img": "images/items/clear_w4_6.png",
-    "codes": "clear_w4_6"
   },
   {
     "name": "Royal Sticker (World 4)",
@@ -216,64 +42,10 @@
     "codes": "royal_w4"
   },
   {
-    "name": "Clear 5-1 Shy Guy Jungle",
-    "type": "toggle",
-    "img": "images/items/clear_w5_1.png",
-    "codes": "clear_w5_1"
-  },
-  {
-    "name": "Clear 5-2 Jungle Rapids",
-    "type": "toggle",
-    "img": "images/items/clear_w5_2.png",
-    "codes": "clear_w5_2"
-  },
-  {
-    "name": "Clear 5-3 Long Fall Falls",
-    "type": "toggle",
-    "img": "images/items/clear_w5_3.png",
-    "codes": "clear_w5_3"
-  },
-  {
-    "name": "Clear 5-4 Chomp Ruins",
-    "type": "toggle",
-    "img": "images/items/clear_w5_4.png",
-    "codes": "clear_w5_4"
-  },
-  {
-    "name": "Clear 5-5 Rugged Road",
-    "type": "toggle",
-    "img": "images/items/clear_w5_5.png",
-    "codes": "clear_w5_5"
-  },
-  {
-    "name": "Clear 5-6 Rumble Volcano",
-    "type": "toggle",
-    "img": "images/items/clear_w5_6.png",
-    "codes": "clear_w5_6"
-  },
-  {
     "name": "Royal Sticker (World 5)",
     "type": "toggle",
     "img": "images/items/royal_w5.png",
     "codes": "royal_w5"
-  },
-  {
-    "name": "Clear 6-1 Gate Cliff",
-    "type": "toggle",
-    "img": "images/items/clear_w6_1.png",
-    "codes": "clear_w6_1"
-  },
-  {
-    "name": "Clear 6-2 Bowser Jr.'s Flotilla",
-    "type": "toggle",
-    "img": "images/items/clear_w6_2.png",
-    "codes": "clear_w6_2"
-  },
-  {
-    "name": "Clear 6-3 Bowser's Sky Castle",
-    "type": "toggle",
-    "img": "images/items/clear_w6_3.png",
-    "codes": "clear_w6_3"
   },
   {
     "name": "Gold Royal Sticker",
@@ -498,91 +270,91 @@
     "codes": "scrap_banzai_bill_cannon"
   },
   {
-    "name": "Secret Door",
+    "name": "Sticker received / all shops unlocked: Secret Door",
     "type": "toggle",
     "img": "images/items/sticker_secret_door.png",
     "codes": "sticker_secret_door"
   },
   {
-    "name": "Fire Flower",
+    "name": "Sticker received / all shops unlocked: Fire Flower",
     "type": "toggle",
     "img": "images/items/sticker_fire_flower.png",
     "codes": "sticker_fire_flower"
   },
   {
-    "name": "Ice Flower",
+    "name": "Sticker received / all shops unlocked: Ice Flower",
     "type": "toggle",
     "img": "images/items/sticker_ice_flower.png",
     "codes": "sticker_ice_flower"
   },
   {
-    "name": "Scissors",
+    "name": "Thing sticker received / Thing shop unlocked: Scissors",
     "type": "toggle",
     "img": "images/items/req_thing_scissors.png",
     "codes": "req_thing_scissors"
   },
   {
-    "name": "Bat",
+    "name": "Thing sticker received / Thing shop unlocked: Bat",
     "type": "toggle",
     "img": "images/items/req_thing_bat.png",
     "codes": "req_thing_bat"
   },
   {
-    "name": "Trumpet",
+    "name": "Thing sticker received / Thing shop unlocked: Trumpet",
     "type": "toggle",
     "img": "images/items/req_thing_trumpet.png",
     "codes": "req_thing_trumpet"
   },
   {
-    "name": "Faucet",
+    "name": "Thing sticker received / Thing shop unlocked: Faucet",
     "type": "toggle",
     "img": "images/items/req_thing_faucet.png",
     "codes": "req_thing_faucet"
   },
   {
-    "name": "Lightbulb",
+    "name": "Thing sticker received / Thing shop unlocked: Lightbulb",
     "type": "toggle",
     "img": "images/items/req_thing_lightbulb.png",
     "codes": "req_thing_lightbulb"
   },
   {
-    "name": "Fishhook",
+    "name": "Thing sticker received / Thing shop unlocked: Fishhook",
     "type": "toggle",
     "img": "images/items/req_thing_fishhook.png",
     "codes": "req_thing_fishhook"
   },
   {
-    "name": "Fan",
+    "name": "Thing sticker received / Thing shop unlocked: Fan",
     "type": "toggle",
     "img": "images/items/req_thing_fan.png",
     "codes": "req_thing_fan"
   },
   {
-    "name": "Vacuum",
+    "name": "Thing sticker received / Thing shop unlocked: Vacuum",
     "type": "toggle",
     "img": "images/items/req_thing_vacuum.png",
     "codes": "req_thing_vacuum"
   },
   {
-    "name": "Refrigerator",
+    "name": "Thing sticker received / Thing shop unlocked: Refrigerator",
     "type": "toggle",
     "img": "images/items/req_thing_refrigerator.png",
     "codes": "req_thing_refrigerator"
   },
   {
-    "name": "Sponge",
+    "name": "Thing sticker received / Thing shop unlocked: Sponge",
     "type": "toggle",
     "img": "images/items/req_thing_sponge.png",
     "codes": "req_thing_sponge"
   },
   {
-    "name": "Goat",
+    "name": "Thing sticker received / Thing shop unlocked: Goat",
     "type": "toggle",
     "img": "images/items/req_thing_goat.png",
     "codes": "req_thing_goat"
   },
   {
-    "name": "Battery",
+    "name": "Thing sticker received / Thing shop unlocked: D-Cell Battery",
     "type": "toggle",
     "img": "images/items/req_thing_battery.png",
     "codes": "req_thing_battery"
@@ -1594,5 +1366,1361 @@
     "type": "toggle",
     "img": "images/items/museum_gold_royal_sticker.png",
     "codes": "museum_gold_royal_sticker"
+  },
+  {
+    "name": "Stage entrance unlocked: 1-1",
+    "type": "toggle",
+    "img": "images/items/clear_w1_1.png",
+    "codes": "access_w1_1"
+  },
+  {
+    "name": "Stage entrance unlocked: 1-2",
+    "type": "toggle",
+    "img": "images/items/clear_w1_2.png",
+    "codes": "access_w1_2"
+  },
+  {
+    "name": "Stage entrance unlocked: 1-3",
+    "type": "toggle",
+    "img": "images/items/clear_w1_3.png",
+    "codes": "access_w1_3"
+  },
+  {
+    "name": "Stage entrance unlocked: 1-4",
+    "type": "toggle",
+    "img": "images/items/clear_w1_4.png",
+    "codes": "access_w1_4"
+  },
+  {
+    "name": "Stage entrance unlocked: 1-5",
+    "type": "toggle",
+    "img": "images/items/clear_w1_5.png",
+    "codes": "access_w1_5"
+  },
+  {
+    "name": "Stage entrance unlocked: 1-6",
+    "type": "toggle",
+    "img": "images/items/clear_w1_6.png",
+    "codes": "access_w1_6"
+  },
+  {
+    "name": "Stage entrance unlocked: 2-1",
+    "type": "toggle",
+    "img": "images/items/clear_w2_1.png",
+    "codes": "access_w2_1"
+  },
+  {
+    "name": "Stage entrance unlocked: 2-2",
+    "type": "toggle",
+    "img": "images/items/clear_w2_2.png",
+    "codes": "access_w2_2"
+  },
+  {
+    "name": "Stage entrance unlocked: 2-3",
+    "type": "toggle",
+    "img": "images/items/clear_w2_3.png",
+    "codes": "access_w2_3"
+  },
+  {
+    "name": "Stage entrance unlocked: 2-4",
+    "type": "toggle",
+    "img": "images/items/clear_w2_4.png",
+    "codes": "access_w2_4"
+  },
+  {
+    "name": "Stage entrance unlocked: 2-5",
+    "type": "toggle",
+    "img": "images/items/clear_w2_5.png",
+    "codes": "access_w2_5"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-1",
+    "type": "toggle",
+    "img": "images/items/clear_w3_1.png",
+    "codes": "access_w3_1"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-10",
+    "type": "toggle",
+    "img": "images/items/clear_w3_10.png",
+    "codes": "access_w3_10"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-11",
+    "type": "toggle",
+    "img": "images/items/clear_w3_11.png",
+    "codes": "access_w3_11"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-12",
+    "type": "toggle",
+    "img": "images/items/clear_w3_12.png",
+    "codes": "access_w3_12"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-2",
+    "type": "toggle",
+    "img": "images/items/clear_w3_2.png",
+    "codes": "access_w3_2"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-3",
+    "type": "toggle",
+    "img": "images/items/clear_w3_3.png",
+    "codes": "access_w3_3"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-4",
+    "type": "toggle",
+    "img": "images/items/clear_w3_4.png",
+    "codes": "access_w3_4"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-5",
+    "type": "toggle",
+    "img": "images/items/clear_w3_5.png",
+    "codes": "access_w3_5"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-6",
+    "type": "toggle",
+    "img": "images/items/clear_w3_6.png",
+    "codes": "access_w3_6"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-7",
+    "type": "toggle",
+    "img": "images/items/clear_w3_7.png",
+    "codes": "access_w3_7"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-8",
+    "type": "toggle",
+    "img": "images/items/clear_w3_8.png",
+    "codes": "access_w3_8"
+  },
+  {
+    "name": "Stage entrance unlocked: 3-9",
+    "type": "toggle",
+    "img": "images/items/clear_w3_9.png",
+    "codes": "access_w3_9"
+  },
+  {
+    "name": "Stage entrance unlocked: 4-1",
+    "type": "toggle",
+    "img": "images/items/clear_w4_1.png",
+    "codes": "access_w4_1"
+  },
+  {
+    "name": "Stage entrance unlocked: 4-2",
+    "type": "toggle",
+    "img": "images/items/clear_w4_2.png",
+    "codes": "access_w4_2"
+  },
+  {
+    "name": "Stage entrance unlocked: 4-3",
+    "type": "toggle",
+    "img": "images/items/clear_w4_3.png",
+    "codes": "access_w4_3"
+  },
+  {
+    "name": "Stage entrance unlocked: 4-4",
+    "type": "toggle",
+    "img": "images/items/clear_w4_4.png",
+    "codes": "access_w4_4"
+  },
+  {
+    "name": "Stage entrance unlocked: 4-5",
+    "type": "toggle",
+    "img": "images/items/clear_w4_5.png",
+    "codes": "access_w4_5"
+  },
+  {
+    "name": "Stage entrance unlocked: 4-6",
+    "type": "toggle",
+    "img": "images/items/clear_w4_6.png",
+    "codes": "access_w4_6"
+  },
+  {
+    "name": "Stage entrance unlocked: 5-1",
+    "type": "toggle",
+    "img": "images/items/clear_w5_1.png",
+    "codes": "access_w5_1"
+  },
+  {
+    "name": "Stage entrance unlocked: 5-2",
+    "type": "toggle",
+    "img": "images/items/clear_w5_2.png",
+    "codes": "access_w5_2"
+  },
+  {
+    "name": "Stage entrance unlocked: 5-3",
+    "type": "toggle",
+    "img": "images/items/clear_w5_3.png",
+    "codes": "access_w5_3"
+  },
+  {
+    "name": "Stage entrance unlocked: 5-4",
+    "type": "toggle",
+    "img": "images/items/clear_w5_4.png",
+    "codes": "access_w5_4"
+  },
+  {
+    "name": "Stage entrance unlocked: 5-5",
+    "type": "toggle",
+    "img": "images/items/clear_w5_5.png",
+    "codes": "access_w5_5"
+  },
+  {
+    "name": "Stage entrance unlocked: 5-6",
+    "type": "toggle",
+    "img": "images/items/clear_w5_6.png",
+    "codes": "access_w5_6"
+  },
+  {
+    "name": "Stage entrance unlocked: 6-1",
+    "type": "toggle",
+    "img": "images/items/clear_w6_1.png",
+    "codes": "access_w6_1"
+  },
+  {
+    "name": "Stage entrance unlocked: 6-2",
+    "type": "toggle",
+    "img": "images/items/clear_w6_2.png",
+    "codes": "access_w6_2"
+  },
+  {
+    "name": "Stage entrance unlocked: 6-3",
+    "type": "toggle",
+    "img": "images/items/clear_w6_3.png",
+    "codes": "access_w6_3"
+  },
+  {
+    "name": "Received Mini Star: w1_1 \u2192 1-2",
+    "type": "toggle",
+    "img": "images/items/clear_w1_1.png",
+    "codes": "star_w1_1"
+  },
+  {
+    "name": "Received Mini Star: w1_2 \u2192 1-3",
+    "type": "toggle",
+    "img": "images/items/clear_w1_2.png",
+    "codes": "star_w1_2"
+  },
+  {
+    "name": "Received Mini Star: w1_3 \u2192 1-4",
+    "type": "toggle",
+    "img": "images/items/clear_w1_3.png",
+    "codes": "star_w1_3"
+  },
+  {
+    "name": "Received Mini Star: w1_3_alt \u2192 1-5",
+    "type": "toggle",
+    "img": "images/items/clear_w1_3.png",
+    "codes": "star_w1_3_alt"
+  },
+  {
+    "name": "Received Mini Star: w1_4 \u2192 1-6",
+    "type": "toggle",
+    "img": "images/items/clear_w1_4.png",
+    "codes": "star_w1_4"
+  },
+  {
+    "name": "Received Mini Star: w1_5 \u2192 1-6",
+    "type": "toggle",
+    "img": "images/items/clear_w1_5.png",
+    "codes": "star_w1_5"
+  },
+  {
+    "name": "Received Mini Star: w2_1 \u2192 2-2",
+    "type": "toggle",
+    "img": "images/items/clear_w2_1.png",
+    "codes": "star_w2_1"
+  },
+  {
+    "name": "Received Mini Star: w2_2 \u2192 2-3",
+    "type": "toggle",
+    "img": "images/items/clear_w2_2.png",
+    "codes": "star_w2_2"
+  },
+  {
+    "name": "Received Mini Star: w2_3 \u2192 2-5",
+    "type": "toggle",
+    "img": "images/items/clear_w2_3.png",
+    "codes": "star_w2_3"
+  },
+  {
+    "name": "Received Mini Star: w2_3_alt \u2192 2-4",
+    "type": "toggle",
+    "img": "images/items/clear_w2_3.png",
+    "codes": "star_w2_3_alt"
+  },
+  {
+    "name": "Received Mini Star: w3_1 \u2192 3-2",
+    "type": "toggle",
+    "img": "images/items/clear_w3_1.png",
+    "codes": "star_w3_1"
+  },
+  {
+    "name": "Received Mini Star: w3_10 \u2192 3-7",
+    "type": "toggle",
+    "img": "images/items/clear_w3_10.png",
+    "codes": "star_w3_10"
+  },
+  {
+    "name": "Received Mini Star: w3_11 \u2192 3-12",
+    "type": "toggle",
+    "img": "images/items/clear_w3_11.png",
+    "codes": "star_w3_11"
+  },
+  {
+    "name": "Received Mini Star: w3_11_alt \u2192 3-9",
+    "type": "toggle",
+    "img": "images/items/clear_w3_11.png",
+    "codes": "star_w3_11_alt"
+  },
+  {
+    "name": "Received Mini Star: w3_2 \u2192 3-3",
+    "type": "toggle",
+    "img": "images/items/clear_w3_2.png",
+    "codes": "star_w3_2"
+  },
+  {
+    "name": "Received Mini Star: w3_3 \u2192 3-4",
+    "type": "toggle",
+    "img": "images/items/clear_w3_3.png",
+    "codes": "star_w3_3"
+  },
+  {
+    "name": "Received Mini Star: w3_3_left \u2192 3-7",
+    "type": "toggle",
+    "img": "images/items/clear_w3_3.png",
+    "codes": "star_w3_3_left"
+  },
+  {
+    "name": "Received Mini Star: w3_3_middle \u2192 3-9",
+    "type": "toggle",
+    "img": "images/items/clear_w3_3.png",
+    "codes": "star_w3_3_middle"
+  },
+  {
+    "name": "Received Mini Star: w3_4 \u2192 3-5",
+    "type": "toggle",
+    "img": "images/items/clear_w3_4.png",
+    "codes": "star_w3_4"
+  },
+  {
+    "name": "Received Mini Star: w3_4_alt \u2192 3-11",
+    "type": "toggle",
+    "img": "images/items/clear_w3_4.png",
+    "codes": "star_w3_4_alt"
+  },
+  {
+    "name": "Received Mini Star: w3_5 \u2192 3-6",
+    "type": "toggle",
+    "img": "images/items/clear_w3_5.png",
+    "codes": "star_w3_5"
+  },
+  {
+    "name": "Received Mini Star: w3_7 \u2192 3-8",
+    "type": "toggle",
+    "img": "images/items/clear_w3_7.png",
+    "codes": "star_w3_7"
+  },
+  {
+    "name": "Received Mini Star: w3_9 \u2192 3-10",
+    "type": "toggle",
+    "img": "images/items/clear_w3_9.png",
+    "codes": "star_w3_9"
+  },
+  {
+    "name": "Received Mini Star: w4_1 \u2192 4-2",
+    "type": "toggle",
+    "img": "images/items/clear_w4_1.png",
+    "codes": "star_w4_1"
+  },
+  {
+    "name": "Received Mini Star: w4_1_alt \u2192 4-5",
+    "type": "toggle",
+    "img": "images/items/clear_w4_1.png",
+    "codes": "star_w4_1_alt"
+  },
+  {
+    "name": "Received Mini Star: w4_2 \u2192 4-3",
+    "type": "toggle",
+    "img": "images/items/clear_w4_2.png",
+    "codes": "star_w4_2"
+  },
+  {
+    "name": "Received Mini Star: w4_3 \u2192 4-4",
+    "type": "toggle",
+    "img": "images/items/clear_w4_3.png",
+    "codes": "star_w4_3"
+  },
+  {
+    "name": "Received Mini Star: w4_5 \u2192 4-6",
+    "type": "toggle",
+    "img": "images/items/clear_w4_5.png",
+    "codes": "star_w4_5"
+  },
+  {
+    "name": "Received Mini Star: w5_1 \u2192 5-2",
+    "type": "toggle",
+    "img": "images/items/clear_w5_1.png",
+    "codes": "star_w5_1"
+  },
+  {
+    "name": "Received Mini Star: w5_2 \u2192 5-3",
+    "type": "toggle",
+    "img": "images/items/clear_w5_2.png",
+    "codes": "star_w5_2"
+  },
+  {
+    "name": "Received Mini Star: w5_3 \u2192 5-4",
+    "type": "toggle",
+    "img": "images/items/clear_w5_3.png",
+    "codes": "star_w5_3"
+  },
+  {
+    "name": "Received Mini Star: w5_4 \u2192 5-5",
+    "type": "toggle",
+    "img": "images/items/clear_w5_4.png",
+    "codes": "star_w5_4"
+  },
+  {
+    "name": "Received Mini Star: w5_5 \u2192 5-6",
+    "type": "toggle",
+    "img": "images/items/clear_w5_5.png",
+    "codes": "star_w5_5"
+  },
+  {
+    "name": "Received Mini Star: w6_2 \u2192 6-3",
+    "type": "toggle",
+    "img": "images/items/clear_w6_2.png",
+    "codes": "star_w6_2"
+  },
+  {
+    "name": "Boss unlocked: World 1",
+    "type": "toggle",
+    "img": "images/items/royal_w1.png",
+    "codes": "boss_unlock_w1"
+  },
+  {
+    "name": "Boss unlocked: World 2",
+    "type": "toggle",
+    "img": "images/items/royal_w2.png",
+    "codes": "boss_unlock_w2"
+  },
+  {
+    "name": "Boss unlocked: World 3",
+    "type": "toggle",
+    "img": "images/items/royal_w3.png",
+    "codes": "boss_unlock_w3"
+  },
+  {
+    "name": "Boss unlocked: World 4",
+    "type": "toggle",
+    "img": "images/items/royal_w4.png",
+    "codes": "boss_unlock_w4"
+  },
+  {
+    "name": "Boss unlocked: World 5",
+    "type": "toggle",
+    "img": "images/items/royal_w5.png",
+    "codes": "boss_unlock_w5"
+  },
+  {
+    "name": "Boss unlocked: World 6",
+    "type": "toggle",
+    "img": "images/items/royal_w6.png",
+    "codes": "boss_unlock_w6"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Worn-Out Jump",
+    "type": "toggle",
+    "img": "images/items/museum_worn_out_jump.png",
+    "codes": "sticker_worn_out_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Jump",
+    "type": "toggle",
+    "img": "images/items/museum_jump.png",
+    "codes": "sticker_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Jump",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_jump.png",
+    "codes": "sticker_shiny_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_jump.png",
+    "codes": "sticker_flashy_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_jump.png",
+    "codes": "sticker_big_shiny_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_jump.png",
+    "codes": "sticker_megaflash_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_iron_jump.png",
+    "codes": "sticker_iron_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_iron_jump.png",
+    "codes": "sticker_shiny_iron_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_iron_jump.png",
+    "codes": "sticker_flashy_iron_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_iron_jump.png",
+    "codes": "sticker_big_shiny_iron_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Iron Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_iron_jump.png",
+    "codes": "sticker_megaflash_iron_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_hopslipper.png",
+    "codes": "sticker_hopslipper"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_hopslipper.png",
+    "codes": "sticker_shiny_hopslipper"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_hopslipper.png",
+    "codes": "sticker_flashy_hopslipper"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_hopslipper.png",
+    "codes": "sticker_big_shiny_hopslipper"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Hopslipper",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_hopslipper.png",
+    "codes": "sticker_megaflash_hopslipper"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_line_jump.png",
+    "codes": "sticker_line_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_line_jump.png",
+    "codes": "sticker_shiny_line_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_line_jump.png",
+    "codes": "sticker_flashy_line_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_line_jump.png",
+    "codes": "sticker_big_shiny_line_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Line Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_line_jump.png",
+    "codes": "sticker_megaflash_line_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Clone Jump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_clone_jump.png",
+    "codes": "sticker_flashy_clone_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Clone Jump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_clone_jump.png",
+    "codes": "sticker_big_shiny_clone_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Clone Jump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_clone_jump.png",
+    "codes": "sticker_megaflash_clone_jump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Super Boot",
+    "type": "toggle",
+    "img": "images/items/museum_super_boot.png",
+    "codes": "sticker_super_boot"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Super Boot",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_super_boot.png",
+    "codes": "sticker_shiny_super_boot"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Worn-Out Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_worn_out_hammer.png",
+    "codes": "sticker_worn_out_hammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_hammer.png",
+    "codes": "sticker_hammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_hammer.png",
+    "codes": "sticker_shiny_hammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_hammer.png",
+    "codes": "sticker_flashy_hammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_hammer.png",
+    "codes": "sticker_big_shiny_hammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Hammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_hammer.png",
+    "codes": "sticker_megaflash_hammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Infinijump",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_infinijump.png",
+    "codes": "sticker_flashy_infinijump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Infinijump",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_infinijump.png",
+    "codes": "sticker_big_shiny_infinijump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Infinijump",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_infinijump.png",
+    "codes": "sticker_megaflash_infinijump"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_slaphammer.png",
+    "codes": "sticker_slaphammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_slaphammer.png",
+    "codes": "sticker_shiny_slaphammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_slaphammer.png",
+    "codes": "sticker_flashy_slaphammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_slaphammer.png",
+    "codes": "sticker_big_shiny_slaphammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Slaphammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_slaphammer.png",
+    "codes": "sticker_megaflash_slaphammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_eekhammer.png",
+    "codes": "sticker_eekhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_eekhammer.png",
+    "codes": "sticker_shiny_eekhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_eekhammer.png",
+    "codes": "sticker_flashy_eekhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_eekhammer.png",
+    "codes": "sticker_big_shiny_eekhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Eekhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_eekhammer.png",
+    "codes": "sticker_megaflash_eekhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_hurlhammer.png",
+    "codes": "sticker_hurlhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_hurlhammer.png",
+    "codes": "sticker_shiny_hurlhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_hurlhammer.png",
+    "codes": "sticker_flashy_hurlhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_hurlhammer.png",
+    "codes": "sticker_big_shiny_hurlhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Hurlhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_hurlhammer.png",
+    "codes": "sticker_megaflash_hurlhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Baahammer",
+    "type": "toggle",
+    "img": "images/items/museum_baahammer.png",
+    "codes": "sticker_baahammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Baahammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_baahammer.png",
+    "codes": "sticker_big_shiny_baahammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Baahammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_baahammer.png",
+    "codes": "sticker_megaflash_baahammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Burnhammer",
+    "type": "toggle",
+    "img": "images/items/museum_burnhammer.png",
+    "codes": "sticker_burnhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Burnhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_burnhammer.png",
+    "codes": "sticker_big_shiny_burnhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Burnhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_burnhammer.png",
+    "codes": "sticker_megaflash_burnhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Chillhammer",
+    "type": "toggle",
+    "img": "images/items/museum_chillhammer.png",
+    "codes": "sticker_chillhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny Chillhammer",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_chillhammer.png",
+    "codes": "sticker_big_shiny_chillhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Megaflash Chillhammer",
+    "type": "toggle",
+    "img": "images/items/museum_megaflash_chillhammer.png",
+    "codes": "sticker_megaflash_chillhammer"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Tail",
+    "type": "toggle",
+    "img": "images/items/museum_tail.png",
+    "codes": "sticker_tail"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Tail",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_tail.png",
+    "codes": "sticker_shiny_tail"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Frog Suit",
+    "type": "toggle",
+    "img": "images/items/museum_frog_suit.png",
+    "codes": "sticker_frog_suit"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Frog Suit",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_frog_suit.png",
+    "codes": "sticker_shiny_frog_suit"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Spike Helmet",
+    "type": "toggle",
+    "img": "images/items/museum_spike_helmet.png",
+    "codes": "sticker_spike_helmet"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Spike Helmet",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_spike_helmet.png",
+    "codes": "sticker_shiny_spike_helmet"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Spike Helmet",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_spike_helmet.png",
+    "codes": "sticker_flashy_spike_helmet"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Fire Flower",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_fire_flower.png",
+    "codes": "sticker_shiny_fire_flower"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Fire Flower",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_fire_flower.png",
+    "codes": "sticker_flashy_fire_flower"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Ice Flower",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_ice_flower.png",
+    "codes": "sticker_shiny_ice_flower"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Ice Flower",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_ice_flower.png",
+    "codes": "sticker_flashy_ice_flower"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: POW Block",
+    "type": "toggle",
+    "img": "images/items/museum_pow_block.png",
+    "codes": "sticker_pow_block"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny POW Block",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_pow_block.png",
+    "codes": "sticker_shiny_pow_block"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy POW Block",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_pow_block.png",
+    "codes": "sticker_flashy_pow_block"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shell",
+    "type": "toggle",
+    "img": "images/items/museum_shell.png",
+    "codes": "sticker_shell"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Shell",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_shell.png",
+    "codes": "sticker_shiny_shell"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Shell",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_shell.png",
+    "codes": "sticker_flashy_shell"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_mushroom.png",
+    "codes": "sticker_mushroom"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_mushroom.png",
+    "codes": "sticker_shiny_mushroom"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Flashy Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_flashy_mushroom.png",
+    "codes": "sticker_flashy_mushroom"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big 1UP",
+    "type": "toggle",
+    "img": "images/items/museum_big_1up.png",
+    "codes": "sticker_big_1up"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Big Shiny 1UP",
+    "type": "toggle",
+    "img": "images/items/museum_big_shiny_1up.png",
+    "codes": "sticker_big_shiny_1up"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Poison Mushroom",
+    "type": "toggle",
+    "img": "images/items/museum_poison_mushroom.png",
+    "codes": "sticker_poison_mushroom"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Leaf",
+    "type": "toggle",
+    "img": "images/items/museum_leaf.png",
+    "codes": "sticker_leaf"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Shiny Leaf",
+    "type": "toggle",
+    "img": "images/items/museum_shiny_leaf.png",
+    "codes": "sticker_shiny_leaf"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Snowball",
+    "type": "toggle",
+    "img": "images/items/museum_snowball.png",
+    "codes": "sticker_snowball"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Spike Ball",
+    "type": "toggle",
+    "img": "images/items/museum_spike_ball.png",
+    "codes": "sticker_spike_ball"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Barrel",
+    "type": "toggle",
+    "img": "images/items/museum_barrel.png",
+    "codes": "sticker_barrel"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Wrench",
+    "type": "toggle",
+    "img": "images/items/museum_wrench.png",
+    "codes": "sticker_wrench"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Bone",
+    "type": "toggle",
+    "img": "images/items/museum_bone.png",
+    "codes": "sticker_bone"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Boomerang",
+    "type": "toggle",
+    "img": "images/items/museum_boomerang.png",
+    "codes": "sticker_boomerang"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Bomb",
+    "type": "toggle",
+    "img": "images/items/museum_bomb.png",
+    "codes": "sticker_bomb"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Sombrero",
+    "type": "toggle",
+    "img": "images/items/museum_sombrero.png",
+    "codes": "sticker_sombrero"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Throwing Star",
+    "type": "toggle",
+    "img": "images/items/museum_throwing_star.png",
+    "codes": "sticker_throwing_star"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Sandal Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_sandal_sticker.png",
+    "codes": "sticker_sandal_sticker"
+  },
+  {
+    "name": "Sticker received / all shops unlocked: Kersti Sticker",
+    "type": "toggle",
+    "img": "images/items/museum_kersti_sticker.png",
+    "codes": "sticker_kersti_sticker"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Sewing Scissors",
+    "type": "toggle",
+    "img": "images/items/museum_sewing_scissors.png",
+    "codes": "req_thing_sewing_scissors"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Hair Shears",
+    "type": "toggle",
+    "img": "images/items/museum_hair_shears.png",
+    "codes": "req_thing_hair_shears"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Tailor Shears",
+    "type": "toggle",
+    "img": "images/items/museum_tailor_shears.png",
+    "codes": "req_thing_tailor_shears"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Bellows",
+    "type": "toggle",
+    "img": "images/items/museum_bellows.png",
+    "codes": "req_thing_bellows"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Paper Fan",
+    "type": "toggle",
+    "img": "images/items/museum_paper_fan.png",
+    "codes": "req_thing_paper_fan"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Mini Vacuum",
+    "type": "toggle",
+    "img": "images/items/museum_mini_vacuum.png",
+    "codes": "req_thing_mini_vacuum"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Upright Vacuum",
+    "type": "toggle",
+    "img": "images/items/museum_upright_vacuum.png",
+    "codes": "req_thing_upright_vacuum"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Watering Can",
+    "type": "toggle",
+    "img": "images/items/museum_watering_can.png",
+    "codes": "req_thing_watering_can"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Teapot",
+    "type": "toggle",
+    "img": "images/items/museum_teapot.png",
+    "codes": "req_thing_teapot"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Violin",
+    "type": "toggle",
+    "img": "images/items/museum_violin.png",
+    "codes": "req_thing_violin"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Guitar",
+    "type": "toggle",
+    "img": "images/items/museum_guitar.png",
+    "codes": "req_thing_guitar"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Newspaper",
+    "type": "toggle",
+    "img": "images/items/museum_newspaper.png",
+    "codes": "req_thing_newspaper"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Toy Bat",
+    "type": "toggle",
+    "img": "images/items/museum_toy_bat.png",
+    "codes": "req_thing_toy_bat"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Square Can",
+    "type": "toggle",
+    "img": "images/items/museum_square_can.png",
+    "codes": "req_thing_square_can"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Basin",
+    "type": "toggle",
+    "img": "images/items/museum_basin.png",
+    "codes": "req_thing_basin"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Drum",
+    "type": "toggle",
+    "img": "images/items/museum_drum.png",
+    "codes": "req_thing_drum"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Flashlight",
+    "type": "toggle",
+    "img": "images/items/museum_flashlight.png",
+    "codes": "req_thing_flashlight"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Searchlight",
+    "type": "toggle",
+    "img": "images/items/museum_searchlight.png",
+    "codes": "req_thing_searchlight"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Watch Battery",
+    "type": "toggle",
+    "img": "images/items/museum_watch_battery.png",
+    "codes": "req_thing_watch_battery"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Car Battery",
+    "type": "toggle",
+    "img": "images/items/museum_car_battery.png",
+    "codes": "req_thing_car_battery"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Billiard Ball",
+    "type": "toggle",
+    "img": "images/items/museum_billiard_ball.png",
+    "codes": "req_thing_billiard_ball"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Curling Stone",
+    "type": "toggle",
+    "img": "images/items/museum_curling_stone.png",
+    "codes": "req_thing_curling_stone"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Bowling Ball",
+    "type": "toggle",
+    "img": "images/items/museum_bowling_ball.png",
+    "codes": "req_thing_bowling_ball"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Trophy",
+    "type": "toggle",
+    "img": "images/items/museum_trophy.png",
+    "codes": "req_thing_trophy"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Cell Phone",
+    "type": "toggle",
+    "img": "images/items/museum_cell_phone.png",
+    "codes": "req_thing_cell_phone"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Jackhammer",
+    "type": "toggle",
+    "img": "images/items/museum_jackhammer.png",
+    "codes": "req_thing_jackhammer"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Radiator",
+    "type": "toggle",
+    "img": "images/items/museum_radiator.png",
+    "codes": "req_thing_radiator"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Hair Dryer",
+    "type": "toggle",
+    "img": "images/items/museum_hair_dryer.png",
+    "codes": "req_thing_hair_dryer"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Oven",
+    "type": "toggle",
+    "img": "images/items/museum_oven.png",
+    "codes": "req_thing_oven"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Magnifying Glass",
+    "type": "toggle",
+    "img": "images/items/museum_magnifying_glass.png",
+    "codes": "req_thing_magnifying_glass"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Matches",
+    "type": "toggle",
+    "img": "images/items/museum_matches.png",
+    "codes": "req_thing_matches"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Lighter",
+    "type": "toggle",
+    "img": "images/items/museum_lighter.png",
+    "codes": "req_thing_lighter"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Shaved Ice",
+    "type": "toggle",
+    "img": "images/items/museum_shaved_ice.png",
+    "codes": "req_thing_shaved_ice"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Air Conditioner",
+    "type": "toggle",
+    "img": "images/items/museum_air_conditioner.png",
+    "codes": "req_thing_air_conditioner"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Soda",
+    "type": "toggle",
+    "img": "images/items/museum_soda.png",
+    "codes": "req_thing_soda"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Squirt Gun",
+    "type": "toggle",
+    "img": "images/items/museum_squirt_gun.png",
+    "codes": "req_thing_squirt_gun"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Rubber Ducky",
+    "type": "toggle",
+    "img": "images/items/museum_rubber_ducky.png",
+    "codes": "req_thing_rubber_ducky"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Powder Puff",
+    "type": "toggle",
+    "img": "images/items/museum_powder_puff.png",
+    "codes": "req_thing_powder_puff"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Car Sponge",
+    "type": "toggle",
+    "img": "images/items/museum_car_sponge.png",
+    "codes": "req_thing_car_sponge"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Pillow",
+    "type": "toggle",
+    "img": "images/items/museum_pillow.png",
+    "codes": "req_thing_pillow"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Bed",
+    "type": "toggle",
+    "img": "images/items/museum_bed.png",
+    "codes": "req_thing_bed"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Luxurious Bed",
+    "type": "toggle",
+    "img": "images/items/museum_luxurious_bed.png",
+    "codes": "req_thing_luxurious_bed"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Tape",
+    "type": "toggle",
+    "img": "images/items/museum_tape.png",
+    "codes": "req_thing_tape"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Thumbtack",
+    "type": "toggle",
+    "img": "images/items/museum_thumbtack.png",
+    "codes": "req_thing_thumbtack"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Stapler",
+    "type": "toggle",
+    "img": "images/items/museum_stapler.png",
+    "codes": "req_thing_stapler"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Balloon",
+    "type": "toggle",
+    "img": "images/items/museum_balloon.png",
+    "codes": "req_thing_balloon"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Pocket Watch",
+    "type": "toggle",
+    "img": "images/items/museum_pocket_watch.png",
+    "codes": "req_thing_pocket_watch"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Cat-o-Luck",
+    "type": "toggle",
+    "img": "images/items/museum_cat_o_luck.png",
+    "codes": "req_thing_cat_o_luck"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: High Heel",
+    "type": "toggle",
+    "img": "images/items/museum_high_heel.png",
+    "codes": "req_thing_high_heel"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Turkey",
+    "type": "toggle",
+    "img": "images/items/museum_turkey.png",
+    "codes": "req_thing_turkey"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Cake",
+    "type": "toggle",
+    "img": "images/items/museum_cake.png",
+    "codes": "req_thing_cake"
+  },
+  {
+    "name": "Thing sticker received / Thing shop unlocked: Boom Box",
+    "type": "toggle",
+    "img": "images/items/museum_boom_box.png",
+    "codes": "req_thing_boom_box"
+  },
+  {
+    "name": "Door place unlocked: 1-2",
+    "type": "toggle",
+    "img": "images/items/sticker_secret_door.png",
+    "codes": "door_place_w1_2"
   }
 ]

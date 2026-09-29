@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Mountain Repair Set \u2014 Mountain hole, boulder, cracked boulder, and huge slab scraps reshape the climb.",
-            "access_rules": [
-              "paperization"
-            ],
+            "name": "Mountain Repair Set \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/special_false.png",
             "chest_opened_img": "images/chests/special_true.png"
           }
@@ -33,15 +31,16 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Reach the volcano ascent.",
-            "access_rules": [
-              "clear_w5_4"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W5_5"
     ]
   }
 ]

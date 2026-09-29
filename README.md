@@ -7,6 +7,36 @@ A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 - a **Museum** tab that lets you check every sticker exhibit one by one,
 - location logic notes for mini stars / Royal Stickers, special objects, and major required stickers or Things.
 
+## Manual randomizer tracking
+
+- **Received Stars / Royals** tracks rewards received from any shuffled check.
+  A received exit star opens its destination; checking off its source location
+  does not grant the star. Alternate exits have separate items.
+- **Boss Unlocks** tracks boss access independently of Royal Sticker ownership.
+  Recommended boss weakness stickers no longer act as mandatory boss gates.
+- **Sticker Unlocks** tracks generic shop unlocks and Thing-shop unlocks. These
+  items are separate from the museum's donation checkboxes.
+- **Entrance Overrides** marks entrances you have opened when their exact gate
+  is not yet reconstructed. World 1-1 and 3-1 start accessible; other world
+  entrances do not require an invented chain of Royal Stickers.
+- A map check represents a shuffled reward pickup. The item rewarded there
+  must be marked separately in Items. This package has no emulator connection.
+- The map catalog still contains representative checks rather than every game
+  event. Enemy types, Kamek fights, banners, all shops, all door places, Wiggler
+  events, and some puzzle prerequisites need complete event catalogs before
+  this tracker can claim complete randomizer reachability. Entrance overrides
+  provide manual control meanwhile. The 1-2 door place is modeled explicitly.
+- Old Stage Clear toggles were retired rather than reinterpreting old save flags
+  as received stars. Re-enter your received progression items when updating.
+
+Tracker predicates live in `scripts/randomizer_logic.json`; regenerate their
+Lua with `tools/render_tracker_logic.py`. Regression checks are in
+`tools/test_tracker_logic.py` and `tools/validate_logic.py`.
+
+The emulator patch is deferred until a new game dump is available. Its checklist
+is [randomizer/PATCH_TODO.md](randomizer/PATCH_TODO.md). The separate Python seed
+prototype is not a playable patch and is not bundled in the tracker pack.
+
 ## Repository layout
 
 - `manifest.json` – PopTracker package metadata

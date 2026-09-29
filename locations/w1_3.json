@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Comet Piece Scrap \u2014 Recover the stolen mini-star scrap.",
-            "access_rules": [
-              "clear_w1_2"
-            ],
+            "name": "Comet Piece Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/special_false.png",
             "chest_opened_img": "images/chests/special_true.png"
           }
@@ -33,15 +31,18 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Repair the broken Comet Piece.",
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
             "access_rules": [
-              "scrap_comet_piece"
+              "paperization, scrap_comet_piece"
             ],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W1_3"
     ]
   }
 ]

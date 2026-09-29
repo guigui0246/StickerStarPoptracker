@@ -36,7 +36,7 @@
         }
       },
       {
-        "title": "Stage Clears",
+        "title": "Received Stars / Royals",
         "content": {
           "type": "layout",
           "key": "stage_clear_tabs"
@@ -50,10 +50,31 @@
         }
       },
       {
-        "title": "Boss Tools",
+        "title": "Puzzle Tools",
         "content": {
           "type": "layout",
           "key": "boss_tools_grid"
+        }
+      },
+      {
+        "title": "Boss Unlocks",
+        "content": {
+          "type": "layout",
+          "key": "boss_unlocks_grid"
+        }
+      },
+      {
+        "title": "Sticker Unlocks",
+        "content": {
+          "type": "layout",
+          "key": "sticker_unlock_tabs"
+        }
+      },
+      {
+        "title": "Entrance Overrides",
+        "content": {
+          "type": "layout",
+          "key": "entrance_tabs"
         }
       }
     ]
@@ -717,6 +738,100 @@
         "content": {
           "type": "layout",
           "key": "special_museum_grid"
+        }
+      }
+    ]
+  },
+  "sticker_unlock_tabs": {
+    "type": "tabbed",
+    "tabs": [
+      {
+        "title": "Jump",
+        "content": {
+          "type": "layout",
+          "key": "jump_unlocks_grid"
+        }
+      },
+      {
+        "title": "Hammer",
+        "content": {
+          "type": "layout",
+          "key": "hammer_unlocks_grid"
+        }
+      },
+      {
+        "title": "Battle / Utility",
+        "content": {
+          "type": "layout",
+          "key": "battle_utility_unlocks_grid"
+        }
+      },
+      {
+        "title": "Things I",
+        "content": {
+          "type": "layout",
+          "key": "things_i_unlocks_grid"
+        }
+      },
+      {
+        "title": "Things II",
+        "content": {
+          "type": "layout",
+          "key": "things_ii_unlocks_grid"
+        }
+      },
+      {
+        "title": "Things III",
+        "content": {
+          "type": "layout",
+          "key": "things_iii_unlocks_grid"
+        }
+      }
+    ]
+  },
+  "entrance_tabs": {
+    "type": "tabbed",
+    "tabs": [
+      {
+        "title": "W1",
+        "content": {
+          "type": "layout",
+          "key": "w1_access_grid"
+        }
+      },
+      {
+        "title": "W2",
+        "content": {
+          "type": "layout",
+          "key": "w2_access_grid"
+        }
+      },
+      {
+        "title": "W3",
+        "content": {
+          "type": "layout",
+          "key": "w3_access_grid"
+        }
+      },
+      {
+        "title": "W4",
+        "content": {
+          "type": "layout",
+          "key": "w4_access_grid"
+        }
+      },
+      {
+        "title": "W5",
+        "content": {
+          "type": "layout",
+          "key": "w5_access_grid"
+        }
+      },
+      {
+        "title": "W6",
+        "content": {
+          "type": "layout",
+          "key": "w6_access_grid"
         }
       }
     ]

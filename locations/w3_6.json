@@ -1,6 +1,6 @@
 [
   {
-    "name": "3-6: Wiggler's Tree House",
+    "name": "3-6: Outlook Point",
     "children": [
       {
         "name": "Mini Star / Stage Clear",
@@ -13,15 +13,36 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Reach Wiggler's Tree House.",
-            "access_rules": [
-              "clear_w3_5"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
+      },
+      {
+        "name": "Thing: Fishhook",
+        "map_locations": [
+          {
+            "map": "w3_6",
+            "x": 430,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Fishhook \u2014 shuffled reward check.",
+            "access_rules": [
+              "paperization, sticker_secret_door"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.png",
+            "chest_opened_img": "images/chests/thing_true.png"
+          }
+        ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W3_6"
     ]
   }
 ]

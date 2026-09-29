@@ -3,26 +3,6 @@
     "name": "5-1: Shy Guy Jungle",
     "children": [
       {
-        "name": "Jungle Floodgate Scrap",
-        "map_locations": [
-          {
-            "map": "w5_1",
-            "x": 160,
-            "y": 180
-          }
-        ],
-        "sections": [
-          {
-            "name": "Jungle Floodgate Scrap \u2014 Open the jungle waterworks.",
-            "access_rules": [
-              "royal_w4"
-            ],
-            "chest_unopened_img": "images/chests/special_false.png",
-            "chest_opened_img": "images/chests/special_true.png"
-          }
-        ]
-      },
-      {
         "name": "Mini Star / Stage Clear",
         "map_locations": [
           {
@@ -33,15 +13,70 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 World 5 opens after the fourth Royal Sticker.",
-            "access_rules": [
-              "royal_w4"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
+      },
+      {
+        "name": "Bridge Part 1 Scrap",
+        "map_locations": [
+          {
+            "map": "w5_1",
+            "x": 730,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Bridge Part 1 Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Bridge Part 2 Scrap",
+        "map_locations": [
+          {
+            "map": "w5_1",
+            "x": 130,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Bridge Part 2 Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Bridge Part 3 Scrap",
+        "map_locations": [
+          {
+            "map": "w5_1",
+            "x": 430,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Bridge Part 3 Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W5_1"
     ]
   }
 ]

@@ -13,15 +13,34 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Climb the waterfall route.",
-            "access_rules": [
-              "clear_w5_2"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
+      },
+      {
+        "name": "Jungle Floodgate Scrap",
+        "map_locations": [
+          {
+            "map": "w5_3",
+            "x": 430,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Jungle Floodgate Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W5_3"
     ]
   }
 ]

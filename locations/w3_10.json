@@ -3,26 +3,6 @@
     "name": "3-10: Stump Glade",
     "children": [
       {
-        "name": "Bridge Part 3 Scrap",
-        "map_locations": [
-          {
-            "map": "w3_10",
-            "x": 160,
-            "y": 180
-          }
-        ],
-        "sections": [
-          {
-            "name": "Bridge Part 3 Scrap \u2014 Final bridge repair part.",
-            "access_rules": [
-              "clear_w3_9"
-            ],
-            "chest_unopened_img": "images/chests/special_false.png",
-            "chest_opened_img": "images/chests/special_true.png"
-          }
-        ]
-      },
-      {
         "name": "Mini Star / Stage Clear",
         "map_locations": [
           {
@@ -33,15 +13,16 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Finish the bridge route.",
-            "access_rules": [
-              "clear_w3_9"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W3_10"
     ]
   }
 ]

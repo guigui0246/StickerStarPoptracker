@@ -13,15 +13,16 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Run the rapids deeper into the jungle.",
-            "access_rules": [
-              "clear_w5_1"
-            ],
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/clear_false.png",
             "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W5_2"
     ]
   }
 ]

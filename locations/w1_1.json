@@ -13,10 +13,8 @@
         ],
         "sections": [
           {
-            "name": "Wooden Bridge Scrap \u2014 Paperize the missing bridge.",
-            "access_rules": [
-              "paperization"
-            ],
+            "name": "Wooden Bridge Scrap \u2014 shuffled reward check.",
+            "access_rules": [],
             "chest_unopened_img": "images/chests/special_false.png",
             "chest_opened_img": "images/chests/special_true.png"
           }
@@ -33,7 +31,7 @@
         ],
         "sections": [
           {
-            "name": "Mini Star / Stage Clear \u2014 Use Paperization and the Wooden Bridge Scrap.",
+            "name": "Mini Star check \u2014 collect its shuffled reward; this does not grant an exit star automatically.",
             "access_rules": [
               "$W1_BRIDGE"
             ],
@@ -42,6 +40,9 @@
           }
         ]
       }
+    ],
+    "access_rules": [
+      "$ACCESS_W1_1"
     ]
   }
 ]
