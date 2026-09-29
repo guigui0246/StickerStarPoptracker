@@ -17,8 +17,8 @@
             "access_rules": [
               "clear_w3_11"
             ],
-            "chest_unopened_img": "images/chests/thing_false.svg",
-            "chest_opened_img": "images/chests/thing_true.svg"
+            "chest_unopened_img": "images/chests/thing_false.png",
+            "chest_opened_img": "images/chests/thing_true.png"
           }
         ]
       },
@@ -37,8 +37,8 @@
             "access_rules": [
               "clear_w3_11, req_thing_fishhook"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }

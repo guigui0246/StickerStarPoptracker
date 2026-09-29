@@ -17,8 +17,8 @@
             "access_rules": [
               "clear_w3_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }

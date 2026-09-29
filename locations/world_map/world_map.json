@@ -17,8 +17,8 @@
             "access_rules": [
               "paperization"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -37,8 +37,8 @@
             "access_rules": [
               "clear_w1_1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -57,8 +57,8 @@
             "access_rules": [
               "clear_w1_2"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -77,8 +77,8 @@
             "access_rules": [
               "clear_w1_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -97,8 +97,8 @@
             "access_rules": [
               "clear_w1_4"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -117,8 +117,8 @@
             "access_rules": [
               "clear_w1_5"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
@@ -142,8 +142,8 @@
             "access_rules": [
               "royal_w1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -162,8 +162,8 @@
             "access_rules": [
               "clear_w2_1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -182,8 +182,8 @@
             "access_rules": [
               "clear_w2_2"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -202,8 +202,8 @@
             "access_rules": [
               "clear_w2_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -222,8 +222,8 @@
             "access_rules": [
               "paperization, scrap_tablet_piece_1, scrap_tablet_piece_2, scrap_tablet_piece_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
@@ -247,8 +247,8 @@
             "access_rules": [
               "royal_w2"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -267,8 +267,8 @@
             "access_rules": [
               "clear_w3_1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -287,8 +287,8 @@
             "access_rules": [
               "clear_w3_2"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -307,8 +307,8 @@
             "access_rules": [
               "clear_w3_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -327,8 +327,8 @@
             "access_rules": [
               "clear_w3_4"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -347,8 +347,8 @@
             "access_rules": [
               "clear_w3_5"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -367,8 +367,8 @@
             "access_rules": [
               "paperization"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -387,8 +387,8 @@
             "access_rules": [
               "clear_w3_7"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -407,8 +407,8 @@
             "access_rules": [
               "clear_w3_8"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -427,8 +427,8 @@
             "access_rules": [
               "clear_w3_9"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -447,8 +447,8 @@
             "access_rules": [
               "paperization, scrap_bridge_part_1, scrap_bridge_part_2, scrap_bridge_part_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -467,8 +467,8 @@
             "access_rules": [
               "clear_w3_11"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
@@ -492,8 +492,8 @@
             "access_rules": [
               "royal_w3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -512,8 +512,8 @@
             "access_rules": [
               "clear_w4_1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -532,8 +532,8 @@
             "access_rules": [
               "paperization"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -552,8 +552,8 @@
             "access_rules": [
               "clear_w4_3"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -572,8 +572,8 @@
             "access_rules": [
               "clear_w4_4, req_thing_fan"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -592,8 +592,8 @@
             "access_rules": [
               "clear_w4_4"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
@@ -617,8 +617,8 @@
             "access_rules": [
               "royal_w4"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -637,8 +637,8 @@
             "access_rules": [
               "clear_w5_1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -657,8 +657,8 @@
             "access_rules": [
               "clear_w5_2"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -677,8 +677,8 @@
             "access_rules": [
               "paperization"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -697,8 +697,8 @@
             "access_rules": [
               "paperization"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -717,8 +717,8 @@
             "access_rules": [
               "clear_w5_5"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }
@@ -742,8 +742,8 @@
             "access_rules": [
               "royal_w1, royal_w2, royal_w3, royal_w4, royal_w5"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -762,8 +762,8 @@
             "access_rules": [
               "clear_w6_1"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       },
@@ -782,8 +782,8 @@
             "access_rules": [
               "clear_w6_2"
             ],
-            "chest_unopened_img": "images/chests/clear_false.svg",
-            "chest_opened_img": "images/chests/clear_true.svg"
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
           }
         ]
       }

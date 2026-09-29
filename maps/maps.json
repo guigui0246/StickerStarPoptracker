@@ -3,312 +3,312 @@
     "name": "world_map",
     "location_size": 16,
     "location_border_thickness": 2,
-    "img": "images/maps/world_map.svg"
+    "img": "images/maps/world_map.png"
   },
   {
     "name": "w1_1",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_1.svg"
+    "img": "images/maps/w1_1.png"
   },
   {
     "name": "w1_2",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_2.svg"
+    "img": "images/maps/w1_2.png"
   },
   {
     "name": "w1_3",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_3.svg"
+    "img": "images/maps/w1_3.png"
   },
   {
     "name": "w1_4",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_4.svg"
+    "img": "images/maps/w1_4.png"
   },
   {
     "name": "w1_5",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_5.svg"
+    "img": "images/maps/w1_5.png"
   },
   {
     "name": "w1_6",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_6.svg"
+    "img": "images/maps/w1_6.png"
   },
   {
     "name": "w2_1",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_1.svg"
+    "img": "images/maps/w2_1.png"
   },
   {
     "name": "w2_2",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_2.svg"
+    "img": "images/maps/w2_2.png"
   },
   {
     "name": "w2_3",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_3.svg"
+    "img": "images/maps/w2_3.png"
   },
   {
     "name": "w2_4",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_4.svg"
+    "img": "images/maps/w2_4.png"
   },
   {
     "name": "w2_5",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_5.svg"
+    "img": "images/maps/w2_5.png"
   },
   {
     "name": "w3_1",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_1.svg"
+    "img": "images/maps/w3_1.png"
   },
   {
     "name": "w3_2",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_2.svg"
+    "img": "images/maps/w3_2.png"
   },
   {
     "name": "w3_3",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_3.svg"
+    "img": "images/maps/w3_3.png"
   },
   {
     "name": "w3_4",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_4.svg"
+    "img": "images/maps/w3_4.png"
   },
   {
     "name": "w3_5",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_5.svg"
+    "img": "images/maps/w3_5.png"
   },
   {
     "name": "w3_6",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_6.svg"
+    "img": "images/maps/w3_6.png"
   },
   {
     "name": "w3_7",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_7.svg"
+    "img": "images/maps/w3_7.png"
   },
   {
     "name": "w3_8",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_8.svg"
+    "img": "images/maps/w3_8.png"
   },
   {
     "name": "w3_9",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_9.svg"
+    "img": "images/maps/w3_9.png"
   },
   {
     "name": "w3_10",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_10.svg"
+    "img": "images/maps/w3_10.png"
   },
   {
     "name": "w3_11",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_11.svg"
+    "img": "images/maps/w3_11.png"
   },
   {
     "name": "w3_12",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_12.svg"
+    "img": "images/maps/w3_12.png"
   },
   {
     "name": "w4_1",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_1.svg"
+    "img": "images/maps/w4_1.png"
   },
   {
     "name": "w4_2",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_2.svg"
+    "img": "images/maps/w4_2.png"
   },
   {
     "name": "w4_3",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_3.svg"
+    "img": "images/maps/w4_3.png"
   },
   {
     "name": "w4_4",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_4.svg"
+    "img": "images/maps/w4_4.png"
   },
   {
     "name": "w4_5",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_5.svg"
+    "img": "images/maps/w4_5.png"
   },
   {
     "name": "w4_6",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_6.svg"
+    "img": "images/maps/w4_6.png"
   },
   {
     "name": "w5_1",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_1.svg"
+    "img": "images/maps/w5_1.png"
   },
   {
     "name": "w5_2",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_2.svg"
+    "img": "images/maps/w5_2.png"
   },
   {
     "name": "w5_3",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_3.svg"
+    "img": "images/maps/w5_3.png"
   },
   {
     "name": "w5_4",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_4.svg"
+    "img": "images/maps/w5_4.png"
   },
   {
     "name": "w5_5",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_5.svg"
+    "img": "images/maps/w5_5.png"
   },
   {
     "name": "w5_6",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_6.svg"
+    "img": "images/maps/w5_6.png"
   },
   {
     "name": "w6_1",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w6_1.svg"
+    "img": "images/maps/w6_1.png"
   },
   {
     "name": "w6_2",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w6_2.svg"
+    "img": "images/maps/w6_2.png"
   },
   {
     "name": "w6_3",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w6_3.svg"
+    "img": "images/maps/w6_3.png"
   },
   {
     "name": "w1_1_entrance",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_1_entrance.svg"
+    "img": "images/maps/w1_1_entrance.png"
   },
   {
     "name": "w1_1_bridge",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w1_1_bridge.svg"
+    "img": "images/maps/w1_1_bridge.png"
   },
   {
     "name": "w2_5_exterior",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_5_exterior.svg"
+    "img": "images/maps/w2_5_exterior.png"
   },
   {
     "name": "w2_5_tower",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w2_5_tower.svg"
+    "img": "images/maps/w2_5_tower.png"
   },
   {
     "name": "w3_7_burrow",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_7_burrow.svg"
+    "img": "images/maps/w3_7_burrow.png"
   },
   {
     "name": "w3_7_minecart",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w3_7_minecart.svg"
+    "img": "images/maps/w3_7_minecart.png"
   },
   {
     "name": "w4_3_foyer",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_3_foyer.svg"
+    "img": "images/maps/w4_3_foyer.png"
   },
   {
     "name": "w4_3_upper",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_3_upper.svg"
+    "img": "images/maps/w4_3_upper.png"
   },
   {
     "name": "w4_3_boo",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w4_3_boo.svg"
+    "img": "images/maps/w4_3_boo.png"
   },
   {
     "name": "w5_4_outer",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_4_outer.svg"
+    "img": "images/maps/w5_4_outer.png"
   },
   {
     "name": "w5_4_inner",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w5_4_inner.svg"
+    "img": "images/maps/w5_4_inner.png"
   },
   {
     "name": "w6_3_approach",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w6_3_approach.svg"
+    "img": "images/maps/w6_3_approach.png"
   },
   {
     "name": "w6_3_finale",
     "location_size": 20,
     "location_border_thickness": 2,
-    "img": "images/maps/w6_3_finale.svg"
+    "img": "images/maps/w6_3_finale.png"
   }
 ]
