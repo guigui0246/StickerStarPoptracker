@@ -1,0 +1,27 @@
+[
+  {
+    "name": "4-1: Snow Rise",
+    "children": [
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w4_1",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 World 4 opens after the third Royal Sticker.",
+            "access_rules": [
+              "royal_w3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

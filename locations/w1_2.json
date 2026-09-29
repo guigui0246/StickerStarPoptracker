@@ -1,0 +1,47 @@
+[
+  {
+    "name": "1-2: Bouquet Gardens",
+    "children": [
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w1_2",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 After clearing Warm Fuzzy Plains.",
+            "access_rules": [
+              "clear_w1_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Secret Door Route",
+        "map_locations": [
+          {
+            "map": "w1_2",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Secret Door Route \u2014 Optional shortcut that uses Secret Door.",
+            "access_rules": [
+              "$W1_SECRET"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

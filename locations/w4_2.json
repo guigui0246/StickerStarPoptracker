@@ -1,0 +1,27 @@
+[
+  {
+    "name": "4-2: Ice Flow",
+    "children": [
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w4_2",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Skate along the frozen route.",
+            "access_rules": [
+              "clear_w4_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

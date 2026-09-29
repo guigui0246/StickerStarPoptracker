@@ -1,0 +1,27 @@
+[
+  {
+    "name": "3-5: Strike Lake",
+    "children": [
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w3_5",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Cross Strike Lake.",
+            "access_rules": [
+              "clear_w3_4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

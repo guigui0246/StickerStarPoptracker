@@ -1,0 +1,67 @@
+[
+  {
+    "name": "2-3: Sandshifter Ruins",
+    "children": [
+      {
+        "name": "Tablet Piece 2 Scrap",
+        "map_locations": [
+          {
+            "map": "w2_3",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Tablet Piece 2 Scrap \u2014 Second tablet scrap for the ruins.",
+            "access_rules": [
+              "clear_w2_2"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Thing: Trumpet",
+        "map_locations": [
+          {
+            "map": "w2_3",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Trumpet \u2014 Major puzzle / boss tool.",
+            "access_rules": [
+              "clear_w2_2"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w2_3",
+            "x": 740,
+            "y": 185
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Clear the Sandshifter Ruins route.",
+            "access_rules": [
+              "clear_w2_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

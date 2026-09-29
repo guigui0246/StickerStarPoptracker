@@ -1,0 +1,67 @@
+[
+  {
+    "name": "4-3: The Enigmansion",
+    "children": [
+      {
+        "name": "Mansion Scrap Set",
+        "map_locations": [
+          {
+            "map": "w4_3_foyer",
+            "x": 180,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mansion Scrap Set \u2014 Bookcase, wall, safe, portrait, and locked-door scraps all live in the mansion.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Thing: Fan / Vacuum Route",
+        "map_locations": [
+          {
+            "map": "w4_3_upper",
+            "x": 470,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Fan / Vacuum Route \u2014 Bring a wind / suction thing sticker for the Big Boo fight.",
+            "access_rules": [
+              "clear_w4_2"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w4_3_boo",
+            "x": 760,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Use the Book of Sealing to finish the mansion.",
+            "access_rules": [
+              "$W4_BOO"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "4-5: Bowser's Snow Fort",
+    "children": [
+      {
+        "name": "Royal Sticker",
+        "map_locations": [
+          {
+            "map": "w4_5",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Royal Sticker \u2014 The snow fort route expects a strong wind tool; Fan is the safest marker.",
+            "access_rules": [
+              "clear_w4_4, req_thing_fan"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "5-2: Jungle Rapids",
+    "children": [
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w5_2",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Run the rapids deeper into the jungle.",
+            "access_rules": [
+              "clear_w5_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

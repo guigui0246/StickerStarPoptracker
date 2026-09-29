@@ -1,0 +1,47 @@
+[
+  {
+    "name": "2-5: Drybake Stadium",
+    "children": [
+      {
+        "name": "Stone Entry Scrap",
+        "map_locations": [
+          {
+            "map": "w2_5_exterior",
+            "x": 220,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Stone Entry Scrap \u2014 Open the tower after assembling the tablet.",
+            "access_rules": [
+              "$W2_TABLET"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Royal Sticker",
+        "map_locations": [
+          {
+            "map": "w2_5_tower",
+            "x": 650,
+            "y": 170
+          }
+        ],
+        "sections": [
+          {
+            "name": "Royal Sticker \u2014 Bring the Bat family thing sticker for Tower Power Pokey.",
+            "access_rules": [
+              "$W2_BOSS"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

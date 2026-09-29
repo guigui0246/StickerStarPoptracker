@@ -1,0 +1,792 @@
+[
+  {
+    "name": "W1: Grass World",
+    "children": [
+      {
+        "name": "1-1: Warm Fuzzy Plains",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 114,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Paperize the missing bridge.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "1-2: Bouquet Gardens",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 192,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: After clearing Warm Fuzzy Plains.",
+            "access_rules": [
+              "clear_w1_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "1-3: Water's Edge Way",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 270,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Recover the stolen mini-star scrap.",
+            "access_rules": [
+              "clear_w1_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "1-4: Hither Thither Hill",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 348,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Collect the paperized pipe piece.",
+            "access_rules": [
+              "clear_w1_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "1-5: Whammino Mountain",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 114,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Restore the gate with Paperization.",
+            "access_rules": [
+              "clear_w1_4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "1-6: Goomba Fortress",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 192,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Collect the hidden block-switch paper piece.",
+            "access_rules": [
+              "clear_w1_5"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "W2: Desert World",
+    "children": [
+      {
+        "name": "2-1: Drybake Desert",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 544,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: World 2 opens after the first Royal Sticker.",
+            "access_rules": [
+              "royal_w1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "2-2: Yoshi Sphinx",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 622,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Start the Yoshi Sphinx tablet puzzle.",
+            "access_rules": [
+              "clear_w2_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "2-3: Sandshifter Ruins",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 700,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Second tablet scrap for the ruins.",
+            "access_rules": [
+              "clear_w2_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "2-4: Damp Oasis",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 778,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Final tablet scrap.",
+            "access_rules": [
+              "clear_w2_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "2-5: Drybake Stadium",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 544,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Open the tower after assembling the tablet.",
+            "access_rules": [
+              "paperization, scrap_tablet_piece_1, scrap_tablet_piece_2, scrap_tablet_piece_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "W3: Forest World",
+    "children": [
+      {
+        "name": "3-1: Leaflitter Path",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 974,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: First Wiggler route repair piece.",
+            "access_rules": [
+              "royal_w2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-2: Loop Loop River",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1052,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Second Wiggler route repair piece.",
+            "access_rules": [
+              "clear_w3_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-3: The Bafflewood",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1130,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Paperize the hidden door deeper into the woods.",
+            "access_rules": [
+              "clear_w3_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-4: Tree Branch Trail",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1208,
+            "y": 226
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Advance the Wiggler chase.",
+            "access_rules": [
+              "clear_w3_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-5: Strike Lake",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 974,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Cross Strike Lake.",
+            "access_rules": [
+              "clear_w3_4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-6: Wiggler's Tree House",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1052,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Reach Wiggler's Tree House.",
+            "access_rules": [
+              "clear_w3_5"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-7: Rustle Burrow",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1130,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Rail, diagonal rail, and exit scraps for the burrow.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-8: Holey Thicket",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1208,
+            "y": 290
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: First bridge repair part.",
+            "access_rules": [
+              "clear_w3_7"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-9: Gauntlet Pond",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 974,
+            "y": 354
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Second bridge repair part.",
+            "access_rules": [
+              "clear_w3_8"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-10: Stump Glade",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1052,
+            "y": 354
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Final bridge repair part.",
+            "access_rules": [
+              "clear_w3_9"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-11: Outlook Point",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1130,
+            "y": 354
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Use the repaired bridge to reach the coast and pick up Fishhook.",
+            "access_rules": [
+              "paperization, scrap_bridge_part_1, scrap_bridge_part_2, scrap_bridge_part_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "3-12: Whitecap Beach",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1208,
+            "y": 354
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Useful for the harbor / blooper sequence.",
+            "access_rules": [
+              "clear_w3_11"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "W4: Snow World",
+    "children": [
+      {
+        "name": "4-1: Snow Rise",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 114,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: World 4 opens after the third Royal Sticker.",
+            "access_rules": [
+              "royal_w3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "4-2: Ice Flow",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 192,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Skate along the frozen route.",
+            "access_rules": [
+              "clear_w4_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "4-3: The Enigmansion",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 270,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Bookcase, wall, safe, portrait, and locked-door scraps all live in the mansion.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "4-4: Whiteout Valley",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 348,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Ride the chairlift route to the summit.",
+            "access_rules": [
+              "clear_w4_3"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "4-5: Bowser's Snow Fort",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 114,
+            "y": 630
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: The snow fort route expects a strong wind tool; Fan is the safest marker.",
+            "access_rules": [
+              "clear_w4_4, req_thing_fan"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "4-6: Shaved-Ice Cave",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 192,
+            "y": 630
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Major optional thing sticker before the next world.",
+            "access_rules": [
+              "clear_w4_4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "W5: Jungle World",
+    "children": [
+      {
+        "name": "5-1: Shy Guy Jungle",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 544,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Open the jungle waterworks.",
+            "access_rules": [
+              "royal_w4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "5-2: Jungle Rapids",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 622,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Run the rapids deeper into the jungle.",
+            "access_rules": [
+              "clear_w5_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "5-3: Long Fall Falls",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 700,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Climb the waterfall route.",
+            "access_rules": [
+              "clear_w5_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "5-4: Chomp Ruins",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 778,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Ruin Slope, Bomp, and Ruin Floor scraps rebuild the chomp ruins.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "5-5: Rugged Road",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 544,
+            "y": 630
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Mountain hole, boulder, cracked boulder, and huge slab scraps reshape the climb.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "5-6: Rumble Volcano",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 622,
+            "y": 630
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: The classic volcano boss tool.",
+            "access_rules": [
+              "clear_w5_5"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "W6: Bowser's World",
+    "children": [
+      {
+        "name": "6-1: Gate Cliff",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 974,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: World 6 opens after all five Royal Stickers.",
+            "access_rules": [
+              "royal_w1, royal_w2, royal_w3, royal_w4, royal_w5"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "6-2: Bowser Jr.'s Flotilla",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1052,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Paperize the cannon route to the castle.",
+            "access_rules": [
+              "clear_w6_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "6-3: Bowser's Sky Castle",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 1130,
+            "y": 566
+          }
+        ],
+        "sections": [
+          {
+            "name": "Unlocked when: Track any finale tools you want on hand (Battery / Sponge / Fan / Scissors are common).",
+            "access_rules": [
+              "clear_w6_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

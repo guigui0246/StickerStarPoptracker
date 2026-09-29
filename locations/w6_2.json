@@ -1,0 +1,47 @@
+[
+  {
+    "name": "6-2: Bowser Jr.'s Flotilla",
+    "children": [
+      {
+        "name": "Banzai Bill Cannon Scrap",
+        "map_locations": [
+          {
+            "map": "w6_2",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Banzai Bill Cannon Scrap \u2014 Paperize the cannon route to the castle.",
+            "access_rules": [
+              "clear_w6_1"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w6_2",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Break through the flotilla.",
+            "access_rules": [
+              "clear_w6_1"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "3-12: Whitecap Beach",
+    "children": [
+      {
+        "name": "Thing: Sponge",
+        "map_locations": [
+          {
+            "map": "w3_12",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Sponge \u2014 Useful for the harbor / blooper sequence.",
+            "access_rules": [
+              "clear_w3_11"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Royal Sticker",
+        "map_locations": [
+          {
+            "map": "w3_12",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Royal Sticker \u2014 Bring Fishhook to finish Whitecap Beach and claim the third Royal Sticker.",
+            "access_rules": [
+              "clear_w3_11, req_thing_fishhook"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

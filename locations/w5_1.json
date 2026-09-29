@@ -1,0 +1,47 @@
+[
+  {
+    "name": "5-1: Shy Guy Jungle",
+    "children": [
+      {
+        "name": "Jungle Floodgate Scrap",
+        "map_locations": [
+          {
+            "map": "w5_1",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Jungle Floodgate Scrap \u2014 Open the jungle waterworks.",
+            "access_rules": [
+              "royal_w4"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w5_1",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 World 5 opens after the fourth Royal Sticker.",
+            "access_rules": [
+              "royal_w4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

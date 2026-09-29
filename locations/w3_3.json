@@ -1,0 +1,47 @@
+[
+  {
+    "name": "3-3: The Bafflewood",
+    "children": [
+      {
+        "name": "Burrow Door Scrap",
+        "map_locations": [
+          {
+            "map": "w3_3",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Burrow Door Scrap \u2014 Paperize the hidden door deeper into the woods.",
+            "access_rules": [
+              "clear_w3_2"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w3_3",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Untangle the Bafflewood route.",
+            "access_rules": [
+              "clear_w3_2"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

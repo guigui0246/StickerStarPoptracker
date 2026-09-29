@@ -1,0 +1,678 @@
+{
+  "core_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "42",
+        "item_margin": "4,4",
+        "rows": [
+          [
+            "hammer",
+            "paperization",
+            "req_book_of_sealing"
+          ]
+        ]
+      }
+    ]
+  },
+  "boss_tools_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "sticker_secret_door",
+            "sticker_fire_flower",
+            "sticker_ice_flower",
+            "req_thing_scissors"
+          ],
+          [
+            "req_thing_bat",
+            "req_thing_trumpet",
+            "req_thing_faucet",
+            "req_thing_lightbulb"
+          ],
+          [
+            "req_thing_fishhook",
+            "req_thing_fan",
+            "req_thing_vacuum",
+            "req_thing_refrigerator"
+          ],
+          [
+            "req_thing_sponge",
+            "req_thing_goat",
+            "req_thing_battery"
+          ]
+        ]
+      }
+    ]
+  },
+  "w1_clear_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "clear_w1_1",
+            "clear_w1_2",
+            "clear_w1_3",
+            "clear_w1_4"
+          ],
+          [
+            "clear_w1_5",
+            "clear_w1_6",
+            "royal_w1"
+          ]
+        ]
+      }
+    ]
+  },
+  "w1_object_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "scrap_wooden_bridge",
+            "scrap_comet_piece",
+            "scrap_green_warp_pipe",
+            "scrap_white_gate"
+          ],
+          [
+            "scrap_block_switch"
+          ]
+        ]
+      }
+    ]
+  },
+  "w2_clear_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "clear_w2_1",
+            "clear_w2_2",
+            "clear_w2_3",
+            "clear_w2_4"
+          ],
+          [
+            "clear_w2_5",
+            "royal_w2"
+          ]
+        ]
+      }
+    ]
+  },
+  "w2_object_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "scrap_tablet_piece_1",
+            "scrap_tablet_piece_2",
+            "scrap_tablet_piece_3",
+            "scrap_stone_entry"
+          ]
+        ]
+      }
+    ]
+  },
+  "w3_clear_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "clear_w3_1",
+            "clear_w3_2",
+            "clear_w3_3",
+            "clear_w3_4"
+          ],
+          [
+            "clear_w3_5",
+            "clear_w3_6",
+            "clear_w3_7",
+            "clear_w3_8"
+          ],
+          [
+            "clear_w3_9",
+            "clear_w3_10",
+            "clear_w3_11",
+            "clear_w3_12"
+          ],
+          [
+            "royal_w3"
+          ]
+        ]
+      }
+    ]
+  },
+  "w3_object_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "scrap_tree_stump_left",
+            "scrap_tree_stump_right",
+            "scrap_burrow_door",
+            "scrap_mine_cart_rail"
+          ],
+          [
+            "scrap_diagonal_rail",
+            "scrap_mine_cart_exit",
+            "scrap_bridge_part_1",
+            "scrap_bridge_part_2"
+          ],
+          [
+            "scrap_bridge_part_3"
+          ]
+        ]
+      }
+    ]
+  },
+  "w4_clear_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "clear_w4_1",
+            "clear_w4_2",
+            "clear_w4_3",
+            "clear_w4_4"
+          ],
+          [
+            "clear_w4_5",
+            "clear_w4_6",
+            "royal_w4"
+          ]
+        ]
+      }
+    ]
+  },
+  "w4_object_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "scrap_mansion_bookcase",
+            "scrap_mansion_wall",
+            "scrap_mansion_safe",
+            "scrap_mansion_door_brown"
+          ],
+          [
+            "scrap_stewards_portrait",
+            "scrap_mansion_door_green",
+            "scrap_big_bookcase",
+            "scrap_forebears_portrait"
+          ]
+        ]
+      }
+    ]
+  },
+  "w5_clear_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "clear_w5_1",
+            "clear_w5_2",
+            "clear_w5_3",
+            "clear_w5_4"
+          ],
+          [
+            "clear_w5_5",
+            "clear_w5_6",
+            "royal_w5"
+          ]
+        ]
+      }
+    ]
+  },
+  "w5_object_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "scrap_jungle_floodgate",
+            "scrap_ruin_slope",
+            "scrap_bomp",
+            "scrap_ruin_floor"
+          ],
+          [
+            "scrap_mountain_hole",
+            "scrap_mountain_boulder",
+            "scrap_cracked_boulder",
+            "scrap_huge_mountain_slab"
+          ]
+        ]
+      }
+    ]
+  },
+  "w6_clear_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "clear_w6_1",
+            "clear_w6_2",
+            "clear_w6_3",
+            "royal_w6"
+          ]
+        ]
+      }
+    ]
+  },
+  "w6_object_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "34",
+        "item_margin": "3,3",
+        "rows": [
+          [
+            "scrap_hidden_bowser_castle",
+            "scrap_banzai_bill_cannon"
+          ]
+        ]
+      }
+    ]
+  },
+  "jump_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_worn_out_jump",
+            "museum_jump",
+            "museum_shiny_jump",
+            "museum_flashy_jump",
+            "museum_big_shiny_jump",
+            "museum_megaflash_jump"
+          ],
+          [
+            "museum_iron_jump",
+            "museum_shiny_iron_jump",
+            "museum_flashy_iron_jump",
+            "museum_big_shiny_iron_jump",
+            "museum_megaflash_iron_jump",
+            "museum_hopslipper"
+          ],
+          [
+            "museum_shiny_hopslipper",
+            "museum_flashy_hopslipper",
+            "museum_big_shiny_hopslipper",
+            "museum_megaflash_hopslipper",
+            "museum_line_jump",
+            "museum_shiny_line_jump"
+          ],
+          [
+            "museum_flashy_line_jump",
+            "museum_big_shiny_line_jump",
+            "museum_megaflash_line_jump",
+            "museum_flashy_clone_jump",
+            "museum_big_shiny_clone_jump",
+            "museum_megaflash_clone_jump"
+          ],
+          [
+            "museum_super_boot",
+            "museum_shiny_super_boot"
+          ]
+        ]
+      }
+    ]
+  },
+  "hammer_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_worn_out_hammer",
+            "museum_hammer",
+            "museum_shiny_hammer",
+            "museum_flashy_hammer",
+            "museum_big_shiny_hammer",
+            "museum_megaflash_hammer"
+          ]
+        ]
+      }
+    ]
+  },
+  "battle_utility_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_flashy_infinijump",
+            "museum_big_shiny_infinijump",
+            "museum_megaflash_infinijump",
+            "museum_slaphammer",
+            "museum_shiny_slaphammer",
+            "museum_flashy_slaphammer"
+          ],
+          [
+            "museum_big_shiny_slaphammer",
+            "museum_megaflash_slaphammer",
+            "museum_eekhammer",
+            "museum_shiny_eekhammer",
+            "museum_flashy_eekhammer",
+            "museum_big_shiny_eekhammer"
+          ],
+          [
+            "museum_megaflash_eekhammer",
+            "museum_hurlhammer",
+            "museum_shiny_hurlhammer",
+            "museum_flashy_hurlhammer",
+            "museum_big_shiny_hurlhammer",
+            "museum_megaflash_hurlhammer"
+          ],
+          [
+            "museum_baahammer",
+            "museum_big_shiny_baahammer",
+            "museum_megaflash_baahammer",
+            "museum_burnhammer",
+            "museum_big_shiny_burnhammer",
+            "museum_megaflash_burnhammer"
+          ],
+          [
+            "museum_chillhammer",
+            "museum_big_shiny_chillhammer",
+            "museum_megaflash_chillhammer",
+            "museum_tail",
+            "museum_shiny_tail",
+            "museum_frog_suit"
+          ],
+          [
+            "museum_shiny_frog_suit",
+            "museum_spike_helmet",
+            "museum_shiny_spike_helmet",
+            "museum_flashy_spike_helmet",
+            "museum_fire_flower",
+            "museum_shiny_fire_flower"
+          ],
+          [
+            "museum_flashy_fire_flower",
+            "museum_ice_flower",
+            "museum_shiny_ice_flower",
+            "museum_flashy_ice_flower",
+            "museum_pow_block",
+            "museum_shiny_pow_block"
+          ],
+          [
+            "museum_flashy_pow_block",
+            "museum_shell",
+            "museum_shiny_shell",
+            "museum_flashy_shell",
+            "museum_mushroom",
+            "museum_shiny_mushroom"
+          ],
+          [
+            "museum_flashy_mushroom",
+            "museum_big_1up",
+            "museum_big_shiny_1up",
+            "museum_poison_mushroom",
+            "museum_leaf",
+            "museum_shiny_leaf"
+          ],
+          [
+            "museum_secret_door",
+            "museum_snowball",
+            "museum_spike_ball",
+            "museum_barrel",
+            "museum_wrench",
+            "museum_bone"
+          ],
+          [
+            "museum_boomerang",
+            "museum_bomb",
+            "museum_sombrero",
+            "museum_throwing_star",
+            "museum_sandal_sticker",
+            "museum_kersti_sticker"
+          ]
+        ]
+      }
+    ]
+  },
+  "things_i_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_sewing_scissors",
+            "museum_hair_shears",
+            "museum_scissors",
+            "museum_tailor_shears",
+            "museum_bellows",
+            "museum_paper_fan"
+          ],
+          [
+            "museum_fan",
+            "museum_mini_vacuum",
+            "museum_upright_vacuum",
+            "museum_vacuum",
+            "museum_watering_can",
+            "museum_faucet"
+          ],
+          [
+            "museum_teapot",
+            "museum_trumpet",
+            "museum_violin",
+            "museum_guitar",
+            "museum_newspaper",
+            "museum_toy_bat"
+          ],
+          [
+            "museum_bat",
+            "museum_square_can",
+            "museum_basin",
+            "museum_drum",
+            "museum_lightbulb",
+            "museum_flashlight"
+          ]
+        ]
+      }
+    ]
+  },
+  "things_ii_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_searchlight",
+            "museum_watch_battery",
+            "museum_d_cell_battery",
+            "museum_car_battery",
+            "museum_billiard_ball",
+            "museum_curling_stone"
+          ],
+          [
+            "museum_bowling_ball",
+            "museum_trophy",
+            "museum_cell_phone",
+            "museum_jackhammer",
+            "museum_radiator",
+            "museum_hair_dryer"
+          ],
+          [
+            "museum_oven",
+            "museum_magnifying_glass",
+            "museum_matches",
+            "museum_lighter",
+            "museum_shaved_ice",
+            "museum_air_conditioner"
+          ],
+          [
+            "museum_refrigerator",
+            "museum_soda",
+            "museum_squirt_gun",
+            "museum_rubber_ducky",
+            "museum_powder_puff",
+            "museum_sponge"
+          ]
+        ]
+      }
+    ]
+  },
+  "things_iii_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_car_sponge",
+            "museum_pillow",
+            "museum_bed",
+            "museum_luxurious_bed",
+            "museum_tape",
+            "museum_thumbtack"
+          ],
+          [
+            "museum_stapler",
+            "museum_fishhook",
+            "museum_balloon",
+            "museum_pocket_watch",
+            "museum_cat_o_luck",
+            "museum_high_heel"
+          ],
+          [
+            "museum_goat",
+            "museum_turkey",
+            "museum_cake",
+            "museum_boom_box"
+          ]
+        ]
+      }
+    ]
+  },
+  "special_museum_grid": {
+    "type": "array",
+    "orientation": "vertical",
+    "content": [
+      {
+        "type": "itemgrid",
+        "h_alignment": "center",
+        "item_size": "28",
+        "item_margin": "2,2",
+        "rows": [
+          [
+            "museum_red_royal_sticker",
+            "museum_orange_royal_sticker",
+            "museum_purple_royal_sticker",
+            "museum_blue_royal_sticker",
+            "museum_green_royal_sticker",
+            "museum_gold_royal_sticker"
+          ]
+        ]
+      }
+    ]
+  }
+}

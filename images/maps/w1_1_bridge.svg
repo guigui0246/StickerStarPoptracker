@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">
+  <rect width="900" height="320" rx="24" fill="#689f38"/>
+  <rect x="18" y="18" width="864" height="284" rx="20" fill="#00000018" stroke="#ffffff55" stroke-width="3"/>
+  <text x="40" y="56" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#fff">1-1: Bridge Route</text>
+  <text x="40" y="86" font-family="Arial, sans-serif" font-size="16" fill="#fff">Paperized bridge route to the mini star.</text>
+  <line x1="160" y1="180" x2="450" y2="150" stroke="#ffffff88" stroke-width="10" stroke-linecap="round"/><line x1="450" y1="150" x2="740" y2="180" stroke="#ffffff88" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="160" cy="180" r="24" fill="#ffffff20" stroke="#fff" stroke-width="4"/><circle cx="450" cy="150" r="24" fill="#ffffff20" stroke="#fff" stroke-width="4"/><circle cx="740" cy="180" r="24" fill="#ffffff20" stroke="#fff" stroke-width="4"/>
+  <text x="160" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff">Bridge Route</text><text x="450" y="196" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff">Check</text><text x="740" y="226" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff">Goal</text>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "layouts": {
+    "tracker_default": {
+      "type": "container",
+      "background": "#1b1b1b",
+      "content": {
+        "type": "array",
+        "orientation": "vertical",
+        "margin": "0,0",
+        "content": [
+          {
+            "type": "layout",
+            "key": "root_tabs"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "4-6: Shaved-Ice Cave",
+    "children": [
+      {
+        "name": "Thing: Refrigerator",
+        "map_locations": [
+          {
+            "map": "w4_6",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Refrigerator \u2014 Major optional thing sticker before the next world.",
+            "access_rules": [
+              "clear_w4_4"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.svg",
+            "chest_opened_img": "images/chests/thing_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Optional Cave Clear",
+        "map_locations": [
+          {
+            "map": "w4_6",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Optional Cave Clear \u2014 Side route for completionists.",
+            "access_rules": [
+              "clear_w4_4"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]

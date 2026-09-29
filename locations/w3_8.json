@@ -1,0 +1,47 @@
+[
+  {
+    "name": "3-8: Holey Thicket",
+    "children": [
+      {
+        "name": "Bridge Part 1 Scrap",
+        "map_locations": [
+          {
+            "map": "w3_8",
+            "x": 160,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Bridge Part 1 Scrap \u2014 First bridge repair part.",
+            "access_rules": [
+              "clear_w3_7"
+            ],
+            "chest_unopened_img": "images/chests/special_false.svg",
+            "chest_opened_img": "images/chests/special_true.svg"
+          }
+        ]
+      },
+      {
+        "name": "Mini Star / Stage Clear",
+        "map_locations": [
+          {
+            "map": "w3_8",
+            "x": 450,
+            "y": 150
+          }
+        ],
+        "sections": [
+          {
+            "name": "Mini Star / Stage Clear \u2014 Push deeper into the poisoned forest.",
+            "access_rules": [
+              "clear_w3_7"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.svg",
+            "chest_opened_img": "images/chests/clear_true.svg"
+          }
+        ]
+      }
+    ]
+  }
+]
