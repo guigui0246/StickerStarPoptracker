@@ -16,16 +16,24 @@ A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
   Recommended boss weakness stickers no longer act as mandatory boss gates.
 - **Sticker Unlocks** tracks generic shop unlocks and Thing-shop unlocks. These
   items are separate from the museum's donation checkboxes.
+- **Door Places** has one independent received unlock per numbered level, grouped
+  into W1–W6. Door use needs Paperization, the Secret Door sticker, and that
+  level's unlock. Having another level's door unlock does not satisfy the rule.
+- **Decalburg** and **Surfshine Harbor** have their own map tabs and world-map
+  markers. Town checks include the shop conversations, Fountain, Warehouse Door,
+  Vacuum, Ship's Wheel, and Big Cheep Cheep. Their received tools are in
+  **Town Tools**. Town diagrams are tracker overviews rather than game maps.
 - **Entrance Overrides** marks entrances you have opened when their exact gate
   is not yet reconstructed. World 1-1 and 3-1 start accessible; other world
   entrances do not require an invented chain of Royal Stickers.
 - A map check represents a shuffled reward pickup. The item rewarded there
   must be marked separately in Items. This package has no emulator connection.
 - The map catalog still contains representative checks rather than every game
-  event. Enemy types, Kamek fights, banners, all shops, all door places, Wiggler
+  event. Enemy types, Kamek fights, banners, all shops, Wiggler
   events, and some puzzle prerequisites need complete event catalogs before
   this tracker can claim complete randomizer reachability. Entrance overrides
-  provide manual control meanwhile. The 1-2 door place is modeled explicitly.
+  provide manual control meanwhile. All 38 numbered levels have door-place items;
+  only existing door-related checks have their door requirements applied so far.
 - Old Stage Clear toggles were retired rather than reinterpreting old save flags
   as received stars. Re-enter your received progression items when updating.
 

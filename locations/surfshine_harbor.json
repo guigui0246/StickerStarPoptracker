@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Surfshine Harbor",
+    "children": [
+      {
+        "name": "Warehouse Door Scrap",
+        "map_locations": [
+          {
+            "map": "surfshine_harbor",
+            "x": 150,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Warehouse Door Scrap \u2014 shuffled reward check.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Thing: Vacuum",
+        "map_locations": [
+          {
+            "map": "surfshine_harbor",
+            "x": 450,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Thing: Vacuum \u2014 shuffled reward check.",
+            "access_rules": [
+              "paperization, scrap_warehouse_door"
+            ],
+            "chest_unopened_img": "images/chests/thing_false.png",
+            "chest_opened_img": "images/chests/thing_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Ship's Wheel Scrap",
+        "map_locations": [
+          {
+            "map": "surfshine_harbor",
+            "x": 750,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Ship's Wheel Scrap \u2014 shuffled reward check.",
+            "access_rules": [
+              "paperization, req_thing_lightbulb"
+            ],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Big Cheep Cheep \u2014 first defeat",
+        "map_locations": [
+          {
+            "map": "surfshine_harbor",
+            "x": 450,
+            "y": 390
+          }
+        ],
+        "sections": [
+          {
+            "name": "Big Cheep Cheep \u2014 first defeat \u2014 shuffled reward check.",
+            "access_rules": [
+              "boss_unlock_harbor, paperization, scrap_ships_wheel, req_thing_scissors, req_thing_fishhook"
+            ],
+            "chest_unopened_img": "images/chests/clear_false.png",
+            "chest_opened_img": "images/chests/clear_true.png"
+          }
+        ]
+      }
+    ]
+  }
+]

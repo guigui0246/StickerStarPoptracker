@@ -14,8 +14,9 @@ playable patch waits for a new game dump; tracker work can continue independentl
       museum exhibits, and success banners with original thresholds.
 - [ ] Map every mini-star reward to its exact exit, including alternate exits and
       shortcuts. Verify the tracker's provisional routes against game event IDs.
-- [ ] Enumerate every door place separately. The tracker currently models only
-      the existing 1-2 Secret Door check; it does not claim a complete door catalog.
+- [ ] Implement one door-place unlock per numbered level. The tracker now has
+      all 38 items; map these IDs to game events and apply them to every actual
+      door interaction. Towns have their own tracker maps and check groups.
 
 ## Reward hooks and persistence
 

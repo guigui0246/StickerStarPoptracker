@@ -788,5 +788,46 @@
         ]
       }
     ]
+  },
+  {
+    "name": "Towns",
+    "children": [
+      {
+        "name": "Decalburg",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 570,
+            "y": 780
+          }
+        ],
+        "sections": [
+          {
+            "name": "Decalburg \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Surfshine Harbor",
+        "map_locations": [
+          {
+            "map": "world_map",
+            "x": 850,
+            "y": 780
+          }
+        ],
+        "sections": [
+          {
+            "name": "Surfshine Harbor \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      }
+    ]
   }
 ]

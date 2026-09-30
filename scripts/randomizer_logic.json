@@ -537,5 +537,499 @@
         "item": "boss_unlock_w6"
       }
     ]
+  },
+  "DOOR_W1_1": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w1_1"
+      }
+    ]
+  },
+  "DOOR_W1_2": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w1_2"
+      }
+    ]
+  },
+  "DOOR_W1_3": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w1_3"
+      }
+    ]
+  },
+  "DOOR_W1_4": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w1_4"
+      }
+    ]
+  },
+  "DOOR_W1_5": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w1_5"
+      }
+    ]
+  },
+  "DOOR_W1_6": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w1_6"
+      }
+    ]
+  },
+  "DOOR_W2_1": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w2_1"
+      }
+    ]
+  },
+  "DOOR_W2_2": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w2_2"
+      }
+    ]
+  },
+  "DOOR_W2_3": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w2_3"
+      }
+    ]
+  },
+  "DOOR_W2_4": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w2_4"
+      }
+    ]
+  },
+  "DOOR_W2_5": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w2_5"
+      }
+    ]
+  },
+  "DOOR_W3_1": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_1"
+      }
+    ]
+  },
+  "DOOR_W3_2": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_2"
+      }
+    ]
+  },
+  "DOOR_W3_3": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_3"
+      }
+    ]
+  },
+  "DOOR_W3_4": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_4"
+      }
+    ]
+  },
+  "DOOR_W3_5": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_5"
+      }
+    ]
+  },
+  "DOOR_W3_6": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_6"
+      }
+    ]
+  },
+  "DOOR_W3_7": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_7"
+      }
+    ]
+  },
+  "DOOR_W3_8": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_8"
+      }
+    ]
+  },
+  "DOOR_W3_9": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_9"
+      }
+    ]
+  },
+  "DOOR_W3_10": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_10"
+      }
+    ]
+  },
+  "DOOR_W3_11": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_11"
+      }
+    ]
+  },
+  "DOOR_W3_12": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w3_12"
+      }
+    ]
+  },
+  "DOOR_W4_1": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w4_1"
+      }
+    ]
+  },
+  "DOOR_W4_2": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w4_2"
+      }
+    ]
+  },
+  "DOOR_W4_3": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w4_3"
+      }
+    ]
+  },
+  "DOOR_W4_4": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w4_4"
+      }
+    ]
+  },
+  "DOOR_W4_5": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w4_5"
+      }
+    ]
+  },
+  "DOOR_W4_6": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w4_6"
+      }
+    ]
+  },
+  "DOOR_W5_1": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w5_1"
+      }
+    ]
+  },
+  "DOOR_W5_2": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w5_2"
+      }
+    ]
+  },
+  "DOOR_W5_3": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w5_3"
+      }
+    ]
+  },
+  "DOOR_W5_4": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w5_4"
+      }
+    ]
+  },
+  "DOOR_W5_5": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w5_5"
+      }
+    ]
+  },
+  "DOOR_W5_6": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w5_6"
+      }
+    ]
+  },
+  "DOOR_W6_1": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w6_1"
+      }
+    ]
+  },
+  "DOOR_W6_2": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w6_2"
+      }
+    ]
+  },
+  "DOOR_W6_3": {
+    "all": [
+      {
+        "item": "paperization"
+      },
+      {
+        "item": "sticker_secret_door"
+      },
+      {
+        "item": "door_place_w6_3"
+      }
+    ]
   }
 }

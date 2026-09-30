@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Decalburg",
+    "children": [
+      {
+        "name": "Sticker Shop Toad \u2014 first conversation",
+        "map_locations": [
+          {
+            "map": "decalburg",
+            "x": 150,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Sticker Shop Toad \u2014 first conversation \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/thing_false.png",
+            "chest_opened_img": "images/chests/thing_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Shady Toad / Thing Shop \u2014 first conversation",
+        "map_locations": [
+          {
+            "map": "decalburg",
+            "x": 450,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Shady Toad / Thing Shop \u2014 first conversation \u2014 shuffled reward check.",
+            "access_rules": [],
+            "chest_unopened_img": "images/chests/thing_false.png",
+            "chest_opened_img": "images/chests/thing_true.png"
+          }
+        ]
+      },
+      {
+        "name": "Decalburg Fountain Scrap",
+        "map_locations": [
+          {
+            "map": "decalburg",
+            "x": 750,
+            "y": 180
+          }
+        ],
+        "sections": [
+          {
+            "name": "Decalburg Fountain Scrap \u2014 shuffled reward check.",
+            "access_rules": [
+              "paperization"
+            ],
+            "chest_unopened_img": "images/chests/special_false.png",
+            "chest_opened_img": "images/chests/special_true.png"
+          }
+        ]
+      }
+    ]
+  }
+]

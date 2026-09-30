@@ -199,3 +199,155 @@ function W6_FINAL()
   return (has("boss_unlock_w6"))
 end
 
+function DOOR_W1_1()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w1_1"))
+end
+
+function DOOR_W1_2()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w1_2"))
+end
+
+function DOOR_W1_3()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w1_3"))
+end
+
+function DOOR_W1_4()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w1_4"))
+end
+
+function DOOR_W1_5()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w1_5"))
+end
+
+function DOOR_W1_6()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w1_6"))
+end
+
+function DOOR_W2_1()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w2_1"))
+end
+
+function DOOR_W2_2()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w2_2"))
+end
+
+function DOOR_W2_3()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w2_3"))
+end
+
+function DOOR_W2_4()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w2_4"))
+end
+
+function DOOR_W2_5()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w2_5"))
+end
+
+function DOOR_W3_1()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_1"))
+end
+
+function DOOR_W3_2()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_2"))
+end
+
+function DOOR_W3_3()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_3"))
+end
+
+function DOOR_W3_4()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_4"))
+end
+
+function DOOR_W3_5()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_5"))
+end
+
+function DOOR_W3_6()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_6"))
+end
+
+function DOOR_W3_7()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_7"))
+end
+
+function DOOR_W3_8()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_8"))
+end
+
+function DOOR_W3_9()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_9"))
+end
+
+function DOOR_W3_10()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_10"))
+end
+
+function DOOR_W3_11()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_11"))
+end
+
+function DOOR_W3_12()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w3_12"))
+end
+
+function DOOR_W4_1()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w4_1"))
+end
+
+function DOOR_W4_2()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w4_2"))
+end
+
+function DOOR_W4_3()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w4_3"))
+end
+
+function DOOR_W4_4()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w4_4"))
+end
+
+function DOOR_W4_5()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w4_5"))
+end
+
+function DOOR_W4_6()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w4_6"))
+end
+
+function DOOR_W5_1()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w5_1"))
+end
+
+function DOOR_W5_2()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w5_2"))
+end
+
+function DOOR_W5_3()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w5_3"))
+end
+
+function DOOR_W5_4()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w5_4"))
+end
+
+function DOOR_W5_5()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w5_5"))
+end
+
+function DOOR_W5_6()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w5_6"))
+end
+
+function DOOR_W6_1()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w6_1"))
+end
+
+function DOOR_W6_2()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w6_2"))
+end
+
+function DOOR_W6_3()
+  return (has("paperization") and has("sticker_secret_door") and has("door_place_w6_3"))
+end
+

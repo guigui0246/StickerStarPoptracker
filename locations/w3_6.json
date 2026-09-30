@@ -33,7 +33,7 @@
           {
             "name": "Thing: Fishhook \u2014 shuffled reward check.",
             "access_rules": [
-              "paperization, sticker_secret_door"
+              "$DOOR_W3_6"
             ],
             "chest_unopened_img": "images/chests/thing_false.png",
             "chest_opened_img": "images/chests/thing_true.png"

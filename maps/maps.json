@@ -310,5 +310,17 @@
     "location_size": 20,
     "location_border_thickness": 2,
     "img": "images/maps/w6_3_finale.png"
+  },
+  {
+    "name": "decalburg",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/decalburg.png"
+  },
+  {
+    "name": "surfshine_harbor",
+    "location_size": 20,
+    "location_border_thickness": 2,
+    "img": "images/maps/surfshine_harbor.png"
   }
 ]

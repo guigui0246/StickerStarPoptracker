@@ -50,6 +50,13 @@
         }
       },
       {
+        "title": "Door Places",
+        "content": {
+          "type": "layout",
+          "key": "door_place_tabs"
+        }
+      },
+      {
         "title": "Puzzle Tools",
         "content": {
           "type": "layout",
@@ -75,6 +82,13 @@
         "content": {
           "type": "layout",
           "key": "entrance_tabs"
+        }
+      },
+      {
+        "title": "Town Tools",
+        "content": {
+          "type": "layout",
+          "key": "town_tools_grid"
         }
       }
     ]
@@ -182,6 +196,24 @@
           "type": "map",
           "maps": [
             "world_map"
+          ]
+        }
+      },
+      {
+        "title": "Surfshine Harbor",
+        "content": {
+          "type": "map",
+          "maps": [
+            "surfshine_harbor"
+          ]
+        }
+      },
+      {
+        "title": "Decalburg",
+        "content": {
+          "type": "map",
+          "maps": [
+            "decalburg"
           ]
         }
       },
@@ -832,6 +864,53 @@
         "content": {
           "type": "layout",
           "key": "w6_access_grid"
+        }
+      }
+    ]
+  },
+  "door_place_tabs": {
+    "type": "tabbed",
+    "tabs": [
+      {
+        "title": "W1",
+        "content": {
+          "type": "layout",
+          "key": "w1_door_grid"
+        }
+      },
+      {
+        "title": "W2",
+        "content": {
+          "type": "layout",
+          "key": "w2_door_grid"
+        }
+      },
+      {
+        "title": "W3",
+        "content": {
+          "type": "layout",
+          "key": "w3_door_grid"
+        }
+      },
+      {
+        "title": "W4",
+        "content": {
+          "type": "layout",
+          "key": "w4_door_grid"
+        }
+      },
+      {
+        "title": "W5",
+        "content": {
+          "type": "layout",
+          "key": "w5_door_grid"
+        }
+      },
+      {
+        "title": "W6",
+        "content": {
+          "type": "layout",
+          "key": "w6_door_grid"
         }
       }
     ]

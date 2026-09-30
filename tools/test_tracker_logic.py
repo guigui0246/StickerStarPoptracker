@@ -84,6 +84,41 @@ class TrackerLogicTests(unittest.TestCase):
             (ROOT / "scripts/logic.lua").read_text(), render(self.model)
         )
 
+    def test_each_level_has_an_independent_visible_door_unlock(self) -> None:
+        stages = {p.stem for p in (ROOT / "locations").glob("w*.json")}
+        expected = {"door_place_" + stage for stage in stages}
+        actual = {c for c in self.codes if c.startswith("door_place_")}
+        self.assertEqual(actual, expected)
+        grids = json.loads((ROOT / "layouts/item_grids.json").read_text())
+        visible: set[str] = set()
+        for world in range(1, 7):
+            for row in grids[f"w{world}_door_grid"]["content"][0]["rows"]:
+                visible.update(row)
+        self.assertEqual(visible, expected)
+        for stage in stages:
+            function = "DOOR_" + stage.upper()
+            needed = ["paperization", "sticker_secret_door",
+                      "door_place_" + stage]
+            self.assertTrue(self.can(function, *needed))
+            self.assertFalse(self.can(function, *needed[:2]))
+            wrong_door = next(code for code in expected if code != needed[2])
+            self.assertFalse(self.can(function, *needed[:2], wrong_door))
+
+    def test_towns_are_registered_loaded_and_visible(self) -> None:
+        maps = json.loads((ROOT / "maps/maps.json").read_text())
+        map_names = {m["name"] for m in maps}
+        tabs = json.loads((ROOT / "layouts/tabs.json").read_text())
+        loader = (ROOT / "scripts/locations.lua").read_text()
+        for town in ("decalburg", "surfshine_harbor"):
+            self.assertIn(town, map_names)
+            self.assertIn(f'locations/{town}.json', loader)
+            self.assertTrue(any(
+                town in tab["content"].get("maps", [])
+                for tab in tabs["map_tabs"]["tabs"]
+            ))
+            data = json.loads((ROOT / f"locations/{town}.json").read_text())
+            self.assertTrue(data[0]["children"])
+
 
 if __name__ == "__main__":
     unittest.main()

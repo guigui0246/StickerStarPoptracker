@@ -33,7 +33,7 @@
           {
             "name": "Secret Door Route \u2014 shuffled reward check.",
             "access_rules": [
-              "$W1_SECRET"
+              "$DOOR_W1_2"
             ],
             "chest_unopened_img": "images/chests/thing_false.png",
             "chest_opened_img": "images/chests/thing_true.png"

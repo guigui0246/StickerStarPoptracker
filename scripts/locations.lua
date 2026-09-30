@@ -37,3 +37,7 @@ Tracker:AddLocations("locations/w5_6.json")
 Tracker:AddLocations("locations/w6_1.json")
 Tracker:AddLocations("locations/w6_2.json")
 Tracker:AddLocations("locations/w6_3.json")
+
+Tracker:AddLocations("locations/decalburg.json")
+
+Tracker:AddLocations("locations/surfshine_harbor.json")
