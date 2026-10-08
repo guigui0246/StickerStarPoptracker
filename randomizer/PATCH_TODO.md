@@ -35,6 +35,19 @@ playable patch waits for a new game dump; tracker work can continue independentl
 
 ## Settings and logic
 
+- [ ] Add the `album_pages` setting: all eight at start (default), or two base
+      pages plus six randomized +1-page rewards in the existing reward pool.
+- [ ] Disable vanilla page grants from Royal Sticker cutscenes and the 1-3 Toad
+      in shuffled mode, preventing duplicate or unintended capacity upgrades.
+- [ ] Keep page-upgrade rewards independent of Royal Sticker ownership and boss
+      check completion. Persist the selected mode and received page count.
+- [ ] Verify that two starting pages can hold all required early-game stickers;
+      account for large Things and simultaneous sticker requirements in logic.
+- [ ] Investigate experimental unlimited capacity: inventory storage, page menus,
+      placement, battles, shop purchases, overflow behavior, and save/load.
+      If literal infinite pages are impractical, evaluate expandable storage or
+      an overflow inventory. Do not write beyond the original inventory buffer.
+
 - [ ] Implement disabled success banners by removing their checks from the pool.
 - [ ] Implement divided banner thresholds, minimum one; confirm rounding for
       thresholds not divisible by ten. Prototype currently rounds upward.

@@ -36,6 +36,13 @@
         }
       },
       {
+        "title": "Album Pages",
+        "content": {
+          "type": "layout",
+          "key": "album_pages_grid"
+        }
+      },
+      {
         "title": "Received Stars / Royals",
         "content": {
           "type": "layout",

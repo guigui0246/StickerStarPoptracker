@@ -9,6 +9,12 @@ A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 
 ## Manual randomizer tracking
 
+- **Album Pages** records the planned page mode: All at start (eight pages),
+  Randomized (two base pages plus six received upgrades), or Infinite
+  (experimental). Click the mode icon to cycle modes. Page upgrades are tracked
+  individually and are separate from Royal Stickers. These controls describe
+  your seed; they do not modify the game or enable unlimited capacity.
+
 - **Received Stars / Royals** tracks rewards received from any shuffled check.
   A received exit star opens its destination; checking off its source location
   does not grant the star. Alternate exits have separate items.

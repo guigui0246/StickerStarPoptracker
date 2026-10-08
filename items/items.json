@@ -2968,5 +2968,68 @@
     "type": "toggle",
     "img": "images/items/req_thing_fishhook.png",
     "codes": "boss_unlock_harbor"
+  },
+  {
+    "name": "Album pages mode (click to cycle; tracker only)",
+    "type": "progressive",
+    "codes": "album_mode",
+    "initial_stage_idx": 0,
+    "loop": true,
+    "stages": [
+      {
+        "name": "All pages at start \u2014 8 pages",
+        "img": "images/items/album_all.png",
+        "codes": "album_all_at_start",
+        "inherit_codes": false
+      },
+      {
+        "name": "Randomized pages \u2014 2 base + received upgrades",
+        "img": "images/items/album_randomized.png",
+        "codes": "album_randomized",
+        "inherit_codes": false
+      },
+      {
+        "name": "Infinite pages \u2014 experimental, patch support unverified",
+        "img": "images/items/album_infinite.png",
+        "codes": "album_infinite",
+        "inherit_codes": false
+      }
+    ]
+  },
+  {
+    "name": "Album page upgrade 1 received (+1 page in Randomized mode)",
+    "type": "toggle",
+    "codes": "album_page_upgrade_1",
+    "img": "images/items/album_page_upgrade_1.png"
+  },
+  {
+    "name": "Album page upgrade 2 received (+1 page in Randomized mode)",
+    "type": "toggle",
+    "codes": "album_page_upgrade_2",
+    "img": "images/items/album_page_upgrade_2.png"
+  },
+  {
+    "name": "Album page upgrade 3 received (+1 page in Randomized mode)",
+    "type": "toggle",
+    "codes": "album_page_upgrade_3",
+    "img": "images/items/album_page_upgrade_3.png"
+  },
+  {
+    "name": "Album page upgrade 4 received (+1 page in Randomized mode)",
+    "type": "toggle",
+    "codes": "album_page_upgrade_4",
+    "img": "images/items/album_page_upgrade_4.png"
+  },
+  {
+    "name": "Album page upgrade 5 received (+1 page in Randomized mode)",
+    "type": "toggle",
+    "codes": "album_page_upgrade_5",
+    "img": "images/items/album_page_upgrade_5.png"
+  },
+  {
+    "name": "Album page upgrade 6 received (+1 page in Randomized mode)",
+    "type": "toggle",
+    "codes": "album_page_upgrade_6",
+    "img": "images/items/album_page_upgrade_6.png"
   }
 ]

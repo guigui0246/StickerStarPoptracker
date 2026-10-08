@@ -20,6 +20,31 @@ The existing tracker rules are legacy placeholders and are not the new logic.
 - Fillers are coins and sticker copies. Filler sticker copies still obey the
   locked-sticker conversion rule; they do not silently unlock their sticker.
 
+## Sticker album pages
+
+Setting `album_pages` has three planned modes:
+
+- `all_at_start` (default): start with all eight pages, matching the old
+  randomizer. There are no album-page rewards in the shuffled pool.
+- `randomized`: retain the two base pages and shuffle six independent +1-page
+  rewards into existing checks. They increase capacity, independently of Royal
+  Stickers or boss victories. They do not create six extra check locations.
+- `infinite`: experimental unlimited-capacity mode, subject to patch feasibility.
+  It must not be implemented by simply overflowing the original page count.
+  Investigate paged storage or an overflow inventory and save-format compatibility.
+  No page rewards appear in this mode. Do not offer a playable infinite mode until
+  inventory, placement, menus, battles, shops, and save/load are verified.
+
+The base game starts with two pages and adds six upgrades, ending with eight:
+https://www.mariowiki.com/Album_page
+
+The tracker records the selected mode and the six received upgrades. It does not
+change game capacity. In All at start mode the upgrades are irrelevant; in
+Randomized mode available capacity is two plus the number of upgrades received.
+Infinite mode is labeled experimental. Page capacity is not currently a hard
+tracker access requirement: exact sticker sizes and simultaneous puzzle/battle
+inventory requirements still need reconstruction from the game.
+
 ## Checks
 
 - Each mini star, Thing pickup, Royal Sticker boss reward, and Kamek fight.

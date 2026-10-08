@@ -119,6 +119,36 @@ class TrackerLogicTests(unittest.TestCase):
             data = json.loads((ROOT / f"locations/{town}.json").read_text())
             self.assertTrue(data[0]["children"])
 
+    def test_album_modes_and_upgrades_are_independent_rewards(self) -> None:
+        by_code = {item["codes"]: item for item in self.items}
+        mode = by_code["album_mode"]
+        self.assertEqual(mode["type"], "progressive")
+        self.assertEqual(mode["initial_stage_idx"], 0)
+        self.assertEqual(
+            [stage["codes"] for stage in mode["stages"]],
+            ["album_all_at_start", "album_randomized", "album_infinite"],
+        )
+        self.assertTrue(all(
+            stage["inherit_codes"] is False for stage in mode["stages"]
+        ))
+        upgrades = {
+            f"album_page_upgrade_{number}" for number in range(1, 7)
+        }
+        self.assertEqual(
+            {code for code in self.codes if
+             code.startswith("album_page_upgrade_")}, upgrades,
+        )
+        for code in upgrades:
+            self.assertEqual(by_code[code]["type"], "toggle")
+        grids = json.loads((ROOT / "layouts/item_grids.json").read_text())
+        visible = {
+            code
+            for grid in grids["album_pages_grid"]["content"]
+            for row in grid["rows"]
+            for code in row
+        }
+        self.assertEqual(visible, upgrades | {"album_mode"})
+
 
 if __name__ == "__main__":
     unittest.main()
