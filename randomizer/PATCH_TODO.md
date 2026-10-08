@@ -12,6 +12,54 @@ in `SPEC.md`. Checked entries distinguish implemented foundations from actual
 gameplay validation. The complete standalone and Archipelago randomizers are
 still unfinished.
 
+## Native integration progress — 2026-10-08
+
+- [x] Compile persistent museum checks for all 160 actual production exhibits,
+      with native donation flags separate from possession and delivery.
+- [x] Compile native banner checks using original thresholds or exact rounded
+      one-tenth comparisons; disabled banners can be omitted from the plan.
+- [x] Compile six real shop conversation callbacks and three Kamek completion
+      signals; correct Decalburg's callback to `talk_kinopio_shop`.
+- [x] Compile all six Royal source replacements, vanilla grant/restoration
+      suppression, and a Bowser victory hook that excludes escape results.
+- [x] Implement native generic unlock/copy commands, 119 unlock flags, stock
+      expansion in every generic shop, field-item conversion and 64 Thing-shop
+      mappings. Battle drops/direct additions and full-album pickup retention
+      still need gameplay coverage verification.
+- [x] Implement a signature-checked native RPC mailbox with separate ownership,
+      game-owned receipts, retry, save fingerprint and bound network session.
+- [x] Implement the runnable native AP client and offline operation, durable
+      local-placement binding, AP replay deduplication and rollback checks.
+- [x] Implement optional loopback pseudo-AP tracking and actual PopTracker Lua
+      callbacks; location reports never grant inventory and rollback reconnects.
+- [x] Extend asset-free native `.stickerpatch` recipes to explicit check/reward
+      plans, settings, unlock policies and optional remote selector/session data.
+- [x] Compile language-independent opening and native dialogue skip experiments.
+      Menu behavior, scene transitions and remaining cutscenes are unverified.
+- [x] Compile 112 existing enemy definitions with native death callbacks;
+      clear pending encounters at battle start and commit only on victory
+      outside museum battles. Full combat-type classification remains pending.
+- [x] Compile native Hammer/Paperization ownership and a seed-bound ARM
+      attachment filter in existing executable padding. Verify 384 native ARM
+      executions, preserved registers and bounded writes; gameplay pending.
+- [x] Compile additional world-map stage admission gates, including Decalburg,
+      retaining native route/admission checks and supporting local/remote grants.
+- [x] Compile all 38 numbered-stage Secret Door capabilities for 40 observed
+      placements, using the native miss/take-back path before fit completion.
+      Gameplay/sticker retention verification remains pending.
+- [x] Compile an ability-safe post-tutorial/world-map startup experiment and
+      world-map delivery poll. The emulator loads the patch but recorded startup
+      inputs have not reached seed initialization; do not call startup verified.
+- [x] Validate 92 repository tests, five real-Lua tracker tests, strict typing
+      of changed native modules and AP 0.6.8 wire transport.
+- [ ] Verify the combined 205-check fixture's native initialization, reward
+      collection, save/reload and inventory retry in gameplay. It compiles; it
+      is not a complete catalog or a solvable progression seed.
+
+The remaining unchecked requirements below still apply, especially native gate
+gameplay, boss encounters, combat-type classification, the authoritative puzzle graph,
+production starting-state handling, complete AP generation and full playthroughs.
+
 ## Confirmed tutorial test — 2026-10-08
 
 - [x] Build a separate tutorial-skip patch for the supplied European dump.
@@ -94,6 +142,20 @@ their contracts throughout the real game catalog, patch and clients.
 
 ## Reward hooks and persistence
 
+- [x] Compile shared Thing/scrap pickup dispatch for explicitly validated native
+      map/object/item placements; preserve unconfigured pickup handlers.
+- [x] Compile a baseline covering all 39 observed mini-star calls and add
+      delivery polling to Decalburg's custom initialization.
+- [ ] Verify Thing/scrap source effects, callback coverage and persistence.
+
+- [x] Implement a native script backend for explicitly mapped goal-block checks,
+      with separate collected/delivered flags and pending non-forced item grants.
+- [x] Allocate named global save flags within the unused registry gap, preserve
+      existing tables and bind the reward flags to a placement fingerprint.
+- [x] Compile/decompile fixtures for mini-star, item, coin and Royal commands.
+- [ ] Verify this backend's native collection, full-album retry, save/reload,
+      thread lifetime and wrong-seed rejection in gameplay. An isolated emulator
+      reaches the title screen, but controller automation did not work.
 - [ ] Shuffle all six Royal Stickers, Hammer, Paperization, individual mini-star
       exit items, boss unlocks, scraps and numbered-level door-place unlocks.
 - [ ] Replace vanilla rewards at all randomized checks; prevent double rewards.
@@ -117,6 +179,11 @@ their contracts throughout the real game catalog, patch and clients.
       rewards from the shuffled pool, and make the real EndGoal trigger victory.
 
 ## Settings and logic
+
+- [x] Add strict shared album/banner settings and rounded reduced thresholds.
+- [x] Build album overrides suppressing the six observed vanilla page grants;
+      compile independent +1 rewards and once-only all-at-start grants with
+      two-page initialization/eight-page upper bounds. Gameplay verification pending.
 
 - [ ] Add the `album_pages` setting: all eight at start (default), or two base
       pages plus six randomized +1-page rewards in the existing reward pool.
@@ -143,10 +210,16 @@ their contracts throughout the real game catalog, patch and clients.
 
 ## Seed delivery and tracker connection
 
-- [ ] Make the randomizer generator output a `.stickerpatch` file containing
+- [x] Make the experimental combat-sticker generator output a `.stickerpatch` file containing
       no copyrighted game/IP assets or ROM content, for legally shareable seed
       distribution. Apply it later to the user's own ROM to generate the mod;
       keep ROM-derived content out of the distributable patch artifact.
+- [x] Validate recipe versions, supported settings, source file hashes and
+      expected generated placement hashes; build into a new mod folder atomically.
+- [x] Combine the combat shuffle and confirmed revision-2 tutorial skip in one
+      generated mod, preserving the original ROM and installed emulator state.
+- [ ] Extend `.stickerpatch` recipes to the complete progression catalog and
+      persistent local/remote delivery after the game hooks are implemented.
 - [ ] Load the seed's reward table into the patch; verify catalog/version hashes.
 - [ ] Implement an emulator-to-PopTracker connection for received inventory and
       completed check flags, maintaining separate state for each.
@@ -169,6 +242,14 @@ their contracts throughout the real game catalog, patch and clients.
       installation and launch instructions and no bundled copyrighted game data.
 
 ## Complete Archipelago 0.6.8 compatibility
+
+- [x] Implement authenticated packet handling and reconnecting WebSocket transport.
+- [x] Persist received indexes, pending items, checks and victory in SQLite,
+      binding to seed/player/catalog/save; validate overlaps and replay gaps.
+- [x] Implement direct offline local delivery and server-echo deduplication
+      through an explicit atomic native-receipt adapter contract.
+- [x] Verify transport against AP 0.6.8's actual wire serializer over WebSockets.
+- [ ] Connect the runtime to verified native atomic delivery/receipt hooks.
 
 - [x] Implement the AP world adapter for the shared logic example, with directed
       entrances, locked local fixed rewards, completion rules and slot output.
@@ -194,8 +275,14 @@ their contracts throughout the real game catalog, patch and clients.
 
 ## Validation
 
-- [ ] Inspect generated `.stickerpatch` files for ROM content or copyrighted
+- [x] Inspect experimental `.stickerpatch` files for ROM content or copyrighted
       game assets, then verify applying one to the user's ROM produces the mod.
+- [x] Validate the combined seed-42 build: 651-byte asset-free recipe, 390
+      shuffled pickups, 369 changed placements, preserved collection flags,
+      unchanged bytes outside item pointers, tutorial files identical to the
+      previously confirmed revision-2 patch. Thirty unit tests pass.
+- [ ] Playtest the combined combat-shuffle/tutorial-skip mod in the emulator,
+      including pickups and save/reload. Build checks alone do not establish this.
 - [ ] Verify AP remote item receipt and location reporting through RPC, local
       item delivery without RPC, and standalone play with RPC disabled. Verify
       optional local pseudo-Archipelago RPC enables PopTracker auto-tracking.

@@ -204,3 +204,41 @@ class KdmDocument:
                 )
             struct.pack_into("<I", result, offset, addresses[value])
         return bytes(result)
+
+    def add_strings(self, values: tuple[str, ...]) -> bytes:
+        """Append strings and relocate validated arrays without changing their values."""
+        original_strings = set(self.strings.values())
+        existing = original_strings | {""}
+        additions = tuple(dict.fromkeys(value for value in values if value not in existing))
+        if not additions:
+            return self.data
+        encoded = bytearray()
+        for value in additions:
+            if not value or "\0" in value:
+                raise ValueError("KDM strings must be nonempty and contain no NUL")
+            raw = value.encode("utf-8") + b"\0"
+            encoded.extend(raw + bytes(self.align(len(raw), 4) - len(raw)))
+        insertion = self.sections[1]
+        shift = len(encoded)
+        result = bytearray(self.data[:insertion] + encoded + self.data[insertion:])
+        struct.pack_into("<I", result, self.sections[0], len(self.strings) + len(additions))
+        for index, offset in enumerate(self.sections):
+            if index:
+                struct.pack_into("<I", result, 8 + index * 4, (offset + shift) // 4)
+
+        def relocate(field: KdmField) -> None:
+            if isinstance(field.value, tuple):
+                for child in field.value:
+                    relocate(child)
+            elif isinstance(field.value, KdmPointer) and field.value.address:
+                if field.value.address not in self.arrays:
+                    raise ValueError("Cannot relocate an unrecognized KDM array pointer")
+                struct.pack_into("<I", result, field.offset + shift, field.value.address + shift)
+
+        for array in self.arrays.values():
+            for field in array.values:
+                relocate(field)
+        checked = KdmDocument(bytes(result))
+        if set(checked.strings.values()) != original_strings | set(additions):
+            raise ValueError("KDM string relocation verification failed")
+        return bytes(result)

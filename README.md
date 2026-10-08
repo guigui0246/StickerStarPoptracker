@@ -3,7 +3,9 @@
 The typed standalone seed engine and Archipelago 0.6.8 logic integration are
 documented in [randomizer/README.md](randomizer/README.md). They include all
 requested domain classes and share one region graph. The bundled graph is a
-demonstration; playable ROM patching and emulator connectivity are unfinished.
+demonstration. Native reward patches, a Citra/AP client, and optional standalone
+auto-tracking are implemented; full-game logic and gameplay validation remain
+unfinished.
 
 A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 
@@ -38,7 +40,9 @@ A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
   is not yet reconstructed. World 1-1 and 3-1 start accessible; other world
   entrances do not require an invented chain of Royal Stickers.
 - A map check represents a shuffled reward pickup. The item rewarded there
-  must be marked separately in Items. This package has no emulator connection.
+  must be marked separately in Items during manual tracking. AP auto-tracking
+  requires explicit item/location mappings for the same catalog as the seed;
+  the provisional manual pack does not supply a complete game catalog.
 - The map catalog still contains representative checks rather than every game
   event. Enemy types, Kamek fights, banners, all shops, Wiggler
   events, and some puzzle prerequisites need complete event catalogs before
@@ -52,9 +56,12 @@ Tracker predicates live in `scripts/randomizer_logic.json`; regenerate their
 Lua with `tools/render_tracker_logic.py`. Regression checks are in
 `tools/test_tracker_logic.py` and `tools/validate_logic.py`.
 
-The emulator patch is deferred until a new game dump is available. Its checklist
-is [randomizer/PATCH_TODO.md](randomizer/PATCH_TODO.md). The separate Python seed
-prototype is not a playable patch and is not bundled in the tracker pack.
+An experimental combat-sticker shuffle can now generate asset-free
+`.stickerpatch` recipes and apply them to the inspected European dump, optionally
+combining the confirmed tutorial skip. See [randomizer/README.md](randomizer/README.md)
+for commands. Full progression patching and Archipelago gameplay remain unfinished;
+their checklist is [randomizer/PATCH_TODO.md](randomizer/PATCH_TODO.md).
+The randomizer tools are separate from the tracker pack.
 
 ## Repository layout
 

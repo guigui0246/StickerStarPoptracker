@@ -4,5 +4,12 @@
   "package_version": "0.2.2",
   "package_uid": "sticker_star_poptracker_guigui0246",
   "author": "guigui0246",
-  "platform": "Nintendo 3DS"
+  "platform": "Nintendo 3DS",
+  "min_poptracker_version": "0.25.2",
+  "variants": {
+    "default": {
+      "display_name": "Tracker",
+      "flags": ["ap"]
+    }
+  }
 }

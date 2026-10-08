@@ -15,6 +15,8 @@ def main() -> None:
     root = Path(__file__).resolve().parents[1]
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with ZipFile(args.output, "w", ZIP_DEFLATED) as archive:
+        archive.write(root / "randomizer" / "settings.py", "sticker_star/settings.py")
+        archive.write(root / "randomizer" / "client.py", "sticker_star/client.py")
         for folder in ("domain", "data", "integrations"):
             for source in sorted((root / "randomizer" / folder).rglob("*.py")):
                 archive.write(

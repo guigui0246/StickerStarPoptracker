@@ -3,7 +3,9 @@
 This specification records the requested replacement randomizer. The typed core,
 standalone generator and Archipelago 0.6.8 logic example are implemented. Real
 combat-sticker and tutorial-skip experiments exist; the full progression patch
-and Archipelago runtime remain unfinished.
+and full Archipelago gameplay integration remain unfinished. The native runtime,
+delivery mailbox, AP client and standalone tracking transport are implemented;
+the authoritative catalog and gameplay validation remain outstanding.
 The existing tracker rules are legacy placeholders and are not the new logic.
 
 ## Architecture and supported modes

@@ -1,6 +1,7 @@
 """Archipelago 0.6.8 adapter for the shared example definition.
 
-This is a generation integration. No emulator client or ROM patch exists yet.
+This is the logic-example generation integration. Experimental native patches
+and a protocol runtime exist separately; full gameplay integration is pending.
 """
 
 from dataclasses import dataclass

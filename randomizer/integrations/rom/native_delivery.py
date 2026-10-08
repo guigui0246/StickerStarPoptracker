@@ -1,0 +1,490 @@
+"""Persistent local reward delivery through the game's script VM.
+
+This backend supports observed goal-block checks. It uses named global save
+flags, retries inventory deliveries, and separates source checks from rewards.
+It does not assert that a caller-supplied placement table is a solvable catalog.
+"""
+
+from __future__ import annotations
+from dataclasses import asdict, dataclass
+from enum import Enum
+import hashlib
+import json
+import re
+from typing import TYPE_CHECKING
+from ...settings import AlbumPages
+from ...settings import Banners
+if TYPE_CHECKING:
+    from .mailbox import RemoteReward, RemoteSession
+    from .stickers import StickerPolicy
+
+
+class NativeRewardKind(str, Enum):
+    ITEM = "item"
+    STICKER_UNLOCK = "sticker_unlock"
+    STICKER_COPY = "sticker_copy"
+    ABILITY = "ability"
+    STAGE_ACCESS = "stage_access"
+    DOOR_ACCESS = "door_access"
+    BOSS_ACCESS = "boss_access"
+    COINS = "coins"
+    MINI_STAR = "mini_star"
+    ROYAL = "royal"
+    PAGE = "page"
+    VICTORY = "victory"
+    REMOTE = "remote"
+
+
+@dataclass(frozen=True)
+class NativeReward:
+    kind: NativeRewardKind
+    value: str | int
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.kind, NativeRewardKind):
+            raise ValueError("Reward kind must be a NativeRewardKind")
+        if self.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}:
+            if not isinstance(self.value, str) or not re.fullmatch(r"(?:SL|IC|PK|REAL)_[A-Z0-9_]+", self.value):
+                raise ValueError("Expected a native game item ID")
+            if self.value == "SL_PAGE":
+                raise ValueError("Page rewards require suppressing vanilla page grants; not yet supported by this hook")
+            if self.kind != NativeRewardKind.ITEM and not self.value.startswith("SL_"):
+                raise ValueError("Sticker unlocks and copies require a sticker ID")
+        elif self.kind == NativeRewardKind.ABILITY:
+            if self.value not in ("hammer", "paperization"):
+                raise ValueError("Expected Hammer or Paperization")
+        elif self.kind == NativeRewardKind.STAGE_ACCESS:
+            if not isinstance(self.value, str) or not re.fullmatch(r"[A-FX][0-9]{2}", self.value):
+                raise ValueError("Expected a native world-map stage code")
+        elif self.kind == NativeRewardKind.DOOR_ACCESS:
+            if not isinstance(self.value, str) or not re.fullmatch(r"[A-F][0-9]{2}", self.value):
+                raise ValueError("Expected a numbered native stage for door admission")
+        elif self.kind == NativeRewardKind.BOSS_ACCESS:
+            if self.value not in ("w1", "w2", "w3", "w4", "w5", "w6", "harbor"):
+                raise ValueError("Expected one of the six Royal bosses or Harbor boss")
+        elif self.kind == NativeRewardKind.COINS:
+            if type(self.value) is not int or not 1 <= self.value <= 9999:
+                raise ValueError("Coin rewards must be between 1 and 9999")
+        elif self.kind == NativeRewardKind.MINI_STAR:
+            if not isinstance(self.value, str) or not re.fullmatch(r"GF_WM_[A-F][0-9]{2}_[A-F][0-9]{2}", self.value):
+                raise ValueError("Expected a mini-star route flag")
+        elif self.kind == NativeRewardKind.ROYAL:
+            if type(self.value) is not int or not 1 <= self.value <= 6:
+                raise ValueError("Royal Sticker index must be between 1 and 6")
+        elif self.kind in {NativeRewardKind.PAGE, NativeRewardKind.VICTORY}:
+            if type(self.value) is not int or self.value != 1:
+                raise ValueError("Page and victory rewards have value one")
+        elif self.kind == NativeRewardKind.REMOTE:
+            if type(self.value) is not int or self.value < 1:
+                raise ValueError("Remote ownership requires a positive player slot")
+        else:
+            raise ValueError("Unsupported native reward kind")
+
+
+@dataclass(frozen=True)
+class GoalBlockReward:
+    map_name: str
+    source_flag: str
+    reward: NativeReward
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.map_name, str) or not re.fullmatch(r"[a-z0-9_]+", self.map_name):
+            raise ValueError("Invalid native map ID")
+        NativeReward(NativeRewardKind.MINI_STAR, self.source_flag)
+
+    @property
+    def id(self) -> str:
+        return f"mini_star/{self.map_name}/{self.source_flag.lower()}"
+
+
+@dataclass(frozen=True)
+class PickupReward:
+    map_name: str
+    object_name: str
+    source_item: str
+    reward: NativeReward
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.map_name, str) or not re.fullmatch(r"[A-Za-z0-9_]+", self.map_name):
+            raise ValueError("Invalid pickup map")
+        if not isinstance(self.object_name, str) or not re.fullmatch(r"[A-Za-z0-9_]+", self.object_name):
+            raise ValueError("Invalid pickup object")
+        if not isinstance(self.source_item, str) or not re.fullmatch(r"(?:REAL|PK)_[A-Z0-9_]+", self.source_item):
+            raise ValueError("Only observed Thing and scrap pickup hooks are supported")
+
+    @property
+    def id(self) -> str:
+        return f"pickup/{self.map_name}/{self.object_name}"
+
+
+@dataclass(frozen=True)
+class FlagReward:
+    category: str
+    source_flag: str
+    reward: NativeReward
+
+    def __post_init__(self) -> None:
+        if self.category not in {"museum", "kamek", "boss", "shop", "event"}:
+            raise ValueError("Unsupported persistent event category")
+        if not isinstance(self.source_flag, str) or not re.fullmatch(r"gf_[a-z0-9_]+", self.source_flag):
+            raise ValueError("Expected a native global flag")
+
+    @property
+    def id(self) -> str:
+        return f"{self.category}/{self.source_flag}"
+
+
+HONORS = frozenset({"parts_of_comet", "paper_door", "seal_collector", "max_heart", "million_coin", "btl_slot_machine", "btl_excellent", "btl_perfect"})
+
+
+@dataclass(frozen=True)
+class BannerReward:
+    honor: str
+    mode: Banners
+    reward: NativeReward
+
+    def __post_init__(self) -> None:
+        if self.honor not in HONORS or self.mode not in {Banners.ORIGINAL, Banners.REDUCED}:
+            raise ValueError("Expected an enabled native success banner")
+
+    @property
+    def id(self) -> str:
+        return f"banner/{self.honor}"
+
+
+@dataclass(frozen=True)
+class ScriptReward:
+    category: str
+    script_file: str
+    function: str
+    reward: NativeReward
+
+    def __post_init__(self) -> None:
+        if self.category not in {"boss", "kamek", "shop", "event", "victory"}:
+            raise ValueError("Unsupported script-event category")
+        if not isinstance(self.script_file, str) or not re.fullmatch(r"Script/(?:[A-Za-z0-9_]+/)*[A-Za-z0-9_]+\.bin", self.script_file):
+            raise ValueError("Expected a native script path")
+        if not isinstance(self.function, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", self.function):
+            raise ValueError("Expected a native script function name")
+
+    @property
+    def id(self) -> str:
+        return f"{self.category}/{self.script_file}/{self.function}"
+
+
+@dataclass(frozen=True)
+class EnemyReward:
+    unit_id: str
+    script_file: str
+    function: str
+    reward: NativeReward
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.unit_id, str) or not self.unit_id or len(self.unit_id) > 256 or any(character in self.unit_id for character in '\\"\r\n\0'):
+            raise ValueError("Invalid native enemy unit identity")
+        if not isinstance(self.script_file, str) or not re.fullmatch(r"Script/Battle/Enemy/[A-Za-z0-9_]+\.bin", self.script_file):
+            raise ValueError("Enemy checks require an observed battle script")
+        if not isinstance(self.function, str) or not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", self.function):
+            raise ValueError("Enemy checks require a native death callback")
+
+    @property
+    def id(self) -> str:
+        return "enemy/" + hashlib.sha256(self.unit_id.encode("utf-8")).hexdigest()[:32]
+
+
+@dataclass(frozen=True)
+class DeliveryPlan:
+    checks: tuple[GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward, ...]
+    album_pages: AlbumPages | None = None
+    shuffle_royals: bool = False
+    remote_rewards: tuple[RemoteReward, ...] = ()
+    remote_session: RemoteSession | None = None
+    sticker_policy: StickerPolicy | None = None
+    skip_opening: bool = True
+    skip_dialogue: bool = True
+    seed_name: str | None = None
+
+    def __post_init__(self) -> None:
+        if type(self.skip_opening) is not bool or type(self.skip_dialogue) is not bool:
+            raise ValueError("Presentation skip settings must be boolean")
+        if self.seed_name is not None and (not isinstance(self.seed_name, str) or not self.seed_name or len(self.seed_name) > 1024):
+            raise ValueError("Expected a bounded seed identity")
+        if self.seed_name is not None and self.remote_session is not None and self.seed_name != self.remote_session.seed:
+            raise ValueError("Native seed and remote session disagree")
+        if not self.checks or len({check.id for check in self.checks}) != len(self.checks):
+            raise ValueError("Delivery plans require unique native check IDs")
+        if len(self.checks) > 1024:
+            raise ValueError("Delivery plan exceeds the bounded native check limit")
+        pages = sum(check.reward.kind == NativeRewardKind.PAGE for check in self.checks)
+        if self.album_pages == AlbumPages.INFINITE:
+            raise ValueError("Infinite inventory is not supported by native delivery")
+        if self.album_pages is not None and not isinstance(self.album_pages, AlbumPages):
+            raise ValueError("Invalid album-page mode")
+        expected_pages = 6 if self.album_pages == AlbumPages.RANDOMIZED else 0
+        remote_pages = any(entry.reward.kind == NativeRewardKind.PAGE for entry in self.remote_rewards)
+        if remote_pages and self.album_pages != AlbumPages.RANDOMIZED:
+            raise ValueError("Remote page rewards require randomized album pages")
+        if pages != expected_pages and not (self.album_pages == AlbumPages.RANDOMIZED and remote_pages and pages <= 6):
+            raise ValueError("Randomized albums require exactly six independent page rewards")
+        if type(self.shuffle_royals) is not bool:
+            raise ValueError("Royal shuffle setting must be boolean")
+        if len({entry.item_id for entry in self.remote_rewards}) != len(self.remote_rewards) or len(self.remote_rewards) > 4096:
+            raise ValueError("Remote item selectors must be unique and bounded")
+        if bool(self.remote_rewards) != (self.remote_session is not None):
+            raise ValueError("Remote mailbox requires a bound seed, player and catalog")
+        abilities = [check.reward.value for check in self.checks if check.reward.kind == NativeRewardKind.ABILITY]
+        capabilities = set(abilities) | {entry.reward.value for entry in self.remote_rewards if entry.reward.kind == NativeRewardKind.ABILITY}
+        if capabilities and (capabilities != {"hammer", "paperization"} or len(abilities) != len(set(abilities))):
+            raise ValueError("Ability shuffle requires both unique ability capabilities")
+        if self.shuffle_royals:
+            royals = sorted(int(check.reward.value) for check in self.checks if check.reward.kind == NativeRewardKind.ROYAL)
+            required = {"gf_evt_1_6_royal_seal", "gf_evt_2_5_royal_seal", "gf_evt_3_12_royal_seal", "gf_evt_4_5_royal_seal", "gf_evt_5_6_royal_seal"}
+            sources = {check.source_flag for check in self.checks if isinstance(check, FlagReward) and check.category == "boss"}
+            final = any(isinstance(check, ScriptReward) and check.category == "boss" and check.script_file == "Script/Map/W6_BOS/w6_bos_04.bin" and check.function == "get_royal_seal_event" for check in self.checks)
+            remote_royals = {int(entry.reward.value) for entry in self.remote_rewards if entry.reward.kind == NativeRewardKind.ROYAL}
+            valid_pool = royals == list(range(1, 7)) if not self.remote_rewards else len(royals) == len(set(royals)) and set(royals) | remote_royals == set(range(1, 7))
+            if not valid_pool or not required <= sources or not final:
+                raise ValueError("Royal shuffle requires all six Royal rewards and all six source boss checks")
+        victories = [check for check in self.checks if check.reward.kind == NativeRewardKind.VICTORY]
+        if len(victories) > 1 or any(not isinstance(check, ScriptReward) or check.category != "victory" or check.script_file != "Script/Map/W6_BOS/w6_bos_04.bin" or check.function != "koopa_battle_after_event_init" for check in victories):
+            raise ValueError("Victory must be fixed at Bowser's actual post-victory callback")
+
+    @property
+    def local_flags(self) -> tuple[str, ...]:
+        initialization = ("gf_rando_album_initialized",) if self.album_pages is not None else ()
+        royal_flags = tuple(f"gf_rando_royal_{index}" for index in range(1, 7)) if self.shuffle_royals else ()
+        victory = ("gf_rando_victory",) if any(check.reward.kind == NativeRewardKind.VICTORY for check in self.checks) else ()
+        unlocks = self.sticker_policy.flags if self.sticker_policy else ()
+        return self.seed_flags + initialization + self.page_flags + royal_flags + victory + self.ability_flags + self.stage_access_flags + self.door_access_flags + self.boss_access_flags + self.boss_pending_flags + unlocks + self.enemy_pending_flags + tuple(flag for index, check in enumerate(self.checks) for flag in (self.receipt_flags(index)[1:] if isinstance(check, FlagReward) else self.receipt_flags(index)))
+
+    @property
+    def boss_access_codes(self) -> tuple[str, ...]:
+        rewards = tuple(check.reward for check in self.checks) + tuple(entry.reward for entry in self.remote_rewards)
+        return tuple(sorted({str(reward.value) for reward in rewards if reward.kind == NativeRewardKind.BOSS_ACCESS}))
+
+    @property
+    def boss_access_flags(self) -> tuple[str, ...]:
+        return tuple(f"gf_rando_boss_{code}" for code in self.boss_access_codes)
+
+    @property
+    def boss_pending_flags(self) -> tuple[str, ...]:
+        return tuple(f"gf_rando_boss_pending_{code}" for code in self.boss_access_codes if code != "harbor")
+
+    @property
+    def page_flags(self) -> tuple[str, ...]:
+        return tuple(f"gf_rando_page_received_{index}" for index in range(6)) if self.album_pages == AlbumPages.RANDOMIZED else ()
+
+    @staticmethod
+    def page_grant(result: str) -> tuple[str, ...]:
+        lines = [f"{result} = false;"]
+        for index in range(6):
+            lines.extend([f"if ( gf_rando_page_received_{index} == false ) {{",
+                          f'\t{result} = item_try_addpouch*("SL_PAGE", true);',
+                          f"\tif ( {result} ) {{\n\t\tgf_rando_page_received_{index} *= true;\n\t}}", f"\treturn* {result};", "}"])
+        return tuple(lines)
+
+    def page_function(self) -> str:
+        return "private rando_page_grant()  {\n\ttemp tempVar0;\n" + "\n".join("\t" + line.replace("\n", "\n\t") for line in self.page_grant("tempVar0")) + "\n\treturn* tempVar0;\n}\n"
+
+    @property
+    def stage_access_codes(self) -> tuple[str, ...]:
+        rewards = tuple(check.reward for check in self.checks) + tuple(entry.reward for entry in self.remote_rewards)
+        return tuple(sorted({str(reward.value) for reward in rewards if reward.kind == NativeRewardKind.STAGE_ACCESS}))
+
+    @property
+    def stage_access_flags(self) -> tuple[str, ...]:
+        return tuple(f"gf_rando_stage_{code.lower()}" for code in self.stage_access_codes)
+
+    @property
+    def door_access_codes(self) -> tuple[str, ...]:
+        rewards = tuple(check.reward for check in self.checks) + tuple(entry.reward for entry in self.remote_rewards)
+        return tuple(sorted({str(reward.value) for reward in rewards if reward.kind == NativeRewardKind.DOOR_ACCESS}))
+
+    @property
+    def door_access_flags(self) -> tuple[str, ...]:
+        return tuple(f"gf_rando_door_{code.lower()}" for code in self.door_access_codes)
+
+    @property
+    def ability_mode(self) -> bool:
+        return any(check.reward.kind == NativeRewardKind.ABILITY for check in self.checks) or any(entry.reward.kind == NativeRewardKind.ABILITY for entry in self.remote_rewards)
+
+    @property
+    def ability_flags(self) -> tuple[str, ...]:
+        return ("gf_rando_abilities_initialized", "gf_rando_ability_hammer", "gf_rando_ability_paperization") if self.ability_mode else ()
+
+    @staticmethod
+    def ability_grant(value: str) -> tuple[str, ...]:
+        accessory, button = ("pouch_hammer", "player_hammer_button") if value == "hammer" else ("pouch_lucie", "player_pepalyze_button")
+        return (f"gf_rando_ability_{value} *= true;", f"pouch_attach_accessory*({accessory});",
+                f'player_set_ignore_key*("mario", {button}, false);')
+
+    @property
+    def enemy_pending_flags(self) -> tuple[str, ...]:
+        return tuple(self.enemy_pending(index) for index, check in enumerate(self.checks) if isinstance(check, EnemyReward))
+
+    @staticmethod
+    def enemy_pending(index: int) -> str:
+        return f"gf_rando_enemy_pending_{index:04d}"
+
+    @property
+    def flags(self) -> tuple[str, ...]:
+        from .mailbox import mailbox_flags
+        return self.local_flags + (mailbox_flags(1446 + len(self.local_flags)) if self.remote_rewards else ())
+
+    @property
+    def references(self) -> tuple[str, ...]:
+        return self.flags + tuple(sorted({check.source_flag for check in self.checks if isinstance(check, FlagReward)}))
+
+    @property
+    def required_references(self) -> tuple[str, ...]:
+        # Host-only nonce and reserved mailbox bits need registry storage, but
+        # no VM references. The compiler correctly drops their declarations.
+        rewards = tuple(check.reward for check in self.checks) + tuple(entry.reward for entry in self.remote_rewards)
+        unlocks = {self.sticker_policy.flag(str(reward.value)) for reward in rewards if self.sticker_policy and reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} and reward.value in self.sticker_policy.generic}
+        return tuple(flag for flag in self.references if not flag.startswith(("gf_rando_enemy_pending_", "gf_rando_boss_pending_")) and (not flag.startswith("gf_rando_unlock_") or flag in unlocks) and (not flag.startswith("gf_rando_rpc_") or re.fullmatch(r"gf_rando_rpc_(?:item|sequence|ack)_[0-9]{2}", flag) or flag in {"gf_rando_rpc_ready_00", "gf_rando_rpc_ack_ready_00"}))
+
+    def receipt(self, index: int) -> tuple[str, str]:
+        checked, delivered = self.receipt_flags(index)
+        check = self.checks[index]
+        return (check.source_flag if isinstance(check, FlagReward) else checked, delivered)
+
+    @property
+    def seed_flags(self) -> tuple[str, ...]:
+        return ("gf_rando_seed_initialized",) + tuple(f"gf_rando_seed_{index:02d}" for index in range(128))
+
+    @property
+    def fingerprint(self) -> bytes:
+        payload = [asdict(check) for check in self.checks]
+        return hashlib.sha256(json.dumps([payload, self.album_pages, self.shuffle_royals, [asdict(entry) for entry in self.remote_rewards], asdict(self.remote_session) if self.remote_session else None, asdict(self.sticker_policy) if self.sticker_policy else None, self.skip_opening, self.skip_dialogue, self.seed_name], separators=(",", ":")).encode()).digest()[:16]
+
+    def seed_function(self) -> str:
+        expected = tuple(bool(self.fingerprint[index // 8] & (1 << (index % 8))) for index in range(128))
+        lines = ["private rando_seed_valid()  {", "\tif ( gf_rando_seed_initialized == false ) {"]
+        lines.extend(f"\t\t{flag} *= {'true' if bit else 'false'};" for flag, bit in zip(self.seed_flags[1:], expected, strict=True))
+        lines.extend(["\t\tgf_rando_seed_initialized *= true;", "\t}"])
+        lines.extend(f"\tif ( {flag} != {'true' if bit else 'false'} ) {{\n\t\treturn* false;\n\t}}" for flag, bit in zip(self.seed_flags[1:], expected, strict=True))
+        lines.extend(["\treturn* true;", "}"])
+        return "\n".join(lines) + "\n"
+
+    @staticmethod
+    def receipt_flags(index: int) -> tuple[str, str]:
+        return f"gf_rando_check_{index:04d}", f"gf_rando_delivered_{index:04d}"
+
+    def delivery_body(self) -> str:
+        lines = ["\ttemp tempVar0 = rando_seed_valid*();", "\tif ( tempVar0 == false ) {", "\t\treturn*;", "\t}"]
+        if self.ability_mode:
+            lines.extend(["\tif ( gf_rando_abilities_initialized == false ) {", "\t\ttempVar0 = pouch_hammer | pouch_lucie;", "\t\tpouch_detach_accessory*(tempVar0);",
+                          "\t\tgf_rando_abilities_initialized *= true;", "\t}"])
+        if any(isinstance(check, BannerReward) for check in self.checks):
+            lines.append("\ttemp tempVar1;")
+        if self.album_pages is not None:
+            lines.append("\tif ( gf_rando_album_initialized == false ) {")
+            if self.album_pages == AlbumPages.ALL_AT_START:
+                lines.extend(['\t\titem_try_addpouch*("SL_PAGE", true);'] * 6)
+            lines.extend(["\t\tgf_rando_album_initialized *= true;", "\t}"])
+        if self.remote_rewards:
+            lines.append("\trando_remote*();")
+        for index, check in enumerate(self.checks):
+            checked, delivered = self.receipt(index)
+            if isinstance(check, BannerReward):
+                lines.extend([f"\ttempVar0 = pouch_honor_get_value*(honor_id_{check.honor});",
+                              f"\ttempVar1 = pouch_honor_get_max*(honor_id_{check.honor});"])
+                factor = 10 if check.mode == Banners.REDUCED else 1
+                lines.extend([f"\tif ( tempVar1 > 0 && tempVar0 * {factor} >= tempVar1 ) {{", f"\t\t{checked} *= true;", "\t}"])
+            lines.append(f"\tif ( {checked} && {delivered} == false ) {{")
+            reward = check.reward
+            if reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}:
+                if self.sticker_policy is None:
+                    raise ValueError("Sticker rewards require a ROM-derived policy")
+                lines.extend("\t\t" + line.replace("\n", "\n\t\t") for line in self.sticker_policy.grant(str(reward.value), unlock=reward.kind == NativeRewardKind.STICKER_UNLOCK, result="tempVar0"))
+                lines.extend(["\t\tif ( tempVar0 ) {", f"\t\t\t{delivered} *= true;", "\t\t}"])
+            elif reward.kind == NativeRewardKind.PAGE:
+                lines.append("\t\ttempVar0 = rando_page_grant*();")
+                lines.extend(["\t\tif ( tempVar0 ) {", f"\t\t\t{delivered} *= true;", "\t\t}"])
+            elif reward.kind == NativeRewardKind.ITEM:
+                native_item = reward.value
+                lines.extend([
+                    f'\t\ttempVar0 = item_try_addpouch*("{native_item}", false);',
+                    "\t\tif ( tempVar0 ) {", f"\t\t\t{delivered} *= true;", "\t\t}",
+                ])
+            else:
+                if reward.kind == NativeRewardKind.COINS:
+                    lines.append(f"\t\tpouch_add_coin*({reward.value});")
+                elif reward.kind == NativeRewardKind.ABILITY:
+                    lines.extend("\t\t" + line for line in self.ability_grant(str(reward.value)))
+                elif reward.kind == NativeRewardKind.STAGE_ACCESS:
+                    lines.append(f"\t\tgf_rando_stage_{str(reward.value).lower()} *= true;")
+                elif reward.kind == NativeRewardKind.DOOR_ACCESS:
+                    lines.append(f"\t\tgf_rando_door_{str(reward.value).lower()} *= true;")
+                elif reward.kind == NativeRewardKind.BOSS_ACCESS:
+                    lines.append(f"\t\tgf_rando_boss_{reward.value} *= true;")
+                elif reward.kind == NativeRewardKind.ROYAL:
+                    lines.append(f"\t\tpouch_set_royal_seal*(pouch_royal_w{reward.value});")
+                    if self.shuffle_royals:
+                        lines.append(f"\t\tgf_rando_royal_{reward.value} *= true;")
+                elif reward.kind == NativeRewardKind.VICTORY:
+                    lines.append("\t\tgf_rando_victory *= true;")
+                elif reward.kind == NativeRewardKind.MINI_STAR:
+                    lines.extend([
+                        f'\t\tmobj_set_gf*("{reward.value}");',
+                        f'\t\twm_set_gf*("{reward.value}");',
+                    ])
+                lines.append(f"\t\t{delivered} *= true;")
+            lines.append("\t}")
+        return "\n".join(lines)
+
+    def goal_block_body(self) -> str:
+        lines = [
+            "\ttemp tempVar5 = rando_seed_valid*();",
+            "\tif ( tempVar5 == false ) {\n\t\treturn*;\n\t}",
+            '\ttemp tempVar2 = "mario";',
+            "\tplayer_event_flg_on*(tempVar2, event_exit);",
+            "\tlocal localVar1 = mobj_check_flag*(tempVar0);",
+            "\ttemp tempVar3 = false;",
+            "\ttemp tempVar4 = pouch_get_map_name*();",
+        ]
+        # A received destination route must not pre-collect its source check.
+        # Conversely revisiting an already collected check must not increment
+        # the comet banner count again merely because its route remains locked.
+        for index, check in enumerate(self.checks):
+            if not isinstance(check, GoalBlockReward):
+                continue
+            checked, _ = self.receipt(index)
+            lines.extend([f'\tif ( tempVar4 == "{check.map_name}" && tempVar1 == "{check.source_flag}" ) {{',
+                          f"\t\tlocalVar1 = {checked};", "\t\ttempVar3 = true;", "\t}"])
+        lines.append("\tif ( localVar1 == false ) {")
+        for index, check in enumerate(self.checks):
+            if not isinstance(check, GoalBlockReward):
+                continue
+            checked, _ = self.receipt_flags(index)
+            lines.extend([
+                f'\t\tif ( tempVar4 == "{check.map_name}" && tempVar1 == "{check.source_flag}" ) {{',
+                f"\t\t\t{checked} *= true;", "\t\t\ttempVar3 = true;", "\t\t}",
+            ])
+        lines.extend([
+            "\t\trando_deliver*();",
+            "\t\tif ( tempVar3 == false ) {",
+            "\t\t\tmobj_set_gf*(tempVar1);", "\t\t\twm_set_gf*(tempVar1);", "\t\t}",
+            "\t\tpouch_add_comet_num*();", "\t}", "\tsleep_frames* 2;",
+            "\tmobj_reaction_wait*(tempVar0);",
+        ])
+        return "\n".join(lines)
+
+    def pickup_function(self) -> str:
+        lines = ["private rando_pickup(temp tempVar0)  {", "\ttemp tempVar1 = rando_seed_valid*();",
+                 "\tif ( tempVar1 == false ) {\n\t\treturn* -1;\n\t}",
+                 "\ttemp tempVar2 = pouch_get_map_name*();"]
+        for index, check in enumerate(self.checks):
+            if not isinstance(check, PickupReward):
+                continue
+            checked, _ = self.receipt_flags(index)
+            lines.extend([f'\tif ( tempVar2 == "{check.map_name}" && tempVar0 == "{check.object_name}" ) {{',
+                          f"\t\t{checked} *= true;", "\t\trando_deliver*();", "\t\treturn* true;", "\t}"])
+        lines.extend(["\treturn* false;", "}"])
+        return "\n".join(lines) + "\n"
+
+    def polling_function(self) -> str:
+        return (
+            "private rando_delivery_poll()  {\n\twhile* 1 {\n"
+            "\t\trando_deliver*();\n\t\tsleep_frames* 30;\n\t}\n}\n"
+        )
