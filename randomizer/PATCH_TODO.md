@@ -1,11 +1,17 @@
 # Emulator patch TODO
 
-Target: Azahar/Citra first. No old randomizer files are available. Work on the
-playable patch waits for a new game dump; tracker work can continue independently.
+Target: Azahar/Citra first. The supplied NCSD dump has primary title ID
+`00040000000A5F00`, product code `CTR-P-AG5P`, and decrypted ExeFS/RomFS content
+(verified directly, rather than inferred from the original NCCH flags).
+Playable patch work needs decoded script/table formats and verified event mappings.
+The typed domain, standalone engine, and Archipelago 0.6.8 example integration
+are implemented; see `README.md` in this folder for their limits.
 
 ## Game inspection
 
 - [ ] Record region, revision, title ID, and hashes of the user's own dump.
+- [x] Inspect primary partition and enumerate 3,887 RomFS files and four ExeFS files.
+- [x] Identify KSMR scripts and KDMR item/shop/map tables as investigation targets.
 - [ ] Extract ExeFS/RomFS and identify event scripts, item tables, shop stock,
       inventory, ability flags, stage exits, museum records, and save flags.
 - [ ] Identify a supported emulator mod-loading method and document installation.

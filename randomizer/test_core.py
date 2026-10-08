@@ -144,9 +144,7 @@ class SeedTests(unittest.TestCase):
     def test_star_reward_and_door_requirements_are_distinct(self) -> None:
         checks = {c["id"]: c for c in fixture()["checks"]}
         self.assertFalse(
-            requirement_met(
-                checks["stage_1_2"]["requires"], Counter({"clear_w1_1": 1})
-            )
+            requirement_met(checks["stage_1_2"]["requires"], Counter({"clear_w1_1": 1}))
         )
         self.assertTrue(
             requirement_met(
@@ -158,9 +156,7 @@ class SeedTests(unittest.TestCase):
         for item in full:
             partial = full.copy()
             partial[item] = 0
-            self.assertFalse(
-                requirement_met(checks["door"]["requires"], partial)
-            )
+            self.assertFalse(requirement_met(checks["door"]["requires"], partial))
 
 
 class RewardTests(unittest.TestCase):
@@ -169,9 +165,7 @@ class RewardTests(unittest.TestCase):
     ) -> None:
         state = RewardState()
         items = fixture()["items"]
-        self.assertEqual(
-            state.ordinary_sticker("secret_door"), "kamek_flip_flop"
-        )
+        self.assertEqual(state.ordinary_sticker("secret_door"), "kamek_flip_flop")
         self.assertFalse(state.shop_sells("secret_door"))
         state.deliver("check", "door_sticker", items)
         self.assertEqual(state.sticker_inventory["secret_door"], 1)

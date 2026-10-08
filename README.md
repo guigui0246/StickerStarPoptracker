@@ -1,5 +1,10 @@
 # StickerStarPoptracker
 
+The typed standalone seed engine and Archipelago 0.6.8 logic integration are
+documented in [randomizer/README.md](randomizer/README.md). They include all
+requested domain classes and share one region graph. The bundled graph is a
+demonstration; playable ROM patching and emulator connectivity are unfinished.
+
 A PopTracker package scaffold for **Paper Mario: Sticker Star** with:
 
 - an original SVG world map and SVG level maps for every stage, with multi-section splits for more complex routes,
