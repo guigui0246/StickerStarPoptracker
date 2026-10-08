@@ -13,8 +13,9 @@ from typing import Protocol
 
 from ...data.catalog import array, obj, string
 from ..archipelago.runtime import ReceivedItem, Session, integer
-from ..rom.mailbox import RemoteSession
+from ..rom.mailbox import RemoteReward, RemoteSession
 from ..rom.native_delivery import NativeReward, NativeRewardKind
+from ..rom.sticker_guard import INSERTION_HOOKS
 
 
 class Memory(Protocol):
@@ -25,7 +26,7 @@ class Memory(Protocol):
 @dataclass(frozen=True)
 class CheckFlags:
     collected: int
-    delivered: int
+    delivered: int | None
 
 
 @dataclass(frozen=True)
@@ -59,14 +60,22 @@ class NativeProfile:
     code_signatures: tuple[CodeSignature, ...] = ()
 
     @classmethod
-    def load(cls, path: Path) -> "NativeProfile":
+    def load(cls, path: Path, *, standalone_catalog_hash: str | None = None) -> "NativeProfile":
         data = obj(json.loads(path.read_text(encoding="utf-8")))
         if data.get("format_version") != 1 or data.get("title_id") != "00040000000A5F00":
             raise ValueError("Unsupported native patch report")
         profile = obj(data.get("rpc_memory_profile"))
-        remote_session = obj(data.get("remote_session"))
-        session = RemoteSession(string(remote_session.get("seed")), integer(remote_session.get("team")),
-                                integer(remote_session.get("slot")), string(remote_session.get("catalog_hash")))
+        standalone = data.get("remote_session") is None
+        if standalone:
+            if standalone_catalog_hash is None or data.get("catalog_hash") != standalone_catalog_hash:
+                raise ValueError("Standalone observation requires the bound catalog hash")
+            session = RemoteSession(string(data.get("seed_name")), 0, 1, standalone_catalog_hash)
+        else:
+            if standalone_catalog_hash is not None:
+                raise ValueError("Standalone observation cannot attach to a network patch")
+            remote_session = obj(data.get("remote_session"))
+            session = RemoteSession(string(remote_session.get("seed")), integer(remote_session.get("team")),
+                                    integer(remote_session.get("slot")), string(remote_session.get("catalog_hash")))
         flags: dict[str, int] = {}
         for raw in array(data.get("allocated_flags")):
             flag = obj(raw)
@@ -78,8 +87,9 @@ class NativeProfile:
         for raw in array(data.get("check_flags")):
             row = obj(raw)
             identifier = string(row.get("id"))
-            checked, delivered = integer(row.get("checked")), integer(row.get("delivered"))
-            if identifier in checks or not 0 <= checked < 3072 or not 0 <= delivered < 3072:
+            checked = integer(row.get("checked"))
+            delivered = integer(row.get("delivered")) if row.get("delivered") is not None else None
+            if identifier in checks or not 0 <= checked < 3072 or (delivered is not None and not 0 <= delivered < 3072):
                 raise ValueError("Invalid native check mapping")
             checks[identifier] = CheckFlags(checked, delivered)
         selectors = {}
@@ -92,6 +102,7 @@ class NativeProfile:
             reward = obj(obj(raw).get("reward"))
             value = reward.get("value")
             selector_rewards[item] = NativeReward(NativeRewardKind(string(reward.get("kind"))), integer(value) if type(value) is int else string(value))
+            RemoteReward(item, selector_rewards[item])
         raw_checks = array(data.get("checks"))
         if len(raw_checks) != len(checks):
             raise ValueError("Native check reward table does not match the flag mapping")
@@ -100,14 +111,18 @@ class NativeProfile:
             reward = obj(obj(raw).get("reward"))
             value = reward.get("value")
             check_rewards[identifier] = NativeReward(NativeRewardKind(string(reward.get("kind"))), integer(value) if type(value) is int else string(value))
+            if checks[identifier].delivered is None and check_rewards[identifier].kind not in {NativeRewardKind.REMOTE, NativeRewardKind.EVENT}:
+                raise ValueError("Local rewards require a native delivery receipt")
         fingerprint = bytes.fromhex(string(data.get("save_seed_fingerprint")))
-        if len(fingerprint) != 16 or not selectors:
+        if len(fingerprint) != 16 or (not selectors and not standalone) or (standalone and selectors):
             raise ValueError("Patch does not contain a remote-delivery mailbox")
         patch = data.get("code_patch")
         signatures = tuple(CodeSignature(integer(obj(raw).get("address")), integer(obj(raw).get("size")), string(obj(raw).get("sha256")))
                            for raw in array(obj(patch).get("signatures"))) if patch is not None else ()
         if any(reward.kind == NativeRewardKind.ABILITY for reward in (*check_rewards.values(), *selector_rewards.values())) and not signatures:
             raise ValueError("Ability rewards require executable guard signatures")
+        if data.get("sticker_policy") is not None and not INSERTION_HOOKS <= {signature.address for signature in signatures}:
+            raise ValueError("Sticker policies require executable insertion guard signatures")
         result = cls(integer(profile.get("pointer_address")), integer(profile.get("global_flags_offset")),
                      integer(profile.get("flag_count")), integer(profile.get("signature_address")),
                      integer(profile.get("signature_size")), string(profile.get("signature_sha256")),
@@ -116,15 +131,43 @@ class NativeProfile:
             raise ValueError("Unsupported game memory revision")
         if len(result.signature_sha256) != 64:
             raise ValueError("Invalid executable signature hash")
-        for name in ("item", "sequence", "ready", "ack", "ack_ready", "save_a", "save_b", "save_c", "save_d"):
-            result.word_index(name)
+        if not standalone:
+            for name in ("item", "sequence", "ready", "ack", "ack_ready", "save_a", "save_b", "save_c", "save_d"):
+                result.word_index(name)
+            result.validate_word_ownership()
+        elif any(reward.kind == NativeRewardKind.REMOTE for reward in check_rewards.values()):
+            raise ValueError("Standalone observation cannot contain foreign-owned checks")
         return result
 
     def word_index(self, name: str) -> int:
-        positions = [self.flags[f"gf_rando_rpc_{name}_{bit:02d}"] for bit in range(32)]
-        if positions[0] % 32 or positions != list(range(positions[0], positions[0] + 32)):
+        bits = self.word_bits(name)
+        positions = [self.flags[f"gf_rando_rpc_{name}_{bit:02d}"] for bit in range(bits)]
+        alignment = 1 if bits == 1 else 8 if bits < 32 else 32
+        if positions[0] % alignment or positions != list(range(positions[0], positions[0] + bits)):
             raise ValueError("Mailbox word is not aligned or has shared ownership")
         return positions[0]
+
+    def word_bits(self, name: str) -> int:
+        prefix = f"gf_rando_rpc_{name}_"
+        bits = len([flag for flag in self.flags if flag.startswith(prefix) and flag[len(prefix):].isdigit()])
+        allowed = {"item": {16, 32}, "ready": {8, 32}, "ack_ready": {1, 32}}.get(name, {32})
+        if bits not in allowed:
+            raise ValueError("Unsupported native mailbox field width")
+        return bits
+
+    def word_size(self, name: str) -> int:
+        return max(1, self.word_bits(name) // 8)
+
+    def validate_word_ownership(self) -> None:
+        host_fields = ("item", "sequence", "ready", "save_a", "save_b", "save_c", "save_d")
+        host_flags = {f"gf_rando_rpc_{name}_{bit:02d}" for name in host_fields for bit in range(self.word_bits(name))}
+        host_flags.update(flag for flag in self.flags if flag.startswith("gf_rando_rpc_reserved_"))
+        host_words = {self.flags[flag] // 32 for flag in host_flags}
+        game_words = {index // 32 for flag, index in self.flags.items() if flag not in host_flags}
+        game_words.update(check.collected // 32 for check in self.checks.values())
+        game_words.update(check.delivered // 32 for check in self.checks.values() if check.delivered is not None)
+        if game_words & host_words:
+            raise ValueError("Host mailbox fields share a native game-owned flag word")
 
 
 class NativeGame:
@@ -173,7 +216,9 @@ class NativeGame:
 
     def word(self, data: bytes, name: str) -> int:
         index = self.profile.word_index(name)
-        return int.from_bytes(data[index // 8:index // 8 + 4], "little")
+        if self.profile.word_bits(name) == 1:
+            return int(self.bit(data, index))
+        return int.from_bytes(data[index // 8:index // 8 + self.profile.word_size(name)], "little")
 
     def write_host_word(self, base: int, name: str, value: int) -> None:
         if name not in {"item", "sequence", "ready", "save_a", "save_b", "save_c", "save_d"}:
@@ -181,7 +226,7 @@ class NativeGame:
         # ROM reloads can replace executable guards while retaining this save's
         # fingerprint. Recheck installed code before each host-owned write.
         self.verify_executable()
-        self.memory.write(base + self.profile.word_index(name) // 8, value.to_bytes(4, "little"))
+        self.memory.write(base + self.profile.word_index(name) // 8, value.to_bytes(self.profile.word_size(name), "little"))
 
     def identity(self) -> Session:
         base, data = self.snapshot()
@@ -205,18 +250,21 @@ class NativeGame:
         if kind == "local":
             if index not in self.locations:
                 raise ValueError("Local receipt refers to an unknown location")
-            return self.bit(data, self.locations[index].delivered)
+            delivered = self.locations[index].delivered
+            return delivered is not None and self.bit(data, delivered)
         if kind != "ap" or not 0 <= index < 0x7FFFFFFE:
             raise ValueError("Unsupported AP receipt index")
         # Read the commit guard around the acknowledgement and confirm its
         # value again. A chunked flag snapshot alone can see a torn VM update.
         ready_address = base + self.profile.word_index("ack_ready") // 8
         ack_address = base + self.profile.word_index("ack") // 8
-        before = int.from_bytes(self.memory.read(ready_address, 4), "little")
+        ready_size = self.profile.word_size("ack_ready")
+        ready_mask = 1 << (self.profile.word_index("ack_ready") % 8)
+        before = int.from_bytes(self.memory.read(ready_address, ready_size), "little")
         acknowledged = int.from_bytes(self.memory.read(ack_address, 4), "little")
-        after = int.from_bytes(self.memory.read(ready_address, 4), "little")
+        after = int.from_bytes(self.memory.read(ready_address, ready_size), "little")
         confirmed = int.from_bytes(self.memory.read(ack_address, 4), "little")
-        return bool(before & after & 1) and acknowledged == confirmed and acknowledged > index
+        return bool(before & after & ready_mask) and acknowledged == confirmed and acknowledged > index
 
     def deliver(self, receipt: str, item: ReceivedItem) -> bool:
         if self.received(receipt):
@@ -244,7 +292,7 @@ class NativeGame:
         """Read tracker checks and native receipts together without per-item RPC."""
         _, data = self.snapshot()
         collected = {location for location, flags in self.locations.items() if self.bit(data, flags.collected)}
-        delivered = {location for location, flags in self.locations.items() if self.bit(data, flags.delivered)}
+        delivered = {location for location, flags in self.locations.items() if flags.delivered is not None and self.bit(data, flags.delivered)}
         victory = self.profile.flags.get("gf_rando_victory")
         return collected, delivered, victory is not None and self.bit(data, victory)
 

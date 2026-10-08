@@ -7,7 +7,7 @@ from pathlib import Path
 from ...data.catalog import Json, array, obj, string
 from ...settings import AlbumPages, Banners
 from .mailbox import RemoteReward, RemoteSession
-from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward, ScriptReward
+from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, EnemyVariant, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward, ScriptReward
 from .stickers import StickerPolicy
 
 
@@ -33,6 +33,21 @@ def reward(value: Json) -> NativeReward:
     return NativeReward(NativeRewardKind(string(row["kind"])), native_value)
 
 
+def decode_sticker_policy(value: Json) -> StickerPolicy | None:
+    if value is None:
+        return None
+    entry = obj(value)
+    if set(entry) != {"generic", "things", "replacement"}:
+        raise ValueError("Invalid sticker policy fields")
+    things = []
+    for raw in array(entry["things"]):
+        pair = array(raw)
+        if len(pair) != 2:
+            raise ValueError("Expected sticker/Thing pair")
+        things.append((string(pair[0]), string(pair[1])))
+    return StickerPolicy(tuple(string(item) for item in array(entry["generic"])), tuple(things), string(entry["replacement"]))
+
+
 def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward, ...]:
     result: list[GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward] = []
     for raw in array(value):
@@ -49,8 +64,15 @@ def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | FlagReward | B
             result.append(BannerReward(string(row["honor"]), Banners(string(row["mode"])), native))
         elif fields == {"category", "script_file", "function", "reward"}:
             result.append(ScriptReward(string(row["category"]), string(row["script_file"]), string(row["function"]), native))
-        elif fields == {"unit_id", "script_file", "function", "reward"}:
-            result.append(EnemyReward(string(row["unit_id"]), string(row["script_file"]), string(row["function"]), native))
+        elif {"unit_id", "script_file", "function", "reward"} <= fields <= {"unit_id", "script_file", "function", "reward", "type_id", "variants"}:
+            variants = []
+            for raw_variant in array(row.get("variants", [])):
+                variant = obj(raw_variant)
+                if set(variant) != {"unit_id", "script_file", "function"}:
+                    raise ValueError("Enemy variants require exact native hook fields")
+                variants.append(EnemyVariant(string(variant["unit_id"]), string(variant["script_file"]), string(variant["function"])))
+            type_id = string(row["type_id"]) if row.get("type_id") is not None else None
+            result.append(EnemyReward(string(row["unit_id"]), string(row["script_file"]), string(row["function"]), native, type_id, tuple(variants)))
         else:
             raise ValueError("Unsupported native check fields")
     return tuple(result)
@@ -58,7 +80,8 @@ def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | FlagReward | B
 
 def decode_plan(value: Json) -> DeliveryPlan:
     row = obj(value)
-    if set(row) != {"checks", "album_pages", "shuffle_royals", "remote_rewards", "remote_session", "sticker_policy", "skip_opening", "skip_dialogue", "seed_name"}:
+    expected = {"checks", "album_pages", "shuffle_royals", "remote_rewards", "remote_session", "sticker_policy", "skip_opening", "skip_dialogue", "seed_name"}
+    if not expected <= set(row) <= expected | {"starting_rewards", "starting_item_ids", "catalog_hash"}:
         raise ValueError("Unsupported native plan fields")
     if any(type(row[key]) is not bool for key in ("shuffle_royals", "skip_opening", "skip_dialogue")):
         raise ValueError("Native settings must be boolean")
@@ -74,26 +97,24 @@ def decode_plan(value: Json) -> DeliveryPlan:
         if set(entry) != {"seed", "team", "slot", "catalog_hash"}:
             raise ValueError("Invalid remote session fields")
         session = RemoteSession(string(entry["seed"]), integer(entry["team"]), integer(entry["slot"]), string(entry["catalog_hash"]))
-    policy = None
-    if row["sticker_policy"] is not None:
-        entry = obj(row["sticker_policy"])
-        if set(entry) != {"generic", "things", "replacement"}:
-            raise ValueError("Invalid sticker policy fields")
-        things = []
-        for raw in array(entry["things"]):
-            pair = array(raw)
-            if len(pair) != 2:
-                raise ValueError("Expected sticker/Thing pair")
-            things.append((string(pair[0]), string(pair[1])))
-        policy = StickerPolicy(tuple(string(item) for item in array(entry["generic"])), tuple(things), string(entry["replacement"]))
+    policy = decode_sticker_policy(row["sticker_policy"])
     pages = AlbumPages(string(row["album_pages"])) if row["album_pages"] is not None else None
     seed = string(row["seed_name"]) if row["seed_name"] is not None else None
-    return DeliveryPlan(checks(row["checks"]), pages, boolean(row["shuffle_royals"]), tuple(remote), session, policy, boolean(row["skip_opening"]), boolean(row["skip_dialogue"]), seed)
+    return DeliveryPlan(checks(row["checks"]), pages, boolean(row["shuffle_royals"]), tuple(remote), session, policy, boolean(row["skip_opening"]), boolean(row["skip_dialogue"]), seed,
+                        tuple(reward(entry) for entry in array(row.get("starting_rewards", []))),
+                        tuple(integer(identifier) for identifier in array(row.get("starting_item_ids", []))),
+                        string(row["catalog_hash"]) if row.get("catalog_hash") is not None else None)
 
 
 def encode_plan(plan: DeliveryPlan) -> Json:
     # Normalizing dataclasses/tuples through JSON gives the exact public shape.
     value: Json = json.loads(json.dumps(asdict(plan)))
+    if not plan.starting_rewards:
+        obj(value).pop("starting_rewards")
+    if not plan.starting_item_ids:
+        obj(value).pop("starting_item_ids")
+    if plan.catalog_hash is None:
+        obj(value).pop("catalog_hash")
     decode_plan(value)
     return value
 

@@ -34,6 +34,7 @@ def main() -> None:
         identity = game.identity()  # verifies code guards and seed before any write
         original_checks = game.collected()
         pouch = memory.read_u32(0x4327F0)
+        assert memory.read_u32(pouch + 0xCDC) == 8, "All-at-start fixture did not unlock eight native album pages"
         if memory.read_u32(pouch + 0x13C) & 5:
             raise ValueError("Fixture already owns an ability; use a fresh save")
         for index, item_id in enumerate(expected):
@@ -50,7 +51,7 @@ def main() -> None:
             assert game.deliver(receipt, item), "Replay lost a native receipt"
             assert game.identity() == identity, "Mailbox altered save identity"
         assert game.collected() == original_checks, "Incoming items marked source checks"
-        print("Actual native mailbox receipts, Hammer/Paperization accessories, replay and check separation passed.")
+        print("Eight native album pages, mailbox receipts, Hammer/Paperization accessories, replay and check separation passed.")
         print("Save-file persistence and source check collection still require separate gameplay tests.")
 
 

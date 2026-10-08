@@ -9,6 +9,7 @@ from pathlib import Path
 
 from .data.catalog import array, obj
 from .integrations.archipelago.network import run_client
+from .integrations.archipelago.client_config import NativeClientConfig
 from .integrations.archipelago.runtime import Ledger, ProtocolClient, ReceivedItem, integer
 from .integrations.archipelago.tracker_server import TrackerServer, TrackingSnapshot
 from .integrations.citra.memory import CitraMemory
@@ -17,15 +18,24 @@ from .integrations.citra.native import NativeGame, NativeProfile
 
 async def run(args: argparse.Namespace) -> None:
     profile = NativeProfile.load(args.patch_report)
-    locations = {key: integer(value) for key, value in obj(json.loads(args.locations.read_text(encoding="utf-8"))).items()}
+    if args.config:
+        client_config = NativeClientConfig.load(args.config)
+        client_config.validate(profile)
+        locations = client_config.locations
+        configured_rewards = client_config.local_rewards
+        args.name = args.name or client_config.name
+        args.game = args.game or client_config.game
+    else:
+        locations = {key: integer(value) for key, value in obj(json.loads(args.locations.read_text(encoding="utf-8"))).items()}
+        configured_rewards = tuple(ReceivedItem.parse(raw) for raw in array(json.loads(args.local_rewards.read_text(encoding="utf-8"))))
+        args.game = args.game or "Paper Mario: Sticker Star"
     with CitraMemory(args.emulator_host, args.emulator_port, timeout=2) as memory:
         config = profile.session
         game = NativeGame(memory, profile, config.seed, config.team, config.slot, config.catalog_hash, locations)
         session = game.identity()
         local_rewards = {}
         native_ids = {location: key for key, location in locations.items()}
-        for raw in array(json.loads(args.local_rewards.read_text(encoding="utf-8"))):
-            item = ReceivedItem.parse(raw)
+        for item in configured_rewards:
             if item.location not in native_ids or item.item not in profile.selector_rewards or profile.check_rewards[native_ids[item.location]] != profile.selector_rewards[item.item]:
                 raise ValueError("Local reward table does not match installed native placements")
             if item.location in local_rewards:
@@ -87,11 +97,12 @@ async def run(args: argparse.Namespace) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--patch-report", type=Path, required=True)
-    parser.add_argument("--locations", type=Path, required=True, help="Native check ID to AP location ID JSON mapping")
-    parser.add_argument("--local-rewards", type=Path, required=True, help="NetworkItem array of locally owned placements, for offline delivery and echo deduplication")
+    parser.add_argument("--config", type=Path, help="The .client.json generated alongside your native AP patch")
+    parser.add_argument("--locations", type=Path, help="Native check ID to AP location ID JSON mapping")
+    parser.add_argument("--local-rewards", type=Path, help="NetworkItem array of locally owned placements, for offline delivery and echo deduplication")
     parser.add_argument("--server", help="AP server URL; omit for standalone offline delivery")
-    parser.add_argument("--name", required=True)
-    parser.add_argument("--game", default="Paper Mario: Sticker Star")
+    parser.add_argument("--name")
+    parser.add_argument("--game")
     parser.add_argument("--password")
     parser.add_argument("--tracker-data", type=Path, help="Optional standalone tracker names and catalog mappings JSON")
     parser.add_argument("--tracker-port", type=int, default=38281)
@@ -99,6 +110,10 @@ def main() -> None:
     parser.add_argument("--emulator-host", default="127.0.0.1")
     parser.add_argument("--emulator-port", type=int, default=45987)
     args = parser.parse_args()
+    if not args.config and not all((args.locations, args.local_rewards, args.name)):
+        parser.error("Use --config, or provide --locations, --local-rewards and --name")
+    if args.config and (args.locations or args.local_rewards):
+        parser.error("Use either --config or separate location/reward files")
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     try:
         asyncio.run(run(args))

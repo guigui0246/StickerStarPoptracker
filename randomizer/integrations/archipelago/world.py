@@ -7,7 +7,7 @@ and a protocol runtime exist separately; full gameplay integration is pending.
 from dataclasses import dataclass
 import json
 from pathlib import Path as FilePath
-from typing import Callable
+from typing import Callable, ClassVar
 
 from BaseClasses import (
     CollectionState,
@@ -63,9 +63,11 @@ class StateInventory:
         return self.state.count(self.names[item_id], self.player)
 
 
-class StickerStarWorld(World):
-    game = "Paper Mario: Sticker Star (Logic Demo)"
-    options_dataclass = StickerStarOptions
+class SharedCatalogWorld(World):
+    definition = GAME
+    item_type: type[APItem] = StickerStarItem
+    location_type: type[APLocation] = StickerStarLocation
+    options_dataclass: ClassVar[type[PerGameCommonOptions]] = StickerStarOptions
     options: StickerStarOptions
     item_name_to_id = ITEM_IDS
     location_name_to_id = LOCATION_IDS
@@ -73,54 +75,54 @@ class StickerStarWorld(World):
     topology_present = True
     required_client_version = (0, 6, 8)
 
-    def create_item(self, name: str) -> StickerStarItem:
-        item = next(item for item in GAME.items if item.name == name)
+    def create_item(self, name: str) -> APItem:
+        item = next(item for item in self.definition.items if item.name == name)
         classification = (
             ItemClassification.progression
-            if item.progression or item.id in FIXED_ITEMS
+            if item.progression or item.id in set(self.definition.fixed_rewards.values())
             else ItemClassification.filler
         )
-        return StickerStarItem(name, classification, ITEM_IDS.get(name), self.player)
+        return self.item_type(name, classification, self.item_name_to_id.get(name), self.player)
 
     def access_rule(self, rules: Rules) -> Callable[[CollectionState], bool]:
-        names = {item.id: item.name for item in GAME.items}
+        names = {item.id: item.name for item in self.definition.items}
         return lambda state: rules.allows(StateInventory(state, self.player, names))
 
     def create_regions(self) -> None:
         regions = {
             region.id: APRegion(region.name, self.player, self.multiworld)
-            for region in GAME.regions
+            for region in self.definition.regions
         }
         self.multiworld.regions.extend(regions.values())
-        items = {item.id: item for item in GAME.items}
-        fixed = GAME.fixed_rewards
-        for loc in GAME.locations:
+        items = {item.id: item for item in self.definition.items}
+        fixed = self.definition.fixed_rewards
+        for loc in self.definition.locations:
             region = regions[loc.region_id]
-            check = StickerStarLocation(
-                self.player, loc.name, LOCATION_IDS.get(loc.name), region
+            check = self.location_type(
+                self.player, loc.name, self.location_name_to_id.get(loc.name), region
             )
             check.access_rule = self.access_rule(loc.rules)
             region.locations.append(check)
             if loc.id in fixed:
                 check.place_locked_item(self.create_item(items[fixed[loc.id]].name))
-        for path in GAME.paths:
+        for path in self.definition.paths:
             for direction, vector in enumerate((path.forward, path.reverse)):
                 source = regions[vector.source]
                 entrance = Entrance(self.player, f"{path.id}:{direction}", source)
                 entrance.access_rule = self.access_rule(vector.rules)
                 source.exits.append(entrance)
                 entrance.connect(regions[vector.target])
-        end = next(loc for loc in GAME.locations if isinstance(loc, EndGoal))
+        end = next(loc for loc in self.definition.locations if isinstance(loc, EndGoal))
         self.multiworld.completion_condition[self.player] = lambda state: state.has(
             end.item.name, self.player
         )
 
     def create_items(self) -> None:
-        items = {item.id: item for item in GAME.items}
+        items = {item.id: item for item in self.definition.items}
         self.multiworld.itempool.extend(
-            self.create_item(items[item_id].name) for item_id in GAME.pool
+            self.create_item(items[item_id].name) for item_id in self.definition.pool
         )
-        for item_id in GAME.starting_items:
+        for item_id in self.definition.starting_items:
             self.multiworld.push_precollected(self.create_item(items[item_id].name))
 
     def fill_slot_data(self) -> dict[str, object]:
@@ -129,8 +131,8 @@ class StickerStarWorld(World):
     def generate_output(self, output_directory: str) -> None:
         placements = {
             loc.id: {"item": item.name, "player": item.player}
-            for loc in GAME.locations
-            if loc.id not in GAME.fixed_rewards
+            for loc in self.definition.locations
+            if loc.id not in self.definition.fixed_rewards
             and (item := self.multiworld.get_location(loc.name, self.player).item)
             is not None
         }
@@ -145,3 +147,9 @@ class StickerStarWorld(World):
             + "\n",
             encoding="utf-8",
         )
+
+
+class StickerStarWorld(SharedCatalogWorld):
+    game = "Paper Mario: Sticker Star (Logic Demo)"
+    item_name_to_id = ITEM_IDS
+    location_name_to_id = LOCATION_IDS

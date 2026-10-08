@@ -8,6 +8,16 @@ from .script_build import replace_body
 
 FINAL_BOSS = "Script/Map/W6_BOS/w6_bos_04.bin"
 INTERMISSIONS = tuple(f"Script/Map/InterMission/w{world}_itm_00.bin" for world in range(1, 6))
+ROYAL_GATE_SCRIPT = "Script/Map/W6_GAK/w6_gak_00.bin"
+
+
+def shuffled_royal_gate(source: str) -> str:
+    # Vanilla Royal 6 is unavailable before this gate. Shuffling must not let
+    # it substitute for one of the five stickers displayed by the gate.
+    source, count = re.subn(r"\bpouch_get_royal_seal_num\*?\(\)", "rando_royal_gate_count*()", source)
+    if count != 4:
+        raise ValueError("Expected the four observed five-Royal castle checks")
+    return source
 
 
 def disable_book_restoration(data: bytes) -> bytes:

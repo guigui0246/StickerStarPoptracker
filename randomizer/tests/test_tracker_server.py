@@ -75,6 +75,14 @@ class TrackerServerTests(unittest.IsolatedAsyncioTestCase):
         with self.assertRaises(ValueError):
             self.server.current()
 
+    def test_starting_receipt_uses_precollected_location_without_collecting_a_check(self):
+        self.snapshot = TrackingSnapshot((), (ReceivedItem(100, -2, 1, 0),))
+        self.assertEqual(self.server.current().checks, ())
+        self.assertEqual(self.server.received(self.server.current())["items"][0]["location"], -2)
+        self.snapshot = TrackingSnapshot((), (ReceivedItem(100, -3, 1, 0),))
+        with self.assertRaises(ValueError):
+            self.server.current()
+
 
 if __name__ == "__main__":
     unittest.main()

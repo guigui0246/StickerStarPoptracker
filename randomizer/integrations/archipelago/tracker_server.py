@@ -57,7 +57,7 @@ class TrackerServer:
 
     def current(self) -> TrackingSnapshot:
         value = self.snapshot()
-        if set(value.checks) - self.location_ids or any(item.item not in self.item_ids or item.location not in self.location_ids or item.player != self.session.slot for item in value.items):
+        if set(value.checks) - self.location_ids or any(item.item not in self.item_ids or (item.location != -2 and item.location not in self.location_ids) or item.player != self.session.slot for item in value.items):
             raise ValueError("Native snapshot contains unknown tracker IDs")
         return value
 

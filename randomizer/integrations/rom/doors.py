@@ -41,7 +41,7 @@ def door_places(data: bytes, world_stages: tuple[Stage, ...]) -> tuple[DoorPlace
     return tuple(sorted(result, key=lambda place: place.lock_id))
 
 
-def gate_door_fit(source: str, plan: DeliveryPlan, places: tuple[DoorPlace, ...]) -> str:
+def gate_door_fit(source: str, plan: DeliveryPlan, places: tuple[DoorPlace, ...], *, shared_seed: bool = False) -> str:
     # The existing miss path traces the placement and takes the selected sticker
     # back. The successful fit routine (which sets native completion flags) is
     # never reached for an unowned place. Other paperization modes are retained.
@@ -61,4 +61,4 @@ def gate_door_fit(source: str, plan: DeliveryPlan, places: tuple[DoorPlace, ...]
                       f'\t\ttempVar1 = pepalyze_get_access_number*("{place.lock_id}");',
                       "\t\tif ( tempVar1 == tempVar3 ) {\n\t\t\treturn* pepalyze_miss;\n\t\t}", "\t}"])
     lines.extend(["\treturn* tempVar0;", "}"])
-    return source + "\n" + "\n".join(lines) + "\n" + plan.seed_function()
+    return source + "\n" + "\n".join(lines) + "\n" + ("" if shared_seed else plan.seed_function())

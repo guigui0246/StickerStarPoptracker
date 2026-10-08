@@ -366,28 +366,152 @@ Explicit native rewards now support:
 | `ability` | `hammer` or `paperization` | Save-owned ability flag and filtered native accessory attachment. Both capabilities must be present. |
 | `stage_access` | Native stage code, including `X00` for Decalburg | Additional world-map admission gate; existing route and admission checks remain. |
 | `door_access` | Numbered native stage code | Rejects a fit at that stage's Secret Door through the native miss/take-back path until ownership is received. |
+| `boss_access` | `w1`–`w6` or `harbor` | Gates the original encounter callback and restores suspended encounter triggers after ownership arrives. |
 
 Ability plans emit both `romfs` and `exefs/code.ips`. Install these folders
 together. The ARM guard occupies verified padding inside the existing executable
 text pages, checks the save seed fingerprint, and retains unrelated accessory
 bits. A network client verifies both patched code ranges before writing memory.
+Each ability build also emits `exefs/abilities.S`: valid ARM assembly containing
+the exact patch words, instruction annotations, labels, and seed literal pool.
+The checked-in `native/abilities-reference.S` shows the validated RPC fixture;
+its seed constants must not be reused for other seeds. The patch builder emits
+words directly, so installing a separate assembler is unnecessary.
 
 Ability plans also compile a startup experiment that marks the intro/unrolling
 and tutorial battle complete, grants only album access, and routes the initial
 plaza exit to the world map. It does not grant Hammer, Paperization or sticker
 unlocks. World-map delivery polling supports received admission items while on
-the map. Gameplay verification of this startup path is still outstanding.
+the map. Native seed initialization, album initialization and unowned ability
+state have been observed in the emulator. Remote coin delivery and both native
+ability bits were also confirmed through the actual mailbox. Town presentation,
+page-menu behavior and save/reload persistence still need gameplay verification.
 
 The 38 numbered stages map to 40 observed Secret Door placements. D06, F01 and
 F03 have no such placement in the original table. Door admission leaves native
 Paperization and sticker requirements intact and never marks a door done itself.
 Neither compiled gates nor observed placements constitute a verified puzzle graph.
 
-Validation on 2026-10-08: 92 repository tests, five actual Lua tracker tests,
-384 native ARM ability executions, and AP 0.6.8 WebSocket transport checks pass.
+Network-only checks allocate collection state without a local delivery flag.
+Native reports represent that absent receipt as `null`; the client never treats
+collection as inventory delivery. Compact layouts have a distinct save
+fingerprint, preventing older layouts from being interpreted at shifted indices.
+`tools/check_native_capacity.py` merges observed report fixtures and measures
+storage before optionally writing an experimental plan. The 326-check merged
+fixture needs 698 of 1114 available bits. Adding all observed Thing/scrap
+dispositions, banners and Kamek signals produces a corrected 454-record fixture
+using 826 bits. It compiles and its client profile loads. The capacity tool
+reports excluded obsolete shop-setup hooks; production builds reject them.
+These fixtures are not complete progression seeds.
+
+Validation on 2026-10-08: 147 repository tests, five actual Lua tracker tests,
+384 native ARM ability executions, 17,760 sticker-guard ARM executions,
+and AP 0.6.8 WebSocket transport checks pass.
 Native fixtures compile for all 39 mini-stars, 160 exhibits, six shop callbacks,
 112 existing enemy definitions with death callbacks, abilities, all 38 door
 capabilities, pages and remote delivery. The enemy table also contains missing
 scripts and units without death callbacks; these are not advertised as complete
 combat checks. The authoritative catalog, save-capacity solution for the full
-combined check set, boss encounter gates and full playthrough remain unfinished.
+combined check set, boss encounter gameplay and full playthrough remain unfinished.
+All seven boss gates compile, including a combined Royal replacement fixture;
+compilation alone does not establish encounter behavior or progression safety.
+
+## Generate a native recipe from a typed catalog
+
+`python -m randomizer.patch generate-native-catalog YOUR_ROM --catalog catalog.json
+--bindings native-bindings.json --seed SEED --output seed.stickerpatch` solves
+the catalog and converts its placements and fixed rewards to an actual native
+recipe. Apply it with the existing `apply` command and compiler option.
+
+Bindings use `format_version: 1`, `catalog_sha256`, an `items` object mapping
+each catalog item ID to a native `{kind,value}` reward, and a `locations` array
+of `{location,source}` entries. `source` uses the existing native check fields
+without a `reward`: the generated placement supplies that reward. The hash is
+SHA-256 of the catalog JSON with sorted keys, compact separators and UTF-8
+encoding with `ensure_ascii=False` (see `native_generation.catalog_digest`).
+
+Both registries must match the catalog exactly. The bridge replays the seed,
+requires every enabled check and the goal to be reachable, preserves fixed
+victory, and rejects duplicate native sources. Banner and page settings adjust
+the typed check/item pool before placement. Starting inventory uses separate
+native receipts and retries when the album is full. This command does not
+supply the still-unfinished authoritative full-game graph.
+
+## Native Archipelago generation
+
+`python tools/build_apworld.py --catalog catalog.json --bindings native-bindings.json
+--rom YOUR_ROM --output sticker_star.apworld` packages the caller's typed catalog
+as **Paper Mario: Sticker Star (Native Catalog)**. It includes no game assets.
+The generated `.apworld.ids.json` retains item/location numeric IDs across
+catalog additions; retain this registry when rebuilding a published catalog.
+Generation emits native `.stickerpatch` recipes and matching `.client.json`
+files, plus `.tracker.lua` and `.tracker.json` definitions for pack authors
+and a `.tracker-data.json` observation-server data package.
+The generated tracker predicates use the same typed graph, including both
+directions of paths, counts, alternatives and fixed-event closure. Actual Lua
+execution matches shared-graph reachability in 18 inventory scenarios. These
+definitions still need a complete catalog and a finished tracker presentation.
+Apply the patch, then start `python -m randomizer.client --config
+OUTPUT.client.json --patch-report MOD/patch-report.json --state client-state.json`
+with the usual server option when connecting online.
+
+Actual AP 0.6.8 tests pass ten two-player seeds, page/banner settings and
+precollected items using an artificial rules fixture with observed native
+sources. A live generated-patch test acknowledges the precollected Hammer
+echo and replay without changing native inventory. Full-game AP generation
+still needs the authoritative game catalog and progression rules.
+
+The shared native delivery engine commits album additions only after capacity
+checks. Live tests verify locked-sticker conversion, native unlock insertion,
+starting stickers, full-album rejection/retry and save/reload persistence.
+Network page/sticker requests commit once, with sequence 18 acknowledged and
+replayed without adding another copy. Existing feasibility-only test saves have
+a different fingerprint and must not be reused.
+
+Enemy grouping gives one receipt per observed combat display type while keeping
+all associated native callbacks. The current grouped fixture has 419 checks
+and 77 selected enemy types. A standalone fixture containing all implemented
+reward capabilities and six randomized pages compiles within 1100/1114 bits;
+the network-only counterpart uses 986 bits. Other mixed network/local layouts
+can exceed capacity and are rejected before patching.
+
+`python tools/export_native_room_links.py kdm_link_data.bin --output links.json`
+exports 1,135 exact directed records from 406 room groups in the inspected dump.
+It retains virtual/test exits and both callbacks. These records do not imply
+unconditional traversal; callback puzzle requirements still need verification.
+Emulator probes use `tools/launch_native_probe.ps1`, which disables audio output
+in a disposable profile before every launch.
+
+## Standalone native tracking
+
+`generate-native-catalog` also emits `.tracking.json`, `.tracker.lua`,
+`.tracker.json`, `.tracker-data.json` and an append-only `.registry.json`.
+Reuse the registry with `--registry` when revising the catalog. After applying
+the recipe, run:
+
+```text
+python -m randomizer.track_standalone --config seed.stickerpatch.tracking.json --patch-report MOD/patch-report.json --tracker-data seed.stickerpatch.tracker-data.json
+```
+
+Connect the matching tracker pack to `localhost:38281` as `Player`. Observation
+reads native checks, committed local rewards and starting-reward receipts. It
+does not require a delivery mailbox or an Archipelago server, and its memory
+adapter rejects every write. Check collection never substitutes for reward
+delivery. Save rollback clears/replays the tracker view. Catalog, executable
+and seed fingerprints are checked before observations are accepted. The
+generated definitions remain building blocks for a finished tracker pack.
+
+The updated native encounter engine stores battle-only pending deaths in shared
+script variables, while collection and delivery receipts remain saved. A live
+77-type mark/read/reset probe passes; escape/museum/controller combat scenarios
+still need gameplay verification. The 423-check capability fixture now uses
+890 reserved save bits. This does not solve every mixed AP layout: the same
+fixture with all local placements and its incoming mailbox exceeds the 1,114-bit
+budget and is rejected.
+
+Native puzzle export reads all 177 paperization locks and their exact accepted
+input alternatives. The desert gate requires all six independent slots. Fixed
+native story events can observe original completion flags without inventing
+inventory grants or extra delivery flags. Royal castle admission counts Royals
+1–5, so receiving Royal 6 cannot substitute for a missing earlier Royal.
+Physical castle and complete progression playthroughs remain unverified.

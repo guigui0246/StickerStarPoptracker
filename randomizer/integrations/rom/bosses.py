@@ -27,9 +27,11 @@ BOSS_GATES = {
 }
 
 
-def gate_boss(source: str, gate: BossGate) -> str:
+def gate_boss(source: str, gate: BossGate, require_royals: bool = False) -> str:
     owned = f"gf_rando_boss_{gate.code}"
     guard = f"\ttemp tempVar90 = rando_seed_valid*();\n\tif ( tempVar90 == false || {owned} == false ) {{\n\t\treturn*;\n\t}}\n"
+    if require_royals and gate.code == "w6":
+        guard += "\ttemp tempVar91 = rando_royal_gate_count*();\n\tif ( tempVar91 < 5 ) {\n\t\treturn*;\n\t}\n"
     source = prepend_body(source, gate.callback, guard)
     if not gate.case_name:
         return source
@@ -50,6 +52,8 @@ def gate_boss(source: str, gate: BossGate) -> str:
         source = source[:start] + section.replace("if ( tempVar3 )", f"if ( tempVar3 && {owned} )") + source[end:]
     source = prepend_body(source, "init", "\tthread rando_boss_poll*();\n")
     pending = f"gf_rando_boss_pending_{gate.code}"
+    royal_query = "\ttemp tempVar1 = rando_royal_gate_count*();\n" if require_royals and gate.code == "w6" else ""
+    royal_condition = " || tempVar1 < 5" if royal_query else ""
     source += f'''
 private rando_boss_admission()  {{
 \ttemp tempVar0 = rando_seed_valid*();
@@ -57,7 +61,7 @@ private rando_boss_admission()  {{
 \t\tcase_cancel*("{gate.case_name}", "{gate.case_callback}");
 \t\treturn*;
 \t}}
-\tif ( {owned} == false ) {{
+{royal_query}\tif ( {owned} == false{royal_condition} ) {{
 \t\tcase_cancel*("{gate.case_name}", "{gate.case_callback}");
 \t\t{pending} *= true;
 \t}} else {{

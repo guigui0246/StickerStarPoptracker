@@ -70,7 +70,7 @@ def decode_native_recipe(data: bytes) -> NativeRecipe:
 
 
 def create_native_recipe(project: RomProject, seed: str, plan: DeliveryPlan) -> NativeRecipe:
-    rewards = tuple(check.reward for check in plan.checks) + tuple(entry.reward for entry in plan.remote_rewards)
+    rewards = plan.rewards
     if any(reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} for reward in rewards):
         policy = sticker_policy(project.read_file("Data/kdm_item_data.bin"))
         if plan.sticker_policy and plan.sticker_policy != policy:

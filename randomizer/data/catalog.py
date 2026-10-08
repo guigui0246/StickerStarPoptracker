@@ -63,7 +63,11 @@ def parse_rules(value: Json) -> Rules:
 
 
 def load_catalog(path: FilePath) -> GameDefinition:
-    data = obj(json.loads(path.read_text(encoding="utf-8-sig")))
+    return parse_catalog(json.loads(path.read_text(encoding="utf-8-sig")))
+
+
+def parse_catalog(value: Json) -> GameDefinition:
+    data = obj(value)
     if data.get("format_version") != 2:
         raise ValueError("Typed catalogs require format_version 2")
     items: list[Item] = []

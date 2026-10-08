@@ -14,6 +14,25 @@ still unfinished.
 
 ## Native integration progress — 2026-10-08
 
+- [x] Observe standalone native checks and committed rewards without a network
+      mailbox, game-memory writes or an Archipelago server. Emit seed-bound
+      tracker configuration and stable data packages alongside catalog recipes.
+      A live standalone fixture passes; generated definitions still need the
+      finished tracker presentation and authoritative full-game catalog.
+- [x] Move battle-only pending deaths into the shared native runtime. A live
+      77-type mark/read/reset probe passes without falsely collecting checks.
+      The 423-check network fixture uses 890 bits; the all-local variant with
+      its incoming mailbox remains over budget. Real combat scenarios pending.
+- [x] Parse original paperization input alternatives, including all six desert
+      gate slots. Fixed story events observe original flags without additional
+      saved receipts. Traversal effects still require explicit verification.
+- [x] Require received Royals 1–5 for castle admission; Royal 6 cannot substitute.
+      Native counter tests pass; physical castle traversal remains unverified.
+- [x] Cover verified scripted scrap objects, including scoped jungle pickup
+      callbacks, while excluding nongivable story props. The updated 425-check
+      experimental fixture compiles. This does not assert complete scrap-source
+      coverage for peeled/chest-native paths.
+
 - [x] Compile persistent museum checks for all 160 actual production exhibits,
       with native donation flags separate from possession and delivery.
 - [x] Compile native banner checks using original thresholds or exact rounded
@@ -41,24 +60,71 @@ still unfinished.
       outside museum battles. Full combat-type classification remains pending.
 - [x] Compile native Hammer/Paperization ownership and a seed-bound ARM
       attachment filter in existing executable padding. Verify 384 native ARM
-      executions, preserved registers and bounded writes; gameplay pending.
+      executions, preserved registers and bounded writes. Actual remote ability
+      delivery changes both native accessory bits; controller gameplay pending.
+- [x] Emit reviewable ARM assembly matching every IPS word, including literal
+      pools; include a reference for the validated RPC fixture.
+- [x] Compile all seven native boss admission gates and combined Royal
+      replacements without dropping original functions. Gameplay pending.
 - [x] Compile additional world-map stage admission gates, including Decalburg,
       retaining native route/admission checks and supporting local/remote grants.
 - [x] Compile all 38 numbered-stage Secret Door capabilities for 40 observed
       placements, using the native miss/take-back path before fit completion.
       Gameplay/sticker retention verification remains pending.
 - [x] Compile an ability-safe post-tutorial/world-map startup experiment and
-      world-map delivery poll. The emulator loads the patch but recorded startup
-      inputs have not reached seed initialization; do not call startup verified.
-- [x] Validate 92 repository tests, five real-Lua tracker tests, strict typing
+      world-map delivery poll. Emulator observations confirm seed and album
+      initialization with abilities unowned; town presentation remains unverified.
+- [x] Compact network-only checks to collection state only; incoming mailbox
+      receipts remain separate. Version the save fingerprint to reject the old
+      layout. A merged 454-record fixture uses 826/1114 bits and compiles, with
+      every observed Thing/scrap pickup and only six true shop conversations.
+      Production enemy classification and standalone capacity remain pending.
+- [x] Connect solved typed catalog seeds to native recipes through explicit,
+      catalog-bound source/reward mappings; preserve fixed victory and reject
+      unreachable seeds and missing mappings. Native starting inventory now
+      has separate retryable receipts, including AP precollected echo handling.
+      The authoritative full-game catalog remains pending.
+- [x] Validate 147 repository tests, five real-Lua tracker tests, strict typing
       of changed native modules and AP 0.6.8 wire transport.
+- [x] Centralize the seed validator and delivery engine in the persistent
+      native item script. The duplicated engine exhausted the game's 12,288
+      script-variable pool; the shared engine passes the failing startup point.
+- [x] Lower injected temporary registers outside the native 0–19 range to
+      separate local variables before compilation.
+- [x] Implement generic sticker conversion at four native ARM entry points;
+      verify 17,760 isolated executions using ROM-derived item descriptors.
+- [x] Verify converted and unlocked stickers persist in the live album.
+      The native false argument checks capacity; the true argument commits.
+      The shared helper now performs both operations. Live tests verify normal
+      and forced conversion, unlock insertion and configured starting stickers.
+- [x] Verify native full-album rejection, removal and retry, followed by save
+      and emulator restart: 28 Sandals and two Hammers persist without duplication.
+      Native network page/Jump grants and replay also pass, with ACK sequence 18.
+- [x] Group observed encounter variants into 77 selected combat-type checks;
+      compile all associated death callbacks with one shared receipt per type.
+      A 419-check standalone capability fixture uses 1100/1114 bits; the
+      network-only equivalent uses 986. Complete enemy classification pending.
+- [x] Generate native AP recipes and matching client configuration from a
+      caller-authored typed catalog, with persistent numeric-ID allocation.
+      Actual AP 0.6.8 two-player generation, settings and precollected tests pass.
+      A live generated patch acknowledges the starting Hammer echo and replay
+      without changing inventory. Full-game catalog generation remains pending.
+- [x] Extract 1,135 directed native connection records across 406 room groups,
+      retaining entrance/exit callbacks and virtual/test destinations. Callback
+      puzzle conditions are not yet authoritative access rules.
+- [x] Generate tracker predicates and numeric-ID mappings from the same typed
+      catalog as standalone/AP. Actual Lua agrees with shared reachability in
+      18 inventory scenarios covering counts, alternatives, directed paths and
+      fixed-event chains. Complete tracker presentation/catalog remain pending.
+- [x] Disable emulator audio output in disposable profiles before every probe
+      launch, including restarts; do not depend on Windows mute.
 - [ ] Verify the combined 205-check fixture's native initialization, reward
       collection, save/reload and inventory retry in gameplay. It compiles; it
       is not a complete catalog or a solvable progression seed.
 
 The remaining unchecked requirements below still apply, especially native gate
 gameplay, boss encounters, combat-type classification, the authoritative puzzle graph,
-production starting-state handling, complete AP generation and full playthroughs.
+production starting-state handling, full-game AP generation and full playthroughs.
 
 ## Confirmed tutorial test — 2026-10-08
 

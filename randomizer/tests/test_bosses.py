@@ -6,6 +6,13 @@ from ..integrations.rom.native_delivery import DeliveryPlan, GoalBlockReward, Na
 
 
 class BossTests(unittest.TestCase):
+    def test_final_boss_requires_the_first_five_royals_before_player_stop(self) -> None:
+        source = 'private main()  {\n\tplayer_stop*("mario");\n}\n'
+        result = gate_boss(source, BossGate("w6", "Script/Map/test.bin", "main"), require_royals=True)
+        self.assertIn("rando_royal_gate_count*()", result)
+        self.assertIn("if ( tempVar91 < 5 )", result)
+        self.assertLess(result.index("tempVar91 < 5"), result.index("player_stop*"))
+
     def test_cancelled_once_trigger_is_restored_only_when_gate_owned_it(self) -> None:
         source = '''private init()  {
 \tcase_entry_detail*("zone", "boss_main", hit_place_foot, case_type_trigger, case_flg_once, 0);

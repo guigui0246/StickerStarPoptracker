@@ -52,6 +52,69 @@ def validate_function_contracts(source: str, canonical: str) -> None:
         raise ValueError(f"Script compilation changed named function contracts: missing {sorted(original - rebuilt)}, added {sorted(rebuilt - original)}")
 
 
+def lower_temporary_registers(source: str) -> str:
+    """Use real locals for injected scratch registers outside native temp 0–19.
+
+    The native resolver indexes a fixed bank at Runtime+0x198. Compiler support
+    for an eight-bit encoded ID does not make tempVar90 a valid native register.
+    Preserve quoted strings and original registers and allocate within each
+    function's separate local namespace.
+    """
+    pattern = re.compile(r"^(?:public|private) [^\s(]+\(([^\n]*)\)[^\n{]*\{", re.MULTILINE)
+    edits: list[tuple[int, int, str]] = []
+    for match in pattern.finditer(source):
+        if any(int(value) >= 20 for value in re.findall(r"\btempVar([0-9]+)\b", match.group(1))):
+            raise ValueError("Native function arguments must use temporary registers 0–19")
+        start = match.end()
+        depth, quoted, escaped = 1, False, False
+        end = start
+        for end in range(start, len(source)):
+            character = source[end]
+            if quoted:
+                if escaped:
+                    escaped = False
+                elif character == "\\":
+                    escaped = True
+                elif character == '"':
+                    quoted = False
+            elif character == '"':
+                quoted = True
+            elif character == "{":
+                depth += 1
+            elif character == "}":
+                depth -= 1
+                if depth == 0:
+                    break
+        if depth:
+            raise ValueError("Unterminated native script function")
+        parts = re.split(r'("(?:[^"\\]|\\.)*")', source[start:end])
+        code = "".join(parts[::2])
+        high = sorted({int(value) for value in re.findall(r"\btempVar([0-9]+)\b", code) if int(value) >= 20})
+        if not high:
+            continue
+        used = {int(value) for value in re.findall(r"\blocalVar([0-9]+)\b", code + match.group(1))}
+        for value in re.findall(r"\bvar_0x([0-9a-fA-F]+)\b", code):
+            identifier = int(value, 16)
+            if identifier & 0xFFFF00FF == 0x20000000:
+                used.add((identifier >> 8) & 255)
+        # Original named arrays generally occupy the low local IDs. Allocate
+        # high free IDs while also preserving explicitly encoded local aliases.
+        available = [index for index in reversed(range(256)) if index not in used]
+        if len(available) < len(high):
+            raise ValueError("Injected scratch values exceed native local-variable capacity")
+        mapping = dict(zip(high, available, strict=False))
+        for index in range(0, len(parts), 2):
+            part = parts[index]
+            for temporary, local in mapping.items():
+                part = re.sub(r"\btemp(?=\s+tempVar" + str(temporary) + r"\b)", "local", part)
+                part = re.sub(r"\btempVar" + str(temporary) + r"\b", f"localVar{local}", part)
+            parts[index] = part
+        edits.append((start, end, "".join(parts)))
+    for start, end, body in reversed(edits):
+        source = source[:start] + body + source[end:]
+    return source
+
+
 @dataclass(frozen=True)
 class ScriptSource:
     binary: Path
@@ -80,7 +143,8 @@ def add_declarations(header: str, flags: tuple[str, ...], native_imports: dict[s
 
 
 def compile_checked(script: ScriptSource, compiler: Path, flags: tuple[str, ...], required_function: str | None = "rando_deliver") -> bytes:
-    source = script.source.read_text(encoding="utf-8")
+    source = lower_temporary_registers(script.source.read_text(encoding="utf-8"))
+    script.source.write_text(source, encoding="utf-8")
     compile_script(compiler, script.source)
     rebuilt = script.binary.with_suffix(".re.bin")
     result = rebuilt.read_bytes()

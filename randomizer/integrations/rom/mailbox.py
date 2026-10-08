@@ -4,6 +4,8 @@ Each host-owned value occupies an entire aligned GF word. Native code never
 writes request words; the host never writes acknowledgement words.
 """
 
+from __future__ import annotations
+
 from dataclasses import dataclass
 import re
 from typing import TYPE_CHECKING
@@ -20,7 +22,7 @@ class RemoteReward:
     def __post_init__(self) -> None:
         if type(self.item_id) is not int or self.item_id < 1:
             raise ValueError("Remote rewards require positive stable item IDs")
-        if self.reward.kind in {NativeRewardKind.VICTORY, NativeRewardKind.REMOTE}:
+        if self.reward.kind in {NativeRewardKind.VICTORY, NativeRewardKind.REMOTE, NativeRewardKind.EVENT}:
             raise ValueError("Incoming items cannot grant victory or remote ownership")
 
 
@@ -39,13 +41,19 @@ class RemoteSession:
 
 
 def word_flags(name: str) -> tuple[str, ...]:
-    return tuple(f"gf_rando_rpc_{name}_{bit:02d}" for bit in range(32))
+    bits = {"item": 16, "ready": 8, "ack_ready": 1}.get(name, 32)
+    return tuple(f"gf_rando_rpc_{name}_{bit:02d}" for bit in range(bits))
 
 
 def mailbox_flags(start_index: int) -> tuple[str, ...]:
-    padding = tuple(f"gf_rando_rpc_padding_{bit:02d}" for bit in range((-start_index) % 32))
-    words = ("item", "sequence", "ready", "ack", "ack_ready", "save_a", "save_b", "save_c", "save_d")
-    return padding + tuple(flag for name in words for flag in word_flags(name))
+    # GF setters write complete words. Put the game-owned acknowledgement
+    # guard before alignment padding; only host-owned fields share the final
+    # request word. No host write can overlap a game-owned flag word.
+    guard = word_flags("ack_ready")
+    padding = tuple(f"gf_rando_rpc_padding_{bit:02d}" for bit in range((-(start_index + len(guard))) % 32))
+    words = ("save_a", "save_b", "save_c", "save_d", "sequence", "ack", "item", "ready")
+    reserved = tuple(f"gf_rando_rpc_reserved_{bit:02d}" for bit in range(8))
+    return guard + padding + tuple(flag for name in words for flag in word_flags(name)) + reserved
 
 
 def decode_word(name: str, variable: str) -> list[str]:
@@ -56,15 +64,26 @@ def decode_word(name: str, variable: str) -> list[str]:
     return lines
 
 
-def remote_function(rewards: tuple[RemoteReward, ...], shuffle_royals: bool = False, sticker_policy: StickerPolicy | None = None) -> str:
+def remote_function(rewards: tuple[RemoteReward, ...], shuffle_royals: bool = False, sticker_policy: StickerPolicy | None = None,
+                    starting_item_ids: tuple[int, ...] = (), starting_flags: tuple[str, ...] = ()) -> str:
     lines = ["private rando_remote()  {", "\ttemp tempVar0;", "\ttemp tempVar1;", "\ttemp tempVar2;", "\ttemp tempVar3;"]
     lines.extend(["\tif ( gf_rando_rpc_ready_00 == false ) {\n\t\treturn*;\n\t}",
-                  "\tif ( gf_rando_rpc_sequence_31 || gf_rando_rpc_item_31 ) {\n\t\treturn*;\n\t}"])
+                  "\tif ( gf_rando_rpc_sequence_31 ) {\n\t\treturn*;\n\t}"])
     lines.extend(decode_word("sequence", "tempVar0"))
     lines.extend(decode_word("ack", "tempVar1"))
     lines.extend(["\tif ( tempVar0 <= tempVar1 || tempVar0 == 0 ) {\n\t\treturn*;\n\t}"])
     lines.extend(decode_word("item", "tempVar2"))
     lines.append("\ttempVar3 = false;")
+    if starting_item_ids:
+        if len(starting_item_ids) != len(starting_flags):
+            raise ValueError("Precollected mailbox selectors require matching native receipts")
+        selectors = {entry.item_id: index for index, entry in enumerate(rewards, 1)}
+        lines.append(f"\tif ( tempVar0 <= {len(starting_item_ids)} ) {{")
+        for index, (identifier, flag) in enumerate(zip(starting_item_ids, starting_flags, strict=True), 1):
+            lines.extend([f"\t\tif ( tempVar0 == {index} && tempVar2 == {selectors[identifier]} && {flag} ) {{",
+                          "\t\t\ttempVar3 = true;", "\t\t}"])
+        lines.append("\t} else {")
+    dispatch_start = len(lines)
     for selector, entry in enumerate(rewards, 1):
         reward = entry.reward
         lines.append(f"\tif ( tempVar2 == {selector} ) {{")
@@ -76,7 +95,7 @@ def remote_function(rewards: tuple[RemoteReward, ...], shuffle_royals: bool = Fa
             lines.append("\t\ttempVar3 = rando_page_grant*();")
         elif reward.kind == NativeRewardKind.ITEM:
             native_item = reward.value
-            lines.append(f'\t\ttempVar3 = item_try_addpouch*("{native_item}", false);')
+            lines.append(f'\t\ttempVar3 = rando_item_grant*("{native_item}");')
         else:
             if reward.kind == NativeRewardKind.COINS:
                 lines.append(f"\t\tpouch_add_coin*({reward.value});")
@@ -95,6 +114,9 @@ def remote_function(rewards: tuple[RemoteReward, ...], shuffle_royals: bool = Fa
             elif reward.kind == NativeRewardKind.MINI_STAR:
                 lines.extend([f'\t\tmobj_set_gf*("{reward.value}");', f'\t\twm_set_gf*("{reward.value}");'])
             lines.append("\t\ttempVar3 = true;")
+        lines.append("\t}")
+    if starting_item_ids:
+        lines[dispatch_start:] = ["\t" + line for line in lines[dispatch_start:]]
         lines.append("\t}")
     lines.extend(["\tif ( tempVar3 == false ) {\n\t\treturn*;\n\t}", "\tgf_rando_rpc_ack_ready_00 *= false;"])
     # Acknowledgement is published last, after the native grant has succeeded.

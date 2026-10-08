@@ -1,5 +1,6 @@
 import hashlib
 import struct
+import re
 import unittest
 
 from ..integrations.rom.abilities import ATTACH_FUNCTION, CODE_BASE, ORIGINAL_ATTACH, TEXT_END, TEXT_LIMIT, ability_patch, branch, immediate
@@ -15,6 +16,18 @@ def fixture(start: int = 1447) -> tuple[bytes, dict[str, int]]:
 
 
 class AbilityTests(unittest.TestCase):
+    def test_reviewable_assembly_matches_every_ips_word(self) -> None:
+        for start in (1447, 1456, 1472):
+            code, flags = fixture(start)
+            patch = ability_patch(code, flags, bytes(range(16)))
+            sections = patch.assembly.split('.section ')[1:]
+            self.assertEqual(len(sections), len(patch.records))
+            for section, (_, data) in zip(sections, patch.records):
+                words = [int(value, 16) for value in re.findall(r'^    \.word 0x([0-9a-f]{8})', section, re.MULTILINE)]
+                self.assertEqual(struct.pack(f'<{len(words)}I', *words), data)
+            self.assertIn('bx lr', patch.assembly)
+            self.assertIn('literal data', patch.assembly)
+
     def test_patch_stays_in_original_text_padding_and_ips_roundtrips(self) -> None:
         code, flags = fixture()
         patch = ability_patch(code, flags, bytes(range(16)))

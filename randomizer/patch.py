@@ -5,15 +5,17 @@ from pathlib import Path
 import sys
 import subprocess
 import json
+from dataclasses import asdict
 
 from .integrations.rom.project import RomProject
 from .integrations.rom.seed_patch import (
     apply_recipe, create_recipe, decode_recipe, write_recipe, unique_object,
 )
-from .data.catalog import obj
+from .data.catalog import load_catalog, obj
+from .integrations.rom.native_generation import NativeBindings, configure_catalog, generate_native_seed
 from .integrations.rom.native_recipe import MAX_NATIVE_RECIPE_BYTES, apply_native_recipe, create_native_recipe, decode_native_recipe
 from .integrations.rom.plan_io import load_plan_files
-from .settings import AlbumPages
+from .settings import AlbumPages, Banners, Settings as NativeSettings
 
 
 def main() -> None:
@@ -33,6 +35,16 @@ def main() -> None:
     native.add_argument("--remote-rewards", type=Path)
     native.add_argument("--ap-session", type=Path)
     native.add_argument("--output", type=Path, required=True)
+    catalog_native = commands.add_parser("generate-native-catalog", help="Solve a typed catalog and bind its seed to observed native checks")
+    catalog_native.add_argument("rom", type=Path)
+    catalog_native.add_argument("--catalog", type=Path, required=True)
+    catalog_native.add_argument("--bindings", type=Path, required=True)
+    catalog_native.add_argument("--seed", required=True)
+    catalog_native.add_argument("--album-pages", choices=("all_at_start", "randomized"), default="all_at_start")
+    catalog_native.add_argument("--banners", choices=("original", "reduced", "off"), default="original")
+    catalog_native.add_argument("--shuffle-royals", action="store_true")
+    catalog_native.add_argument("--output", type=Path, required=True)
+    catalog_native.add_argument("--registry", type=Path, help="Existing append-only tracker/AP identifier registry")
     apply = commands.add_parser("apply", help="Apply a recipe to your own decrypted European ROM")
     apply.add_argument("patch", type=Path)
     apply.add_argument("rom", type=Path)
@@ -45,12 +57,44 @@ def main() -> None:
             recipe = create_recipe(project, args.seed, args.tutorial_skip)
             write_recipe(recipe, args.output)
             print(f"Wrote asset-free recipe to {args.output}")
-        elif args.command == "generate-native":
-            plan = load_plan_files(args.placements, AlbumPages(args.album_pages), args.shuffle_royals, args.remote_rewards, args.ap_session)
+        elif args.command in {"generate-native", "generate-native-catalog"}:
+            if args.command == "generate-native-catalog":
+                game = load_catalog(args.catalog)
+                catalog = json.loads(args.catalog.read_text(encoding="utf-8-sig"))
+                bindings = NativeBindings.load(args.bindings, catalog)
+                settings = NativeSettings(AlbumPages(args.album_pages), Banners(args.banners))
+                generated, plan = generate_native_seed(game, bindings, args.seed, settings,
+                                              shuffle_royals=args.shuffle_royals)
+            else:
+                plan = load_plan_files(args.placements, AlbumPages(args.album_pages), args.shuffle_royals, args.remote_rewards, args.ap_session)
             native_recipe = create_native_recipe(project, args.seed, plan)
             args.output.parent.mkdir(parents=True, exist_ok=True)
             with args.output.open("xb") as stream:
                 stream.write(native_recipe.encode())
+            if args.command == "generate-native-catalog":
+                from .integrations.archipelago.native_catalog import NativeAPRegistry, allocate_registry
+                from .integrations.archipelago.tracker_catalog import TrackerCatalog
+                registry_path = args.registry or Path(str(args.output) + ".registry.json")
+                previous = NativeAPRegistry.parse(json.loads(registry_path.read_text(encoding="utf-8"), object_pairs_hook=unique_object)) if registry_path.exists() else None
+                registry = allocate_registry(game, previous)
+                enabled, enabled_bindings = configure_catalog(game, bindings, settings)
+                if bindings.catalog_hash is None:
+                    raise ValueError("Standalone tracking requires a bound catalog")
+                tracker = TrackerCatalog(enabled, registry, bindings.catalog_hash)
+                tracking = {"format_version": 1, "seed": args.seed, "catalog_hash": bindings.catalog_hash,
+                            "save_seed_fingerprint": native_recipe.plan.fingerprint.hex(),
+                            "locations": {enabled_bindings.locations[identifier].id: registry.locations[identifier]
+                                          for identifier in generated.placements},
+                            "rewards": {enabled_bindings.locations[identifier].id:
+                                        {"item": registry.items[item], "reward": asdict(bindings.items[item])}
+                                        for identifier, item in generated.placements.items()},
+                            "starting": [{"item": registry.items[item], "reward": asdict(bindings.items[item])}
+                                         for item in enabled.starting_items]}
+                for suffix, value in ((".tracking.json", tracking), (".tracker.json", tracker.definitions()),
+                                      (".tracker-data.json", tracker.data_package())):
+                    Path(str(args.output) + suffix).write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+                Path(str(args.output) + ".tracker.lua").write_text(tracker.lua(), encoding="utf-8")
+                registry_path.write_text(json.dumps(registry.encode(), indent=2) + "\n", encoding="utf-8")
             print(f"Wrote asset-free native reward recipe to {args.output}")
         else:
             with args.patch.open("rb") as stream:

@@ -34,14 +34,15 @@ class StickerPolicy:
         if item in self.generic:
             flag = self.flag(item)
             if unlock:
-                return [f'{result} = item_try_addpouch*("{item}", false);',
-                        f"if ( {result} ) {{\n\t{flag} *= true;\n}}"]
-            return [f"if ( {flag} ) {{", f'\t{result} = item_try_addpouch*("{item}", false);',
-                    "} else {", f'\t{result} = item_try_addpouch*("{self.replacement}", false);', "}"]
+                # Ownership authorizes the global native insertion guard. The
+                # copy receipt still waits for space and retries after failure.
+                return [f"{flag} *= true;", f'{result} = rando_item_grant*("{item}");']
+            return [f"if ( {flag} ) {{", f'\t{result} = rando_item_grant*("{item}");',
+                    "} else {", f'\t{result} = rando_item_grant*("{self.replacement}");', "}"]
         thing = dict(self.things).get(item)
         if thing is None:
             raise ValueError("Reward is not a recognized sticker")
-        lines = [f'{result} = item_try_addpouch*("{item}", false);']
+        lines = [f'{result} = rando_item_grant*("{item}");']
         if unlock:
             lines.append(f'if ( {result} ) {{\n\tpouch_already_get_real_item_debug*("{thing}");\n}}')
         return lines

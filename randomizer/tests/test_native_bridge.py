@@ -29,8 +29,12 @@ class FakeMemory:
         self.buffer[index // 8] = (self.buffer[index // 8] | mask) if value else (self.buffer[index // 8] & ~mask)
 
     def set_word(self, name: str, value: int) -> None:
+        if self.profile.word_bits(name) == 1:
+            self.set_flag(self.profile.word_index(name), bool(value))
+            return
         offset = self.profile.word_index(name) // 8
-        self.buffer[offset:offset + 4] = value.to_bytes(4, "little")
+        size = self.profile.word_size(name)
+        self.buffer[offset:offset + size] = value.to_bytes(size, "little")
 
     def read(self, address: int, size: int) -> bytes:
         if address in self.code:
@@ -55,6 +59,37 @@ class FakeMemory:
 
 
 class NativeBridgeTests(unittest.TestCase):
+    def test_compact_request_and_acknowledgement_words_keep_distinct_writers(self) -> None:
+        self.profile.validate_word_ownership()
+        self.assertEqual(self.profile.word_bits("item"), 16)
+        self.assertEqual(self.profile.word_bits("ready"), 8)
+        self.assertEqual(self.profile.word_bits("ack_ready"), 1)
+        self.assertEqual(self.profile.word_index("item") // 32, self.profile.word_index("ready") // 32)
+        self.assertNotEqual(self.profile.word_index("item") // 32, self.profile.word_index("ack_ready") // 32)
+        self.profile.flags["gf_rando_bad_game_flag"] = self.profile.word_index("item") + 31
+        with self.assertRaisesRegex(ValueError, "game-owned"):
+            self.profile.validate_word_ownership()
+
+    def test_compact_ack_guard_can_use_a_nonzero_bit_without_false_acknowledgement(self) -> None:
+        flags = {name: index for name, index in self.profile.flags.items() if not name.startswith("gf_rando_rpc_")}
+        flags.update({name: index for index, name in enumerate(mailbox_flags(1605), 1605)})
+        profile = replace(self.profile, flags=flags)
+        memory = FakeMemory(profile)
+        game = NativeGame(memory, profile, "seed", 0, 1, "a" * 64, {})
+        memory.set_word("ack", 1)
+        self.assertFalse(game.received("ap/0"))
+        memory.set_word("ack_ready", 1)
+        self.assertTrue(game.received("ap/0"))
+
+    def test_network_only_collection_never_becomes_a_local_receipt(self) -> None:
+        profile = replace(self.profile, checks={"star": CheckFlags(1580, None)})
+        memory = FakeMemory(profile)
+        memory.set_flag(1580, True)
+        game = NativeGame(memory, profile, "seed", 0, 1, "a" * 64, {"star": 9})
+        self.assertEqual(game.observe(), ({9}, set(), False))
+        self.assertFalse(game.received("local/9"))
+        self.assertEqual(memory.writes, [])
+
     def setUp(self) -> None:
         flags = {"gf_rando_seed_initialized": 1446}
         flags.update({f"gf_rando_seed_{index:02d}": 1447 + index for index in range(128)})
@@ -137,6 +172,6 @@ class NativeBridgeTests(unittest.TestCase):
     def test_mailbox_words_are_aligned_and_never_share_native_writes(self) -> None:
         flags = mailbox_flags(1446)
         self.assertEqual((1446 + flags.index(word_flags("item")[0])) % 32, 0)
-        self.profile.flags[word_flags("item")[31]] += 1
+        self.profile.flags[word_flags("item")[-1]] += 1
         with self.assertRaises(ValueError):
             self.profile.word_index("item")

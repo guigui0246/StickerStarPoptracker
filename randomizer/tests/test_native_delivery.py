@@ -1,8 +1,11 @@
 import struct
+import hashlib
+import json
+from dataclasses import asdict
 import unittest
 
 from ..integrations.rom.kdm import KdmDocument
-from ..integrations.rom.native_delivery import DeliveryPlan, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward
+from ..integrations.rom.native_delivery import DeliveryPlan, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward
 from ..integrations.rom.script_build import replace_body
 from ..integrations.rom.switches import global_flags, register_flags
 from .test_rom_formats import small_kdm
@@ -65,6 +68,23 @@ class SwitchRegistryTests(unittest.TestCase):
 
 
 class NativeDeliveryTests(unittest.TestCase):
+    def test_network_only_checks_use_no_local_delivery_storage(self) -> None:
+        reward = NativeReward(NativeRewardKind.REMOTE, 2)
+        plan = DeliveryPlan((GoalBlockReward("map", "GF_WM_A01_A02", reward),
+                             FlagReward("event", "gf_native_event", reward)))
+        self.assertEqual(len(plan.flags), 130)
+        self.assertIn("gf_rando_check_0000", plan.flags)
+        self.assertFalse(any(name.startswith("gf_rando_delivered_") for name in plan.flags))
+        self.assertIn("gf_native_event", plan.references)
+        self.assertNotIn("gf_rando_delivered_", plan.delivery_body())
+        self.assertIn("gf_rando_check_0000 *= true", plan.goal_block_body())
+
+    def test_compact_network_layout_rejects_the_old_save_fingerprint(self) -> None:
+        plan = DeliveryPlan((GoalBlockReward("map", "GF_WM_A01_A02", NativeReward(NativeRewardKind.REMOTE, 2)),))
+        legacy = [[asdict(check) for check in plan.checks], None, False, [], None, None, True, True, None]
+        old_fingerprint = hashlib.sha256(json.dumps(legacy, separators=(",", ":")).encode()).digest()[:16]
+        self.assertNotEqual(plan.fingerprint, old_fingerprint)
+
     def test_mini_star_receipt_controls_revisits_independently_of_received_route(self) -> None:
         check = GoalBlockReward("map", "GF_WM_A01_A02", NativeReward(NativeRewardKind.COINS, 20))
         body = DeliveryPlan((check,)).goal_block_body()

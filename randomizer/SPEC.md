@@ -100,16 +100,17 @@ The old tracker's linear stage rules must not be used as an authoritative catalo
 
 ## Remaining game integration
 
-Identify the target game region/revision and emulator/console platform; obtain
-game event IDs; verify every exit and puzzle requirement; enumerate doors, enemy
-types, Kamek fights, shops, and banner thresholds. Implement reward hooks, ability
-gates, boss gates, shop stock changes, pickup conversion, and persistent check
-flags. Museum and Thing event IDs must be tied to actual game events.
+The decrypted European revision is identified and native reward hooks, ability
+and boss gates, stock expansion, pickup conversion and persistent check receipts
+are implemented. Solved caller-authored catalogs now generate actual native
+recipes and AP patches. Standalone tracking observes native receipts without
+writing game memory. Assembly sources accompany the executable guards.
 
-Generated full-progression JSON files remain seed descriptions. The separate
-experimental builders can produce actual LayeredFS overrides, and the Citra
-transport can read/write memory, but these do not yet connect generated
-progression seeds or AP items to complete in-game check/reward handling.
+The authoritative full-game catalog, exact traversal effects for all native
+links and puzzles, complete source/enemy classification, worst-case mixed AP
+save capacity and full gameplay playthrough remain unfinished. Infinite capacity
+and comprehensive automatic cutscene/text skipping also remain experimental.
+These limits prevent advertising a complete playable randomizer.
 
 On 2026-10-08 the user validated the revised tutorial skip: arrival and Decalburg
 unrolling work, the album contains four Jump/boot stickers, four Hammer stickers
