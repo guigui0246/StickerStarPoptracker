@@ -1,8 +1,35 @@
 # Sticker Star randomizer
 
-This specification records the requested replacement randomizer. The Python core
-is a prototype for seed generation and reward behavior, not a playable game patch.
+This specification records the requested replacement randomizer. The typed core,
+standalone generator and Archipelago 0.6.8 logic example are implemented. Real
+combat-sticker and tutorial-skip experiments exist; the full progression patch
+and Archipelago runtime remain unfinished.
 The existing tracker rules are legacy placeholders and are not the new logic.
+
+## Architecture and supported modes
+
+Keep clean folders and subfolders separating typed domain classes, verified
+game data, generation, ROM patching, emulator transport and AP integration.
+Both standalone and Archipelago 0.6.8 must use the same authoritative catalog
+and access rules, with a complete playable reward-delivery implementation.
+
+Required classes and meanings:
+
+- `Location`: where an item is received.
+- `Item`: an identifiable reward.
+- `Event`: a special item fixed at one specific location, never randomized.
+- `Goal`: a special location with a specific fixed item, never randomized.
+- `EndGoal`: a special Goal whose completion marks the randomizer won.
+- `Region`: a group of locations with multiple possible paths.
+- `Vector`: directed traversal with its own access rules.
+- `Path`: a two-way connection with one vector in each direction; each vector
+  has independent rules.
+- `StartingRegion`: the one and only entirely open starting region, representing
+  the main menu/map. Decalburg is separate and may be locked behind an item.
+- `Rules`: requirements for accessing a location or traversing a vector.
+
+These domain classes exist. Their use with the full real-game catalog, ability
+hooks, persistent reward delivery and real victory event remains to be completed.
 
 ## Rewards
 
@@ -77,5 +104,13 @@ types, Kamek fights, shops, and banner thresholds. Implement reward hooks, abili
 gates, boss gates, shop stock changes, pickup conversion, and persistent check
 flags. Museum and Thing event IDs must be tied to actual game events.
 
-Until these exist, generated JSON files are seed descriptions only. They cannot
-patch a ROM, connect to an emulator, or deliver rewards in the game.
+Generated full-progression JSON files remain seed descriptions. The separate
+experimental builders can produce actual LayeredFS overrides, and the Citra
+transport can read/write memory, but these do not yet connect generated
+progression seeds or AP items to complete in-game check/reward handling.
+
+On 2026-10-08 the user validated the revised tutorial skip: arrival and Decalburg
+unrolling work, the album contains four Jump/boot stickers, four Hammer stickers
+and two Mushrooms, and normal movement resumes. This starting inventory is a
+test fixture, not an exception to randomized Hammer or production starting rules.
+See `PATCH_TODO.md` for the complete remaining implementation checklist.

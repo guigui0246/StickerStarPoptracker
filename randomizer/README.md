@@ -3,8 +3,9 @@
 The typed generation engine works without external packages. The Archipelago
 adapter targets 0.6.8. Both use the same `GameDefinition`, rules, regions, and
 fixed rewards. The bundled catalog is explicitly a **logic demonstration**,
-not a complete Sticker Star randomizer. No ROM patch or emulator client is
-implemented; generation output cannot yet be played in the game.
+not a complete Sticker Star randomizer. An experimental combat-sticker ROM
+override and a Citra memory transport are now implemented. The full progression
+patch and Archipelago runtime delivery remain unfinished.
 
 ## Structure
 
@@ -17,6 +18,11 @@ implemented; generation output cannot yet be played in the game.
 - `data/`: example catalog and strict version-2 JSON loader.
 - `integrations/archipelago/`: native AP world, items, checks, entrances, slot output.
 - `integrations/rom/`: read-only decrypted ExeFS/RomFS file inventory.
+- `integrations/rom/kdm.py`: lossless typed KDM views and checked pointer edits.
+- `integrations/rom/pickups.py`: 964 item records mapped to 227 real game rooms.
+- `integrations/rom/ksm.py`: lossless typed constants, imports, and save-variable references.
+- `integrations/rom/sticker_patch.py`: experimental combat-sticker overrides.
+- `integrations/citra/`: typed UDP memory transport for Citra build `608383e`.
 - `legacy/`: original version-1 JSON/reward code; `core.py` preserves existing imports.
 - `tests/`: graph and generator regression tests.
 
@@ -106,7 +112,74 @@ Initial inspection found 796 files under `Script`, including `KSMR`-format
 world-map and goal-block scripts, and `KDMR`-format item, shop, and map tables
 under `Data`. These binary formats and their command semantics still require
 reverse engineering before a verified reward patch can be implemented.
-No game data is bundled or altered.
+No extracted game content is committed; the source ROM remains untouched.
+
+## Experimental real-game patch
+
+```powershell
+python tools/build_sticker_patch.py "path/to/Mario Sticker Star.3ds" --seed 42 --output dist/game-patch-42
+```
+
+This produces `romfs/Data/kdm_dispos_data.bin` and a JSON report. It shuffles
+390 directly placed combat stickers across eligible rooms, preserving the pool.
+Seed 42 changes 369 placements. Secret Doors, Things, scraps, HP upgrades,
+coins, opening/tutorial rooms, random-choice pickup lists, and shops remain
+vanilla in this experimental mode. It does **not** implement generic-sticker
+unlock items, shuffled progression, new check categories, or AP delivery.
+
+To test in the supplied Citra Qt build, put the generated `romfs` folder beneath
+`%APPDATA%/Citra/load/mods/00040000000A5F00/`. Back up any existing mod first;
+do not combine different generated placement tables. The source dump remains
+untouched. Removing that replacement file restores vanilla placement data.
+
+Validation on the supplied dump: all 66 KDM tables parse; all 796 scripts were
+decompiled using the external Gibberish compiler in a research folder. Ten
+generated real-game table patches passed independent byte-range checks: only
+the selected four-byte item pointers change. The original table SHA-256 is
+`07e25f1d0d730730cec46cd41b565e9bc82b8cdb17bf2ee7daf7c7e5516d33fd`.
+An isolated Citra Qt `608383e` boot loaded the replacement and answered live
+memory reads matching the extracted game executable. A complete playthrough
+and save/reload pickup verification have **not** been performed.
+
+The Citra command-line build crashed with both vanilla and patched data in the
+test environment. The Qt build worked with copied settings. Tests used a
+separate profile in `.validation/emulator/user`; the regular emulator profile
+and saves were not modified.
+
+Research references: [Gibberish source](https://github.com/Longboost/gibberish),
+[European game decompilation](https://github.com/Darxoon/leaflitter),
+[save editor source](https://github.com/Brionjv/Paper-Mario-SS-Save-Editor), and
+[KDM format reference](https://papermariotkb.wiki.gg/wiki/Sticker_Star_KDM_Reference).
+Research tool sources and extracted game data stay in ignored `.validation/`.
+
+### Tutorial skip test
+
+```powershell
+python tools/build_tutorial_skip.py "path/to/Mario Sticker Star.3ds" --compiler "path/to/gibberish/main.py" --output dist/tutorial-skip-fix
+```
+
+This separate experiment keeps the opening movie and skips the field tutorial
+to Decalburg's unrolling event. Replace the previous test's whole `romfs` folder
+and start a new save slot. Revision 2 changes both the introductory plaza script
+and one string pointer in the exit table. It uses the east arrival, whose vanilla
+script starts unrolling; the earlier northeast arrival prepared the Toads but
+never started that event and could trap Mario among them. Inventory now uses
+the regular `item_try_addpouch` command instead of the debug inventory preset.
+It grants the hammer, four Jump stickers, four Hammer stickers and two Mushrooms.
+This mode does not shuffle stickers or repair existing softlocked saves.
+
+Compilation, canonical decompilation, strict typing and the entrance pointer's
+byte boundaries have been verified. On 2026-10-08 the user confirmed successful
+arrival, Decalburg unrolling, four Jump/boot stickers, four Hammer stickers,
+two Mushrooms and normal movement afterward. Save/reload and subsequent game
+progression still need validation. The test's hardcoded hammer/stickers must
+be reconciled with the production seed's starting inventory and ability gates.
+A Windows crash report for the user's intro crash identifies Intel's
+`igxelpicd64.dll` as the faulting module. The isolated test boots with Vulkan;
+this does not establish that Vulkan fixes all crashes.
+
+The full remaining architecture, gameplay, standalone, Archipelago 0.6.8 and
+validation checklist is maintained in [PATCH_TODO.md](PATCH_TODO.md).
 
 Required next work: verified game check/exit catalog, save flags, reward and
 ability hooks, shop behavior, emulator communication, and an end-to-end tested

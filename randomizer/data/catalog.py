@@ -72,11 +72,11 @@ def load_catalog(path: FilePath) -> GameDefinition:
         progression = item.get("progression", True)
         if type(progression) is not bool:
             raise ValueError("progression must be boolean")
-        args = (string(item["id"]), string(item["name"]), progression)
+        item_args = (string(item["id"]), string(item["name"]), progression)
         items.append(
-            Event(*args, location_id=string(item["location"]))
+            Event(*item_args, location_id=string(item["location"]))
             if "location" in item
-            else Item(*args)
+            else Item(*item_args)
         )
     by_id = {item.id: item for item in items}
     regions: list[Region] = []
@@ -85,12 +85,12 @@ def load_catalog(path: FilePath) -> GameDefinition:
         starting = region.get("starting", False)
         if type(starting) is not bool:
             raise ValueError("starting must be boolean")
-        cls = StartingRegion if starting else Region
-        regions.append(cls(string(region["id"]), string(region["name"])))
+        region_class = StartingRegion if starting else Region
+        regions.append(region_class(string(region["id"]), string(region["name"])))
     locations: list[Location] = []
     for raw in array(data["locations"]):
         loc = obj(raw)
-        args = (
+        location_args = (
             string(loc["id"]),
             string(loc["name"]),
             string(loc["region"]),
@@ -98,13 +98,13 @@ def load_catalog(path: FilePath) -> GameDefinition:
         )
         kind = loc.get("type", "location")
         if kind == "location":
-            locations.append(Location(*args))
+            locations.append(Location(*location_args))
         elif kind in {"goal", "end_goal"}:
             reward = string(loc["item"])
             if reward not in by_id:
                 raise ValueError("Unknown goal reward")
-            cls = EndGoal if kind == "end_goal" else Goal
-            locations.append(cls(*args, by_id[reward]))
+            goal_class = EndGoal if kind == "end_goal" else Goal
+            locations.append(goal_class(*location_args, by_id[reward]))
         else:
             raise ValueError("Unknown location type")
     paths: list[Path] = []
