@@ -41,11 +41,27 @@ class TrackerCatalog:
     registry: NativeAPRegistry
     catalog_hash: str
     settings: Settings | None = None
+    native_options: dict[str, str] | None = None
 
     def __post_init__(self) -> None:
         self.registry.validate(self.game)
         if len(self.catalog_hash) != 64 or any(character not in "0123456789abcdef" for character in self.catalog_hash):
             raise ValueError("Tracker requires a catalog SHA-256")
+        if self.native_options is not None and any(
+            not key or not key.replace("_", "").isalnum() or not key[0].isalpha() or not isinstance(value, str)
+            for key, value in self.native_options.items()
+        ):
+            raise ValueError("Tracker native options need identifier keys and string values")
+
+    def setting_values(self) -> dict[str, str]:
+        # Recipes omit default options for backwards compatibility, but a new
+        # tracker must compare every option, including defaults, symmetrically.
+        values = {} if self.settings is None else {
+            name: getattr(self.settings, name).value for name in (
+                "album_pages", "banners", "museum", "enemy_rewards", "door_stickers", "generic_stickers",
+            )
+        }
+        return values | (self.native_options or {})
 
     def item_code(self, identifier: str) -> str:
         return f"ss_item_{self.registry.items[identifier]}"
@@ -73,7 +89,7 @@ class TrackerCatalog:
             },
         }
         if self.settings is not None:
-            result["settings"] = self.settings.to_json()
+            result["settings"] = self.setting_values()
         return result
 
     def lua(self) -> str:

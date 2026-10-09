@@ -172,7 +172,9 @@ class NativeProfile:
             reward.kind == NativeRewardKind.ABILITY for reward in (*check_rewards.values(), *selector_rewards.values())
         ) and 0x2D81C0 not in {signature.address for signature in signatures}:
             raise ValueError("Ability rewards require executable guard signatures")
-        if data.get("sticker_policy") is not None and not INSERTION_HOOKS <= {signature.address for signature in signatures}:
+        policy = data.get("sticker_policy")
+        guarded_generics = policy is not None and obj(policy).get("randomize_generic", True) is not False
+        if guarded_generics and not INSERTION_HOOKS <= {signature.address for signature in signatures}:
             raise ValueError("Sticker policies require executable insertion guard signatures")
         result = cls(
             integer(profile.get("pointer_address")),

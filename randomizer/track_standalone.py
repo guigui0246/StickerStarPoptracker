@@ -66,16 +66,31 @@ async def run(args: argparse.Namespace) -> None:
             await asyncio.gather(*tasks, return_exceptions=True)
 
 
-def main() -> None:
+def main(argv: list[str] | None = None) -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, required=True)
-    parser.add_argument("--patch-report", type=Path, required=True)
-    parser.add_argument("--tracker-data", type=Path, required=True)
+    parser.add_argument("--seed", type=Path, help="Generated .stickerpatch; locates matching tracker sidecars")
+    parser.add_argument("--config", type=Path)
+    parser.add_argument("--patch-report", type=Path, help="Defaults to the report beside --seed")
+    parser.add_argument("--tracker-data", type=Path)
     parser.add_argument("--name", default="Player")
     parser.add_argument("--emulator-port", type=int, default=45987)
     parser.add_argument("--tracker-port", type=int, default=38281)
+    args = parser.parse_args(argv)
+    if args.seed is not None:
+        if args.config is not None or args.tracker_data is not None:
+            parser.error("Use --seed or explicit --config and --tracker-data")
+        args.config = Path(str(args.seed) + ".tracking.json")
+        args.tracker_data = Path(str(args.seed) + ".tracker-data.json")
+        args.patch_report = args.patch_report or Path(str(args.seed) + ".patch-report.json")
+    elif args.config is None or args.tracker_data is None:
+        parser.error("Use --seed or provide both --config and --tracker-data")
+    if args.patch_report is None:
+        parser.error("Explicit tracker configuration also requires --patch-report")
+    if not args.patch_report.is_file():
+        parser.error("Patch report is missing; use a seed from generate or supply --patch-report")
+    print(f"Standalone auto tracking: connect PopTracker to localhost:{args.tracker_port} as {args.name}", flush=True)
     try:
-        asyncio.run(run(parser.parse_args()))
+        asyncio.run(run(args))
     except KeyboardInterrupt:
         pass
 

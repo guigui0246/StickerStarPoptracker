@@ -11,6 +11,7 @@ from randomizer.standalone.__main__ import main as generate
 from randomizer.track_standalone import main as track
 from tools.production_catalog import main as catalog
 from tools.build_sticker_patch import main as combat_patch
+from tools.rebind_native_catalog import main as rebind
 
 COMMANDS: dict[str, Callable[[], None]] = {
     "generate": generate,
@@ -18,6 +19,7 @@ COMMANDS: dict[str, Callable[[], None]] = {
     "track": track,
     "client": client,
     "catalog": catalog,
+    "rebind": rebind,
 }
 
 
@@ -31,7 +33,7 @@ def main() -> None:
     args = parser.parse_args(sys.argv[1:2])
     sys.argv = [f"{sys.argv[0]} {args.command}", *sys.argv[2:]]
     if args.command == "patch" and "--seed" in sys.argv and sys.argv[1:2] and sys.argv[1] not in {
-        "generate", "generate-native", "generate-native-catalog", "apply",
+        "generate", "generate-native", "generate-native-catalog", "generate-no-logic", "apply",
     }:
         combat_patch()
         return

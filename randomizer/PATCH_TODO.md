@@ -25,6 +25,44 @@ and include actual Archipelago precollected items in their starting inventory.
 
 ## Native integration progress — 2026-10-09
 
+- [x] Correct no-logic bootstrap to start with a physical Jump copy (locked
+      copies convert to the small slipper); shuffle the actual Jump unlock.
+- [x] Default one-command native generation to independent ground routes and
+      explicit ground-course visibility; retain separate stage admission.
+- [x] Ship typed Python production Item/Location/Region/Path/Rules authoring modules in
+      `randomizer/data/game/`, with automatic validated logic rebinding for
+      `generate --logic catalog ROM.3ds`.
+
+- [x] Implement shared museum categories, enemy check filtering, vanilla door
+      places, generic sticker availability and vanilla album-page policy in
+      native standalone/AP catalog generation and tracker settings.
+- [x] Export editable room catalogs and bindings; provide strict rebind tooling
+      and a maintenance guide in `docs/IMPLEMENTATION_GUIDE.md`.
+- [x] Add opt-in random ground-stage bootstrap and ground-route map setter
+      patches, preserving boat/sky exclusions and native source receipts.
+      Physical movement and save behavior remain unverified.
+- [x] Add explicit scene entry/cleanup bindings with compilation checks and
+      protection against erasing injected reward callbacks. Individual cleanup
+      bindings still require story/camera/input verification.
+
+- [x] Add `patch generate-no-logic` using the actual production source assembler,
+      with all 416 observed checks, fixed Bowser victory, a complete unique
+      entitlement pool, starting tools/initial access and independent tracker
+      mappings. No access rules or physical solvability are asserted.
+- [x] Package native apply output as a ZIP containing `00040000000A5F00`.
+      Keep reports and assembly outside the installation tree. The generated
+      no-logic-42 ZIP contains 168 files; its 416-check native profile uses
+      1,022 GF bits and one GS byte.
+- [x] Verify no-logic-42 startup in a fresh isolated Citra 608383e profile,
+      then compare the packaged tracker bridge with native receipts over real
+      WebSockets. Five starting items, zero checks, two connections, matching
+      registries/replay and inert client check-report packets pass. No inventory
+      writes are used. Default hardware shaders crash even on the unmodified
+      ROM on this machine; disabling hardware shaders and shader JIT allows
+      the native test to run. Physical checks/full playthrough remain pending.
+- [x] Include the dynamically loaded WebSocket server in frozen CLI builds;
+      accept `track --seed` to locate the matching generated sidecars.
+
 - [x] Exclude 30 native debug-room Thing pickups from automatic check assembly.
       Add the scripted Faucet and Curling Stone sources. All 72 production
       Thing sources and all 64 Thing types have hooks in the 416-check fixture.

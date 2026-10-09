@@ -1,10 +1,17 @@
 import unittest
 
-from ..settings import AlbumPages, Banners, Settings
+from ..settings import AlbumPages, Banners, DoorStickers, EnemyRewards, GenericStickers, Museum, Settings
 from ..integrations.rom.native_delivery import DeliveryPlan, GoalBlockReward, NativeReward, NativeRewardKind
 
 
 class SettingsTests(unittest.TestCase):
+    def test_extended_modes_roundtrip_and_vanilla_page_policy(self) -> None:
+        settings = Settings(AlbumPages.VANILLA, Banners.REDUCED, Museum.THINGS, EnemyRewards.OFF,
+                            DoorStickers.VANILLA, GenericStickers.DISABLED)
+        self.assertEqual(Settings.from_json(settings.to_json()), settings)
+        with self.assertRaises(ValueError):
+            Settings.from_json(settings.to_json() | {"generic_stickers": "plando"})
+
     def test_banner_threshold_rounding_and_disable(self) -> None:
         settings = Settings(banners=Banners.REDUCED)
         self.assertEqual([settings.banner_threshold(n) for n in (1, 9, 10, 11, 99, 100, 101)], [1, 1, 1, 2, 10, 10, 11])

@@ -1,0 +1,5475 @@
+{
+  "format_version": 1,
+  "catalog_sha256": "4535512f7d617f3f61c3c55b343ca3f560e29c048f81e80c2819460c9978ca85",
+  "items": {
+    "ability/hammer": {
+      "kind": "ability",
+      "value": "hammer"
+    },
+    "ability/paperization": {
+      "kind": "ability",
+      "value": "paperization"
+    },
+    "boss_access/harbor": {
+      "kind": "boss_access",
+      "value": "harbor"
+    },
+    "boss_access/w1": {
+      "kind": "boss_access",
+      "value": "w1"
+    },
+    "boss_access/w2": {
+      "kind": "boss_access",
+      "value": "w2"
+    },
+    "boss_access/w3": {
+      "kind": "boss_access",
+      "value": "w3"
+    },
+    "boss_access/w4": {
+      "kind": "boss_access",
+      "value": "w4"
+    },
+    "boss_access/w5": {
+      "kind": "boss_access",
+      "value": "w5"
+    },
+    "boss_access/w6": {
+      "kind": "boss_access",
+      "value": "w6"
+    },
+    "coins/25": {
+      "kind": "coins",
+      "value": 25
+    },
+    "door_access/hei_5_secret_door_1": {
+      "kind": "door_access",
+      "value": "hei_5_secret_door_1"
+    },
+    "door_access/iwa_2_04_door": {
+      "kind": "door_access",
+      "value": "iwa_2_04_door"
+    },
+    "door_access/w1_beach_luigi": {
+      "kind": "door_access",
+      "value": "w1_beach_luigi"
+    },
+    "door_access/w1_hei_2_door": {
+      "kind": "door_access",
+      "value": "w1_hei_2_door"
+    },
+    "door_access/w1_hei_3_door": {
+      "kind": "door_access",
+      "value": "w1_hei_3_door"
+    },
+    "door_access/w1_hei_4_door": {
+      "kind": "door_access",
+      "value": "w1_hei_4_door"
+    },
+    "door_access/w1_iwa_4_05_door": {
+      "kind": "door_access",
+      "value": "w1_iwa_4_05_door"
+    },
+    "door_access/w2_beach_luigi": {
+      "kind": "door_access",
+      "value": "w2_beach_luigi"
+    },
+    "door_access/w2_ise_6_door": {
+      "kind": "door_access",
+      "value": "w2_ise_6_door"
+    },
+    "door_access/w2_oas_00_door": {
+      "kind": "door_access",
+      "value": "w2_oas_00_door"
+    },
+    "door_access/w2_sab_secret_door": {
+      "kind": "door_access",
+      "value": "w2_sab_secret_door"
+    },
+    "door_access/w2_tow_00_door": {
+      "kind": "door_access",
+      "value": "w2_tow_00_door"
+    },
+    "door_access/w2_yos_01_door": {
+      "kind": "door_access",
+      "value": "w2_yos_01_door"
+    },
+    "door_access/w3_bea_04_door": {
+      "kind": "door_access",
+      "value": "w3_bea_04_door"
+    },
+    "door_access/w3_beach_luigi": {
+      "kind": "door_access",
+      "value": "w3_beach_luigi"
+    },
+    "door_access/w3_bos_01_door": {
+      "kind": "door_access",
+      "value": "w3_bos_01_door"
+    },
+    "door_access/w3_cho_13_door": {
+      "kind": "door_access",
+      "value": "w3_cho_13_door"
+    },
+    "door_access/w3_dok_02_door": {
+      "kind": "door_access",
+      "value": "w3_dok_02_door"
+    },
+    "door_access/w3_dor_0_door": {
+      "kind": "door_access",
+      "value": "w3_dor_0_door"
+    },
+    "door_access/w3_for_04_door": {
+      "kind": "door_access",
+      "value": "w3_for_04_door"
+    },
+    "door_access/w3_paz_01_door": {
+      "kind": "door_access",
+      "value": "w3_paz_01_door"
+    },
+    "door_access/w3_sar_01_door": {
+      "kind": "door_access",
+      "value": "w3_sar_01_door"
+    },
+    "door_access/w3_sta_00_door": {
+      "kind": "door_access",
+      "value": "w3_sta_00_door"
+    },
+    "door_access/w3_str_06_door": {
+      "kind": "door_access",
+      "value": "w3_str_06_door"
+    },
+    "door_access/w3_thr_02_door": {
+      "kind": "door_access",
+      "value": "w3_thr_02_door"
+    },
+    "door_access/w3_tre_01_door": {
+      "kind": "door_access",
+      "value": "w3_tre_01_door"
+    },
+    "door_access/w4_beach_luigi": {
+      "kind": "door_access",
+      "value": "w4_beach_luigi"
+    },
+    "door_access/w4_bos_00_door": {
+      "kind": "door_access",
+      "value": "w4_bos_00_door"
+    },
+    "door_access/w4_kaw_02_door": {
+      "kind": "door_access",
+      "value": "w4_kaw_02_door"
+    },
+    "door_access/w4_lif_00_door": {
+      "kind": "door_access",
+      "value": "w4_lif_00_door"
+    },
+    "door_access/w4_yak_04_door": {
+      "kind": "door_access",
+      "value": "w4_yak_04_door"
+    },
+    "door_access/w4_yuk_01_door": {
+      "kind": "door_access",
+      "value": "w4_yuk_01_door"
+    },
+    "door_access/w5_bak_01_door": {
+      "kind": "door_access",
+      "value": "w5_bak_01_door"
+    },
+    "door_access/w5_beach_luigi": {
+      "kind": "door_access",
+      "value": "w5_beach_luigi"
+    },
+    "door_access/w5_bos_03_door": {
+      "kind": "door_access",
+      "value": "w5_bos_03_door"
+    },
+    "door_access/w5_cru_00_door": {
+      "kind": "door_access",
+      "value": "w5_cru_00_door"
+    },
+    "door_access/w5_jun_02_door": {
+      "kind": "door_access",
+      "value": "w5_jun_02_door"
+    },
+    "door_access/w5_mag_10_door": {
+      "kind": "door_access",
+      "value": "w5_mag_10_door"
+    },
+    "door_access/w5_wan_03_door": {
+      "kind": "door_access",
+      "value": "w5_wan_03_door"
+    },
+    "door_access/w6_sky_02_door": {
+      "kind": "door_access",
+      "value": "w6_sky_02_door"
+    },
+    "item/PK_BIG_KOOPA_TAPE": {
+      "kind": "item",
+      "value": "PK_BIG_KOOPA_TAPE"
+    },
+    "item/PK_HANACHAN_BODY_1": {
+      "kind": "item",
+      "value": "PK_HANACHAN_BODY_1"
+    },
+    "item/PK_HANACHAN_BODY_2": {
+      "kind": "item",
+      "value": "PK_HANACHAN_BODY_2"
+    },
+    "item/PK_HANACHAN_BODY_3": {
+      "kind": "item",
+      "value": "PK_HANACHAN_BODY_3"
+    },
+    "item/PK_HANACHAN_BODY_4": {
+      "kind": "item",
+      "value": "PK_HANACHAN_BODY_4"
+    },
+    "item/PK_HEI_2_GOAL_STAR": {
+      "kind": "item",
+      "value": "PK_HEI_2_GOAL_STAR"
+    },
+    "item/PK_HEI_4_DOKAN_1": {
+      "kind": "item",
+      "value": "PK_HEI_4_DOKAN_1"
+    },
+    "item/PK_HEI_5_BRIDGE": {
+      "kind": "item",
+      "value": "PK_HEI_5_BRIDGE"
+    },
+    "item/PK_IWA_2_BLOCK_AFTER": {
+      "kind": "item",
+      "value": "PK_IWA_2_BLOCK_AFTER"
+    },
+    "item/PK_IWA_2_BLOCK_BEFOR": {
+      "kind": "item",
+      "value": "PK_IWA_2_BLOCK_BEFOR"
+    },
+    "item/PK_IWA_4_DOOR": {
+      "kind": "item",
+      "value": "PK_IWA_4_DOOR"
+    },
+    "item/PK_MAC_1_FOUNTAIN": {
+      "kind": "item",
+      "value": "PK_MAC_1_FOUNTAIN"
+    },
+    "item/PK_MAC_2_RUDDER": {
+      "kind": "item",
+      "value": "PK_MAC_2_RUDDER"
+    },
+    "item/PK_SAR_WOOD_DOOR": {
+      "kind": "item",
+      "value": "PK_SAR_WOOD_DOOR"
+    },
+    "item/PK_TOW_04_DOOR": {
+      "kind": "item",
+      "value": "PK_TOW_04_DOOR"
+    },
+    "item/PK_TOW_ENTRANCE_1": {
+      "kind": "item",
+      "value": "PK_TOW_ENTRANCE_1"
+    },
+    "item/PK_TOW_ENTRANCE_2": {
+      "kind": "item",
+      "value": "PK_TOW_ENTRANCE_2"
+    },
+    "item/PK_TOW_ENTRANCE_3": {
+      "kind": "item",
+      "value": "PK_TOW_ENTRANCE_3"
+    },
+    "item/PK_TOW_WINDOW_AFTER": {
+      "kind": "item",
+      "value": "PK_TOW_WINDOW_AFTER"
+    },
+    "item/PK_TOW_WINDOW_BEFORE": {
+      "kind": "item",
+      "value": "PK_TOW_WINDOW_BEFORE"
+    },
+    "item/PK_TRE_STUMP_L": {
+      "kind": "item",
+      "value": "PK_TRE_STUMP_L"
+    },
+    "item/PK_TRE_STUMP_R": {
+      "kind": "item",
+      "value": "PK_TRE_STUMP_R"
+    },
+    "item/PK_W4_BOS_RAIL": {
+      "kind": "item",
+      "value": "PK_W4_BOS_RAIL"
+    },
+    "item/PK_W4_DIVERGENCE_RAIL_AFTER": {
+      "kind": "item",
+      "value": "PK_W4_DIVERGENCE_RAIL_AFTER"
+    },
+    "item/PK_W4_DIVERGENCE_RAIL_BEFORE": {
+      "kind": "item",
+      "value": "PK_W4_DIVERGENCE_RAIL_BEFORE"
+    },
+    "item/PK_W4_LIF_LIFT": {
+      "kind": "item",
+      "value": "PK_W4_LIF_LIFT"
+    },
+    "item/PK_W4_RAIL_EXIT": {
+      "kind": "item",
+      "value": "PK_W4_RAIL_EXIT"
+    },
+    "item/PK_W4_YAK_BOOKSHELF_L": {
+      "kind": "item",
+      "value": "PK_W4_YAK_BOOKSHELF_L"
+    },
+    "item/PK_W4_YAK_BOOKSHELF_S_AFTER": {
+      "kind": "item",
+      "value": "PK_W4_YAK_BOOKSHELF_S_AFTER"
+    },
+    "item/PK_W4_YAK_BOOKSHELF_S_BEFORE": {
+      "kind": "item",
+      "value": "PK_W4_YAK_BOOKSHELF_S_BEFORE"
+    },
+    "item/PK_W4_YAK_VAULT": {
+      "kind": "item",
+      "value": "PK_W4_YAK_VAULT"
+    },
+    "item/PK_W4_YAK_WALL_L": {
+      "kind": "item",
+      "value": "PK_W4_YAK_WALL_L"
+    },
+    "item/PK_W4_YAK_WALL_R": {
+      "kind": "item",
+      "value": "PK_W4_YAK_WALL_R"
+    },
+    "item/PK_W4_YUK_DOKAN": {
+      "kind": "item",
+      "value": "PK_W4_YUK_DOKAN"
+    },
+    "item/PK_W4_YUK_PORTRAIT": {
+      "kind": "item",
+      "value": "PK_W4_YUK_PORTRAIT"
+    },
+    "item/PK_W4_YUK_PORTRAIT_B": {
+      "kind": "item",
+      "value": "PK_W4_YUK_PORTRAIT_B"
+    },
+    "item/PK_W4_YUK_PORTRAIT_DOOR": {
+      "kind": "item",
+      "value": "PK_W4_YUK_PORTRAIT_DOOR"
+    },
+    "item/PK_W5_BAK_GATE_AFTER": {
+      "kind": "item",
+      "value": "PK_W5_BAK_GATE_AFTER"
+    },
+    "item/PK_W5_BAK_GATE_BEFORE": {
+      "kind": "item",
+      "value": "PK_W5_BAK_GATE_BEFORE"
+    },
+    "item/PK_W5_JUN_BRIDGE_1": {
+      "kind": "item",
+      "value": "PK_W5_JUN_BRIDGE_1"
+    },
+    "item/PK_W5_JUN_BRIDGE_2": {
+      "kind": "item",
+      "value": "PK_W5_JUN_BRIDGE_2"
+    },
+    "item/PK_W5_JUN_BRIDGE_3": {
+      "kind": "item",
+      "value": "PK_W5_JUN_BRIDGE_3"
+    },
+    "item/PK_W5_MAG_FLOOR": {
+      "kind": "item",
+      "value": "PK_W5_MAG_FLOOR"
+    },
+    "item/PK_W5_MAG_GATE_AFTER": {
+      "kind": "item",
+      "value": "PK_W5_MAG_GATE_AFTER"
+    },
+    "item/PK_W5_MAG_GATE_BEFORE": {
+      "kind": "item",
+      "value": "PK_W5_MAG_GATE_BEFORE"
+    },
+    "item/PK_W5_MAG_ROCK_AFTER": {
+      "kind": "item",
+      "value": "PK_W5_MAG_ROCK_AFTER"
+    },
+    "item/PK_W5_MAG_ROCK_BEFORE": {
+      "kind": "item",
+      "value": "PK_W5_MAG_ROCK_BEFORE"
+    },
+    "item/PK_W5_WAN_BLOCK_AFTER": {
+      "kind": "item",
+      "value": "PK_W5_WAN_BLOCK_AFTER"
+    },
+    "item/PK_W5_WAN_BLOCK_BEFORE": {
+      "kind": "item",
+      "value": "PK_W5_WAN_BLOCK_BEFORE"
+    },
+    "item/PK_W5_WAN_PIT": {
+      "kind": "item",
+      "value": "PK_W5_WAN_PIT"
+    },
+    "item/PK_W5_WAN_STAIRS_AFTER": {
+      "kind": "item",
+      "value": "PK_W5_WAN_STAIRS_AFTER"
+    },
+    "item/PK_W5_WAN_STAIRS_BEFORE": {
+      "kind": "item",
+      "value": "PK_W5_WAN_STAIRS_BEFORE"
+    },
+    "item/PK_W6_KILLER_CANNON_AFTER": {
+      "kind": "item",
+      "value": "PK_W6_KILLER_CANNON_AFTER"
+    },
+    "item/PK_W6_KILLER_CANNON_BEFORE": {
+      "kind": "item",
+      "value": "PK_W6_KILLER_CANNON_BEFORE"
+    },
+    "item/PK_W6_KOOPA_CASTLE_GATE_AFTER": {
+      "kind": "item",
+      "value": "PK_W6_KOOPA_CASTLE_GATE_AFTER"
+    },
+    "item/PK_W6_KOOPA_CASTLE_GATE_BEFORE": {
+      "kind": "item",
+      "value": "PK_W6_KOOPA_CASTLE_GATE_BEFORE"
+    },
+    "item/PK_WAREHOME_DOOR_AFTER": {
+      "kind": "item",
+      "value": "PK_WAREHOME_DOOR_AFTER"
+    },
+    "item/PK_WAREHOME_DOOR_BEFORE": {
+      "kind": "item",
+      "value": "PK_WAREHOME_DOOR_BEFORE"
+    },
+    "mini_star/GF_WM_A01_A02": {
+      "kind": "mini_star",
+      "value": "GF_WM_A01_A02"
+    },
+    "mini_star/GF_WM_A02_A03": {
+      "kind": "mini_star",
+      "value": "GF_WM_A02_A03"
+    },
+    "mini_star/GF_WM_A03_A04": {
+      "kind": "mini_star",
+      "value": "GF_WM_A03_A04"
+    },
+    "mini_star/GF_WM_A03_A05": {
+      "kind": "mini_star",
+      "value": "GF_WM_A03_A05"
+    },
+    "mini_star/GF_WM_A04_A06": {
+      "kind": "mini_star",
+      "value": "GF_WM_A04_A06"
+    },
+    "mini_star/GF_WM_A05_A06": {
+      "kind": "mini_star",
+      "value": "GF_WM_A05_A06"
+    },
+    "mini_star/GF_WM_B01_B02": {
+      "kind": "mini_star",
+      "value": "GF_WM_B01_B02"
+    },
+    "mini_star/GF_WM_B02_B03": {
+      "kind": "mini_star",
+      "value": "GF_WM_B02_B03"
+    },
+    "mini_star/GF_WM_B03_B04": {
+      "kind": "mini_star",
+      "value": "GF_WM_B03_B04"
+    },
+    "mini_star/GF_WM_B03_B05": {
+      "kind": "mini_star",
+      "value": "GF_WM_B03_B05"
+    },
+    "mini_star/GF_WM_B04_B01": {
+      "kind": "mini_star",
+      "value": "GF_WM_B04_B01"
+    },
+    "mini_star/GF_WM_C01_C03": {
+      "kind": "mini_star",
+      "value": "GF_WM_C01_C03"
+    },
+    "mini_star/GF_WM_C02_C03": {
+      "kind": "mini_star",
+      "value": "GF_WM_C02_C03"
+    },
+    "mini_star/GF_WM_C02_C11": {
+      "kind": "mini_star",
+      "value": "GF_WM_C02_C11"
+    },
+    "mini_star/GF_WM_C03_C06": {
+      "kind": "mini_star",
+      "value": "GF_WM_C03_C06"
+    },
+    "mini_star/GF_WM_C04_C03": {
+      "kind": "mini_star",
+      "value": "GF_WM_C04_C03"
+    },
+    "mini_star/GF_WM_C05_C02": {
+      "kind": "mini_star",
+      "value": "GF_WM_C05_C02"
+    },
+    "mini_star/GF_WM_C05_C08": {
+      "kind": "mini_star",
+      "value": "GF_WM_C05_C08"
+    },
+    "mini_star/GF_WM_C06_C05": {
+      "kind": "mini_star",
+      "value": "GF_WM_C06_C05"
+    },
+    "mini_star/GF_WM_C06_C07": {
+      "kind": "mini_star",
+      "value": "GF_WM_C06_C07"
+    },
+    "mini_star/GF_WM_C06_C09": {
+      "kind": "mini_star",
+      "value": "GF_WM_C06_C09"
+    },
+    "mini_star/GF_WM_C07_C04": {
+      "kind": "mini_star",
+      "value": "GF_WM_C07_C04"
+    },
+    "mini_star/GF_WM_C08_C09": {
+      "kind": "mini_star",
+      "value": "GF_WM_C08_C09"
+    },
+    "mini_star/GF_WM_C08_C12": {
+      "kind": "mini_star",
+      "value": "GF_WM_C08_C12"
+    },
+    "mini_star/GF_WM_C09_C10": {
+      "kind": "mini_star",
+      "value": "GF_WM_C09_C10"
+    },
+    "mini_star/GF_WM_C10_C07": {
+      "kind": "mini_star",
+      "value": "GF_WM_C10_C07"
+    },
+    "mini_star/GF_WM_D01_D02": {
+      "kind": "mini_star",
+      "value": "GF_WM_D01_D02"
+    },
+    "mini_star/GF_WM_D01_D04": {
+      "kind": "mini_star",
+      "value": "GF_WM_D01_D04"
+    },
+    "mini_star/GF_WM_D02_D03": {
+      "kind": "mini_star",
+      "value": "GF_WM_D02_D03"
+    },
+    "mini_star/GF_WM_D03_D06": {
+      "kind": "mini_star",
+      "value": "GF_WM_D03_D06"
+    },
+    "mini_star/GF_WM_D04_D05": {
+      "kind": "mini_star",
+      "value": "GF_WM_D04_D05"
+    },
+    "mini_star/GF_WM_E01_E02": {
+      "kind": "mini_star",
+      "value": "GF_WM_E01_E02"
+    },
+    "mini_star/GF_WM_E02_E03": {
+      "kind": "mini_star",
+      "value": "GF_WM_E02_E03"
+    },
+    "mini_star/GF_WM_E03_E01": {
+      "kind": "mini_star",
+      "value": "GF_WM_E03_E01"
+    },
+    "mini_star/GF_WM_E03_E04": {
+      "kind": "mini_star",
+      "value": "GF_WM_E03_E04"
+    },
+    "mini_star/GF_WM_E04_E05": {
+      "kind": "mini_star",
+      "value": "GF_WM_E04_E05"
+    },
+    "mini_star/GF_WM_E05_E06": {
+      "kind": "mini_star",
+      "value": "GF_WM_E05_E06"
+    },
+    "mini_star/GF_WM_F02_F03": {
+      "kind": "mini_star",
+      "value": "GF_WM_F02_F03"
+    },
+    "page/1": {
+      "kind": "page",
+      "value": 1
+    },
+    "royal/1": {
+      "kind": "royal",
+      "value": 1
+    },
+    "royal/2": {
+      "kind": "royal",
+      "value": 2
+    },
+    "royal/3": {
+      "kind": "royal",
+      "value": 3
+    },
+    "royal/4": {
+      "kind": "royal",
+      "value": 4
+    },
+    "royal/5": {
+      "kind": "royal",
+      "value": 5
+    },
+    "royal/6": {
+      "kind": "royal",
+      "value": 6
+    },
+    "stage_access/A01": {
+      "kind": "stage_access",
+      "value": "A01"
+    },
+    "stage_access/A02": {
+      "kind": "stage_access",
+      "value": "A02"
+    },
+    "stage_access/A03": {
+      "kind": "stage_access",
+      "value": "A03"
+    },
+    "stage_access/A04": {
+      "kind": "stage_access",
+      "value": "A04"
+    },
+    "stage_access/A05": {
+      "kind": "stage_access",
+      "value": "A05"
+    },
+    "stage_access/A06": {
+      "kind": "stage_access",
+      "value": "A06"
+    },
+    "stage_access/B01": {
+      "kind": "stage_access",
+      "value": "B01"
+    },
+    "stage_access/B02": {
+      "kind": "stage_access",
+      "value": "B02"
+    },
+    "stage_access/B03": {
+      "kind": "stage_access",
+      "value": "B03"
+    },
+    "stage_access/B04": {
+      "kind": "stage_access",
+      "value": "B04"
+    },
+    "stage_access/B05": {
+      "kind": "stage_access",
+      "value": "B05"
+    },
+    "stage_access/C01": {
+      "kind": "stage_access",
+      "value": "C01"
+    },
+    "stage_access/C02": {
+      "kind": "stage_access",
+      "value": "C02"
+    },
+    "stage_access/C03": {
+      "kind": "stage_access",
+      "value": "C03"
+    },
+    "stage_access/C04": {
+      "kind": "stage_access",
+      "value": "C04"
+    },
+    "stage_access/C05": {
+      "kind": "stage_access",
+      "value": "C05"
+    },
+    "stage_access/C06": {
+      "kind": "stage_access",
+      "value": "C06"
+    },
+    "stage_access/C07": {
+      "kind": "stage_access",
+      "value": "C07"
+    },
+    "stage_access/C08": {
+      "kind": "stage_access",
+      "value": "C08"
+    },
+    "stage_access/C09": {
+      "kind": "stage_access",
+      "value": "C09"
+    },
+    "stage_access/C10": {
+      "kind": "stage_access",
+      "value": "C10"
+    },
+    "stage_access/C11": {
+      "kind": "stage_access",
+      "value": "C11"
+    },
+    "stage_access/C12": {
+      "kind": "stage_access",
+      "value": "C12"
+    },
+    "stage_access/D01": {
+      "kind": "stage_access",
+      "value": "D01"
+    },
+    "stage_access/D02": {
+      "kind": "stage_access",
+      "value": "D02"
+    },
+    "stage_access/D03": {
+      "kind": "stage_access",
+      "value": "D03"
+    },
+    "stage_access/D04": {
+      "kind": "stage_access",
+      "value": "D04"
+    },
+    "stage_access/D05": {
+      "kind": "stage_access",
+      "value": "D05"
+    },
+    "stage_access/D06": {
+      "kind": "stage_access",
+      "value": "D06"
+    },
+    "stage_access/E01": {
+      "kind": "stage_access",
+      "value": "E01"
+    },
+    "stage_access/E02": {
+      "kind": "stage_access",
+      "value": "E02"
+    },
+    "stage_access/E03": {
+      "kind": "stage_access",
+      "value": "E03"
+    },
+    "stage_access/E04": {
+      "kind": "stage_access",
+      "value": "E04"
+    },
+    "stage_access/E05": {
+      "kind": "stage_access",
+      "value": "E05"
+    },
+    "stage_access/E06": {
+      "kind": "stage_access",
+      "value": "E06"
+    },
+    "stage_access/F01": {
+      "kind": "stage_access",
+      "value": "F01"
+    },
+    "stage_access/F02": {
+      "kind": "stage_access",
+      "value": "F02"
+    },
+    "stage_access/F03": {
+      "kind": "stage_access",
+      "value": "F03"
+    },
+    "stage_access/X00": {
+      "kind": "stage_access",
+      "value": "X00"
+    },
+    "stage_access/X01": {
+      "kind": "stage_access",
+      "value": "X01"
+    },
+    "stage_access/X02": {
+      "kind": "stage_access",
+      "value": "X02"
+    },
+    "sticker_copy/SL_BANE_JUMP": {
+      "kind": "sticker_copy",
+      "value": "SL_BANE_JUMP"
+    },
+    "sticker_copy/SL_BANE_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_BANE_JUMP_K"
+    },
+    "sticker_copy/SL_BANE_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_BANE_JUMP_KK"
+    },
+    "sticker_copy/SL_BARREL": {
+      "kind": "sticker_copy",
+      "value": "SL_BARREL"
+    },
+    "sticker_copy/SL_BOMB": {
+      "kind": "sticker_copy",
+      "value": "SL_BOMB"
+    },
+    "sticker_copy/SL_BONE": {
+      "kind": "sticker_copy",
+      "value": "SL_BONE"
+    },
+    "sticker_copy/SL_BOOMERANG": {
+      "kind": "sticker_copy",
+      "value": "SL_BOOMERANG"
+    },
+    "sticker_copy/SL_BUNSIN_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_BUNSIN_JUMP_KK"
+    },
+    "sticker_copy/SL_BUN_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_BUN_HAMMER"
+    },
+    "sticker_copy/SL_BUN_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_BUN_HAMMER_K"
+    },
+    "sticker_copy/SL_BUN_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_BUN_HAMMER_KK"
+    },
+    "sticker_copy/SL_BURNING_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_BURNING_HAMMER"
+    },
+    "sticker_copy/SL_DEKA_1UP_KINOKO": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_1UP_KINOKO"
+    },
+    "sticker_copy/SL_DEKA_1UP_KINOKO_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_1UP_KINOKO_K"
+    },
+    "sticker_copy/SL_DEKA_BANE_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_BANE_JUMP_K"
+    },
+    "sticker_copy/SL_DEKA_BOOTS": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_BOOTS"
+    },
+    "sticker_copy/SL_DEKA_BOOTS_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_BOOTS_K"
+    },
+    "sticker_copy/SL_DEKA_BUNSIN_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_BUNSIN_JUMP_KK"
+    },
+    "sticker_copy/SL_DEKA_BUN_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_BUN_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_BURNING_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_BURNING_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_FROG": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_FROG"
+    },
+    "sticker_copy/SL_DEKA_FROG_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_FROG_K"
+    },
+    "sticker_copy/SL_DEKA_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_IRON_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_IRON_JUMP_K"
+    },
+    "sticker_copy/SL_DEKA_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_JUMP_K"
+    },
+    "sticker_copy/SL_DEKA_MEE_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_MEE_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_MEGATON_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_MEGATON_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_MUGEN_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_MUGEN_JUMP_KK"
+    },
+    "sticker_copy/SL_DEKA_PICO_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_PICO_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_SEVERE_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_SEVERE_HAMMER_K"
+    },
+    "sticker_copy/SL_DEKA_TAIL": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_TAIL"
+    },
+    "sticker_copy/SL_DEKA_TAIL_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_TAIL_K"
+    },
+    "sticker_copy/SL_DEKA_TSUGI_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_DEKA_TSUGI_JUMP_K"
+    },
+    "sticker_copy/SL_DODEKA_BANE_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_BANE_JUMP_KK"
+    },
+    "sticker_copy/SL_DODEKA_BUNSIN_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_BUNSIN_JUMP_KK"
+    },
+    "sticker_copy/SL_DODEKA_BUN_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_BUN_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_BURNING_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_BURNING_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_IRON_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_IRON_JUMP_KK"
+    },
+    "sticker_copy/SL_DODEKA_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_JUMP_KK"
+    },
+    "sticker_copy/SL_DODEKA_MEE_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_MEE_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_MEGATON_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_MEGATON_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_MUGEN_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_MUGEN_JUMP_KK"
+    },
+    "sticker_copy/SL_DODEKA_PICO_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_PICO_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_SEVERE_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_SEVERE_HAMMER_KK"
+    },
+    "sticker_copy/SL_DODEKA_TSUGI_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_DODEKA_TSUGI_JUMP_KK"
+    },
+    "sticker_copy/SL_DOOR": {
+      "kind": "sticker_copy",
+      "value": "SL_DOOR"
+    },
+    "sticker_copy/SL_FIRE_FLOWER": {
+      "kind": "sticker_copy",
+      "value": "SL_FIRE_FLOWER"
+    },
+    "sticker_copy/SL_FIRE_FLOWER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_FIRE_FLOWER_K"
+    },
+    "sticker_copy/SL_FIRE_FLOWER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_FIRE_FLOWER_KK"
+    },
+    "sticker_copy/SL_GABON_BALL": {
+      "kind": "sticker_copy",
+      "value": "SL_GABON_BALL"
+    },
+    "sticker_copy/SL_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_HAMMER"
+    },
+    "sticker_copy/SL_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_HAMMER_K"
+    },
+    "sticker_copy/SL_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_HAMMER_KK"
+    },
+    "sticker_copy/SL_ICE_FLOWER": {
+      "kind": "sticker_copy",
+      "value": "SL_ICE_FLOWER"
+    },
+    "sticker_copy/SL_ICE_FLOWER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_ICE_FLOWER_K"
+    },
+    "sticker_copy/SL_ICE_FLOWER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_ICE_FLOWER_KK"
+    },
+    "sticker_copy/SL_IRON_JUMP": {
+      "kind": "sticker_copy",
+      "value": "SL_IRON_JUMP"
+    },
+    "sticker_copy/SL_IRON_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_IRON_JUMP_K"
+    },
+    "sticker_copy/SL_IRON_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_IRON_JUMP_KK"
+    },
+    "sticker_copy/SL_JUMP": {
+      "kind": "sticker_copy",
+      "value": "SL_JUMP"
+    },
+    "sticker_copy/SL_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_JUMP_K"
+    },
+    "sticker_copy/SL_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_JUMP_KK"
+    },
+    "sticker_copy/SL_KINOKO": {
+      "kind": "sticker_copy",
+      "value": "SL_KINOKO"
+    },
+    "sticker_copy/SL_KINOKO_K": {
+      "kind": "sticker_copy",
+      "value": "SL_KINOKO_K"
+    },
+    "sticker_copy/SL_KINOKO_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_KINOKO_KK"
+    },
+    "sticker_copy/SL_LEAF": {
+      "kind": "sticker_copy",
+      "value": "SL_LEAF"
+    },
+    "sticker_copy/SL_LEAF_K": {
+      "kind": "sticker_copy",
+      "value": "SL_LEAF_K"
+    },
+    "sticker_copy/SL_LUCIE": {
+      "kind": "sticker_copy",
+      "value": "SL_LUCIE"
+    },
+    "sticker_copy/SL_MEE_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_MEE_HAMMER"
+    },
+    "sticker_copy/SL_MEGATON_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_MEGATON_HAMMER"
+    },
+    "sticker_copy/SL_MEGATON_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_MEGATON_HAMMER_K"
+    },
+    "sticker_copy/SL_MEGATON_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_MEGATON_HAMMER_KK"
+    },
+    "sticker_copy/SL_MH2": {
+      "kind": "sticker_copy",
+      "value": "SL_MH2"
+    },
+    "sticker_copy/SL_MUGEN_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_MUGEN_JUMP_KK"
+    },
+    "sticker_copy/SL_NOKONOKO_KOURA": {
+      "kind": "sticker_copy",
+      "value": "SL_NOKONOKO_KOURA"
+    },
+    "sticker_copy/SL_NOKONOKO_KOURA_K": {
+      "kind": "sticker_copy",
+      "value": "SL_NOKONOKO_KOURA_K"
+    },
+    "sticker_copy/SL_NOKONOKO_KOURA_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_NOKONOKO_KOURA_KK"
+    },
+    "sticker_copy/SL_PICO_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_PICO_HAMMER"
+    },
+    "sticker_copy/SL_PICO_HAMMER_K": {
+      "kind": "sticker_copy",
+      "value": "SL_PICO_HAMMER_K"
+    },
+    "sticker_copy/SL_PICO_HAMMER_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_PICO_HAMMER_KK"
+    },
+    "sticker_copy/SL_POISON_KINOKO": {
+      "kind": "sticker_copy",
+      "value": "SL_POISON_KINOKO"
+    },
+    "sticker_copy/SL_POW_BLOCK": {
+      "kind": "sticker_copy",
+      "value": "SL_POW_BLOCK"
+    },
+    "sticker_copy/SL_POW_BLOCK_K": {
+      "kind": "sticker_copy",
+      "value": "SL_POW_BLOCK_K"
+    },
+    "sticker_copy/SL_POW_BLOCK_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_POW_BLOCK_KK"
+    },
+    "sticker_copy/SL_RAGGED_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_RAGGED_HAMMER"
+    },
+    "sticker_copy/SL_RAGGED_JUMP": {
+      "kind": "sticker_copy",
+      "value": "SL_RAGGED_JUMP"
+    },
+    "sticker_copy/SL_SANDAL_KK_L": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_KK_L"
+    },
+    "sticker_copy/SL_SANDAL_KK_M": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_KK_M"
+    },
+    "sticker_copy/SL_SANDAL_KK_S": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_KK_S"
+    },
+    "sticker_copy/SL_SANDAL_K_L": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_K_L"
+    },
+    "sticker_copy/SL_SANDAL_K_M": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_K_M"
+    },
+    "sticker_copy/SL_SANDAL_K_S": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_K_S"
+    },
+    "sticker_copy/SL_SANDAL_L": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_L"
+    },
+    "sticker_copy/SL_SANDAL_M": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_M"
+    },
+    "sticker_copy/SL_SANDAL_S": {
+      "kind": "sticker_copy",
+      "value": "SL_SANDAL_S"
+    },
+    "sticker_copy/SL_SEVERE_HAMMER": {
+      "kind": "sticker_copy",
+      "value": "SL_SEVERE_HAMMER"
+    },
+    "sticker_copy/SL_SH2": {
+      "kind": "sticker_copy",
+      "value": "SL_SH2"
+    },
+    "sticker_copy/SL_SH3": {
+      "kind": "sticker_copy",
+      "value": "SL_SH3"
+    },
+    "sticker_copy/SL_SNOW_BALL": {
+      "kind": "sticker_copy",
+      "value": "SL_SNOW_BALL"
+    },
+    "sticker_copy/SL_SOMBRERO": {
+      "kind": "sticker_copy",
+      "value": "SL_SOMBRERO"
+    },
+    "sticker_copy/SL_SPANNER": {
+      "kind": "sticker_copy",
+      "value": "SL_SPANNER"
+    },
+    "sticker_copy/SL_SV2": {
+      "kind": "sticker_copy",
+      "value": "SL_SV2"
+    },
+    "sticker_copy/SL_THROW_KNIFE": {
+      "kind": "sticker_copy",
+      "value": "SL_THROW_KNIFE"
+    },
+    "sticker_copy/SL_TOGE_HAT": {
+      "kind": "sticker_copy",
+      "value": "SL_TOGE_HAT"
+    },
+    "sticker_copy/SL_TOGE_HAT_K": {
+      "kind": "sticker_copy",
+      "value": "SL_TOGE_HAT_K"
+    },
+    "sticker_copy/SL_TOGE_HAT_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_TOGE_HAT_KK"
+    },
+    "sticker_copy/SL_TSUGI_JUMP": {
+      "kind": "sticker_copy",
+      "value": "SL_TSUGI_JUMP"
+    },
+    "sticker_copy/SL_TSUGI_JUMP_K": {
+      "kind": "sticker_copy",
+      "value": "SL_TSUGI_JUMP_K"
+    },
+    "sticker_copy/SL_TSUGI_JUMP_KK": {
+      "kind": "sticker_copy",
+      "value": "SL_TSUGI_JUMP_KK"
+    },
+    "sticker_copy/SL_W6_SANDAL_KK_L": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_KK_L"
+    },
+    "sticker_copy/SL_W6_SANDAL_KK_M": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_KK_M"
+    },
+    "sticker_copy/SL_W6_SANDAL_KK_S": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_KK_S"
+    },
+    "sticker_copy/SL_W6_SANDAL_K_L": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_K_L"
+    },
+    "sticker_copy/SL_W6_SANDAL_K_M": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_K_M"
+    },
+    "sticker_copy/SL_W6_SANDAL_K_S": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_K_S"
+    },
+    "sticker_copy/SL_W6_SANDAL_L": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_L"
+    },
+    "sticker_copy/SL_W6_SANDAL_M": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_M"
+    },
+    "sticker_copy/SL_W6_SANDAL_S": {
+      "kind": "sticker_copy",
+      "value": "SL_W6_SANDAL_S"
+    },
+    "sticker_unlock/SL_AIR_CONDITIONER": {
+      "kind": "sticker_unlock",
+      "value": "SL_AIR_CONDITIONER"
+    },
+    "sticker_unlock/SL_BALLOON": {
+      "kind": "sticker_unlock",
+      "value": "SL_BALLOON"
+    },
+    "sticker_unlock/SL_BANE_JUMP": {
+      "kind": "sticker_unlock",
+      "value": "SL_BANE_JUMP"
+    },
+    "sticker_unlock/SL_BANE_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_BANE_JUMP_K"
+    },
+    "sticker_unlock/SL_BANE_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_BANE_JUMP_KK"
+    },
+    "sticker_unlock/SL_BARREL": {
+      "kind": "sticker_unlock",
+      "value": "SL_BARREL"
+    },
+    "sticker_unlock/SL_BAT": {
+      "kind": "sticker_unlock",
+      "value": "SL_BAT"
+    },
+    "sticker_unlock/SL_BATTERY_1": {
+      "kind": "sticker_unlock",
+      "value": "SL_BATTERY_1"
+    },
+    "sticker_unlock/SL_BATTERY_BUTTON": {
+      "kind": "sticker_unlock",
+      "value": "SL_BATTERY_BUTTON"
+    },
+    "sticker_unlock/SL_BATTERY_CAR": {
+      "kind": "sticker_unlock",
+      "value": "SL_BATTERY_CAR"
+    },
+    "sticker_unlock/SL_BED": {
+      "kind": "sticker_unlock",
+      "value": "SL_BED"
+    },
+    "sticker_unlock/SL_BELLOWS": {
+      "kind": "sticker_unlock",
+      "value": "SL_BELLOWS"
+    },
+    "sticker_unlock/SL_BILLIARD_BALL": {
+      "kind": "sticker_unlock",
+      "value": "SL_BILLIARD_BALL"
+    },
+    "sticker_unlock/SL_BOMB": {
+      "kind": "sticker_unlock",
+      "value": "SL_BOMB"
+    },
+    "sticker_unlock/SL_BONE": {
+      "kind": "sticker_unlock",
+      "value": "SL_BONE"
+    },
+    "sticker_unlock/SL_BOOMERANG": {
+      "kind": "sticker_unlock",
+      "value": "SL_BOOMERANG"
+    },
+    "sticker_unlock/SL_BOOM_BOX": {
+      "kind": "sticker_unlock",
+      "value": "SL_BOOM_BOX"
+    },
+    "sticker_unlock/SL_BOWLING": {
+      "kind": "sticker_unlock",
+      "value": "SL_BOWLING"
+    },
+    "sticker_unlock/SL_BUNSIN_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_BUNSIN_JUMP_KK"
+    },
+    "sticker_unlock/SL_BUN_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_BUN_HAMMER"
+    },
+    "sticker_unlock/SL_BUN_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_BUN_HAMMER_K"
+    },
+    "sticker_unlock/SL_BUN_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_BUN_HAMMER_KK"
+    },
+    "sticker_unlock/SL_BURNING_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_BURNING_HAMMER"
+    },
+    "sticker_unlock/SL_CAKE": {
+      "kind": "sticker_unlock",
+      "value": "SL_CAKE"
+    },
+    "sticker_unlock/SL_CANOPY_BED": {
+      "kind": "sticker_unlock",
+      "value": "SL_CANOPY_BED"
+    },
+    "sticker_unlock/SL_CAR_WASH_SPONGE": {
+      "kind": "sticker_unlock",
+      "value": "SL_CAR_WASH_SPONGE"
+    },
+    "sticker_unlock/SL_CELLOPHANE_TAPE": {
+      "kind": "sticker_unlock",
+      "value": "SL_CELLOPHANE_TAPE"
+    },
+    "sticker_unlock/SL_CLEANER": {
+      "kind": "sticker_unlock",
+      "value": "SL_CLEANER"
+    },
+    "sticker_unlock/SL_CLOTH_SCISSORS": {
+      "kind": "sticker_unlock",
+      "value": "SL_CLOTH_SCISSORS"
+    },
+    "sticker_unlock/SL_CURLING_STONE": {
+      "kind": "sticker_unlock",
+      "value": "SL_CURLING_STONE"
+    },
+    "sticker_unlock/SL_DEKA_1UP_KINOKO": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_1UP_KINOKO"
+    },
+    "sticker_unlock/SL_DEKA_1UP_KINOKO_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_1UP_KINOKO_K"
+    },
+    "sticker_unlock/SL_DEKA_BANE_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_BANE_JUMP_K"
+    },
+    "sticker_unlock/SL_DEKA_BOOTS": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_BOOTS"
+    },
+    "sticker_unlock/SL_DEKA_BOOTS_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_BOOTS_K"
+    },
+    "sticker_unlock/SL_DEKA_BUNSIN_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_BUNSIN_JUMP_KK"
+    },
+    "sticker_unlock/SL_DEKA_BUN_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_BUN_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_BURNING_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_BURNING_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_FROG": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_FROG"
+    },
+    "sticker_unlock/SL_DEKA_FROG_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_FROG_K"
+    },
+    "sticker_unlock/SL_DEKA_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_IRON_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_IRON_JUMP_K"
+    },
+    "sticker_unlock/SL_DEKA_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_JUMP_K"
+    },
+    "sticker_unlock/SL_DEKA_MEE_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_MEE_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_MEGATON_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_MEGATON_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_MUGEN_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_MUGEN_JUMP_KK"
+    },
+    "sticker_unlock/SL_DEKA_PICO_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_PICO_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_SEVERE_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_SEVERE_HAMMER_K"
+    },
+    "sticker_unlock/SL_DEKA_TAIL": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_TAIL"
+    },
+    "sticker_unlock/SL_DEKA_TAIL_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_TAIL_K"
+    },
+    "sticker_unlock/SL_DEKA_TSUGI_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_DEKA_TSUGI_JUMP_K"
+    },
+    "sticker_unlock/SL_DODEKA_BANE_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_BANE_JUMP_KK"
+    },
+    "sticker_unlock/SL_DODEKA_BUNSIN_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_BUNSIN_JUMP_KK"
+    },
+    "sticker_unlock/SL_DODEKA_BUN_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_BUN_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_BURNING_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_BURNING_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_IRON_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_IRON_JUMP_KK"
+    },
+    "sticker_unlock/SL_DODEKA_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_JUMP_KK"
+    },
+    "sticker_unlock/SL_DODEKA_MEE_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_MEE_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_MEGATON_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_MEGATON_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_MUGEN_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_MUGEN_JUMP_KK"
+    },
+    "sticker_unlock/SL_DODEKA_PICO_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_PICO_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_SEVERE_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_SEVERE_HAMMER_KK"
+    },
+    "sticker_unlock/SL_DODEKA_TSUGI_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DODEKA_TSUGI_JUMP_KK"
+    },
+    "sticker_unlock/SL_DOOR": {
+      "kind": "sticker_unlock",
+      "value": "SL_DOOR"
+    },
+    "sticker_unlock/SL_DRUMKAN": {
+      "kind": "sticker_unlock",
+      "value": "SL_DRUMKAN"
+    },
+    "sticker_unlock/SL_DRYER": {
+      "kind": "sticker_unlock",
+      "value": "SL_DRYER"
+    },
+    "sticker_unlock/SL_DUCK": {
+      "kind": "sticker_unlock",
+      "value": "SL_DUCK"
+    },
+    "sticker_unlock/SL_FAN": {
+      "kind": "sticker_unlock",
+      "value": "SL_FAN"
+    },
+    "sticker_unlock/SL_FIRE_FLOWER": {
+      "kind": "sticker_unlock",
+      "value": "SL_FIRE_FLOWER"
+    },
+    "sticker_unlock/SL_FIRE_FLOWER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_FIRE_FLOWER_K"
+    },
+    "sticker_unlock/SL_FIRE_FLOWER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_FIRE_FLOWER_KK"
+    },
+    "sticker_unlock/SL_FLASHLIGHT": {
+      "kind": "sticker_unlock",
+      "value": "SL_FLASHLIGHT"
+    },
+    "sticker_unlock/SL_FOOK": {
+      "kind": "sticker_unlock",
+      "value": "SL_FOOK"
+    },
+    "sticker_unlock/SL_FRIDGE": {
+      "kind": "sticker_unlock",
+      "value": "SL_FRIDGE"
+    },
+    "sticker_unlock/SL_GABON_BALL": {
+      "kind": "sticker_unlock",
+      "value": "SL_GABON_BALL"
+    },
+    "sticker_unlock/SL_GOAT": {
+      "kind": "sticker_unlock",
+      "value": "SL_GOAT"
+    },
+    "sticker_unlock/SL_GUITAR": {
+      "kind": "sticker_unlock",
+      "value": "SL_GUITAR"
+    },
+    "sticker_unlock/SL_HAIRCUT_SCISSORS": {
+      "kind": "sticker_unlock",
+      "value": "SL_HAIRCUT_SCISSORS"
+    },
+    "sticker_unlock/SL_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_HAMMER"
+    },
+    "sticker_unlock/SL_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_HAMMER_K"
+    },
+    "sticker_unlock/SL_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_HAMMER_KK"
+    },
+    "sticker_unlock/SL_HANDY_CLEANER": {
+      "kind": "sticker_unlock",
+      "value": "SL_HANDY_CLEANER"
+    },
+    "sticker_unlock/SL_HIGHHEEL": {
+      "kind": "sticker_unlock",
+      "value": "SL_HIGHHEEL"
+    },
+    "sticker_unlock/SL_ICE_FLOWER": {
+      "kind": "sticker_unlock",
+      "value": "SL_ICE_FLOWER"
+    },
+    "sticker_unlock/SL_ICE_FLOWER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_ICE_FLOWER_K"
+    },
+    "sticker_unlock/SL_ICE_FLOWER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_ICE_FLOWER_KK"
+    },
+    "sticker_unlock/SL_IRON_JUMP": {
+      "kind": "sticker_unlock",
+      "value": "SL_IRON_JUMP"
+    },
+    "sticker_unlock/SL_IRON_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_IRON_JUMP_K"
+    },
+    "sticker_unlock/SL_IRON_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_IRON_JUMP_KK"
+    },
+    "sticker_unlock/SL_ITTOKAN": {
+      "kind": "sticker_unlock",
+      "value": "SL_ITTOKAN"
+    },
+    "sticker_unlock/SL_JACKHAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_JACKHAMMER"
+    },
+    "sticker_unlock/SL_JAPANESE_SCISSORS": {
+      "kind": "sticker_unlock",
+      "value": "SL_JAPANESE_SCISSORS"
+    },
+    "sticker_unlock/SL_JUICE": {
+      "kind": "sticker_unlock",
+      "value": "SL_JUICE"
+    },
+    "sticker_unlock/SL_JUMP": {
+      "kind": "sticker_unlock",
+      "value": "SL_JUMP"
+    },
+    "sticker_unlock/SL_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_JUMP_K"
+    },
+    "sticker_unlock/SL_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_JUMP_KK"
+    },
+    "sticker_unlock/SL_KETTLE": {
+      "kind": "sticker_unlock",
+      "value": "SL_KETTLE"
+    },
+    "sticker_unlock/SL_KINOKO": {
+      "kind": "sticker_unlock",
+      "value": "SL_KINOKO"
+    },
+    "sticker_unlock/SL_KINOKO_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_KINOKO_K"
+    },
+    "sticker_unlock/SL_KINOKO_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_KINOKO_KK"
+    },
+    "sticker_unlock/SL_LAMP": {
+      "kind": "sticker_unlock",
+      "value": "SL_LAMP"
+    },
+    "sticker_unlock/SL_LEAF": {
+      "kind": "sticker_unlock",
+      "value": "SL_LEAF"
+    },
+    "sticker_unlock/SL_LEAF_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_LEAF_K"
+    },
+    "sticker_unlock/SL_LIGHTER": {
+      "kind": "sticker_unlock",
+      "value": "SL_LIGHTER"
+    },
+    "sticker_unlock/SL_LUCIE": {
+      "kind": "sticker_unlock",
+      "value": "SL_LUCIE"
+    },
+    "sticker_unlock/SL_MAGNIFYING_GLASS": {
+      "kind": "sticker_unlock",
+      "value": "SL_MAGNIFYING_GLASS"
+    },
+    "sticker_unlock/SL_MANEKINEKO": {
+      "kind": "sticker_unlock",
+      "value": "SL_MANEKINEKO"
+    },
+    "sticker_unlock/SL_MATCH": {
+      "kind": "sticker_unlock",
+      "value": "SL_MATCH"
+    },
+    "sticker_unlock/SL_MEE_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_MEE_HAMMER"
+    },
+    "sticker_unlock/SL_MEGATON_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_MEGATON_HAMMER"
+    },
+    "sticker_unlock/SL_MEGATON_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_MEGATON_HAMMER_K"
+    },
+    "sticker_unlock/SL_MEGATON_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_MEGATON_HAMMER_KK"
+    },
+    "sticker_unlock/SL_MH2": {
+      "kind": "sticker_unlock",
+      "value": "SL_MH2"
+    },
+    "sticker_unlock/SL_MOBILE_PHONE": {
+      "kind": "sticker_unlock",
+      "value": "SL_MOBILE_PHONE"
+    },
+    "sticker_unlock/SL_MUGEN_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_MUGEN_JUMP_KK"
+    },
+    "sticker_unlock/SL_NEWSPAPER_BAT": {
+      "kind": "sticker_unlock",
+      "value": "SL_NEWSPAPER_BAT"
+    },
+    "sticker_unlock/SL_NOKONOKO_KOURA": {
+      "kind": "sticker_unlock",
+      "value": "SL_NOKONOKO_KOURA"
+    },
+    "sticker_unlock/SL_NOKONOKO_KOURA_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_NOKONOKO_KOURA_K"
+    },
+    "sticker_unlock/SL_NOKONOKO_KOURA_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_NOKONOKO_KOURA_KK"
+    },
+    "sticker_unlock/SL_OIL_HEATER": {
+      "kind": "sticker_unlock",
+      "value": "SL_OIL_HEATER"
+    },
+    "sticker_unlock/SL_OVEN": {
+      "kind": "sticker_unlock",
+      "value": "SL_OVEN"
+    },
+    "sticker_unlock/SL_PAPER_FAN": {
+      "kind": "sticker_unlock",
+      "value": "SL_PAPER_FAN"
+    },
+    "sticker_unlock/SL_PICO_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_PICO_HAMMER"
+    },
+    "sticker_unlock/SL_PICO_HAMMER_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_PICO_HAMMER_K"
+    },
+    "sticker_unlock/SL_PICO_HAMMER_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_PICO_HAMMER_KK"
+    },
+    "sticker_unlock/SL_PILLOW": {
+      "kind": "sticker_unlock",
+      "value": "SL_PILLOW"
+    },
+    "sticker_unlock/SL_PLASTIC_BAT": {
+      "kind": "sticker_unlock",
+      "value": "SL_PLASTIC_BAT"
+    },
+    "sticker_unlock/SL_POCKET_WATCH": {
+      "kind": "sticker_unlock",
+      "value": "SL_POCKET_WATCH"
+    },
+    "sticker_unlock/SL_POISON_KINOKO": {
+      "kind": "sticker_unlock",
+      "value": "SL_POISON_KINOKO"
+    },
+    "sticker_unlock/SL_POWDER_PUFF": {
+      "kind": "sticker_unlock",
+      "value": "SL_POWDER_PUFF"
+    },
+    "sticker_unlock/SL_POW_BLOCK": {
+      "kind": "sticker_unlock",
+      "value": "SL_POW_BLOCK"
+    },
+    "sticker_unlock/SL_POW_BLOCK_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_POW_BLOCK_K"
+    },
+    "sticker_unlock/SL_POW_BLOCK_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_POW_BLOCK_KK"
+    },
+    "sticker_unlock/SL_RAGGED_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_RAGGED_HAMMER"
+    },
+    "sticker_unlock/SL_RAGGED_JUMP": {
+      "kind": "sticker_unlock",
+      "value": "SL_RAGGED_JUMP"
+    },
+    "sticker_unlock/SL_SANDAL_KK_L": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_KK_L"
+    },
+    "sticker_unlock/SL_SANDAL_KK_M": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_KK_M"
+    },
+    "sticker_unlock/SL_SANDAL_KK_S": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_KK_S"
+    },
+    "sticker_unlock/SL_SANDAL_K_L": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_K_L"
+    },
+    "sticker_unlock/SL_SANDAL_K_M": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_K_M"
+    },
+    "sticker_unlock/SL_SANDAL_K_S": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_K_S"
+    },
+    "sticker_unlock/SL_SANDAL_L": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_L"
+    },
+    "sticker_unlock/SL_SANDAL_M": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_M"
+    },
+    "sticker_unlock/SL_SANDAL_S": {
+      "kind": "sticker_unlock",
+      "value": "SL_SANDAL_S"
+    },
+    "sticker_unlock/SL_SCISSORS": {
+      "kind": "sticker_unlock",
+      "value": "SL_SCISSORS"
+    },
+    "sticker_unlock/SL_SEARCHLIGHT": {
+      "kind": "sticker_unlock",
+      "value": "SL_SEARCHLIGHT"
+    },
+    "sticker_unlock/SL_SEVERE_HAMMER": {
+      "kind": "sticker_unlock",
+      "value": "SL_SEVERE_HAMMER"
+    },
+    "sticker_unlock/SL_SH2": {
+      "kind": "sticker_unlock",
+      "value": "SL_SH2"
+    },
+    "sticker_unlock/SL_SH3": {
+      "kind": "sticker_unlock",
+      "value": "SL_SH3"
+    },
+    "sticker_unlock/SL_SHAVED_ICE": {
+      "kind": "sticker_unlock",
+      "value": "SL_SHAVED_ICE"
+    },
+    "sticker_unlock/SL_SNOW_BALL": {
+      "kind": "sticker_unlock",
+      "value": "SL_SNOW_BALL"
+    },
+    "sticker_unlock/SL_SOMBRERO": {
+      "kind": "sticker_unlock",
+      "value": "SL_SOMBRERO"
+    },
+    "sticker_unlock/SL_SPANNER": {
+      "kind": "sticker_unlock",
+      "value": "SL_SPANNER"
+    },
+    "sticker_unlock/SL_SPONGE": {
+      "kind": "sticker_unlock",
+      "value": "SL_SPONGE"
+    },
+    "sticker_unlock/SL_STAPLER": {
+      "kind": "sticker_unlock",
+      "value": "SL_STAPLER"
+    },
+    "sticker_unlock/SL_SV2": {
+      "kind": "sticker_unlock",
+      "value": "SL_SV2"
+    },
+    "sticker_unlock/SL_TAP": {
+      "kind": "sticker_unlock",
+      "value": "SL_TAP"
+    },
+    "sticker_unlock/SL_THROW_KNIFE": {
+      "kind": "sticker_unlock",
+      "value": "SL_THROW_KNIFE"
+    },
+    "sticker_unlock/SL_THUMBTACK": {
+      "kind": "sticker_unlock",
+      "value": "SL_THUMBTACK"
+    },
+    "sticker_unlock/SL_TOGE_HAT": {
+      "kind": "sticker_unlock",
+      "value": "SL_TOGE_HAT"
+    },
+    "sticker_unlock/SL_TOGE_HAT_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_TOGE_HAT_K"
+    },
+    "sticker_unlock/SL_TOGE_HAT_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_TOGE_HAT_KK"
+    },
+    "sticker_unlock/SL_TROPHY": {
+      "kind": "sticker_unlock",
+      "value": "SL_TROPHY"
+    },
+    "sticker_unlock/SL_TRUMPET": {
+      "kind": "sticker_unlock",
+      "value": "SL_TRUMPET"
+    },
+    "sticker_unlock/SL_TSUGI_JUMP": {
+      "kind": "sticker_unlock",
+      "value": "SL_TSUGI_JUMP"
+    },
+    "sticker_unlock/SL_TSUGI_JUMP_K": {
+      "kind": "sticker_unlock",
+      "value": "SL_TSUGI_JUMP_K"
+    },
+    "sticker_unlock/SL_TSUGI_JUMP_KK": {
+      "kind": "sticker_unlock",
+      "value": "SL_TSUGI_JUMP_KK"
+    },
+    "sticker_unlock/SL_TUB": {
+      "kind": "sticker_unlock",
+      "value": "SL_TUB"
+    },
+    "sticker_unlock/SL_TURKEY": {
+      "kind": "sticker_unlock",
+      "value": "SL_TURKEY"
+    },
+    "sticker_unlock/SL_UPLIGHT_CLEANER": {
+      "kind": "sticker_unlock",
+      "value": "SL_UPLIGHT_CLEANER"
+    },
+    "sticker_unlock/SL_VIOLIN": {
+      "kind": "sticker_unlock",
+      "value": "SL_VIOLIN"
+    },
+    "sticker_unlock/SL_W6_SANDAL_KK_L": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_KK_L"
+    },
+    "sticker_unlock/SL_W6_SANDAL_KK_M": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_KK_M"
+    },
+    "sticker_unlock/SL_W6_SANDAL_KK_S": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_KK_S"
+    },
+    "sticker_unlock/SL_W6_SANDAL_K_L": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_K_L"
+    },
+    "sticker_unlock/SL_W6_SANDAL_K_M": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_K_M"
+    },
+    "sticker_unlock/SL_W6_SANDAL_K_S": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_K_S"
+    },
+    "sticker_unlock/SL_W6_SANDAL_L": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_L"
+    },
+    "sticker_unlock/SL_W6_SANDAL_M": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_M"
+    },
+    "sticker_unlock/SL_W6_SANDAL_S": {
+      "kind": "sticker_unlock",
+      "value": "SL_W6_SANDAL_S"
+    },
+    "sticker_unlock/SL_WATERING_CAN": {
+      "kind": "sticker_unlock",
+      "value": "SL_WATERING_CAN"
+    },
+    "sticker_unlock/SL_WATER_PISTOL": {
+      "kind": "sticker_unlock",
+      "value": "SL_WATER_PISTOL"
+    },
+    "victory/1": {
+      "kind": "victory",
+      "value": 1
+    }
+  },
+  "locations": [
+    {
+      "location": "banner/btl_excellent",
+      "source": {
+        "honor": "btl_excellent",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/btl_perfect",
+      "source": {
+        "honor": "btl_perfect",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/btl_slot_machine",
+      "source": {
+        "honor": "btl_slot_machine",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/max_heart",
+      "source": {
+        "honor": "max_heart",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/million_coin",
+      "source": {
+        "honor": "million_coin",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/paper_door",
+      "source": {
+        "honor": "paper_door",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/parts_of_comet",
+      "source": {
+        "honor": "parts_of_comet",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "banner/seal_collector",
+      "source": {
+        "honor": "seal_collector",
+        "mode": "original"
+      }
+    },
+    {
+      "location": "boss/Script/Map/W6_BOS/w6_bos_04.bin/get_royal_seal_event",
+      "source": {
+        "category": "boss",
+        "script_file": "Script/Map/W6_BOS/w6_bos_04.bin",
+        "function": "get_royal_seal_event"
+      }
+    },
+    {
+      "location": "boss/gf_evt_1_6_royal_seal",
+      "source": {
+        "category": "boss",
+        "source_flag": "gf_evt_1_6_royal_seal"
+      }
+    },
+    {
+      "location": "boss/gf_evt_2_5_royal_seal",
+      "source": {
+        "category": "boss",
+        "source_flag": "gf_evt_2_5_royal_seal"
+      }
+    },
+    {
+      "location": "boss/gf_evt_3_12_royal_seal",
+      "source": {
+        "category": "boss",
+        "source_flag": "gf_evt_3_12_royal_seal"
+      }
+    },
+    {
+      "location": "boss/gf_evt_4_5_royal_seal",
+      "source": {
+        "category": "boss",
+        "source_flag": "gf_evt_4_5_royal_seal"
+      }
+    },
+    {
+      "location": "boss/gf_evt_5_6_royal_seal",
+      "source": {
+        "category": "boss",
+        "source_flag": "gf_evt_5_6_royal_seal"
+      }
+    },
+    {
+      "location": "container/w2_oas_02/EXT_treasure",
+      "source": {
+        "map_name": "w2_oas_02",
+        "object_name": "EXT_treasure",
+        "source_item": "PK_FIELD_TOW_ENTRANCE_3",
+        "container_type": "TREASURE_FILE"
+      }
+    },
+    {
+      "location": "container/w2_sab_06/EXT_treasure",
+      "source": {
+        "map_name": "w2_sab_06",
+        "object_name": "EXT_treasure",
+        "source_item": "PK_FIELD_TOW_ENTRANCE_2",
+        "container_type": "TREASURE_FILE"
+      }
+    },
+    {
+      "location": "container/w2_yos_01/EXT_treasure",
+      "source": {
+        "map_name": "w2_yos_01",
+        "object_name": "EXT_treasure",
+        "source_item": "PK_FIELD_TOW_ENTRANCE_1",
+        "container_type": "TREASURE_FILE"
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_16MAI_KUR",
+      "source": {
+        "unit_id": "１６枚クリボー",
+        "script_file": "Script/Battle/Enemy/btl_16mai_kuriboo.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_16MAI_KUR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_2MAI_KUR",
+      "source": {
+        "unit_id": "２枚クリボー",
+        "script_file": "Script/Battle/Enemy/btl_2mai_kuriboo.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_2MAI_KUR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_2MAI_KUR_K",
+      "source": {
+        "unit_id": "２枚クリボー_K",
+        "script_file": "Script/Battle/Enemy/btl_2mai_kuriboo_k.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_2MAI_KUR_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_5MAI_PTK",
+      "source": {
+        "unit_id": "５枚パタクリボー",
+        "script_file": "Script/Battle/Enemy/btl_5mai_patakuriboo.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_5MAI_PTK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_AHE",
+      "source": {
+        "unit_id": "アコーディオンヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_accordion_heihoo.bin",
+        "function": "heihoo_dead",
+        "type_id": "enemy_name_AHE",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BBL",
+      "source": {
+        "unit_id": "クッパ_バブル",
+        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "function": "bubble_dead",
+        "type_id": "enemy_name_BBL",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BBR",
+      "source": {
+        "unit_id": "ブーメランブロス",
+        "script_file": "Script/Battle/Enemy/btl_boomerang_bros.bin",
+        "function": "boomerang_bross_dead",
+        "type_id": "enemy_name_BBR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BIG_PKPK",
+      "source": {
+        "unit_id": "巨大プクプク",
+        "script_file": "Script/Battle/Enemy/btl_boss_pukupuku.bin",
+        "function": "pukupuku_dead",
+        "type_id": "enemy_name_BIG_PKPK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BOM",
+      "source": {
+        "unit_id": "ボムヘイ",
+        "script_file": "Script/Battle/Enemy/btl_bomhei.bin",
+        "function": "dead",
+        "type_id": "enemy_name_BOM",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BOM_K",
+      "source": {
+        "unit_id": "キラボムヘイ",
+        "script_file": "Script/Battle/Enemy/btl_bomhei_k.bin",
+        "function": "dead",
+        "type_id": "enemy_name_BOM_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BOS_GES",
+      "source": {
+        "unit_id": "ボスゲッソーRE",
+        "script_file": "Script/Battle/Enemy/btl_boss_gesso_re.bin",
+        "function": "dead",
+        "type_id": "enemy_name_BOS_GES",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BPK",
+      "source": {
+        "unit_id": "ボスパックン",
+        "script_file": "Script/Battle/Enemy/btl_boss_packn.bin",
+        "function": "packn_dead",
+        "type_id": "enemy_name_BPK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BSA",
+      "source": {
+        "unit_id": "バサバサ",
+        "script_file": "Script/Battle/Enemy/btl_basabasa.bin",
+        "function": "dead",
+        "type_id": "enemy_name_BSA",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_BTN",
+      "source": {
+        "unit_id": "クッパ_壁",
+        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "function": "wall_dead",
+        "type_id": "enemy_name_BTN",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_CBN",
+      "source": {
+        "unit_id": "チョロボン",
+        "script_file": "Script/Battle/Enemy/btl_chorobon.bin",
+        "function": "dead",
+        "type_id": "enemy_name_CBN",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_CHE",
+      "source": {
+        "unit_id": "クリップヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_clip_heihoo.bin",
+        "function": "clip_heihoo_dead",
+        "type_id": "enemy_name_CHE",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_CRA",
+      "source": {
+        "unit_id": "クラッシャー",
+        "script_file": "Script/Battle/Enemy/btl_crasher.bin",
+        "function": "dead",
+        "type_id": "enemy_name_CRA",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_CYU",
+      "source": {
+        "unit_id": "チューチュー",
+        "script_file": "Script/Battle/Enemy/btl_cyucyu.bin",
+        "function": "dead",
+        "type_id": "enemy_name_CYU",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_DGSGS",
+      "source": {
+        "unit_id": "デカガサゴソ",
+        "script_file": "Script/Battle/Enemy/btl_dekagasagoso.bin",
+        "function": "gasagoso_s_dead",
+        "type_id": "enemy_name_DGSGS",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_DMT",
+      "source": {
+        "unit_id": "でかメット",
+        "script_file": "Script/Battle/Enemy/btl_bigmet.bin",
+        "function": "met_dead",
+        "type_id": "enemy_name_DMT",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_DSB",
+      "source": {
+        "unit_id": "ボスサンボ",
+        "script_file": "Script/Battle/Enemy/btl_boss_sanbo.bin",
+        "function": "dead",
+        "type_id": "enemy_name_DSB",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_DTR",
+      "source": {
+        "unit_id": "ボステレサ",
+        "script_file": "Script/Battle/Enemy/btl_boss_teresa.bin",
+        "function": "boss_teresa_dead",
+        "type_id": "enemy_name_DTR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_DWN",
+      "source": {
+        "unit_id": "でかワンワン",
+        "script_file": "Script/Battle/Enemy/btl_deka_wanwan.bin",
+        "function": "dead",
+        "type_id": "enemy_name_DWN",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_EMP",
+      "source": {
+        "unit_id": "W3エンペラ",
+        "script_file": "Script/Battle/Enemy/btl_w3_gesso_p.bin",
+        "function": "dead",
+        "type_id": "enemy_name_EMP",
+        "variants": [
+          {
+            "unit_id": "W3エンペラ_2",
+            "script_file": "Script/Battle/Enemy/btl_w3_gesso_p.bin",
+            "function": "dead"
+          },
+          {
+            "unit_id": "エンペラ",
+            "script_file": "Script/Battle/Enemy/btl_gesso_p.bin",
+            "function": "dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_FBR",
+      "source": {
+        "unit_id": "ファイアブロス",
+        "script_file": "Script/Battle/Enemy/btl_fire_bros.bin",
+        "function": "dead",
+        "type_id": "enemy_name_FBR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_FFPK",
+      "source": {
+        "unit_id": "フーフーパックン",
+        "script_file": "Script/Battle/Enemy/btl_blow_packn.bin",
+        "function": "packn_dead",
+        "type_id": "enemy_name_FFPK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_FPK",
+      "source": {
+        "unit_id": "ファイアパックン",
+        "script_file": "Script/Battle/Enemy/btl_fire_packn.bin",
+        "function": "packn_dead",
+        "type_id": "enemy_name_FPK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_GBN",
+      "source": {
+        "unit_id": "ガボン",
+        "script_file": "Script/Battle/Enemy/btl_gabon.bin",
+        "function": "gabon_dead",
+        "type_id": "enemy_name_GBN",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_GSA",
+      "source": {
+        "unit_id": "ガサゴソ地上",
+        "script_file": "Script/Battle/Enemy/btl_gasagoso_ground.bin",
+        "function": "gasagoso_g_dead",
+        "type_id": "enemy_name_GSA",
+        "variants": [
+          {
+            "unit_id": "ガサゴソ空中",
+            "script_file": "Script/Battle/Enemy/btl_gasagoso_sky.bin",
+            "function": "gasagoso_s_dead"
+          },
+          {
+            "unit_id": "ガサゴソ高空",
+            "script_file": "Script/Battle/Enemy/btl_gasagoso_sky.bin",
+            "function": "gasagoso_s_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HBR",
+      "source": {
+        "unit_id": "ハンマーブロス",
+        "script_file": "Script/Battle/Enemy/btl_hammer_bros.bin",
+        "function": "dead",
+        "type_id": "enemy_name_HBR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HEI",
+      "source": {
+        "unit_id": "ヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_heihoo.bin",
+        "function": "heihoo_dead",
+        "type_id": "enemy_name_HEI",
+        "variants": [
+          {
+            "unit_id": "１０枚ヘイホー",
+            "script_file": "Script/Battle/Enemy/btl_10mai_heihoo.bin",
+            "function": "w4_heihoo_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HKN",
+      "source": {
+        "unit_id": "ハックン",
+        "script_file": "Script/Battle/Enemy/btl_hakkun.bin",
+        "function": "dead",
+        "type_id": "enemy_name_HKN",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HKR",
+      "source": {
+        "unit_id": "壁画クリボー",
+        "script_file": "Script/Battle/Enemy/btl_hekiga_kuriboo.bin",
+        "function": "dead",
+        "type_id": "enemy_name_HKR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HMT",
+      "source": {
+        "unit_id": "ホネメット",
+        "script_file": "Script/Battle/Enemy/btl_hone_met.bin",
+        "function": "hone_met_dead",
+        "type_id": "enemy_name_HMT",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HNB",
+      "source": {
+        "unit_id": "ハナちゃん胴体Type1",
+        "script_file": "Script/Battle/Enemy/btl_hanachan_body_type1.bin",
+        "function": "dead",
+        "type_id": "enemy_name_HNB",
+        "variants": [
+          {
+            "unit_id": "ハナちゃん胴体Type2",
+            "script_file": "Script/Battle/Enemy/btl_hanachan_body_type2.bin",
+            "function": "dead"
+          },
+          {
+            "unit_id": "ハナちゃん胴体Type3",
+            "script_file": "Script/Battle/Enemy/btl_hanachan_body_type3.bin",
+            "function": "dead"
+          },
+          {
+            "unit_id": "ハナちゃん胴体Type4",
+            "script_file": "Script/Battle/Enemy/btl_hanachan_body_type4.bin",
+            "function": "dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_HNK",
+      "source": {
+        "unit_id": "壁画ノコノコ",
+        "script_file": "Script/Battle/Enemy/btl_hekiga_nokonoko.bin",
+        "function": "dead",
+        "type_id": "enemy_name_HNK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_IBR",
+      "source": {
+        "unit_id": "アイスブロス",
+        "script_file": "Script/Battle/Enemy/btl_ice_bros.bin",
+        "function": "dead",
+        "type_id": "enemy_name_IBR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_IGB",
+      "source": {
+        "unit_id": "アイスガボン",
+        "script_file": "Script/Battle/Enemy/btl_ice_gabon.bin",
+        "function": "gabon_dead",
+        "type_id": "enemy_name_IGB",
+        "variants": [
+          {
+            "unit_id": "アイスガボンC",
+            "script_file": "Script/Battle/Enemy/btl_ice_gabon.bin",
+            "function": "gabon_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_IPK",
+      "source": {
+        "unit_id": "スミパックン",
+        "script_file": "Script/Battle/Enemy/btl_sumi_packn.bin",
+        "function": "packn_dead",
+        "type_id": "enemy_name_IPK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KAMI_TGK",
+      "source": {
+        "unit_id": "紙トゲクリ",
+        "script_file": "Script/Battle/Enemy/btl_pera_togekuri.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_KAMI_TGK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KAMI_TGK_K",
+      "source": {
+        "unit_id": "紙トゲクリ_K",
+        "script_file": "Script/Battle/Enemy/btl_pera_togekuri_k.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_KAMI_TGK_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KMK",
+      "source": {
+        "unit_id": "W2カメック",
+        "script_file": "Script/Battle/Enemy/btl_w2_kamec.bin",
+        "function": "kamec_fly_dead",
+        "type_id": "enemy_name_KMK",
+        "variants": [
+          {
+            "unit_id": "W6カメック",
+            "script_file": "Script/Battle/Enemy/btl_w6_kamec.bin",
+            "function": "kamec_fly_dead"
+          },
+          {
+            "unit_id": "カメック",
+            "script_file": "Script/Battle/Enemy/btl_kamec.bin",
+            "function": "kamec_dead"
+          },
+          {
+            "unit_id": "カメック_FAKE",
+            "script_file": "Script/Battle/Enemy/btl_kamec.bin",
+            "function": "kamec_dead"
+          },
+          {
+            "unit_id": "ホウキカメック",
+            "script_file": "Script/Battle/Enemy/btl_kamec_fly.bin",
+            "function": "kamec_fly_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KOOPA",
+      "source": {
+        "unit_id": "クッパ",
+        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "function": "koopa_dead",
+        "type_id": "enemy_name_KOOPA",
+        "variants": [
+          {
+            "unit_id": "クッパ２",
+            "script_file": "Script/Battle/Enemy/btl_boss_koopa2.bin",
+            "function": "koopa2_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KPJ",
+      "source": {
+        "unit_id": "クッパＪｒ．",
+        "script_file": "Script/Battle/Enemy/btl_koopa_jr.bin",
+        "function": "dead",
+        "type_id": "enemy_name_KPJ",
+        "variants": [
+          {
+            "unit_id": "クッパＪｒ．_m2",
+            "script_file": "Script/Battle/Enemy/btl_koopa_jr_m2.bin",
+            "function": "dead"
+          },
+          {
+            "unit_id": "クッパＪｒ．_w6",
+            "script_file": "Script/Battle/Enemy/btl_koopa_jr_w6.bin",
+            "function": "dead"
+          },
+          {
+            "unit_id": "クッパＪｒ．_world_1_1",
+            "script_file": "Script/Battle/Enemy/btl_koopa_jr.bin",
+            "function": "dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KRN",
+      "source": {
+        "unit_id": "カロン",
+        "script_file": "Script/Battle/Enemy/btl_karon.bin",
+        "function": "karon_dead",
+        "type_id": "enemy_name_KRN",
+        "variants": [
+          {
+            "unit_id": "カロン_BPK",
+            "script_file": "Script/Battle/Enemy/btl_karon.bin",
+            "function": "karon_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KRN_K",
+      "source": {
+        "unit_id": "カロン_K",
+        "script_file": "Script/Battle/Enemy/btl_karon_k.bin",
+        "function": "karon_dead",
+        "type_id": "enemy_name_KRN_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KRS",
+      "source": {
+        "unit_id": "クロスケー",
+        "script_file": "Script/Battle/Enemy/btl_kurosuke.bin",
+        "function": "kurosuke_dead",
+        "type_id": "enemy_name_KRS",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KUR",
+      "source": {
+        "unit_id": "SAMPLE",
+        "script_file": "Script/Battle/Enemy/btl_sample.bin",
+        "function": "dead",
+        "type_id": "enemy_name_KUR",
+        "variants": [
+          {
+            "unit_id": "クリボー",
+            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "function": "kuriboo_dead"
+          },
+          {
+            "unit_id": "クリボー_TUTORIAL",
+            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "function": "kuriboo_dead"
+          },
+          {
+            "unit_id": "スピンクリボー",
+            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "function": "kuriboo_dead"
+          },
+          {
+            "unit_id": "回避クリボー",
+            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "function": "kuriboo_dead"
+          },
+          {
+            "unit_id": "攻撃しないクリボー",
+            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "function": "kuriboo_dead"
+          },
+          {
+            "unit_id": "身代わりクリボー",
+            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "function": "kuriboo_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_KUR_K",
+      "source": {
+        "unit_id": "クリボー_K",
+        "script_file": "Script/Battle/Enemy/btl_kuriboo_k.bin",
+        "function": "kuriboo_dead",
+        "type_id": "enemy_name_KUR_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_MCH",
+      "source": {
+        "unit_id": "ムーチョ",
+        "script_file": "Script/Battle/Enemy/btl_mucho.bin",
+        "function": "mucho_dead",
+        "type_id": "enemy_name_MCH",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_MET",
+      "source": {
+        "unit_id": "メット",
+        "script_file": "Script/Battle/Enemy/btl_met.bin",
+        "function": "met_dead",
+        "type_id": "enemy_name_MET",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_MET_K",
+      "source": {
+        "unit_id": "キラメット",
+        "script_file": "Script/Battle/Enemy/btl_met_k.bin",
+        "function": "met_dead",
+        "type_id": "enemy_name_MET_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_MHE",
+      "source": {
+        "unit_id": "メキシカンヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_mexican_heihoo.bin",
+        "function": "heihoo_dead",
+        "type_id": "enemy_name_MHE",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_MRHE",
+      "source": {
+        "unit_id": "マラカスヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_maracas_heihoo.bin",
+        "function": "heihoo_dead",
+        "type_id": "enemy_name_MRHE",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_NKT",
+      "source": {
+        "unit_id": "あかノコノコ",
+        "script_file": "Script/Battle/Enemy/btl_r_nokonoko.bin",
+        "function": "r_nokonoko_dead",
+        "type_id": "enemy_name_NKT",
+        "variants": [
+          {
+            "unit_id": "ノコノコ",
+            "script_file": "Script/Battle/Enemy/btl_g_nokonoko.bin",
+            "function": "nokonoko_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_NKT_K",
+      "source": {
+        "unit_id": "キラあかノコノコ",
+        "script_file": "Script/Battle/Enemy/btl_r_nokonoko_k.bin",
+        "function": "r_nokonoko_dead",
+        "type_id": "enemy_name_NKT_K",
+        "variants": [
+          {
+            "unit_id": "ノコノコ_K",
+            "script_file": "Script/Battle/Enemy/btl_g_nokonoko_k.bin",
+            "function": "nokonoko_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PHE",
+      "source": {
+        "unit_id": "ペンキヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_bucket_heihoo.bin",
+        "function": "bucket_heihoo_dead",
+        "type_id": "enemy_name_PHE",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PKF",
+      "source": {
+        "unit_id": "パックンフラワー",
+        "script_file": "Script/Battle/Enemy/btl_packn.bin",
+        "function": "packn_dead",
+        "type_id": "enemy_name_PKF",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PKPK",
+      "source": {
+        "unit_id": "プクプク",
+        "script_file": "Script/Battle/Enemy/btl_pukupuku.bin",
+        "function": "pukupuku_dead",
+        "type_id": "enemy_name_PKPK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_POO",
+      "source": {
+        "unit_id": "プー",
+        "script_file": "Script/Battle/Enemy/btl_puu.bin",
+        "function": "dead",
+        "type_id": "enemy_name_POO",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PTK",
+      "source": {
+        "unit_id": "パタクリ",
+        "script_file": "Script/Battle/Enemy/btl_pata_kuriboo.bin",
+        "function": "pata_kuriboo_dead",
+        "type_id": "enemy_name_PTK",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PTK_K",
+      "source": {
+        "unit_id": "キラパタクリ",
+        "script_file": "Script/Battle/Enemy/btl_pata_kuriboo_k.bin",
+        "function": "pata_kuriboo_dead",
+        "type_id": "enemy_name_PTK_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PTT",
+      "source": {
+        "unit_id": "W2編隊パタパタ",
+        "script_file": "Script/Battle/Enemy/btl_w2_patapata.bin",
+        "function": "r_patapata_dead",
+        "type_id": "enemy_name_PTT",
+        "variants": [
+          {
+            "unit_id": "パタパタ",
+            "script_file": "Script/Battle/Enemy/btl_r_patapata.bin",
+            "function": "r_patapata_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PTT_G",
+      "source": {
+        "unit_id": "みどりパタパタ",
+        "script_file": "Script/Battle/Enemy/btl_g_patapata.bin",
+        "function": "patapata_dead",
+        "type_id": "enemy_name_PTT_G",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_PTT_K",
+      "source": {
+        "unit_id": "キラパタパタ",
+        "script_file": "Script/Battle/Enemy/btl_r_patapata_k.bin",
+        "function": "r_patapata_dead",
+        "type_id": "enemy_name_PTT_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_SKP",
+      "source": {
+        "unit_id": "ボス雪像",
+        "script_file": "Script/Battle/Enemy/btl_boss_snow_koopa.bin",
+        "function": "snow_koopa_dead",
+        "type_id": "enemy_name_SKP",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_SNB",
+      "source": {
+        "unit_id": "サンボ",
+        "script_file": "Script/Battle/Enemy/btl_sanbo.bin",
+        "function": "dead",
+        "type_id": "enemy_name_SNB",
+        "variants": [
+          {
+            "unit_id": "ミニサンボ",
+            "script_file": "Script/Battle/Enemy/btl_sanbo_mini.bin",
+            "function": "dead"
+          },
+          {
+            "unit_id": "黄色サンボ",
+            "script_file": "Script/Battle/Enemy/btl_sanbo_y.bin",
+            "function": "dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_TGZ",
+      "source": {
+        "unit_id": "トゲゾー",
+        "script_file": "Script/Battle/Enemy/btl_togezo.bin",
+        "function": "togezo_dead",
+        "type_id": "enemy_name_TGZ",
+        "variants": [
+          {
+            "unit_id": "トゲゾー_G",
+            "script_file": "Script/Battle/Enemy/btl_togezo.bin",
+            "function": "togezo_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_TGZ_K",
+      "source": {
+        "unit_id": "トゲゾー_K",
+        "script_file": "Script/Battle/Enemy/btl_togezo_k.bin",
+        "function": "togezo_dead",
+        "type_id": "enemy_name_TGZ_K",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_THM",
+      "source": {
+        "unit_id": "ボススローマン",
+        "script_file": "Script/Battle/Enemy/btl_boss_snow_koopa.bin",
+        "function": "snow_koopa_dead",
+        "type_id": "enemy_name_THM",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_TMT",
+      "source": {
+        "unit_id": "トゲメット",
+        "script_file": "Script/Battle/Enemy/btl_toge_met.bin",
+        "function": "met_dead",
+        "type_id": "enemy_name_TMT",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_TRIO",
+      "source": {
+        "unit_id": "トリオくん",
+        "script_file": "Script/Battle/Enemy/btl_trio_heihoo.bin",
+        "function": "trio_dead",
+        "type_id": "enemy_name_TRIO",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_TRS",
+      "source": {
+        "unit_id": "ゴミ箱テレサ",
+        "script_file": "Script/Battle/Enemy/btl_dustbox_teresa.bin",
+        "function": "gomibako_teresa_dead",
+        "type_id": "enemy_name_TRS",
+        "variants": [
+          {
+            "unit_id": "テレサ",
+            "script_file": "Script/Battle/Enemy/btl_teresa.bin",
+            "function": "teresa_dead"
+          },
+          {
+            "unit_id": "金色テレサ",
+            "script_file": "Script/Battle/Enemy/btl_teresa_g.bin",
+            "function": "teresa_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_TTR",
+      "source": {
+        "unit_id": "90体テレサ",
+        "script_file": "Script/Battle/Enemy/btl_90tai_teresa.bin",
+        "function": "teresa_90_dead",
+        "type_id": "enemy_name_TTR",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_W5D",
+      "source": {
+        "unit_id": "W5ダミーくん",
+        "script_file": "Script/Battle/Enemy/btl_W5_dammy_heihoo.bin",
+        "function": "dead",
+        "type_id": "enemy_name_W5D",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_WAN",
+      "source": {
+        "unit_id": "クッパ_ワンワン",
+        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "function": "wanwan_dead",
+        "type_id": "enemy_name_WAN",
+        "variants": []
+      }
+    },
+    {
+      "location": "enemy/type/enemy_name_YHH",
+      "source": {
+        "unit_id": "W5ヤリヘイホー",
+        "script_file": "Script/Battle/Enemy/btl_w5_spear_heihoo.bin",
+        "function": "yariheihoo_dead",
+        "type_id": "enemy_name_YHH",
+        "variants": [
+          {
+            "unit_id": "ヤリヘイホー",
+            "script_file": "Script/Battle/Enemy/btl_spear_heihoo.bin",
+            "function": "yariheihoo_dead"
+          },
+          {
+            "unit_id": "ヤリヘイホーLv2",
+            "script_file": "Script/Battle/Enemy/btl_spear_heihoo_lv2.bin",
+            "function": "yariheihoo_dead"
+          }
+        ]
+      }
+    },
+    {
+      "location": "kamek/gf_evt_1_3_kameck_battle",
+      "source": {
+        "category": "kamek",
+        "source_flag": "gf_evt_1_3_kameck_battle"
+      }
+    },
+    {
+      "location": "kamek/gf_evt_2_2_kameck_battle",
+      "source": {
+        "category": "kamek",
+        "source_flag": "gf_evt_2_2_kameck_battle"
+      }
+    },
+    {
+      "location": "kamek/gf_evt_6_3_kameck",
+      "source": {
+        "category": "kamek",
+        "source_flag": "gf_evt_6_3_kameck"
+      }
+    },
+    {
+      "location": "mini_star/hei_2_01/gf_wm_a03_a04",
+      "source": {
+        "map_name": "hei_2_01",
+        "source_flag": "GF_WM_A03_A04"
+      }
+    },
+    {
+      "location": "mini_star/hei_2_03/gf_wm_a03_a05",
+      "source": {
+        "map_name": "hei_2_03",
+        "source_flag": "GF_WM_A03_A05"
+      }
+    },
+    {
+      "location": "mini_star/hei_3_05/gf_wm_a02_a03",
+      "source": {
+        "map_name": "hei_3_05",
+        "source_flag": "GF_WM_A02_A03"
+      }
+    },
+    {
+      "location": "mini_star/hei_4_04/gf_wm_a04_a06",
+      "source": {
+        "map_name": "hei_4_04",
+        "source_flag": "GF_WM_A04_A06"
+      }
+    },
+    {
+      "location": "mini_star/hei_5_03/gf_wm_a01_a02",
+      "source": {
+        "map_name": "hei_5_03",
+        "source_flag": "GF_WM_A01_A02"
+      }
+    },
+    {
+      "location": "mini_star/iwa_4_04/gf_wm_a05_a06",
+      "source": {
+        "map_name": "iwa_4_04",
+        "source_flag": "GF_WM_A05_A06"
+      }
+    },
+    {
+      "location": "mini_star/w2_ise_05/gf_wm_b03_b05",
+      "source": {
+        "map_name": "w2_ise_05",
+        "source_flag": "GF_WM_B03_B05"
+      }
+    },
+    {
+      "location": "mini_star/w2_ise_07/gf_wm_b03_b04",
+      "source": {
+        "map_name": "w2_ise_07",
+        "source_flag": "GF_WM_B03_B04"
+      }
+    },
+    {
+      "location": "mini_star/w2_ise_10/gf_wm_b03_b04",
+      "source": {
+        "map_name": "w2_ise_10",
+        "source_flag": "GF_WM_B03_B04"
+      }
+    },
+    {
+      "location": "mini_star/w2_oas_00/gf_wm_b04_b01",
+      "source": {
+        "map_name": "w2_oas_00",
+        "source_flag": "GF_WM_B04_B01"
+      }
+    },
+    {
+      "location": "mini_star/w2_sab_05/gf_wm_b01_b02",
+      "source": {
+        "map_name": "w2_sab_05",
+        "source_flag": "GF_WM_B01_B02"
+      }
+    },
+    {
+      "location": "mini_star/w2_yos_01/gf_wm_b02_b03",
+      "source": {
+        "map_name": "w2_yos_01",
+        "source_flag": "GF_WM_B02_B03"
+      }
+    },
+    {
+      "location": "mini_star/w3_bea_04/gf_wm_c10_c07",
+      "source": {
+        "map_name": "w3_bea_04",
+        "source_flag": "GF_WM_C10_C07"
+      }
+    },
+    {
+      "location": "mini_star/w3_cho_07/gf_wm_c03_c06",
+      "source": {
+        "map_name": "w3_cho_07",
+        "source_flag": "GF_WM_C03_C06"
+      }
+    },
+    {
+      "location": "mini_star/w3_dok_03/gf_wm_c01_c03",
+      "source": {
+        "map_name": "w3_dok_03",
+        "source_flag": "GF_WM_C01_C03"
+      }
+    },
+    {
+      "location": "mini_star/w3_for_01/gf_wm_c08_c09",
+      "source": {
+        "map_name": "w3_for_01",
+        "source_flag": "GF_WM_C08_C09"
+      }
+    },
+    {
+      "location": "mini_star/w3_for_02/gf_wm_c08_c12",
+      "source": {
+        "map_name": "w3_for_02",
+        "source_flag": "GF_WM_C08_C12"
+      }
+    },
+    {
+      "location": "mini_star/w3_paz_02/gf_wm_c09_c10",
+      "source": {
+        "map_name": "w3_paz_02",
+        "source_flag": "GF_WM_C09_C10"
+      }
+    },
+    {
+      "location": "mini_star/w3_sar_05/gf_wm_c07_c04",
+      "source": {
+        "map_name": "w3_sar_05",
+        "source_flag": "GF_WM_C07_C04"
+      }
+    },
+    {
+      "location": "mini_star/w3_sta_00/gf_wm_c04_c03",
+      "source": {
+        "map_name": "w3_sta_00",
+        "source_flag": "GF_WM_C04_C03"
+      }
+    },
+    {
+      "location": "mini_star/w3_str_06/gf_wm_c02_c03",
+      "source": {
+        "map_name": "w3_str_06",
+        "source_flag": "GF_WM_C02_C03"
+      }
+    },
+    {
+      "location": "mini_star/w3_str_07/gf_wm_c02_c11",
+      "source": {
+        "map_name": "w3_str_07",
+        "source_flag": "GF_WM_C02_C11"
+      }
+    },
+    {
+      "location": "mini_star/w3_thr_02/gf_wm_c05_c02",
+      "source": {
+        "map_name": "w3_thr_02",
+        "source_flag": "GF_WM_C05_C02"
+      }
+    },
+    {
+      "location": "mini_star/w3_thr_03/gf_wm_c05_c08",
+      "source": {
+        "map_name": "w3_thr_03",
+        "source_flag": "GF_WM_C05_C08"
+      }
+    },
+    {
+      "location": "mini_star/w3_tre_02/gf_wm_c06_c05",
+      "source": {
+        "map_name": "w3_tre_02",
+        "source_flag": "GF_WM_C06_C05"
+      }
+    },
+    {
+      "location": "mini_star/w3_tre_02/gf_wm_c06_c07",
+      "source": {
+        "map_name": "w3_tre_02",
+        "source_flag": "GF_WM_C06_C07"
+      }
+    },
+    {
+      "location": "mini_star/w3_tre_02/gf_wm_c06_c09",
+      "source": {
+        "map_name": "w3_tre_02",
+        "source_flag": "GF_WM_C06_C09"
+      }
+    },
+    {
+      "location": "mini_star/w4_kaw_03/gf_wm_d02_d03",
+      "source": {
+        "map_name": "w4_kaw_03",
+        "source_flag": "GF_WM_D02_D03"
+      }
+    },
+    {
+      "location": "mini_star/w4_lif_04/gf_wm_d04_d05",
+      "source": {
+        "map_name": "w4_lif_04",
+        "source_flag": "GF_WM_D04_D05"
+      }
+    },
+    {
+      "location": "mini_star/w4_yak_15/gf_wm_d03_d06",
+      "source": {
+        "map_name": "w4_yak_15",
+        "source_flag": "GF_WM_D03_D06"
+      }
+    },
+    {
+      "location": "mini_star/w4_yuk_02/gf_wm_d01_d04",
+      "source": {
+        "map_name": "w4_yuk_02",
+        "source_flag": "GF_WM_D01_D04"
+      }
+    },
+    {
+      "location": "mini_star/w4_yuk_03/gf_wm_d01_d02",
+      "source": {
+        "map_name": "w4_yuk_03",
+        "source_flag": "GF_WM_D01_D02"
+      }
+    },
+    {
+      "location": "mini_star/w5_bak_01/gf_wm_e03_e01",
+      "source": {
+        "map_name": "w5_bak_01",
+        "source_flag": "GF_WM_E03_E01"
+      }
+    },
+    {
+      "location": "mini_star/w5_bak_02/gf_wm_e03_e04",
+      "source": {
+        "map_name": "w5_bak_02",
+        "source_flag": "GF_WM_E03_E04"
+      }
+    },
+    {
+      "location": "mini_star/w5_cru_03/gf_wm_e02_e03",
+      "source": {
+        "map_name": "w5_cru_03",
+        "source_flag": "GF_WM_E02_E03"
+      }
+    },
+    {
+      "location": "mini_star/w5_jun_03/gf_wm_e01_e02",
+      "source": {
+        "map_name": "w5_jun_03",
+        "source_flag": "GF_WM_E01_E02"
+      }
+    },
+    {
+      "location": "mini_star/w5_mag_15/gf_wm_e05_e06",
+      "source": {
+        "map_name": "w5_mag_15",
+        "source_flag": "GF_WM_E05_E06"
+      }
+    },
+    {
+      "location": "mini_star/w5_wan_00/gf_wm_e04_e05",
+      "source": {
+        "map_name": "w5_wan_00",
+        "source_flag": "GF_WM_E04_E05"
+      }
+    },
+    {
+      "location": "mini_star/w6_sky_08/gf_wm_f02_f03",
+      "source": {
+        "map_name": "w6_sky_08",
+        "source_flag": "GF_WM_F02_F03"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_001",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_001"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_002",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_002"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_003",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_003"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_004",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_004"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_005",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_005"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_006",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_006"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_007",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_007"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_008",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_008"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_009",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_009"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_010",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_010"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_011",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_011"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_012",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_012"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_013",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_013"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_014",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_014"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_015",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_015"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_016",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_016"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_017",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_017"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_018",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_018"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_019",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_019"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_020",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_020"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_021",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_021"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_022",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_022"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_023",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_023"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_024",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_024"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_025",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_025"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_026",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_026"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_027",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_027"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_028",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_028"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_029",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_029"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_030",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_030"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_031",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_031"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_032",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_032"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_033",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_033"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_034",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_034"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_035",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_035"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_036",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_036"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_037",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_037"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_038",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_038"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_039",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_039"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_040",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_040"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_041",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_041"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_042",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_042"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_043",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_043"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_044",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_044"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_045",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_045"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_046",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_046"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_047",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_047"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_048",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_048"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_049",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_049"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_050",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_050"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_051",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_051"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_052",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_052"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_053",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_053"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_054",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_054"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_055",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_055"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_056",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_056"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_057",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_057"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_058",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_058"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_059",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_059"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_060",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_060"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_061",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_061"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_062",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_062"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_063",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_063"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_064",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_064"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_065",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_065"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_066",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_066"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_067",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_067"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_068",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_068"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_069",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_069"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_070",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_070"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_071",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_071"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_072",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_072"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_073",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_073"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_074",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_074"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_075",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_075"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_076",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_076"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_077",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_077"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_078",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_078"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_079",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_079"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_080",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_080"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_081",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_081"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_082",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_082"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_083",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_083"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_084",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_084"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_085",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_085"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_086",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_086"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_087",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_087"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_088",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_088"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_089",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_089"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_090",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_090"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_091",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_091"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_092",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_092"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_093",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_093"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_094",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_094"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_095",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_095"
+      }
+    },
+    {
+      "location": "museum/gf_museum_btl_seal_096",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_btl_seal_096"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_001",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_001"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_002",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_002"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_003",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_003"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_004",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_004"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_005",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_005"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_006",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_006"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_007",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_007"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_008",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_008"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_009",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_009"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_010",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_010"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_011",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_011"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_012",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_012"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_013",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_013"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_014",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_014"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_015",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_015"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_016",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_016"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_017",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_017"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_018",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_018"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_019",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_019"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_020",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_020"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_021",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_021"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_022",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_022"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_023",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_023"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_024",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_024"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_025",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_025"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_026",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_026"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_027",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_027"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_028",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_028"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_029",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_029"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_030",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_030"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_031",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_031"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_032",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_032"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_033",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_033"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_034",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_034"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_035",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_035"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_036",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_036"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_037",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_037"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_038",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_038"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_039",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_039"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_040",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_040"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_041",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_041"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_042",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_042"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_043",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_043"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_044",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_044"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_045",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_045"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_046",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_046"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_047",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_047"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_048",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_048"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_049",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_049"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_050",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_050"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_051",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_051"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_052",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_052"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_053",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_053"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_054",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_054"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_055",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_055"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_056",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_056"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_057",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_057"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_058",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_058"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_059",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_059"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_060",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_060"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_061",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_061"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_062",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_062"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_063",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_063"
+      }
+    },
+    {
+      "location": "museum/gf_museum_robj_seal_064",
+      "source": {
+        "category": "museum",
+        "source_flag": "gf_museum_robj_seal_064"
+      }
+    },
+    {
+      "location": "peel/iwa_2_07/iwa_2_block_key",
+      "source": {
+        "map_name": "iwa_2_07",
+        "lock_id": "iwa_2_block_key",
+        "source_item": "PK_IWA_2_BLOCK_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/mac_1_00/mac_fountain_rescue",
+      "source": {
+        "map_name": "mac_1_00",
+        "lock_id": "mac_fountain_rescue",
+        "source_item": "PK_MAC_1_FOUNTAIN",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/mac_2_00/mac_2_warehouse_door_key",
+      "source": {
+        "map_name": "mac_2_00",
+        "lock_id": "mac_2_warehouse_door_key",
+        "source_item": "PK_WAREHOME_DOOR_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w2_tow_10/w2_tow_10_window_key",
+      "source": {
+        "map_name": "w2_tow_10",
+        "lock_id": "w2_tow_10_window_key",
+        "source_item": "PK_TOW_WINDOW_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w4_bos_04/w4_bos_04_rail_key",
+      "source": {
+        "map_name": "w4_bos_04",
+        "lock_id": "w4_bos_04_rail_key",
+        "source_item": "PK_W4_DIVERGENCE_RAIL_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w4_yak_01/w4_yuk_01_portrait_graphics_a",
+      "source": {
+        "map_name": "w4_yak_01",
+        "lock_id": "w4_yuk_01_portrait_graphics_a",
+        "source_item": "PK_W4_YUK_PORTRAIT",
+        "variants": [
+          {
+            "lock_id": "w4_yuk_01_portrait_graphics_b",
+            "source_item": "PK_W4_YUK_PORTRAIT_B"
+          }
+        ]
+      }
+    },
+    {
+      "location": "peel/w4_yak_06/w4_yak_wall_r_key",
+      "source": {
+        "map_name": "w4_yak_06",
+        "lock_id": "w4_yak_wall_r_key",
+        "source_item": "PK_W4_YAK_WALL_L",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w4_yak_07/w4_wak_vault_key",
+      "source": {
+        "map_name": "w4_yak_07",
+        "lock_id": "w4_wak_vault_key",
+        "source_item": "PK_W4_YAK_BOOKSHELF_S_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w4_yak_14/w4_yak_wall_l_key",
+      "source": {
+        "map_name": "w4_yak_14",
+        "lock_id": "w4_yak_wall_l_key",
+        "source_item": "PK_W4_YAK_WALL_R",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w5_bak_01/w5_bak_gate_key",
+      "source": {
+        "map_name": "w5_bak_01",
+        "lock_id": "w5_bak_gate_key",
+        "source_item": "PK_W5_BAK_GATE_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w5_mag_11/w5_mag_01_open_cave_key",
+      "source": {
+        "map_name": "w5_mag_11",
+        "lock_id": "w5_mag_01_open_cave_key",
+        "source_item": "PK_W5_MAG_GATE_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w5_mag_12/w5_mag_02_close_cave_key",
+      "source": {
+        "map_name": "w5_mag_12",
+        "lock_id": "w5_mag_02_close_cave_key",
+        "source_item": "PK_W5_MAG_GATE_BEFORE",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w5_mag_15/w5_mag_05_rock_key",
+      "source": {
+        "map_name": "w5_mag_15",
+        "lock_id": "w5_mag_05_rock_key",
+        "source_item": "PK_W5_MAG_ROCK_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w5_wan_02/w5_wan_02_stairs_key",
+      "source": {
+        "map_name": "w5_wan_02",
+        "lock_id": "w5_wan_02_stairs_key",
+        "source_item": "PK_W5_WAN_STAIRS_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w5_wan_04/w5_wan_04_block_key",
+      "source": {
+        "map_name": "w5_wan_04",
+        "lock_id": "w5_wan_04_block_key",
+        "source_item": "PK_W5_WAN_BLOCK_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w6_gak_00/w6_gak_koopa_castle_gate_key",
+      "source": {
+        "map_name": "w6_gak_00",
+        "lock_id": "w6_gak_koopa_castle_gate_key",
+        "source_item": "PK_W6_KOOPA_CASTLE_GATE_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "peel/w6_sky_06/w6_sky_killer_cannon_key",
+      "source": {
+        "map_name": "w6_sky_06",
+        "lock_id": "w6_sky_killer_cannon_key",
+        "source_item": "PK_W6_KILLER_CANNON_AFTER",
+        "variants": []
+      }
+    },
+    {
+      "location": "pickup/hei_2_04/item_bibcock",
+      "source": {
+        "map_name": "hei_2_04",
+        "object_name": "item_bibcock",
+        "source_item": "REAL_TAP"
+      }
+    },
+    {
+      "location": "pickup/hei_2_06/star_piece",
+      "source": {
+        "map_name": "hei_2_06",
+        "object_name": "star_piece",
+        "source_item": "PK_FIELD_STAR_KUSYA"
+      }
+    },
+    {
+      "location": "pickup/hei_2_D1/K_REAL",
+      "source": {
+        "map_name": "hei_2_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_BED"
+      }
+    },
+    {
+      "location": "pickup/hei_3_01/fan",
+      "source": {
+        "map_name": "hei_3_01",
+        "object_name": "fan",
+        "source_item": "REAL_FAN"
+      }
+    },
+    {
+      "location": "pickup/hei_3_03/manekineko",
+      "source": {
+        "map_name": "hei_3_03",
+        "object_name": "manekineko",
+        "source_item": "REAL_MANEKINEKO"
+      }
+    },
+    {
+      "location": "pickup/hei_4_02/dokan_piece",
+      "source": {
+        "map_name": "hei_4_02",
+        "object_name": "dokan_piece",
+        "source_item": "PK_FIELD_DOKAN_KUSYA"
+      }
+    },
+    {
+      "location": "pickup/hei_4_D1/K_REAL",
+      "source": {
+        "map_name": "hei_4_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_MATCH"
+      }
+    },
+    {
+      "location": "pickup/hei_5_07/real",
+      "source": {
+        "map_name": "hei_5_07",
+        "object_name": "real",
+        "source_item": "REAL_SCISSORS"
+      }
+    },
+    {
+      "location": "pickup/hei_5_11/item_piece",
+      "source": {
+        "map_name": "hei_5_11",
+        "object_name": "item_piece",
+        "source_item": "PK_FIELD_BRIDGE_KUSYA"
+      }
+    },
+    {
+      "location": "pickup/hei_5_D1/K_REAL",
+      "source": {
+        "map_name": "hei_5_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_THUMBTACK"
+      }
+    },
+    {
+      "location": "pickup/iwa_2_10/real",
+      "source": {
+        "map_name": "iwa_2_10",
+        "object_name": "real",
+        "source_item": "REAL_TRUMPET"
+      }
+    },
+    {
+      "location": "pickup/iwa_2_D1/K_REAL",
+      "source": {
+        "map_name": "iwa_2_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_WATER_PISTOL"
+      }
+    },
+    {
+      "location": "pickup/iwa_4_01/door_piece",
+      "source": {
+        "map_name": "iwa_4_01",
+        "object_name": "door_piece",
+        "source_item": "PK_FIELD_IWA_4_DOOR"
+      }
+    },
+    {
+      "location": "pickup/iwa_4_D1/K_REAL",
+      "source": {
+        "map_name": "iwa_4_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_BELLOWS"
+      }
+    },
+    {
+      "location": "pickup/mac_2_20/real",
+      "source": {
+        "map_name": "mac_2_20",
+        "object_name": "real",
+        "source_item": "REAL_CLEANER"
+      }
+    },
+    {
+      "location": "pickup/mac_2_21/peace",
+      "source": {
+        "map_name": "mac_2_21",
+        "object_name": "peace",
+        "source_item": "PK_FIELD_MAC_2_RUDDER"
+      }
+    },
+    {
+      "location": "pickup/w2_ise_01/REAL_JACKHAMMER",
+      "source": {
+        "map_name": "w2_ise_01",
+        "object_name": "REAL_JACKHAMMER",
+        "source_item": "REAL_JACKHAMMER"
+      }
+    },
+    {
+      "location": "pickup/w2_ise_04/real",
+      "source": {
+        "map_name": "w2_ise_04",
+        "object_name": "real",
+        "source_item": "REAL_BAT"
+      }
+    },
+    {
+      "location": "pickup/w2_ise_20/REAL",
+      "source": {
+        "map_name": "w2_ise_20",
+        "object_name": "REAL",
+        "source_item": "REAL_MAGNIFYING_GLASS"
+      }
+    },
+    {
+      "location": "pickup/w2_ise_D1/REAL_LIGHTER",
+      "source": {
+        "map_name": "w2_ise_D1",
+        "object_name": "REAL_LIGHTER",
+        "source_item": "REAL_LIGHTER"
+      }
+    },
+    {
+      "location": "pickup/w2_oas_01/ROBJ_01",
+      "source": {
+        "map_name": "w2_oas_01",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_SHAVED_ICE"
+      }
+    },
+    {
+      "location": "pickup/w2_oas_D1/ROBJ_01",
+      "source": {
+        "map_name": "w2_oas_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_HAIRCUT_SCISSORS"
+      }
+    },
+    {
+      "location": "pickup/w2_sab_09/REAL_JUICE",
+      "source": {
+        "map_name": "w2_sab_09",
+        "object_name": "REAL_JUICE",
+        "source_item": "REAL_JUICE"
+      }
+    },
+    {
+      "location": "pickup/w2_sab_D1/REAL_BATTERY_1",
+      "source": {
+        "map_name": "w2_sab_D1",
+        "object_name": "REAL_BATTERY_1",
+        "source_item": "REAL_BATTERY_CAR"
+      }
+    },
+    {
+      "location": "pickup/w2_tow_04/map_piece",
+      "source": {
+        "map_name": "w2_tow_04",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_TOW_04_DOOR"
+      }
+    },
+    {
+      "location": "pickup/w2_yos_06/real_lamp",
+      "source": {
+        "map_name": "w2_yos_06",
+        "object_name": "real_lamp",
+        "source_item": "REAL_LAMP"
+      }
+    },
+    {
+      "location": "pickup/w2_yos_D1/REAL_PAPER_FAN",
+      "source": {
+        "map_name": "w2_yos_D1",
+        "object_name": "REAL_PAPER_FAN",
+        "source_item": "REAL_PAPER_FAN"
+      }
+    },
+    {
+      "location": "pickup/w3_bea_04/real",
+      "source": {
+        "map_name": "w3_bea_04",
+        "object_name": "real",
+        "source_item": "REAL_OIL_HEATER"
+      }
+    },
+    {
+      "location": "pickup/w3_bea_06/real",
+      "source": {
+        "map_name": "w3_bea_06",
+        "object_name": "real",
+        "source_item": "REAL_OIL_HEATER"
+      }
+    },
+    {
+      "location": "pickup/w3_bea_D1/K_REAL",
+      "source": {
+        "map_name": "w3_bea_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_ITTOKAN"
+      }
+    },
+    {
+      "location": "pickup/w3_bos_00/REAL_POCKET_WATCH",
+      "source": {
+        "map_name": "w3_bos_00",
+        "object_name": "REAL_POCKET_WATCH",
+        "source_item": "REAL_POCKET_WATCH"
+      }
+    },
+    {
+      "location": "pickup/w3_bos_D1/K_REAL",
+      "source": {
+        "map_name": "w3_bos_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_NEWSPAPER_BAT"
+      }
+    },
+    {
+      "location": "pickup/w3_cho_24/ROBJ_01",
+      "source": {
+        "map_name": "w3_cho_24",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_BOWLING"
+      }
+    },
+    {
+      "location": "pickup/w3_cho_24/ROBJ_02",
+      "source": {
+        "map_name": "w3_cho_24",
+        "object_name": "ROBJ_02",
+        "source_item": "REAL_TROPHY"
+      }
+    },
+    {
+      "location": "pickup/w3_cho_D1/ROBJ_01",
+      "source": {
+        "map_name": "w3_cho_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_VIOLIN"
+      }
+    },
+    {
+      "location": "pickup/w3_dok_D1/ROBJ_01",
+      "source": {
+        "map_name": "w3_dok_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_SEARCHLIGHT"
+      }
+    },
+    {
+      "location": "pickup/w3_dor_D1/real",
+      "source": {
+        "map_name": "w3_dor_D1",
+        "object_name": "real",
+        "source_item": "REAL_FOOK"
+      }
+    },
+    {
+      "location": "pickup/w3_for_00/map_piece",
+      "source": {
+        "map_name": "w3_for_00",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_W3_KOOPA_TAPE"
+      }
+    },
+    {
+      "location": "pickup/w3_for_D1/K_REAL",
+      "source": {
+        "map_name": "w3_for_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_BALLOON"
+      }
+    },
+    {
+      "location": "pickup/w3_paz_02/real_sponge",
+      "source": {
+        "map_name": "w3_paz_02",
+        "object_name": "real_sponge",
+        "source_item": "REAL_SPONGE"
+      }
+    },
+    {
+      "location": "pickup/w3_sar_03/map_piece_c",
+      "source": {
+        "map_name": "w3_sar_03",
+        "object_name": "map_piece_c",
+        "source_item": "PK_FIELD_W3_DOOR"
+      }
+    },
+    {
+      "location": "pickup/w3_sar_D1/K_REAL",
+      "source": {
+        "map_name": "w3_sar_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_UPLIGHT_CLEANER"
+      }
+    },
+    {
+      "location": "pickup/w3_sta_00/REAL_BATTERY_BUTTON",
+      "source": {
+        "map_name": "w3_sta_00",
+        "object_name": "REAL_BATTERY_BUTTON",
+        "source_item": "REAL_BATTERY_BUTTON"
+      }
+    },
+    {
+      "location": "pickup/w3_sta_00/map_piece_c",
+      "source": {
+        "map_name": "w3_sta_00",
+        "object_name": "map_piece_c",
+        "source_item": "PK_FIELD_W3_TREE_R"
+      }
+    },
+    {
+      "location": "pickup/w3_sta_D1/K_REAL",
+      "source": {
+        "map_name": "w3_sta_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_CELLOPHANE_TAPE"
+      }
+    },
+    {
+      "location": "pickup/w3_str_04/map_piece_c",
+      "source": {
+        "map_name": "w3_str_04",
+        "object_name": "map_piece_c",
+        "source_item": "PK_FIELD_W3_TREE_L"
+      }
+    },
+    {
+      "location": "pickup/w3_str_D1/K_REAL",
+      "source": {
+        "map_name": "w3_str_D1",
+        "object_name": "K_REAL",
+        "source_item": "REAL_PILLOW"
+      }
+    },
+    {
+      "location": "pickup/w3_thr_01/REAL_BILLIARD_BALL",
+      "source": {
+        "map_name": "w3_thr_01",
+        "object_name": "REAL_BILLIARD_BALL",
+        "source_item": "REAL_BILLIARD_BALL"
+      }
+    },
+    {
+      "location": "pickup/w3_thr_03/ROBJ_01",
+      "source": {
+        "map_name": "w3_thr_03",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_BOWLING"
+      }
+    },
+    {
+      "location": "pickup/w3_thr_D1/REAL_DRUMKAN",
+      "source": {
+        "map_name": "w3_thr_D1",
+        "object_name": "REAL_DRUMKAN",
+        "source_item": "REAL_DRUMKAN"
+      }
+    },
+    {
+      "location": "pickup/w3_tre_01/ROBJ_01",
+      "source": {
+        "map_name": "w3_tre_01",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_HIGHHEEL"
+      }
+    },
+    {
+      "location": "pickup/w3_tre_01/ROBJ_02",
+      "source": {
+        "map_name": "w3_tre_01",
+        "object_name": "ROBJ_02",
+        "source_item": "REAL_BOOM_BOX"
+      }
+    },
+    {
+      "location": "pickup/w4_bos_01/ROBJ_01",
+      "source": {
+        "map_name": "w4_bos_01",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_JAPANESE_SCISSORS"
+      }
+    },
+    {
+      "location": "pickup/w4_bos_03/mp_rail",
+      "source": {
+        "map_name": "w4_bos_03",
+        "object_name": "mp_rail",
+        "source_item": "PK_FIELD_BOS_03_RAIL"
+      }
+    },
+    {
+      "location": "pickup/w4_bos_04/map_piece",
+      "source": {
+        "map_name": "w4_bos_04",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_W4_RAIL_EXIT"
+      }
+    },
+    {
+      "location": "pickup/w4_kaw_00/realobj001",
+      "source": {
+        "map_name": "w4_kaw_00",
+        "object_name": "realobj001",
+        "source_item": "REAL_CURLING_STONE"
+      }
+    },
+    {
+      "location": "pickup/w4_kaw_D1/ROBJ_00",
+      "source": {
+        "map_name": "w4_kaw_D1",
+        "object_name": "ROBJ_00",
+        "source_item": "REAL_DRYER"
+      }
+    },
+    {
+      "location": "pickup/w4_lif_D1/ROBJ_01",
+      "source": {
+        "map_name": "w4_lif_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_FLASHLIGHT"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_02/map_piece",
+      "source": {
+        "map_name": "w4_yak_02",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_W4_LIFT"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_02/map_piece2",
+      "source": {
+        "map_name": "w4_yak_02",
+        "object_name": "map_piece2",
+        "source_item": "PK_FIELD_W4_YAK_VAULT"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_02_AFTER/map_piece",
+      "source": {
+        "map_name": "w4_yak_02_AFTER",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_W4_LIFT"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_03/map_piece",
+      "source": {
+        "map_name": "w4_yak_03",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_W4_YUK_PORTRAIT_DOOR"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_04/ROBJ_01",
+      "source": {
+        "map_name": "w4_yak_04",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_STAPLER"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_04_AFTER/ROBJ_01",
+      "source": {
+        "map_name": "w4_yak_04_AFTER",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_STAPLER"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_05/ROBJ_01",
+      "source": {
+        "map_name": "w4_yak_05",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_CAKE"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_05/ROBJ_02",
+      "source": {
+        "map_name": "w4_yak_05",
+        "object_name": "ROBJ_02",
+        "source_item": "REAL_FRIDGE"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_05/ROBJ_03",
+      "source": {
+        "map_name": "w4_yak_05",
+        "object_name": "ROBJ_03",
+        "source_item": "REAL_OVEN"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_05_AFTER/ROBJ_01",
+      "source": {
+        "map_name": "w4_yak_05_AFTER",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_CAKE"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_05_AFTER/ROBJ_02",
+      "source": {
+        "map_name": "w4_yak_05_AFTER",
+        "object_name": "ROBJ_02",
+        "source_item": "REAL_FRIDGE"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_05_AFTER/ROBJ_03",
+      "source": {
+        "map_name": "w4_yak_05_AFTER",
+        "object_name": "ROBJ_03",
+        "source_item": "REAL_OVEN"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_08/map_piece",
+      "source": {
+        "map_name": "w4_yak_08",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_W4_YAK_BOOKSHELF_L"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_12/ROBJ_01",
+      "source": {
+        "map_name": "w4_yak_12",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_WATERING_CAN"
+      }
+    },
+    {
+      "location": "pickup/w4_yak_12_AFTER/ROBJ_01",
+      "source": {
+        "map_name": "w4_yak_12_AFTER",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_WATERING_CAN"
+      }
+    },
+    {
+      "location": "pickup/w4_yuk_00/map_piece",
+      "source": {
+        "map_name": "w4_yuk_00",
+        "object_name": "map_piece",
+        "source_item": "PK_FIELD_YUK_00_DOKAN"
+      }
+    },
+    {
+      "location": "pickup/w4_yuk_04/real_goat",
+      "source": {
+        "map_name": "w4_yuk_04",
+        "object_name": "real_goat",
+        "source_item": "REAL_GOAT"
+      }
+    },
+    {
+      "location": "pickup/w4_yuk_D1/ROBJ_01",
+      "source": {
+        "map_name": "w4_yuk_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_MOBILE_PHONE"
+      }
+    },
+    {
+      "location": "pickup/w5_bak_D1/ROBJ_01",
+      "source": {
+        "map_name": "w5_bak_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_CANOPY_BED"
+      }
+    },
+    {
+      "location": "pickup/w5_bos_D1/ROBJ_01",
+      "source": {
+        "map_name": "w5_bos_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_GUITAR"
+      }
+    },
+    {
+      "location": "pickup/w5_cru_02/real",
+      "source": {
+        "map_name": "w5_cru_02",
+        "object_name": "real",
+        "source_item": "REAL_DUCK"
+      }
+    },
+    {
+      "location": "pickup/w5_cru_03_real/real",
+      "source": {
+        "map_name": "w5_cru_03_real",
+        "object_name": "real",
+        "source_item": "REAL_DUCK"
+      }
+    },
+    {
+      "location": "pickup/w5_cru_D1/ROBJ_01",
+      "source": {
+        "map_name": "w5_cru_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_HANDY_CLEANER"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_02/map_piece_a",
+      "source": {
+        "map_name": "w5_jun_02",
+        "object_name": "map_piece_a",
+        "source_item": "PK_FIELD_W5_JUN_BRIDGE_2"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_03/map_piece_a",
+      "source": {
+        "map_name": "w5_jun_03",
+        "object_name": "map_piece_a",
+        "source_item": "PK_FIELD_W5_JUN_BRIDGE_1"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_03/map_piece_c",
+      "source": {
+        "map_name": "w5_jun_03",
+        "object_name": "map_piece_c",
+        "source_item": "PK_FIELD_W5_JUN_BRIDGE_3"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_04/item_mp",
+      "source": {
+        "map_name": "w5_jun_04",
+        "object_name": "item_mp",
+        "source_item": "PK_FIELD_W5_JUN_BRIDGE_3"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_07/ROBJ_01",
+      "source": {
+        "map_name": "w5_jun_07",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_PLASTIC_BAT"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_08/ROBJ_01",
+      "source": {
+        "map_name": "w5_jun_08",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_POWDER_PUFF"
+      }
+    },
+    {
+      "location": "pickup/w5_jun_D1/ROBJ_01",
+      "source": {
+        "map_name": "w5_jun_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_CLOTH_SCISSORS"
+      }
+    },
+    {
+      "location": "pickup/w5_mag_16/map_piece_a",
+      "source": {
+        "map_name": "w5_mag_16",
+        "object_name": "map_piece_a",
+        "source_item": "PK_FIELD_W5_MAG_FLOOR"
+      }
+    },
+    {
+      "location": "pickup/w5_mag_19/ROBJ_01",
+      "source": {
+        "map_name": "w5_mag_19",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_TURKEY"
+      }
+    },
+    {
+      "location": "pickup/w5_mag_20/ROBJ_01",
+      "source": {
+        "map_name": "w5_mag_20",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_CAR_WASH_SPONGE"
+      }
+    },
+    {
+      "location": "pickup/w5_mag_D1/ROBJ_01",
+      "source": {
+        "map_name": "w5_mag_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_TUB"
+      }
+    },
+    {
+      "location": "pickup/w5_wan_00/ROBJ_01",
+      "source": {
+        "map_name": "w5_wan_00",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_BATTERY_1"
+      }
+    },
+    {
+      "location": "pickup/w5_wan_00/map_piece_a",
+      "source": {
+        "map_name": "w5_wan_00",
+        "object_name": "map_piece_a",
+        "source_item": "PK_FIELD_W5_WAN_PIT"
+      }
+    },
+    {
+      "location": "pickup/w5_wan_08/ROBJ_01",
+      "source": {
+        "map_name": "w5_wan_08",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_KETTLE"
+      }
+    },
+    {
+      "location": "pickup/w5_wan_D1/ROBJ_01",
+      "source": {
+        "map_name": "w5_wan_D1",
+        "object_name": "ROBJ_01",
+        "source_item": "REAL_AIR_CONDITIONER"
+      }
+    },
+    {
+      "location": "shop/Script/Map/IWA/iwa_4_02.bin/talk_kinopio1",
+      "source": {
+        "category": "shop",
+        "script_file": "Script/Map/IWA/iwa_4_02.bin",
+        "function": "talk_kinopio1"
+      }
+    },
+    {
+      "location": "shop/Script/Map/MAC/mac_1_00.bin/talk_kinopio_shop",
+      "source": {
+        "category": "shop",
+        "script_file": "Script/Map/MAC/mac_1_00.bin",
+        "function": "talk_kinopio_shop"
+      }
+    },
+    {
+      "location": "shop/Script/Map/MAC/mac_1_05.bin/talk_kinopio_mono",
+      "source": {
+        "category": "shop",
+        "script_file": "Script/Map/MAC/mac_1_05.bin",
+        "function": "talk_kinopio_mono"
+      }
+    },
+    {
+      "location": "shop/Script/Map/W3_DOR/w3_dor_00.bin/talk_kinopio_shop",
+      "source": {
+        "category": "shop",
+        "script_file": "Script/Map/W3_DOR/w3_dor_00.bin",
+        "function": "talk_kinopio_shop"
+      }
+    },
+    {
+      "location": "shop/Script/Map/W4_SHO/w4_sho_00.bin/talk_kinopio_shop",
+      "source": {
+        "category": "shop",
+        "script_file": "Script/Map/W4_SHO/w4_sho_00.bin",
+        "function": "talk_kinopio_shop"
+      }
+    },
+    {
+      "location": "shop/Script/Map/W5_BOS/w5_bos_04.bin/talk_kinopio_shop",
+      "source": {
+        "category": "shop",
+        "script_file": "Script/Map/W5_BOS/w5_bos_04.bin",
+        "function": "talk_kinopio_shop"
+      }
+    },
+    {
+      "location": "victory/Script/Map/W6_BOS/w6_bos_04.bin/koopa_battle_after_event_init",
+      "source": {
+        "category": "victory",
+        "script_file": "Script/Map/W6_BOS/w6_bos_04.bin",
+        "function": "koopa_battle_after_event_init"
+      }
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path as FilePath
 from typing import TypeAlias
 from ..domain import (
@@ -56,6 +57,21 @@ def unique_object(pairs: list[tuple[str, Json]]) -> dict[str, Json]:
 
 
 def load_catalog_data(path: FilePath) -> dict[str, Json]:
+    if path.resolve() == python_game_directory().resolve():
+        from .game import game_definition
+
+        return encode_catalog(game_definition())
+    if path.is_dir():
+        # Split authoring files keep checks, rewards and physical links easy to
+        # find. Their combined object uses the same strict catalog boundary.
+        return {
+            "format_version": 2,
+            **{
+                name: array(json.loads((path / (name + ".json")).read_text(encoding="utf-8-sig"),
+                                       object_pairs_hook=unique_object))
+                for name in ("items", "locations", "regions", "paths", "pool", "starting_items")
+            },
+        }
     return obj(json.loads(path.read_text(encoding="utf-8-sig"), object_pairs_hook=unique_object))
 
 
@@ -78,7 +94,58 @@ def parse_rules(value: Json) -> Rules:
 
 
 def load_catalog(path: FilePath) -> GameDefinition:
+    if path.resolve() == python_game_directory().resolve():
+        from .game import game_definition
+
+        return game_definition()
     return parse_catalog(load_catalog_data(path))
+
+
+def python_game_directory() -> FilePath:
+    """Location used to select the bundled Python authoring package."""
+    if getattr(sys, "frozen", False):
+        return FilePath(getattr(sys, "_MEIPASS")) / "bundled" / "game"
+    return FilePath(__file__).with_name("game")
+
+
+def encode_rules(rule: Rules) -> Json:
+    if rule.operator == "item":
+        return {"item": rule.item_id} if rule.amount == 1 else {"count": [rule.item_id, rule.amount]}
+    return {rule.operator: [encode_rules(child) for child in rule.children]}
+
+
+def encode_catalog(game: GameDefinition) -> dict[str, Json]:
+    """Serialize typed objects only at patch/tracker/JSON interchange boundaries."""
+    items: list[Json] = []
+    for item in game.items:
+        row: dict[str, Json] = {"id": item.id, "name": item.name, "progression": item.progression}
+        if isinstance(item, Event):
+            row["location"] = item.location_id
+        items.append(row)
+    locations: list[Json] = []
+    for location in game.locations:
+        row = {"id": location.id, "name": location.name, "region": location.region_id,
+               "requires": encode_rules(location.rules)}
+        if isinstance(location, Goal):
+            row.update({"type": "end_goal" if isinstance(location, EndGoal) else "goal", "item": location.item.id})
+        locations.append(row)
+    return {
+        "format_version": 2,
+        "items": items,
+        "locations": locations,
+        "regions": [{"id": region.id, "name": region.name,
+                     **({"starting": True} if isinstance(region, StartingRegion) else {})} for region in game.regions],
+        "paths": [
+            {"id": path.id,
+             "forward": {"source": path.forward.source, "target": path.forward.target,
+                         "requires": encode_rules(path.forward.rules)},
+             "reverse": {"source": path.reverse.source, "target": path.reverse.target,
+                         "requires": encode_rules(path.reverse.rules)}}
+            for path in game.paths
+        ],
+        "pool": list(game.pool),
+        "starting_items": list(game.starting_items),
+    }
 
 
 def parse_catalog(value: Json) -> GameDefinition:

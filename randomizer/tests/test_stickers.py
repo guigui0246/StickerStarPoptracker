@@ -1,4 +1,5 @@
 from typing import Any, cast
+import json
 import struct
 import unittest
 
@@ -45,6 +46,19 @@ def shop_fixture() -> bytes:
 
 class StickerTests(unittest.TestCase):
     policy = StickerPolicy(("SL_JUMP", "SL_HAMMER", "SL_W6_SANDAL_S"), (("SL_FAN", "REAL_FAN"),))
+
+    def test_disabled_generics_keep_native_shops_and_copies_without_unlock_flags(self) -> None:
+        from dataclasses import replace
+        from ..integrations.rom.plan_io import decode_sticker_policy
+
+        policy = replace(self.policy, randomize_generic=False)
+        self.assertEqual(patch_shops(shop_fixture(), policy), shop_fixture())
+        self.assertEqual(policy.flags, ())
+        self.assertEqual(policy.grant("SL_JUMP", unlock=False, result="tempVar0"),
+                         ['tempVar0 = rando_item_grant*("SL_JUMP");'])
+        self.assertNotIn("gf_rando_unlock", policy.pickup_functions())
+        self.assertIn("pouch_already_get_real_item_debug", "\n".join(policy.grant("SL_FAN", unlock=True, result="tempVar0")))
+        self.assertEqual(decode_sticker_policy(json.loads(json.dumps(policy.to_dict()))), policy)
 
     def test_all_generic_shops_share_unlock_stock_and_thing_shop_is_preserved(self) -> None:
         source = KdmDocument(shop_fixture())

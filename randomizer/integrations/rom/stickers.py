@@ -1,6 +1,6 @@
 """ROM-derived sticker unlocks, copy conversion and shop inventories."""
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 import struct
 import re
 
@@ -13,8 +13,11 @@ class StickerPolicy:
     generic: tuple[str, ...]
     things: tuple[tuple[str, str], ...]
     replacement: str = "SL_W6_SANDAL_S"
+    randomize_generic: bool = True
 
     def __post_init__(self) -> None:
+        if type(self.randomize_generic) is not bool:
+            raise ValueError("Generic sticker policy must be boolean")
         ids = self.generic + tuple(sticker for sticker, _ in self.things)
         if not ids or len(set(ids)) != len(ids) or self.replacement not in self.generic:
             raise ValueError("Sticker policy requires distinct ROM-derived items and flip-flops")
@@ -25,7 +28,13 @@ class StickerPolicy:
 
     @property
     def flags(self) -> tuple[str, ...]:
-        return tuple(self.flag(item) for item in self.generic)
+        return tuple(self.flag(item) for item in self.generic) if self.randomize_generic else ()
+
+    def to_dict(self) -> dict[str, object]:
+        data = asdict(self)
+        if self.randomize_generic:
+            data.pop("randomize_generic")
+        return data
 
     def flag(self, item: str) -> str:
         if item not in self.generic:
@@ -34,6 +43,8 @@ class StickerPolicy:
 
     def grant(self, item: str, *, unlock: bool, result: str) -> list[str]:
         if item in self.generic:
+            if not self.randomize_generic:
+                return [f'{result} = rando_item_grant*("{item}");']
             flag = self.flag(item)
             if unlock:
                 # Ownership authorizes the global native insertion guard. The
@@ -85,6 +96,8 @@ def sticker_policy(data: bytes) -> StickerPolicy:
 
 
 def patch_sticker_initializers(data: bytes, policy: StickerPolicy) -> bytes:
+    if not policy.randomize_generic:
+        return data
     document = KdmDocument(KdmDocument(data).add_strings(("rando_sticker_init",)))
     edits: dict[int, str] = {}
     for array in document.arrays.values():
@@ -107,6 +120,8 @@ def patch_shops(data: bytes, policy: StickerPolicy) -> bytes:
     Builds pointer tables from validated source records. Record values other than
     the item and unlock condition retain the original ordinary-shop defaults.
     """
+    if not policy.randomize_generic:
+        return data
     document = KdmDocument(KdmDocument(data).add_strings(policy.generic + policy.flags))
     if document.structures[21].fields != (3, 3, 8, 3, 13):
         raise ValueError("Unsupported shop record schema")

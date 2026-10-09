@@ -8,7 +8,7 @@ from typing import cast
 from BaseClasses import Item as APItem, Location as APLocation  # pyright: ignore[reportMissingImports]
 from Options import Choice  # pyright: ignore[reportMissingImports]
 
-from ...settings import AlbumPages, Banners, Settings
+from ...settings import AlbumPages, Banners, DoorStickers, EnemyRewards, GenericStickers, Museum, Settings
 from ..rom.mailbox import RemoteReward, RemoteSession
 from ..rom.native_delivery import BannerReward, DeliveryPlan, NativeReward, NativeRewardKind
 from ..rom.native_generation import NativeBindings, configure_catalog
@@ -26,6 +26,7 @@ class NativeAlbumPages(Choice):
     display_name = "Sticker album pages"
     option_all_at_start = 0
     option_randomized = 1
+    option_vanilla = 2
     default = 0
 
 
@@ -39,10 +40,52 @@ class NativeBanners(Choice):
     default = 0
 
 
+class NativeMuseum(Choice):
+    """Select independent donation checks, without changing donation gameplay."""
+
+    display_name = "Museum checks"
+    option_all = 0
+    option_off = 1
+    option_normal = 2
+    option_things = 3
+    default = 0
+
+
+class NativeEnemyRewards(Choice):
+    """First-victory checks; Royal boss reward locations always remain enabled."""
+
+    display_name = "Enemy rewards"
+    option_on = 0
+    option_off = 1
+    default = 0
+
+
+class NativeDoorStickers(Choice):
+    """Shuffle door place capabilities or start with their ownership."""
+
+    display_name = "Door places"
+    option_randomized = 0
+    option_vanilla = 1
+    default = 0
+
+
+class NativeGenericStickers(Choice):
+    """Shuffle generic entitlements or retain ordinary stock and pickups."""
+
+    display_name = "Generic sticker randomizer"
+    option_enabled = 0
+    option_disabled = 1
+    default = 0
+
+
 @dataclass
 class NativeStickerStarOptions(StickerStarOptions):
     album_pages: NativeAlbumPages
     banners: NativeBanners
+    museum: NativeMuseum
+    enemy_rewards: NativeEnemyRewards
+    door_stickers: NativeDoorStickers
+    generic_stickers: NativeGenericStickers
 
 
 class NativeStickerStarItem(APItem):
@@ -76,8 +119,12 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
 
         def generate_early(self) -> None:
             self.native_settings = Settings(
-                (AlbumPages.ALL_AT_START, AlbumPages.RANDOMIZED)[self.options.album_pages.value],
+                (AlbumPages.ALL_AT_START, AlbumPages.RANDOMIZED, AlbumPages.VANILLA)[self.options.album_pages.value],
                 (Banners.ORIGINAL, Banners.REDUCED, Banners.OFF)[self.options.banners.value],
+                (Museum.ALL, Museum.OFF, Museum.NORMAL, Museum.THINGS)[self.options.museum.value],
+                (EnemyRewards.ON, EnemyRewards.OFF)[self.options.enemy_rewards.value],
+                (DoorStickers.RANDOMIZED, DoorStickers.VANILLA)[self.options.door_stickers.value],
+                (GenericStickers.ENABLED, GenericStickers.DISABLED)[self.options.generic_stickers.value],
             )
             self.definition, self.bindings = configure_catalog(catalog.game, catalog.bindings, self.native_settings)
 
@@ -140,14 +187,17 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
             session = RemoteSession(self.multiworld.seed_name, 0, self.player, catalog.catalog_hash)
             plan = DeliveryPlan(
                 tuple(checks),
-                self.native_settings.album_pages,
+                None if self.native_settings.album_pages == AlbumPages.VANILLA else self.native_settings.album_pages,
                 royals,
                 selectors,
                 session,
-                catalog.sticker_policy,
+                (replace(catalog.sticker_policy,
+                         randomize_generic=self.native_settings.generic_stickers == GenericStickers.ENABLED)
+                 if catalog.sticker_policy else None),
                 seed_name=session.seed,
                 starting_rewards=starting,
                 starting_item_ids=starting_ids,
+                vanilla_generic_stickers=self.native_settings.generic_stickers == GenericStickers.DISABLED,
             )
             from ..rom.mailbox import fit_mailbox
 
@@ -157,7 +207,7 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
             plan = self.native_plan()
             stem = Path(output_directory) / self.multiworld.get_out_file_name_base(self.player)
             stem.parent.mkdir(parents=True, exist_ok=True)
-            recipe = NativeRecipe(self.multiworld.seed_name, catalog.rom_sha256, plan)
+            recipe = NativeRecipe(self.multiworld.seed_name, catalog.rom_sha256, plan, self.native_settings)
             Path(str(stem) + ".stickerpatch").write_bytes(recipe.encode())
             locations = {
                 self.bindings.locations[location.id].id: catalog.registry.locations[location.id]

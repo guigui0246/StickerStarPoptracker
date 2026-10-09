@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from ...data.catalog import Json, obj, string
+from ...settings import AlbumPages, GenericStickers, Settings
 from .native_delivery import DeliveryPlan, NativeRewardKind
 from .plan_io import decode_plan, encode_plan
 from .project import RomProject
@@ -26,12 +27,19 @@ class NativeRecipe:
     seed: str
     rom_sha256: str
     plan: DeliveryPlan
+    settings: Settings | None = None
 
     def __post_init__(self) -> None:
         if self.plan.seed_name is None:
             object.__setattr__(self, "plan", replace(self.plan, seed_name=self.seed))
         elif self.plan.seed_name != self.seed:
             raise ValueError("Recipe and native save identity use different seeds")
+        if self.settings is not None:
+            pages = None if self.settings.album_pages == AlbumPages.VANILLA else self.settings.album_pages
+            if self.plan.album_pages != pages:
+                raise ValueError("Recipe settings disagree with native album policy")
+            if self.plan.vanilla_generic_stickers != (self.settings.generic_stickers == GenericStickers.DISABLED):
+                raise ValueError("Recipe settings disagree with native sticker policy")
 
     def encode(self) -> bytes:
         payload: dict[str, Json] = {
@@ -44,6 +52,8 @@ class NativeRecipe:
             "plan": encode_plan(self.plan),
             "save_seed_fingerprint": self.plan.fingerprint.hex(),
         }
+        if self.settings is not None:
+            payload["settings"] = dict(self.settings.to_json())
         payload["recipe_sha256"] = digest(canonical(payload))
         return canonical(payload) + b"\n"
 
@@ -67,7 +77,7 @@ def decode_native_recipe(data: bytes) -> NativeRecipe:
             "plan",
             "save_seed_fingerprint",
             "recipe_sha256",
-        },
+        } | ({"settings"} if "settings" in payload else set()),
     )
     checksum = sha256(payload.pop("recipe_sha256"))
     if checksum != digest(canonical(payload)):
@@ -90,19 +100,21 @@ def decode_native_recipe(data: bytes) -> NativeRecipe:
         raise ValueError("Native plan does not match its save identity")
     if plan.remote_session and plan.remote_session.seed != seed:
         raise ValueError("Recipe and network session use different seeds")
-    return NativeRecipe(seed, sha256(payload["rom_sha256"]), plan)
+    settings = Settings.from_json(obj(payload["settings"])) if "settings" in payload else None
+    return NativeRecipe(seed, sha256(payload["rom_sha256"]), plan, settings)
 
 
-def create_native_recipe(project: RomProject, seed: str, plan: DeliveryPlan) -> NativeRecipe:
+def create_native_recipe(project: RomProject, seed: str, plan: DeliveryPlan, settings: Settings | None = None) -> NativeRecipe:
     from .mailbox import fit_mailbox
 
     rewards = plan.rewards
     if any(reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} for reward in rewards):
-        policy = sticker_policy(project.read_file("Data/kdm_item_data.bin"))
+        policy = replace(sticker_policy(project.read_file("Data/kdm_item_data.bin")),
+                         randomize_generic=not plan.vanilla_generic_stickers)
         if plan.sticker_policy and plan.sticker_policy != policy:
             raise ValueError("Sticker policy does not match this ROM")
         plan = replace(plan, sticker_policy=policy)
-    return decode_native_recipe(NativeRecipe(seed, source_digest(project), fit_mailbox(plan)).encode())
+    return decode_native_recipe(NativeRecipe(seed, source_digest(project), fit_mailbox(plan), settings).encode())
 
 
 def apply_native_recipe(project: RomProject, recipe: NativeRecipe, output: Path, compiler: Path) -> Path:

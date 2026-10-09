@@ -1,7 +1,67 @@
 # Sticker Star tools
 
 The repository contains a PopTracker pack, a standalone randomizer engine,
-experimental ROM integrations and an Archipelago Logic Demo.
+ROM-derived experimental no-logic seeds and an Archipelago Logic Demo.
+
+## Standalone no-logic seeds
+
+Generate directly from your decrypted European ROM in one command:
+
+```text
+python -m randomizer generate --logic no-logic "ROM.3ds"
+```
+
+The seed defaults to random. Output defaults to `generated/sticker-star-SEED/`,
+containing `mod.zip`, `seed.stickerpatch`, its matching PopTracker pack, and
+tracking/logic sidecars. The compiler is included and the mod is built
+automatically. `--rom "ROM.3ds"` is also accepted. To reproduce a seed or choose
+the output, add `--seed 42 --output generated/my-seed` (a `.zip` filename is also
+accepted). Settings such as `--album-pages randomized --museum off` go directly
+on this same command.
+
+The JSON `.stickerpatch` contains identities, placements and hashes, without
+ROM bytes or game assets. Applying it needs only that file, the matching ROM
+and the compiler tool. The mod ZIP contains `00040000000A5F00/romfs` and
+`00040000000A5F00/exefs`; install that title folder in the emulator's `load/mods`
+folder and use a new save. Keep the seed and tracker sidecars together.
+
+Load `seed.stickerpatch.tracker.zip` in PopTracker. Enable the emulator's
+UDP RPC server on port 45987, start the game, then run:
+
+```text
+python -m pip install "websockets>=13,<16"
+python -m randomizer track --seed generated/sticker-star-SEED/seed.stickerpatch
+```
+
+Connect PopTracker's Archipelago interface to `localhost:38281`, slot `Player`,
+with no password. This loopback server only observes the game; standalone
+rewards do not need it or emulator RPC. Collected checks and successfully
+delivered items are tracked independently, with replay after reconnect/load.
+On the tested Citra 608383e installation, native startup and the packaged
+bridge were verified with hardware shaders and shader JIT disabled; the
+default shader configuration crashed even with the unmodified ROM.
+
+No-logic includes every discovered production check and unique progression
+reward, with coin filler. Bowser victory remains fixed. Hammer, Paperization,
+Decalburg and 1-1 access are starting capabilities. The starting Jump is a copy,
+so it becomes a small slipper until its shuffled Jump unlock is received.
+Ground routes and course visibility are opened independently by default;
+entering a course still needs its stage-access item. Use
+`--no-open-ground-routes` to request vanilla navigation. Options include vanilla,
+all-at-start or randomized pages, museum categories, enemy checks, vanilla door
+places, generic sticker availability and banner thresholds. Random ground-stage
+starts are available as an opt-in experiment.
+Each seed also exports an editable catalog and native bindings for adding logic.
+Permanent authoring files are in [randomizer/data/game](randomizer/data/game/README.md):
+edit typed objects in `items.py`, `locations.py`, `regions.py` and `paths.py`, then run
+`python -m randomizer generate --logic catalog "ROM.3ds"` to use your edits.
+The initial physical links are explicitly no-logic placeholders.
+See [the implementation guide](docs/IMPLEMENTATION_GUIDE.md) for commands,
+option semantics, rule examples, module responsibilities and troubleshooting.
+Tracker access is unconditional; native puzzles, boat/sky routes and admission
+requirements remain. No-logic does not guarantee a completable seed. The
+complete definition of done, physical traversal and full playthrough validation
+remain unfinished; this workflow is an experimental native randomizer.
 
 ## Builds
 
@@ -17,7 +77,7 @@ requires successfully built `cli_randomizer` and `sticker-star.apworld` files;
 use `--dependencies DIRECTORY` to supply them from another build.
 Use `--output DIRECTORY` to change the output directory.
 
-The CLI supports `generate`, `patch`, `track`, `client` and `catalog` subcommands.
+The CLI supports `generate`, `patch`, `track`, `client`, `catalog` and `rebind` subcommands.
 
 See [human_tests.todo](human_tests.todo) for gameplay and packaged-release validation.
 Start with `@critical` entries; `@blocked` entries identify prerequisites for full playthroughs.
@@ -36,7 +96,8 @@ python -m randomizer.patch generate "ROM.3ds" --seed 18 --output seed-18.sticker
 python -m randomizer.patch apply seed-18.stickerpatch "ROM.3ds" --output mod-18
 ```
 
-The apply output is a mod directory, not a ZIP archive. This mode shuffles combat
+Combat-only apply output is a mod directory. Native apply also accepts a `.zip`
+output containing the title-ID installation folder. Combat-only mode shuffles combat
 stickers; it does not implement the unfinished full-game progression catalog.
 The GUI runs these same commands and installs the bundled APWorld into an
 Archipelago installation's `custom_worlds` directory. The APWorld is currently

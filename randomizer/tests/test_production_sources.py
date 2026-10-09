@@ -1,14 +1,38 @@
 from copy import deepcopy
 from typing import Any
 import unittest
+from unittest.mock import Mock
 
 from ..integrations.rom.native_delivery import FlagReward, NativeReward, NativeRewardKind
 from ..integrations.rom.plan_io import checks
-from ..integrations.rom.production_sources import ProductionSources, reward_id
+from ..integrations.rom.production_sources import ProductionSources, needs_source, reward_id
+from ..integrations.rom.ksm import KsmDocument, KsmImport, KsmVariable, KsmValueType
 from .test_native_ap_catalog import fixture
 
 
 class ProductionSourceTests(unittest.TestCase):
+    def test_metadata_filter_keeps_every_hook_family_and_rejects_patched_inputs(self) -> None:
+        empty = Mock(spec=KsmDocument, statics=(), constants=(), globals=(), imports=())
+        self.assertFalse(needs_source("Script/Map/HEI/hei_5_00.bin", empty))
+        for filename in (
+            "Script/Map/HEI/hei_2_04.bin", "Script/Map/W4_KAW/w4_kaw_00.bin",
+            "Script/Map/MAC/mac_1_00.bin", "Script/Map/HEI/hei_2_01.bin",
+        ):
+            self.assertTrue(needs_source(filename, empty))
+        empty.imports = (KsmImport(1, "mobj_goal_block_exit", 8, 1, None),)
+        self.assertTrue(needs_source("Script/Map/HEI/hei_5_00.bin", empty))
+        empty.imports = (KsmImport(1, "item_static_entry", 8, 1, None),)
+        self.assertFalse(needs_source("Script/Map/HEI/hei_5_00.bin", empty))
+        empty.constants = (KsmVariable(1, None, KsmValueType.STRING, 3, "PK_FIELD_BRIDGE", 0),)
+        self.assertTrue(needs_source("Script/Map/HEI/hei_5_00.bin", empty))
+        empty.imports = (KsmImport(1, "rando_deliver", 8, 1, None),)
+        with self.assertRaisesRegex(ValueError, "original scripts"):
+            needs_source("Script/Map/HEI/hei_5_00.bin", empty)
+        empty.imports = ()
+        empty.statics = (KsmVariable(1, "gf_rando_check_0000", KsmValueType.BOOLEAN, 7, False, 0),)
+        with self.assertRaisesRegex(ValueError, "original scripts"):
+            needs_source("Script/Map/HEI/hei_5_00.bin", empty)
+
     def setUp(self) -> None:
         catalog, bindings = fixture()
         rewards = {

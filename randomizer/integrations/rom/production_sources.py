@@ -30,10 +30,34 @@ from .royal_patch import FINAL_BOSS
 from .scraps import audit_scrap_inventory, scrap_items, scripted_scraps
 from .stickers import sticker_policy
 from .switches import global_flags
-from .things import scripted_things
+from .things import SCRIPTED_THING_SCRIPTS, scripted_things
 
 # This below-map actor is a chest stand-in, not a second acquisition location.
 OASIS_STAND_IN = ("w2_oas_02", "map_piece_c", "PK_FIELD_TOW_ENTRANCE_3")
+
+
+def needs_source(filename: str, document: KsmDocument) -> bool:
+    """Only decode scripts whose metadata can contain a production hook.
+
+    All binaries are still inspected and hashed. Literal scripted scraps need
+    both their entry function and a field-item constant; dynamic expressions
+    without such a literal cannot be resolved by scripted_scraps either.
+    """
+    imported = {entry.name for entry in document.imports}
+    variables = document.statics + document.constants + document.globals
+    if any(name.startswith("rando_") for name in imported) or any(
+        variable.name is not None and variable.name.startswith(("rando_", "gf_rando_", "gs_rando_"))
+        for variable in variables
+    ):
+        raise ValueError("Production sources require original scripts, not patched research fixtures")
+    return (
+        filename in SHOP_SCRIPTS or filename in KAMEK_FLAGS or filename in SCRIPTED_THING_SCRIPTS.values()
+        or "mobj_goal_block_exit" in imported
+        or (
+            "item_static_entry" in imported
+            and any(isinstance(variable.value, str) and variable.value.startswith("PK_FIELD_") for variable in variables)
+        )
+    )
 
 
 def reward_id(reward: NativeReward) -> str:
@@ -124,11 +148,14 @@ def production_sources(project: RomProject, read_source: Callable[[str], str]) -
         if filename.split("/")[2] in {"TST", "TEST", "Debug"}:
             continue
         binary = read(filename)
+        document = KsmDocument(binary)
+        if not needs_source(filename, document):
+            continue
         source = read_source(filename)
         if re.search(r"\brando_[A-Za-z0-9_]+", source):
             raise ValueError("Production sources require original scripts, not patched research fixtures")
         map_name = filename.rsplit("/", 1)[1][:-4]
-        if any(imported.name == "mobj_goal_block_exit" for imported in KsmDocument(binary).imports):
+        if any(imported.name == "mobj_goal_block_exit" for imported in document.imports):
             for star in mini_stars(filename, source, binary, switches):
                 add(star.placement(dummy))
                 add_reward(NativeReward(NativeRewardKind.MINI_STAR, star.source_flag))

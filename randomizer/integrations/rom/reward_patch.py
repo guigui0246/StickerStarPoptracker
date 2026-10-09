@@ -22,7 +22,8 @@ from .native_delivery import (
 )
 from .pickups import item_pickups, record, text
 from .project import RomProject, publish_directory
-from .script_build import add_declarations, compile_checked, decompile, prepend_body, replace_body
+from .script_build import ScriptSource, add_declarations, compile_checked, decompile, prepend_body, replace_body
+from .scene_policy import skip_scene
 from .switches import SaveSwitch, global_flags, register_flags, register_saved_bytes
 from .royal_patch import (
     FINAL_BOSS,
@@ -42,7 +43,7 @@ from .presentation import (
 from .enemies import PLAYER_SCRIPT, WIN_SCRIPT, death_hook, enemy_types, reset_hook, victory_hook
 from .abilities import ability_patch
 from .sticker_guard import generic_save_indices, sticker_guard_patch
-from .access import WORLD_MAP_SCRIPT, gate_stage_entry
+from .access import WORLD_MAP_SCRIPT, configure_world_map, gate_stage_entry
 from .events import SHOP_SCRIPTS, stages
 from .doors import DOOR_IMPORT_SCRIPT, PAPERIZATION_SCRIPT, DoorPlace, door_places, gate_door_fit, validate_door_access
 from .startup import STARTUP_FLAGS, STARTUP_SCRIPT, post_tutorial_start, route_start_to_world_map
@@ -110,7 +111,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
     ):
         raise ValueError("Startup script cannot also be a check hook")
     if any(reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} for reward in rewards):
-        observed_policy = sticker_policy(item_source)
+        observed_policy = replace(sticker_policy(item_source), randomize_generic=not plan.vanilla_generic_stickers)
         if plan.sticker_policy is not None and plan.sticker_policy != observed_policy:
             raise ValueError("Sticker policy does not match this ROM")
         plan = replace(plan, sticker_policy=observed_policy)
@@ -282,7 +283,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                 raise ValueError("Executable segment layout does not match the bounded native hooks")
         if plan.ability_mode:
             code_patch = ability_patch(code, flag_indices, plan.fingerprint)
-        if plan.sticker_policy:
+        if plan.sticker_policy and plan.sticker_policy.randomize_generic:
             code_patch = sticker_guard_patch(
                 code,
                 flag_indices,
@@ -303,7 +304,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         source_effect_scripts = thing_effect_scripts(plan)
         for filename in source_effect_scripts:
             map_scripts[filename] = decompile(project, filename, work, compiler)
-        if plan.ability_mode or plan.stage_access_codes:
+        if plan.ability_mode or plan.stage_access_codes or plan.open_ground_routes or plan.starting_stage:
             map_scripts[WORLD_MAP_SCRIPT] = decompile(project, WORLD_MAP_SCRIPT, work, compiler)
         if plan.ability_mode:
             map_scripts[STARTUP_SCRIPT] = decompile(project, STARTUP_SCRIPT, work, compiler)
@@ -613,7 +614,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             "Script/Map/MAC/mac_1_00.bin",
             RUNTIME_SCRIPT,
         )
-        if plan.ability_mode or plan.stage_access_codes:
+        if plan.ability_mode or plan.stage_access_codes or plan.open_ground_routes or plan.starting_stage:
             delivery_scripts += (WORLD_MAP_SCRIPT,)
         if plan.ability_mode:
             delivery_scripts += (STARTUP_SCRIPT,)
@@ -637,6 +638,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                 source = prepend_body(source, "init", "\trando_deliver*();\n\tthread rando_delivery_poll*();\n")
                 source += "\n" + plan.polling_function()
             elif filename == WORLD_MAP_SCRIPT:
+                source = configure_world_map(source, plan, known_flags)
                 if plan.stage_access_codes:
                     source = gate_stage_entry(source, plan)
                 source = prepend_body(source, "e_worldmap", "\trando_deliver*();\n\tchildthread rando_delivery_poll*();\n")
@@ -761,6 +763,22 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             (staging / "exefs" / "code.S").write_text(code_patch.assembly, encoding="utf-8")
             if plan.ability_mode:
                 (staging / "exefs" / "abilities.S").write_text(code_patch.assembly, encoding="utf-8")
+        # Compose author-provided presentation bindings after all gameplay
+        # hooks. Decode the staged result when present, never overwrite it with
+        # an unpatched original. skip_scene refuses entries containing hooks.
+        for scene in plan.scene_skips:
+            binary = work / "scene-policy" / scene.script_file
+            binary.parent.mkdir(parents=True, exist_ok=True)
+            staged = staging / "romfs" / scene.script_file
+            original = staged.read_bytes() if staged.exists() else project.read_file(scene.script_file)
+            binary.write_bytes(original)
+            compile_script(compiler, binary)
+            script = ScriptSource(binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"),
+                                  hashlib.sha256(original).hexdigest())
+            script.source.write_text(skip_scene(script.source.read_text(encoding="utf-8"), scene), encoding="utf-8")
+            compiled = compile_checked(script, compiler, (), required_function=None)
+            project.write_override(staging, scene.script_file, compiled)
+            emitted[scene.script_file] = hashlib.sha256(compiled).hexdigest()
         report = {
             "format_version": 1,
             "mode": "native_goal_block_rewards",
@@ -777,11 +795,15 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             "starting_item_ids": list(plan.starting_item_ids),
             "album_pages": plan.album_pages,
             "stage_access_gates": list(plan.stage_access_codes),
+            "map_policy": {"open_ground_routes": plan.open_ground_routes, "starting_stage": plan.starting_stage,
+                           "gameplay_verified": False},
             "door_access_gates": list(plan.door_access_codes),
             "boss_access_gates": list(plan.boss_access_codes),
             "door_places": [asdict(place) for place in observed_doors],
             "shuffle_royals": plan.shuffle_royals,
             "sticker_policy": asdict(plan.sticker_policy) if plan.sticker_policy else None,
+            "vanilla_generic_stickers": plan.vanilla_generic_stickers,
+            "scene_skips": [asdict(scene) for scene in plan.scene_skips],
             "presentation": {
                 "skip_opening": plan.skip_opening,
                 "skip_safe_scene_intervals": plan.skip_opening,

@@ -4,10 +4,22 @@ import unittest
 from ..data.catalog import parse_catalog
 from ..integrations.archipelago.native_catalog import allocate_registry
 from ..integrations.archipelago.tracker_catalog import TrackerCatalog
+from ..settings import Settings
 from . import test_native_ap_catalog
 
 
 class TrackerCatalogTests(unittest.TestCase):
+    def test_default_settings_are_explicit_in_tracker_mapping(self) -> None:
+        data, _ = test_native_ap_catalog.fixture()
+        game = parse_catalog(data)
+        tracker = TrackerCatalog(game, allocate_registry(game), "a" * 64, Settings())
+        values = tracker.setting_values()
+        self.assertEqual(values["museum"], "all")
+        self.assertEqual(values["enemy_rewards"], "on")
+        self.assertEqual(values["door_stickers"], "randomized")
+        self.assertEqual(values["generic_stickers"], "enabled")
+        self.assertEqual(tracker.mappings()["settings"], values)
+
     def test_mappings_and_predicates_share_stable_ids_and_exclude_fixed_rewards(self) -> None:
         data, _ = test_native_ap_catalog.fixture()
         game = parse_catalog(data)

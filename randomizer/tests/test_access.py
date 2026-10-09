@@ -1,6 +1,6 @@
 import unittest
 
-from ..integrations.rom.access import gate_stage_entry
+from ..integrations.rom.access import configure_world_map, gate_stage_entry
 from ..integrations.rom.doors import DoorPlace, gate_door_fit
 from ..integrations.rom.mailbox import RemoteReward, RemoteSession, remote_function
 from ..integrations.rom.native_delivery import DeliveryPlan, GoalBlockReward, NativeReward, NativeRewardKind
@@ -8,6 +8,34 @@ from ..integrations.rom.startup import STARTUP_FLAGS, post_tutorial_start
 
 
 class AccessTests(unittest.TestCase):
+    def test_open_routes_preserve_boat_sky_sources_and_admission(self) -> None:
+        from dataclasses import replace
+        from ..integrations.rom.plan_io import decode_plan, encode_plan
+
+        original = self.plan(NativeRewardKind.STAGE_ACCESS)
+        plan = replace(original, open_ground_routes=True, starting_stage="A01")
+        self.assertIn("gf_rando_map_start_initialized", plan.references)
+        self.assertNotIn("gf_rando_map_start_initialized", plan.required_references)
+        source = "private e_worldmap() {\nwm_check_gf();\nsetup_mario();\n}\n"
+        flags = {"gf_wm_a01_a02", "gf_wm_a06_b01", "gf_wm_x01_x02", "gf_wm_x02_d01", "gf_wm_f01_f02"}
+        patched = configure_world_map(source, plan, flags)
+        self.assertIn('wm_set_gf*("GF_WM_A01_A02")', patched)
+        self.assertIn('wm_set_gf*("GF_WM_A06_B01")', patched)
+        self.assertIn('wm_cspt_show*("A01")', patched)
+        self.assertNotIn('wm_cspt_show*("F02")', patched)
+        self.assertNotIn('wm_cspt_show*("X01")', patched)
+        self.assertNotIn("X01_X02", patched)
+        self.assertNotIn("X02_D01", patched)
+        self.assertNotIn("F01_F02", patched)
+        self.assertNotIn("mobj_set_gf", patched)
+        self.assertNotIn("gf_rando_check", patched)
+        self.assertLess(patched.index("wm_check_gf"), patched.index("wm_set_gf"))
+        self.assertIn("gf_rando_map_start_initialized == false", patched)
+        self.assertEqual(decode_plan(encode_plan(plan)), plan)
+        self.assertNotEqual(plan.fingerprint, original.fingerprint)
+        with self.assertRaises(ValueError):
+            configure_world_map(source.replace("wm_check_gf", "missing"), plan, flags)
+
     def plan(self, kind: NativeRewardKind) -> DeliveryPlan:
         return DeliveryPlan((GoalBlockReward("hei_5_00", "GF_WM_A01_A02", NativeReward(kind, "A01")),))
 

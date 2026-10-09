@@ -24,9 +24,9 @@ def main() -> None:
     bundle = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1])) / "bundled"
     command = tk.StringVar(value="generate")
     arguments = tk.StringVar()
-    ttk.Label(root, text="Existing tools: generation uses a logic catalog; sticker patching is experimental.").pack(pady=12)
+    ttk.Label(root, text='Generate a native seed with arguments: --logic no-logic "ROM.3ds"').pack(pady=12)
     ttk.Combobox(
-        root, textvariable=command, values=("generate", "patch", "track", "client", "catalog"), state="readonly"
+        root, textvariable=command, values=("generate", "patch", "track", "client", "catalog", "rebind"), state="readonly"
     ).pack()
     ttk.Label(root, text="Command arguments (quote paths with spaces); use --help for available options.").pack(pady=8)
     ttk.Entry(root, textvariable=arguments, width=100).pack(padx=12, fill="x")

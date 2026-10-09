@@ -35,10 +35,9 @@ def tracking_script(catalog: TrackerCatalog) -> str:
         lines.append(f"starting[{lua_string(catalog.item_code(item))}] = {count}")
     lines.append("local expected_settings = nil")
     if catalog.settings is not None:
-        settings = catalog.settings.to_json()
+        settings = catalog.setting_values()
         lines.append(
-            "expected_settings = {album_pages=" + lua_string(settings["album_pages"])
-            + ", banners=" + lua_string(settings["banners"]) + "}"
+            "expected_settings = {" + ", ".join(key + "=" + lua_string(value) for key, value in settings.items()) + "}"
         )
     lines.append(
         """local bound = false
@@ -179,6 +178,7 @@ def pack_files(catalog: TrackerCatalog) -> dict[str, str]:
     ]
     if catalog.settings is not None:
         album = {
+            "vanilla": "Vanilla page rewards",
             "all_at_start": "All eight pages at start",
             "randomized": "Two base pages and six shuffled upgrades",
         }[catalog.settings.album_pages.value]
@@ -186,7 +186,10 @@ def pack_files(catalog: TrackerCatalog) -> dict[str, str]:
             catalog.settings.banners.value
         ]
         layout_tabs.append({"title": "Configuration", "content": {
-            "type": "text", "text": f"Album: {album}\nBanners: {banners}\nItem counters show received totals.",
+            "type": "text", "text": f"Album: {album}\nBanners: {banners}\n"
+            + "\n".join(key.replace("_", " ").title() + ": " + value for key, value in catalog.setting_values().items()
+                        if key not in {"album_pages", "banners"})
+            + "\nItem counters show received totals.",
         }})
     layout = {"tracker_default": {"type": "tabbed", "tabs": layout_tabs}}
     variant_hash = hashlib.sha256(json.dumps({

@@ -1,0 +1,67 @@
+# Native no-logic validation — 2026-10-09
+
+# Automated/native observations completed in this session:
+# - no-logic-42: actual-ROM generation, mod compilation and title-folder ZIP.
+# - 416 checks; 1,022 GF bits; one GS byte; exact bound native profile loads.
+# - fresh native startup and five starting item receipts without game-memory writes.
+# - packaged loopback tracker: matching data package and native inventory,
+#   reconnect replay, separate check state and inert client LocationChecks.
+# - Regression tests, tracker Lua callbacks, Flake8 (127 columns), Pyright.
+# These observations do not substitute for the physical gameplay tests below.
+# Additional implementation handoff:
+# - 232 regression tests pass; Flake8 127 columns and Pyright are clean.
+# - extended-100: actual-ROM compile with vanilla pages, museum off, generic
+#   availability disabled, vanilla door places, random start and open ground routes.
+# - Archive layout, exact native profile/fingerprint, map receipt allocation and
+#   absence of generic unlock guard hooks verified without running gameplay.
+# - Updated CLI, GUI, APWorld and tracker packages are in generated/native-release.
+# - extended-101: packaged CLI end-to-end native apply completed successfully.
+# - Logic authoring and maintenance: docs/IMPLEMENTATION_GUIDE.md.
+# - One-command `generate --logic no-logic ROM.3ds`: random seed and automatic
+#   output tested against the actual ROM (seed 4597391255404789628, 416 checks).
+# - Included compiler, automatic mod application and matching tracker/profile
+#   verified; report copying and `track --seed` lookup covered by regression tests.
+# - 240 regression tests pass; simplified release is in generated/simple-release.
+# - Corrected bootstrap now grants a locked Jump copy, not its unlock; Jump
+#   ownership is shuffled. Ground navigation and course visibility default on.
+# - Corrected seed 2130188903292708219 compiled to generated/corrected-2130188903292708219;
+#   exact profile and native map imports verified. Use a fresh save.
+# - 245 regression tests and 17,760 ARM sticker ownership/conversion cases pass.
+# - Permanent editable catalog: randomizer/data/game/. `--logic catalog` loads
+#   it automatically and validates logic edits against its native reference.
+# - Authoring now uses actual Item/Location/EndGoal/Region/StartingRegion/Path/
+#   Vector/Rules objects in randomizer/data/game/*.py; JSON authoring files removed.
+# - Generation directly loads the Python GameDefinition. JSON remains only at
+#   interchange and native binding/reference boundaries. 247 regression tests pass.
+# - Updated Python-definition release passes packaged catalog generation.
+
+@critical Enter Decalburg and 1-1 from the fresh no-logic starting map.
+@critical Confirm Decalburg is visibly unrolled with the tutorial complete.
+@critical Collect a mini star, a Thing and a scrap; compare native rewards and tracker checks.
+@critical Confirm a pending full-inventory reward retries after space is made.
+@critical Save/reload and restart the bridge; verify no reward duplicates or lost checks.
+@critical Confirm local rewards still work with both tracker bridge and emulator RPC disabled.
+@critical Traverse the map without beating levels; boat requirements must remain meaningful.
+@critical Verify puzzle access and every native scrap transformation needed to reach Bowser.
+@critical Finish a no-logic playthrough, documenting any seed-specific progression dead ends.
+@critical Defeat Bowser and verify victory is reported only for a real win.
+
+@pending Test every enabled enemy, museum exhibit, shop, Kamek fight and banner callback.
+@pending Test every Secret Door ownership/placement combination and sticker retention.
+@pending Test randomized pages and all-at-start capacity, acquisition and save/reload.
+@pending Test original/reduced/off banners, including thresholds requiring upward rounding.
+@pending Test opening, dialogue choices and long cutscenes in English and another language.
+@pending Test vanilla pages preserve native upgrade grants and capacity.
+@pending Test museum all/off/normal/things and enemy checks on/off preserve victory.
+@pending Test generic-stickers disabled retains stock pickups/shops and randomized Things.
+@pending Test vanilla door places still require Secret Door ownership and puzzle prerequisites.
+@pending Test random ground-stage starts, camera, save/reload and one-time placement.
+@pending Test open-ground-routes survives map refresh without opening boat or sky routes.
+@pending Inspect and test every supplied scene-skip cleanup for story/input/camera effects.
+@pending Verify received Royal ownership is independent of source boss completion.
+@pending Complete a real AP 0.6.8 multiworld with reconnect, remote delivery and victory.
+
+# Outstanding implementation areas beyond the current no-logic workflow:
+@blocked Independent ground movement has an opt-in implementation; physical behavior remains unverified.
+@blocked Infinite pages, enemy soul gates and shop-purchase plando require further native research.
+@blocked The full reviewed physical progression catalog remains unfinished.

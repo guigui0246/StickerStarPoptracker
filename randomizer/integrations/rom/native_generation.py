@@ -10,9 +10,9 @@ import hashlib
 import json
 from pathlib import Path
 
-from ...data.catalog import Json, array, obj, string
+from ...data.catalog import Json, array, load_catalog_data, obj, parse_catalog, string
 from ...domain import EndGoal, GameDefinition, Rules
-from ...settings import AlbumPages, Banners, Settings
+from ...settings import AlbumPages, Banners, DoorStickers, EnemyRewards, GenericStickers, Museum, Settings
 from ...standalone.generation import Seed, generate_seed, playthrough
 from .native_delivery import (
     BannerReward,
@@ -46,6 +46,15 @@ class NativeBindings:
 
     @classmethod
     def load(cls, path: Path, catalog: Json) -> "NativeBindings":
+        if path.is_dir():
+            # Only logic may change relative to the shipped source registry.
+            # Validate its reference before rebinding edited authoring files.
+            original = load_catalog_data(path / "native_reference.json")
+            bound = cls.parse(load_catalog_data(path / "bindings.json"), original)
+            bound.validate(parse_catalog(original))
+            updated = replace(bound, catalog_hash=catalog_digest(catalog))
+            updated.validate(parse_catalog(catalog))
+            return updated
         return cls.parse(json.loads(path.read_text(encoding="utf-8")), catalog)
 
     @classmethod
@@ -146,11 +155,12 @@ def bind_seed(
         native_checks.append(replace(source, reward=bindings.items[placements[location.id]]))
     return DeliveryPlan(
         tuple(native_checks),
-        album_pages=settings.album_pages,
+        album_pages=None if settings.album_pages == AlbumPages.VANILLA else settings.album_pages,
         shuffle_royals=shuffle_royals,
         seed_name=seed.seed,
         starting_rewards=tuple(bindings.items[item] for item in game.starting_items),
         catalog_hash=bindings.catalog_hash,
+        vanilla_generic_stickers=settings.generic_stickers == GenericStickers.DISABLED,
     )
 
 
@@ -171,26 +181,72 @@ def configure_catalog(
     Removing banners may trim only surplus, non-progression pool entries that
     no access rule references. Never silently discard a progression item.
     """
-    removed = (
-        {identifier for identifier, source in bindings.locations.items() if isinstance(source, BannerReward)}
-        if settings.banners == Banners.OFF
-        else set()
-    )
+    removed = set()
+    for identifier, source in bindings.locations.items():
+        if isinstance(source, BannerReward) and settings.banners == Banners.OFF:
+            removed.add(identifier)
+        if isinstance(source, EnemyReward) and settings.enemy_rewards == EnemyRewards.OFF:
+            # Boss admission and Royal reward checks are separate sources and
+            # remain enabled. Enemy first-victory checks are the optional pool.
+            removed.add(identifier)
+        if isinstance(source, FlagReward) and source.category == "museum":
+            things = source.source_flag.startswith("gf_museum_robj_")
+            if (settings.museum == Museum.OFF or (settings.museum == Museum.NORMAL and things)
+                    or (settings.museum == Museum.THINGS and not things)):
+                removed.add(identifier)
     if removed & game.fixed_rewards.keys():
-        raise ValueError("Disabled banners cannot remove fixed events or goals")
+        raise ValueError("Check settings cannot remove fixed events or goals")
     remaining = tuple(location for location in game.locations if location.id not in removed)
+    paths = game.paths
+    copies = {str(native.value): identifier for identifier, native in bindings.items.items()
+              if native.kind == NativeRewardKind.STICKER_COPY}
+    generic = {identifier for identifier, native in bindings.items.items()
+               if native.kind == NativeRewardKind.STICKER_UNLOCK and str(native.value) in copies}
+    if settings.generic_stickers == GenericStickers.DISABLED:
+        def available_in_vanilla(rule: Rules) -> Rules:
+            # These predicates represent unlock entitlements, not a physical
+            # inventory count. Vanilla shops make the entitlement unconditional.
+            if rule.operator == "item" and rule.item_id in generic:
+                return Rules.all_of()
+            return replace(rule, children=tuple(available_in_vanilla(child) for child in rule.children))
+
+        remaining = tuple(replace(location, rules=available_in_vanilla(location.rules)) for location in remaining)
+        paths = tuple(replace(path, forward=replace(path.forward, rules=available_in_vanilla(path.forward.rules)),
+                              reverse=replace(path.reverse, rules=available_in_vanilla(path.reverse.rules))) for path in paths)
     required = set().union(
         *(location.rules.referenced_items() for location in remaining),
-        *(vector.rules.referenced_items() for path in game.paths for vector in (path.forward, path.reverse)),
+        *(vector.rules.referenced_items() for path in paths for vector in (path.forward, path.reverse)),
     )
     items = {item.id: item for item in game.items}
     pool = list(game.pool)
+    starting = list(game.starting_items)
+    if settings.generic_stickers == GenericStickers.DISABLED:
+        fillers = sorted(key for key, item in items.items() if not item.progression and key not in required
+                         and bindings.items[key].kind == NativeRewardKind.COINS)
+        if generic and not fillers:
+            raise ValueError("Vanilla generic stickers require a coin filler")
+        pool = [fillers[0] if identifier in generic else identifier for identifier in pool]
+        starting = [copies[str(bindings.items[identifier].value)] if identifier in generic else identifier
+                    for identifier in starting]
+    if settings.door_stickers == DoorStickers.VANILLA:
+        # Move place capabilities out of the shuffled pool while retaining all
+        # native gates. Idempotent starting grants unlock places without giving
+        # a Secret Door sticker or satisfying any other puzzle prerequisite.
+        for index, identifier in enumerate(pool):
+            if bindings.items[identifier].kind == NativeRewardKind.DOOR_ACCESS:
+                if identifier not in starting:
+                    starting.append(identifier)
+                fillers = [key for key, item in items.items() if not item.progression and key not in required
+                           and bindings.items[key].kind == NativeRewardKind.COINS]
+                if not fillers:
+                    raise ValueError("Vanilla door places require a coin filler")
+                pool[index] = sorted(fillers)[0]
     for _ in removed:
         candidates = [
             index for index, identifier in enumerate(pool) if not items[identifier].progression and identifier not in required
         ]
         if not candidates:
-            raise ValueError("Removing banners requires enough surplus filler; progression rewards cannot be dropped")
+            raise ValueError("Removing checks requires enough surplus filler; progression rewards cannot be dropped")
         pool.pop(candidates[-1])
     page_items = sorted(identifier for identifier, reward in bindings.items.items() if reward.kind == NativeRewardKind.PAGE)
     if any(game.fixed_rewards.get(location.id) in page_items for location in game.locations):
@@ -228,6 +284,6 @@ def configure_catalog(
                 if not filler:
                     raise ValueError("All-at-start pages require a catalog filler to replace page rewards")
                 pool[index] = filler[0]
-    enabled = replace(game, locations=remaining, pool=tuple(pool))
+    enabled = replace(game, locations=remaining, paths=paths, pool=tuple(pool), starting_items=tuple(starting))
     sources = {identifier: source for identifier, source in bindings.locations.items() if identifier not in removed}
     return enabled, replace(bindings, locations=sources)

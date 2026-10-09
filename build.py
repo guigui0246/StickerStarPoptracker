@@ -36,10 +36,16 @@ def executable(target: str, output: Path, dependencies: Path) -> None:
         "--hidden-import",
         "websockets.asyncio.client",
         "--hidden-import",
+        "websockets.asyncio.server",
+        "--hidden-import",
         "websockets.exceptions",
         "--hidden-import",
         "array",
     ]
+    if target == "cli_randomizer":
+        arguments.extend(("--add-data", f"{ROOT / 'vendor' / 'gibberish'}:bundled/gibberish"))
+        for filename in ("bindings.json", "native_reference.json"):
+            arguments.extend(("--add-data", f"{ROOT / 'randomizer' / 'data' / 'game' / filename}:bundled/game"))
     if target == "randomizer":
         entry = ROOT / "tools" / "release_gui.py"
         for filename in ("sticker-star.apworld", "cli_randomizer.exe" if sys.platform == "win32" else "cli_randomizer"):

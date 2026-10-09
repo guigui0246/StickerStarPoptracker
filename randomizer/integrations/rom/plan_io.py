@@ -23,6 +23,17 @@ from .native_delivery import (
     ScriptReward,
 )
 from .stickers import StickerPolicy
+from .scene_policy import SceneSkip
+
+
+def scene_skips(value: Json) -> tuple[SceneSkip, ...]:
+    result = []
+    for raw in array(value):
+        row = obj(raw)
+        if set(row) != {"script_file", "entry", "cleanup"}:
+            raise ValueError("Scene policies require script_file, entry and cleanup")
+        result.append(SceneSkip(string(row["script_file"]), string(row["entry"]), string(row["cleanup"])))
+    return tuple(result)
 
 
 def integer(value: Json) -> int:
@@ -51,7 +62,9 @@ def decode_sticker_policy(value: Json) -> StickerPolicy | None:
     if value is None:
         return None
     entry = obj(value)
-    if set(entry) != {"generic", "things", "replacement"}:
+    if not {"generic", "things", "replacement"} <= entry.keys() <= {
+        "generic", "things", "replacement", "randomize_generic",
+    }:
         raise ValueError("Invalid sticker policy fields")
     things = []
     for raw in array(entry["things"]):
@@ -59,7 +72,10 @@ def decode_sticker_policy(value: Json) -> StickerPolicy | None:
         if len(pair) != 2:
             raise ValueError("Expected sticker/Thing pair")
         things.append((string(pair[0]), string(pair[1])))
-    return StickerPolicy(tuple(string(item) for item in array(entry["generic"])), tuple(things), string(entry["replacement"]))
+    return StickerPolicy(
+        tuple(string(item) for item in array(entry["generic"])), tuple(things), string(entry["replacement"]),
+        boolean(entry.get("randomize_generic", True)),
+    )
 
 
 def checks(
@@ -157,7 +173,8 @@ def decode_plan(value: Json) -> DeliveryPlan:
     if (
         not expected
         <= set(row)
-        <= expected | {"starting_rewards", "starting_item_ids", "catalog_hash", "saved_byte_mailbox", "priority_pages"}
+        <= expected | {"starting_rewards", "starting_item_ids", "catalog_hash", "saved_byte_mailbox", "priority_pages",
+                       "open_ground_routes", "starting_stage", "vanilla_generic_stickers", "scene_skips"}
     ):
         raise ValueError("Unsupported native plan fields")
     if any(type(row[key]) is not bool for key in ("shuffle_royals", "skip_opening", "skip_dialogue")):
@@ -194,6 +211,10 @@ def decode_plan(value: Json) -> DeliveryPlan:
         string(row["catalog_hash"]) if row.get("catalog_hash") is not None else None,
         boolean(row.get("saved_byte_mailbox", False)),
         boolean(row.get("priority_pages", False)),
+        boolean(row.get("open_ground_routes", False)),
+        string(row["starting_stage"]) if row.get("starting_stage") is not None else None,
+        boolean(row.get("vanilla_generic_stickers", False)),
+        scene_skips(row.get("scene_skips", [])),
     )
 
 
@@ -210,6 +231,16 @@ def encode_plan(plan: DeliveryPlan) -> Json:
         obj(value).pop("saved_byte_mailbox")
     if not plan.priority_pages:
         obj(value).pop("priority_pages")
+    if not plan.open_ground_routes:
+        obj(value).pop("open_ground_routes")
+    if plan.starting_stage is None:
+        obj(value).pop("starting_stage")
+    if not plan.vanilla_generic_stickers:
+        obj(value).pop("vanilla_generic_stickers")
+    if not plan.scene_skips:
+        obj(value).pop("scene_skips")
+    if plan.sticker_policy:
+        obj(value)["sticker_policy"] = json.loads(json.dumps(plan.sticker_policy.to_dict()))
     decode_plan(value)
     return value
 

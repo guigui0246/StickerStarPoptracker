@@ -14,6 +14,7 @@ import re
 from typing import TYPE_CHECKING
 from ...settings import AlbumPages
 from ...settings import Banners
+from .scene_policy import SceneSkip
 
 if TYPE_CHECKING:
     from .mailbox import RemoteReward, RemoteSession
@@ -338,8 +339,26 @@ class DeliveryPlan:
     catalog_hash: str | None = None
     saved_byte_mailbox: bool = False
     priority_pages: bool = False
+    open_ground_routes: bool = False
+    starting_stage: str | None = None
+    vanilla_generic_stickers: bool = False
+    scene_skips: tuple[SceneSkip, ...] = ()
 
     def __post_init__(self) -> None:
+        if type(self.open_ground_routes) is not bool:
+            raise ValueError("Ground-route policy must be boolean")
+        if type(self.vanilla_generic_stickers) is not bool:
+            raise ValueError("Generic sticker mode must be boolean")
+        if len(self.scene_skips) > 64 or any(not isinstance(scene, SceneSkip) for scene in self.scene_skips):
+            raise ValueError("Scene skip policy requires at most 64 typed bindings")
+        if len({(scene.script_file, scene.entry) for scene in self.scene_skips}) != len(self.scene_skips):
+            raise ValueError("A scene entry cannot have multiple cleanup bindings")
+        if self.sticker_policy is not None and self.sticker_policy.randomize_generic == self.vanilla_generic_stickers:
+            raise ValueError("Sticker policy and native generic mode disagree")
+        if self.starting_stage is not None and (
+            not isinstance(self.starting_stage, str) or not re.fullmatch(r"[A-E][0-9]{2}|X00", self.starting_stage)
+        ):
+            raise ValueError("Starting stage must be a grounded course or Decalburg")
         if type(self.priority_pages) is not bool or (
             self.priority_pages
             and (
@@ -504,6 +523,7 @@ class DeliveryPlan:
             + unlocks
             + receipts
             + self.starting_flags
+            + (("gf_rando_map_start_initialized",) if self.starting_stage is not None else ())
         )
 
     @property
@@ -641,6 +661,8 @@ class DeliveryPlan:
     def required_references(self) -> tuple[str, ...]:
         # Host-only nonce and reserved mailbox bits need registry storage, but
         # no VM references. The compiler correctly drops their declarations.
+        # The starting-position receipt is used only by the world-map script;
+        # that script verifies its own references when compiled.
         rewards = self.rewards
         unlocks = {
             self.sticker_policy.flag(str(reward.value))
@@ -653,6 +675,7 @@ class DeliveryPlan:
             flag
             for flag in self.references
             if not flag.startswith(("gf_rando_enemy_pending_", "gf_rando_boss_pending_", "gs_rando_rpc_save_"))
+            and flag != "gf_rando_map_start_initialized"
             and (not flag.startswith("gf_rando_unlock_") or flag in unlocks)
             and (
                 not flag.startswith("gf_rando_rpc_")
@@ -685,7 +708,7 @@ class DeliveryPlan:
             self.shuffle_royals,
             [asdict(entry) for entry in self.remote_rewards],
             asdict(self.remote_session) if self.remote_session else None,
-            asdict(self.sticker_policy) if self.sticker_policy else None,
+            self.sticker_policy.to_dict() if self.sticker_policy else None,
             self.skip_opening,
             self.skip_dialogue,
             self.seed_name,
@@ -721,6 +744,12 @@ class DeliveryPlan:
             identity.append("first-five-royals-castle-gate-v1")
         if self.catalog_hash is not None:
             identity.append(["native-catalog-binding-v1", self.catalog_hash])
+        if self.open_ground_routes or self.starting_stage is not None:
+            identity.append(["native-map-policy-v1", self.open_ground_routes, self.starting_stage])
+        if self.vanilla_generic_stickers:
+            identity.append("vanilla-generic-sticker-policy-v1")
+        if self.scene_skips:
+            identity.append(["explicit-scene-cleanup-v1", [asdict(scene) for scene in self.scene_skips]])
         return hashlib.sha256(json.dumps(identity, separators=(",", ":")).encode()).digest()[:16]
 
     def seed_function(self) -> str:
