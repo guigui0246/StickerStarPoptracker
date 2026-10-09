@@ -1,0 +1,50 @@
+- intro and all long cutscenes and textbox should be skipped whatever the language (tests will mostly be done with language set to english but some will be in other languages)
+- decalburg should start in the state after you beat the tutorial goombas (so unrolling included)
+- the randomizer generator must create a .stickerpatch file that doesn't contain anything from the IP/ROM so it can't be shared in all legallity that itself gets used later with the ROM to generate the mod
+- in archipelago version it should use the RPC server to receive items from other worlds and send locations but local items must not require that
+- in standalone version it must work without using the RPC server but it can use it to run a pseudo archipelago server locally to get the poptracker to auto track
+- moving on the map must be possible even without being able to enter levels/beating levels (except the boat part that needs more)
+- poptracker pack must be able to auto-track every setting, item and location
+- generator must make a json that is the only needed thing (apart from the ROM) for any version of the randomizer to generate the patch
+- patch must make a zip containing the 00040000000A5F00 folder to mod
+
+
+items:
+- thing stickers (unlocks the thing in the thing shop)
+- royal stickers
+- hammer
+- paperization
+- level unlocks (includes decalburg)
+- door sticker placements
+- generic stickers: getting the item gives you 1 in the inventory and unlocks it in every shop. If you don't have it it auto transforms to a kamek flipper from coming from ? block, ennemi drops, ... (Door sticker in included in this)
+- boss unlock
+- ennemi unlock
+- fillers: coins and other stickers
+- scraps
+- book pages
+locations:
+- mini stars
+- finding things
+- beating bosses (where you normally get the royal sticker)
+- beating kamek fights
+- first time beating each type of ennemy
+- success banners (like 200 excellent)
+- finding scraps
+- each first time talking to the toad of a shop
+- each sticker (things included) in the museum
+goal:
+- final boss
+settings:
+- banners: enabled, requirements divided by 10, disabled
+- museum: enabled, disabled, normal stickers only, things only
+- starting level: decalburg, random
+- book pages: vanilla, random, infinite
+- stickers randomizer: enabled, disabled, plando into shops
+- door stickers: randomized, vanilla
+- ennemi rewards (boss are always enabled): enabled, disabled
+- ennemi souls (boss are always enabled): per ennemi type, per level, disabled
+
+
+The randomizer must be made with a clean code, separated in folders and subfolders and working both as standalone and compatible with archipelago 0.6.8.
+All should use well typed classes that are obvious what they are. It should include at least those classes: Location (where you get an item), Item, Event (special "item" that is at a specific location and not randomized), Goal (special "location" that has a specific "item" and is not randomized), EndGoal (special Goal that marks the randomizer as won), Region (Group of location, can have multiple paths), Vector (rules to go through a path), Path (two way connection between regions that has 1 vector in each direction, each vector with different rules), StartingRegion (the 1 and only Region that starts entirely open, it is the main menu/map as decalburg can later be locked behind an item), Rules (what is required to get a location or go through a vector)
+The logic can be added to the vectors by the user once every item, location are defined.
