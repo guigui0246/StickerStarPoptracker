@@ -25,15 +25,16 @@ def main() -> None:
         if not all(value is not None for value in (args.catalog, args.bindings, args.rom)):
             parser.error("Native packaging requires --catalog, --bindings and --rom")
         sys.path.insert(0, str(root))
-        from randomizer.data.catalog import parse_catalog
+        from randomizer.data.catalog import load_catalog_data, parse_catalog
         from randomizer.integrations.archipelago.native_catalog import NativeAPCatalog, NativeAPRegistry, allocate_registry
         from randomizer.integrations.rom.native_generation import NativeBindings
         from randomizer.integrations.rom.native_recipe import source_digest
         from randomizer.integrations.rom.project import RomProject
         from randomizer.integrations.rom.stickers import sticker_policy
+        from randomizer.integrations.rom.seed_patch import unique_object
 
-        catalog_data = json.loads(args.catalog.read_text(encoding="utf-8-sig"))
-        bindings_data = json.loads(args.bindings.read_text(encoding="utf-8"))
+        catalog_data = load_catalog_data(args.catalog)
+        bindings_data = json.loads(args.bindings.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
         game = parse_catalog(catalog_data)
         NativeBindings.parse(bindings_data, catalog_data).validate(game)
         registry_output = Path(str(args.output) + ".ids.json")

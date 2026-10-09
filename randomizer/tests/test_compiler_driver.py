@@ -1,12 +1,26 @@
 import unittest
 import struct
-from unittest.mock import Mock
+from pathlib import Path
+import sys
+from unittest.mock import Mock, patch
 
 from ..integrations.rom.compiler_driver import hoist_literal_arrays, read_literal, read_instruction
 from ..integrations.rom.script_build import validate_function_contracts, validate_runtime_calls
+from ..integrations.rom.tutorial_skip import compile_script
 
 
 class CompilerDriverTests(unittest.TestCase):
+    def test_frozen_compiler_uses_internal_dispatch_without_launching_an_application(self) -> None:
+        with patch.object(sys, "frozen", True, create=True), patch(
+            "randomizer.integrations.rom.tutorial_skip.subprocess.run"
+        ) as run:
+            compile_script(Path("external/main.py"), Path("scratch/source.cksm"))
+        arguments = run.call_args.args[0]
+        self.assertEqual(arguments[:2], [sys.executable, "_compile-script"])
+        self.assertEqual(arguments[2:], [str(Path("external/main.py").resolve()), str(Path("scratch/source.cksm").resolve())])
+        self.assertEqual(run.call_args.kwargs["cwd"], Path("scratch").resolve())
+        self.assertTrue(run.call_args.kwargs["check"])
+
     def test_compiler_cannot_keep_a_helper_definition_but_drop_its_calls(self):
         source = "private rando_query() {\n}\nprivate init() {\nlocal localVar0 = rando_query*();\n}\n"
         validate_runtime_calls(source, source.replace("rando_query*()", "rando_query()"))

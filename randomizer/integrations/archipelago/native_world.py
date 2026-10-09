@@ -14,6 +14,7 @@ from ..rom.native_delivery import BannerReward, DeliveryPlan, NativeReward, Nati
 from ..rom.native_generation import NativeBindings, configure_catalog
 from ..rom.native_recipe import NativeRecipe
 from .native_catalog import NativeAPCatalog
+from .tracker_catalog import TrackerCatalog
 from .world import SharedCatalogWorld, StickerStarOptions
 
 GAME_NAME = "Paper Mario: Sticker Star (Native Catalog)"
@@ -91,16 +92,20 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
                 raise ValueError("This catalog has no filler for AP pool replacement")
             return names[0]
 
-        def fill_slot_data(self) -> dict[str, object]:
-            from .tracker_catalog import TrackerCatalog
+        def tracker_catalog(self) -> TrackerCatalog:
+            by_name = {item.name: item.id for item in self.definition.items}
+            starting = tuple(by_name[item.name] for item in self.multiworld.precollected_items[self.player])
+            definition = replace(self.definition, starting_items=starting)
+            return TrackerCatalog(definition, catalog.registry, catalog.catalog_hash, self.native_settings)
 
+        def fill_slot_data(self) -> dict[str, object]:
             return {
                 "format_version": 1,
                 "catalog_hash": catalog.catalog_hash,
                 "native_catalog": True,
                 "full_game_catalog": False,
                 "settings": self.native_settings.to_json(),
-                "tracker": TrackerCatalog(self.definition, catalog.registry, catalog.catalog_hash).mappings(),
+                "tracker": self.tracker_catalog().mappings(),
             }
 
         def native_plan(self) -> DeliveryPlan:
@@ -149,8 +154,6 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
             return fit_mailbox(plan)
 
         def generate_output(self, output_directory: str) -> None:
-            from .tracker_catalog import TrackerCatalog
-
             plan = self.native_plan()
             stem = Path(output_directory) / self.multiworld.get_out_file_name_base(self.player)
             stem.parent.mkdir(parents=True, exist_ok=True)
@@ -204,7 +207,10 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
                 + "\n",
                 encoding="utf-8",
             )
-            tracker = TrackerCatalog(self.definition, catalog.registry, catalog.catalog_hash)
+            tracker = self.tracker_catalog()
+            from .tracker_pack import write_tracker_pack
+
+            write_tracker_pack(tracker, Path(str(stem) + ".tracker.zip"))
             Path(str(stem) + ".tracker.lua").write_text(tracker.lua(), encoding="utf-8")
             Path(str(stem) + ".tracker.json").write_text(json.dumps(tracker.definitions(), indent=2) + "\n", encoding="utf-8")
             Path(str(stem) + ".tracker-data.json").write_text(

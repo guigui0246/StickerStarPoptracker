@@ -37,6 +37,8 @@ def executable(target: str, output: Path, dependencies: Path) -> None:
         "websockets.asyncio.client",
         "--hidden-import",
         "websockets.exceptions",
+        "--hidden-import",
+        "array",
     ]
     if target == "randomizer":
         entry = ROOT / "tools" / "release_gui.py"

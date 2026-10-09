@@ -15,7 +15,7 @@ from .integrations.rom.seed_patch import (
     write_recipe,
     unique_object,
 )
-from .data.catalog import load_catalog, obj
+from .data.catalog import load_catalog_data, obj, parse_catalog
 from .integrations.rom.native_generation import NativeBindings, configure_catalog, generate_native_seed
 from .integrations.rom.native_recipe import (
     MAX_NATIVE_RECIPE_BYTES,
@@ -72,8 +72,8 @@ def main() -> None:
             print(f"Wrote asset-free recipe to {args.output}")
         elif args.command in {"generate-native", "generate-native-catalog"}:
             if args.command == "generate-native-catalog":
-                game = load_catalog(args.catalog)
-                catalog = json.loads(args.catalog.read_text(encoding="utf-8-sig"))
+                catalog = load_catalog_data(args.catalog)
+                game = parse_catalog(catalog)
                 bindings = NativeBindings.load(args.bindings, catalog)
                 settings = NativeSettings(AlbumPages(args.album_pages), Banners(args.banners))
                 generated, plan = generate_native_seed(game, bindings, args.seed, settings, shuffle_royals=args.shuffle_royals)
@@ -82,12 +82,10 @@ def main() -> None:
                     args.placements, AlbumPages(args.album_pages), args.shuffle_royals, args.remote_rewards, args.ap_session
                 )
             native_recipe = create_native_recipe(project, args.seed, plan)
-            args.output.parent.mkdir(parents=True, exist_ok=True)
-            with args.output.open("xb") as stream:
-                stream.write(native_recipe.encode())
             if args.command == "generate-native-catalog":
                 from .integrations.archipelago.native_catalog import NativeAPRegistry, allocate_registry
                 from .integrations.archipelago.tracker_catalog import TrackerCatalog
+                from .integrations.archipelago.tracker_pack import write_tracker_pack
 
                 registry_path = args.registry or Path(str(args.output) + ".registry.json")
                 previous = (
@@ -101,7 +99,7 @@ def main() -> None:
                 enabled, enabled_bindings = configure_catalog(game, bindings, settings)
                 if bindings.catalog_hash is None:
                     raise ValueError("Standalone tracking requires a bound catalog")
-                tracker = TrackerCatalog(enabled, registry, bindings.catalog_hash)
+                tracker = TrackerCatalog(enabled, registry, bindings.catalog_hash, settings)
                 tracking = {
                     "format_version": 1,
                     "seed": args.seed,
@@ -123,14 +121,33 @@ def main() -> None:
                         for item in enabled.starting_items
                     ],
                 }
-                for suffix, value in (
+                sidecars = (
                     (".tracking.json", tracking),
                     (".tracker.json", tracker.definitions()),
                     (".tracker-data.json", tracker.data_package()),
-                ):
-                    Path(str(args.output) + suffix).write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
-                Path(str(args.output) + ".tracker.lua").write_text(tracker.lua(), encoding="utf-8")
+                )
+                targets = [args.output] + [Path(str(args.output) + suffix) for suffix, _ in sidecars]
+                targets += [Path(str(args.output) + suffix) for suffix in (".tracker.lua", ".tracker.zip")]
+                if registry_path.resolve() in {target.resolve() for target in targets}:
+                    raise ValueError("The registry path must be separate from the seed and tracker outputs")
+                for target in targets:
+                    if target.exists() or target.is_symlink():
+                        raise FileExistsError(f"Use new output paths; existing file is preserved: {target}")
+                registry_path.parent.mkdir(parents=True, exist_ok=True)
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                with args.output.open("xb") as stream:
+                    stream.write(native_recipe.encode())
+                for suffix, value in sidecars:
+                    with Path(str(args.output) + suffix).open("x", encoding="utf-8") as stream:
+                        stream.write(json.dumps(value, indent=2) + "\n")
+                with Path(str(args.output) + ".tracker.lua").open("x", encoding="utf-8") as stream:
+                    stream.write(tracker.lua())
+                write_tracker_pack(tracker, Path(str(args.output) + ".tracker.zip"))
                 registry_path.write_text(json.dumps(registry.encode(), indent=2) + "\n", encoding="utf-8")
+            else:
+                args.output.parent.mkdir(parents=True, exist_ok=True)
+                with args.output.open("xb") as stream:
+                    stream.write(native_recipe.encode())
             print(f"Wrote asset-free native reward recipe to {args.output}")
         else:
             with args.patch.open("rb") as stream:

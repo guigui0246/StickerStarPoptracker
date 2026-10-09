@@ -4,6 +4,7 @@ from collections import Counter
 from dataclasses import dataclass
 
 from ...domain import GameDefinition, Rules
+from ...settings import Settings
 from .native_catalog import NativeAPRegistry
 
 
@@ -39,6 +40,7 @@ class TrackerCatalog:
     game: GameDefinition
     registry: NativeAPRegistry
     catalog_hash: str
+    settings: Settings | None = None
 
     def __post_init__(self) -> None:
         self.registry.validate(self.game)
@@ -56,7 +58,7 @@ class TrackerCatalog:
 
     def mappings(self) -> dict[str, object]:
         fixed = self.game.fixed_rewards
-        return {
+        result = {
             "format_version": 1,
             "catalog_hash": self.catalog_hash,
             "items": {
@@ -70,6 +72,9 @@ class TrackerCatalog:
                 if location.id not in fixed
             },
         }
+        if self.settings is not None:
+            result["settings"] = self.settings.to_json()
+        return result
 
     def lua(self) -> str:
         fixed = self.game.fixed_rewards

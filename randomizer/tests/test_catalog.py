@@ -3,13 +3,48 @@ import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
+from copy import deepcopy
 
-from ..data.catalog import load_catalog, parse_rules
+from ..data.catalog import load_catalog, parse_catalog, parse_rules, unique_object
+from .test_native_ap_catalog import fixture
 from ..domain import EndGoal, StartingRegion
 from ..standalone import generate_seed
 
 
 class CatalogTests(unittest.TestCase):
+    def test_unknown_fields_cannot_silently_remove_access_requirements(self) -> None:
+        catalog, _ = fixture()
+        for section, key in (("items", "progresssion"), ("regions", "startng"), ("locations", "require")):
+            data = deepcopy(catalog)
+            data[section][0][key] = True
+            with self.subTest(section=section), self.assertRaisesRegex(ValueError, "unknown"):
+                parse_catalog(data)
+        data = deepcopy(catalog)
+        data["paths"][0]["forward"]["require"] = {"item": "town"}
+        with self.assertRaisesRegex(ValueError, "unknown"):
+            parse_catalog(data)
+
+    def test_versions_and_missing_fields_fail_with_value_errors(self) -> None:
+        catalog, _ = fixture()
+        for version in (True, 2.0, "2"):
+            data = deepcopy(catalog)
+            data["format_version"] = version
+            with self.assertRaises(ValueError):
+                parse_catalog(data)
+        data = deepcopy(catalog)
+        del data["regions"]
+        with self.assertRaisesRegex(ValueError, "missing"):
+            parse_catalog(data)
+        data = deepcopy(catalog)
+        data["locations"][0]["item"] = "coins"
+        with self.assertRaisesRegex(ValueError, "Fixed location rewards"):
+            parse_catalog(data)
+
+    def test_duplicate_json_fields_are_rejected_at_any_depth(self) -> None:
+        for text in ('{"items": [], "items": []}', '{"locations": [{"requires": {}, "requires": {}}]}'):
+            with self.assertRaisesRegex(ValueError, "Duplicate catalog JSON field"):
+                json.loads(text, object_pairs_hook=unique_object)
+
     def test_typed_catalog_generation(self) -> None:
         data = {
             "format_version": 2,

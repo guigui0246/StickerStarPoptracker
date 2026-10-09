@@ -94,3 +94,5 @@ class AccessTests(unittest.TestCase):
         self.assertNotIn("SL_", result)
         self.assertIn("pouch_attach_accessory*(2)", result)
         self.assertLess(result.index("rando_deliver"), result.index("gf_evt_mac_battle_tutorial *= true"))
+        self.assertLess(result.index("rando_seed_valid"), result.index("rando_deliver"))
+        self.assertLess(result.index("rando_deliver"), result.index("if ( gf_evt_mac_mario_wakeup )"))

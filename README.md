@@ -17,7 +17,10 @@ requires successfully built `cli_randomizer` and `sticker-star.apworld` files;
 use `--dependencies DIRECTORY` to supply them from another build.
 Use `--output DIRECTORY` to change the output directory.
 
-The CLI supports `generate`, `patch`, `track` and `client` subcommands.
+The CLI supports `generate`, `patch`, `track`, `client` and `catalog` subcommands.
+
+See [human_tests.todo](human_tests.todo) for gameplay and packaged-release validation.
+Start with `@critical` entries; `@blocked` entries identify prerequisites for full playthroughs.
 For example, `cli_randomizer generate --help` describes generation options.
 The GUI runs these same commands and installs the bundled APWorld into an
 Archipelago installation's `custom_worlds` directory. The APWorld is currently

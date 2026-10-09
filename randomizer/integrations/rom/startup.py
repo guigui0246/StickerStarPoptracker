@@ -21,7 +21,12 @@ STARTUP_FLAGS = (
 
 
 def post_tutorial_start(source: str) -> str:
-    lines = ['\tif ( gf_evt_mac_mario_wakeup ) {\n\t\tsw_bero_enter*("af_sw_bero");\n\t\treturn*;\n\t}', "\trando_deliver*();"]
+    lines = [
+        "\ttemp tempVar90 = rando_seed_valid*();",
+        "\tif ( tempVar90 == false ) {\n\t\treturn*;\n\t}",
+        "\trando_deliver*();",
+        '\tif ( gf_evt_mac_mario_wakeup ) {\n\t\tsw_bero_enter*("af_sw_bero");\n\t\treturn*;\n\t}',
+    ]
     lines.extend(f"\t{flag} *= true;" for flag in STARTUP_FLAGS)
     # The inspected player controller uses accessory bit 2 for the album.
     # Hammer bit 1 and Paperization/Kersti bit 4 are filtered by the ARM guard.

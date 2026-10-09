@@ -19,7 +19,9 @@ def main() -> None:
     command = tk.StringVar(value="generate")
     arguments = tk.StringVar()
     ttk.Label(root, text="Existing tools: generation uses a logic catalog; sticker patching is experimental.").pack(pady=12)
-    ttk.Combobox(root, textvariable=command, values=("generate", "patch", "track", "client"), state="readonly").pack()
+    ttk.Combobox(
+        root, textvariable=command, values=("generate", "patch", "track", "client", "catalog"), state="readonly"
+    ).pack()
     ttk.Label(root, text="Command arguments (quote paths with spaces); use --help for available options.").pack(pady=8)
     ttk.Entry(root, textvariable=arguments, width=100).pack(padx=12, fill="x")
     output = tk.Text(root, wrap="word", state="disabled")

@@ -4,6 +4,7 @@ from typing import Any, cast
 
 import argparse
 from collections import Counter
+from dataclasses import replace
 from itertools import product
 from pathlib import Path
 import sys
@@ -12,7 +13,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from randomizer.data.catalog import parse_catalog
 from randomizer.integrations.archipelago.native_catalog import allocate_registry
 from randomizer.integrations.archipelago.tracker_catalog import TrackerCatalog, lua_string
+from randomizer.integrations.archipelago.tracker_pack import pack_files
 from randomizer.standalone.generation import InventoryState, reachable_regions
+from randomizer.settings import Settings
 
 
 def main() -> None:
@@ -104,6 +107,81 @@ def main() -> None:
             assert actual == expected, (hammer, paper, coins, location.id, actual, expected)
         scenarios += 1
     print(f"Generated tracker Lua matches the shared graph in {scenarios} inventory scenarios.")
+    lua.execute("""
+        objects, callbacks = {}, {}
+        function Tracker:FindObjectForCode(code) return objects[code] end
+        Archipelago = {CheckedLocations={}}
+        function Archipelago:AddClearHandler(name, callback) callbacks.clear = callback end
+        function Archipelago:AddItemHandler(name, callback) callbacks.item = callback end
+        function Archipelago:AddLocationHandler(name, callback) callbacks.location = callback end
+    """)
+    for item in game.items:
+        if item.id not in set(game.fixed_rewards.values()):
+            lua.execute(f"objects[{lua_string(tracker.item_code(item.id))}] = {{AcquiredCount=0, MaxCount=9999}}")
+    for location in game.locations:
+        if location.id not in game.fixed_rewards:
+            code = lua_string(tracker.location_code(location.id))
+            lua.execute(f"objects[{code}] = {{ChestCount=1, AvailableChestCount=1}}")
+    files = pack_files(tracker)
+    lua.execute(files["scripts/autotracking.lua"])
+    mappings = cast(Any, tracker.mappings())
+    slot = lua.table_from({
+        "catalog_hash": tracker.catalog_hash,
+        "tracker": lua.table_from(mappings, recursive=True),
+    })
+    callbacks = cast(Any, lua.globals()).callbacks
+    objects = cast(Any, lua.globals()).objects
+    callbacks.clear(slot)
+    hammer_id = tracker.registry.items["hammer"]
+    marker_id = tracker.registry.locations["a"]
+    callbacks.location(marker_id)
+    assert objects[tracker.location_code("a")].AvailableChestCount == 0
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 0
+    callbacks.item(0, hammer_id)
+    callbacks.item(0, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 1
+    callbacks.item(1, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 2
+    callbacks.clear(slot)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 0
+    assert objects[tracker.location_code("a")].AvailableChestCount == 1
+    callbacks.item(0, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 1
+    slot["catalog_hash"] = "b" * 64
+    callbacks.clear(slot)
+    callbacks.item(0, hammer_id)
+    callbacks.location(marker_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 0
+    assert objects[tracker.location_code("a")].AvailableChestCount == 1
+    slot["catalog_hash"] = tracker.catalog_hash
+    slot["tracker"]["items"][str(hammer_id)]["code"] = "wrong_registry"
+    callbacks.clear(slot)
+    callbacks.item(0, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 0
+    slot["tracker"]["items"][str(hammer_id)]["code"] = tracker.item_code("hammer")
+    precollected = TrackerCatalog(replace(game, starting_items=("hammer",)), tracker.registry, tracker.catalog_hash)
+    lua.execute(precollected.lua())
+    lua.execute(pack_files(precollected)["scripts/autotracking.lua"])
+    callbacks.clear(slot)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 1
+    callbacks.item(0, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 1
+    callbacks.item(1, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 2
+    configured = TrackerCatalog(game, tracker.registry, tracker.catalog_hash, Settings())
+    slot["tracker"] = lua.table_from(cast(Any, configured.mappings()), recursive=True)
+    lua.execute(configured.lua())
+    lua.execute(pack_files(configured)["scripts/autotracking.lua"])
+    callbacks.clear(slot)
+    callbacks.item(0, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 1
+    slot["tracker"]["settings"]["album_pages"] = "randomized"
+    callbacks.clear(slot)
+    callbacks.item(0, hammer_id)
+    assert objects[tracker.item_code("hammer")].AcquiredCount == 0
+    print(
+        "Generated pack callbacks pass separation, replay, reconnect, catalog/registry/settings mismatch and starting echoes."
+    )
 
 
 if __name__ == "__main__":

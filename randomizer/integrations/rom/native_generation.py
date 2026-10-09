@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 from ...data.catalog import Json, array, obj, string
-from ...domain import EndGoal, GameDefinition
+from ...domain import EndGoal, GameDefinition, Rules
 from ...settings import AlbumPages, Banners, Settings
 from ...standalone.generation import Seed, generate_seed, playthrough
 from .native_delivery import (
@@ -89,6 +89,26 @@ class NativeBindings:
         events = {identifier for identifier, reward in self.items.items() if reward.kind == NativeRewardKind.EVENT}
         if events - set(game.fixed_rewards.values()):
             raise ValueError("Native story events cannot be shuffled")
+        boolean_kinds = {
+            NativeRewardKind.ABILITY, NativeRewardKind.STAGE_ACCESS, NativeRewardKind.DOOR_ACCESS,
+            NativeRewardKind.BOSS_ACCESS, NativeRewardKind.MINI_STAR, NativeRewardKind.ROYAL,
+            NativeRewardKind.EVENT, NativeRewardKind.VICTORY,
+        }
+        capabilities = {identifier: reward for identifier, reward in self.items.items() if reward.kind in boolean_kinds}
+        if len(set(capabilities.values())) != len(capabilities):
+            raise ValueError("Idempotent native capabilities require one catalog identity, not separate aliases")
+
+        def validate_counts(rule: Rules) -> None:
+            if rule.operator == "item" and rule.item_id in capabilities and rule.amount != 1:
+                raise ValueError("Boolean native ownership cannot satisfy a counted requirement above one")
+            for child in rule.children:
+                validate_counts(child)
+
+        for location in game.locations:
+            validate_counts(location.rules)
+        for path in game.paths:
+            validate_counts(path.forward.rules)
+            validate_counts(path.reverse.rules)
         for location in game.locations:
             item = game.fixed_rewards.get(location.id)
             if item in events:
@@ -113,6 +133,9 @@ def bind_seed(
     if not replay.won or sum(map(len, replay.spheres)) != len(game.locations):
         raise ValueError("Native patches require a seed whose goal and every enabled check are reachable")
     placements = seed.placements | game.fixed_rewards
+    shuffle_royals = shuffle_royals or any(
+        bindings.items[identifier].kind == NativeRewardKind.ROYAL for identifier in game.pool + game.starting_items
+    )
     native_checks: list[NativeCheck] = []
     for location in game.locations:
         source = bindings.locations[location.id]

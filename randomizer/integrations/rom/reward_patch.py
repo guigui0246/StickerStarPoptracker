@@ -35,7 +35,10 @@ from .royal_patch import (
 from .tutorial_skip import compile_script
 from .compression import decompress_code
 from .stickers import sticker_policy, patch_shops, patch_sticker_initializers
-from .presentation import MESSAGE_SCRIPT, OPENING_SCRIPT, skip_dialogue, skip_opening
+from .presentation import (
+    BOSS_PRESENTATION_SCRIPT, MESSAGE_SCRIPT, OPENING_SCRIPT, skip_boss_intros, skip_dialogue, skip_opening,
+    skip_royal_intermission,
+)
 from .enemies import PLAYER_SCRIPT, WIN_SCRIPT, death_hook, enemy_types, reset_hook, victory_hook
 from .abilities import ability_patch
 from .sticker_guard import generic_save_indices, sticker_guard_patch
@@ -531,6 +534,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         presentation_scripts = []
         if plan.skip_opening:
             presentation_scripts.append((OPENING_SCRIPT, skip_opening))
+            presentation_scripts.append((BOSS_PRESENTATION_SCRIPT, skip_boss_intros))
         if plan.skip_dialogue:
             presentation_scripts.append((MESSAGE_SCRIPT, skip_dialogue))
         for filename, transform in presentation_scripts:
@@ -542,9 +546,11 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             project.write_override(staging, filename, data)
             emitted[filename] = hashlib.sha256(data).hexdigest()
         suppressed_pages: list[str] = []
-        if plan.album_pages is not None or plan.shuffle_royals:
+        if plan.album_pages is not None or plan.shuffle_royals or plan.skip_opening:
             page_sources = INTERMISSIONS + ("Script/Map/HEI/hei_2_01.bin",) if plan.album_pages is not None else INTERMISSIONS
             for filename in page_sources:
+                if any(isinstance(check, ScriptReward) and check.script_file == filename for check in plan.checks):
+                    raise ValueError("Intermission/page presentation cannot also be a gameplay check hook")
                 script = decompile(project, filename, work, compiler)
                 source = script.source.read_text(encoding="utf-8")
                 if plan.album_pages is not None:
@@ -553,6 +559,8 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                         raise ValueError(f"Expected one vanilla page grant in {filename}")
                 if plan.shuffle_royals and filename in INTERMISSIONS:
                     source = suppress_royal_grant(filename, source)
+                if plan.skip_opening and filename in INTERMISSIONS:
+                    source = skip_royal_intermission(source, INTERMISSIONS.index(filename) + 1)
                 script.source.write_text(source, encoding="utf-8")
                 data = compile_checked(script, compiler, (), required_function=None)
                 if plan.album_pages is not None and "SL_PAGE" in script.binary.with_suffix(".re.cksm").read_text(
@@ -776,6 +784,8 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             "sticker_policy": asdict(plan.sticker_policy) if plan.sticker_policy else None,
             "presentation": {
                 "skip_opening": plan.skip_opening,
+                "skip_safe_scene_intervals": plan.skip_opening,
+                "skip_royal_intermission_timelines": plan.skip_opening,
                 "skip_dialogue": plan.skip_dialogue,
                 "gameplay_verified": False,
             },

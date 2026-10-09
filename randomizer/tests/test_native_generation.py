@@ -20,6 +20,19 @@ from ..standalone.generation import Seed
 
 
 class NativeGenerationTests(unittest.TestCase):
+    def test_boolean_native_capabilities_cannot_create_counted_or_alias_progression(self) -> None:
+        counted = replace(
+            self.game, locations=(self.game.locations[0], replace(self.game.locations[1], rules=Rules.has("hammer", 2)))
+            + self.game.locations[2:],
+        )
+        with self.assertRaisesRegex(ValueError, "counted requirement"):
+            self.bindings.validate(counted)
+        alias = Item("hammer_alias", "Hammer alias")
+        aliased = replace(self.game, items=self.game.items + (alias,), pool=("hammer", "paper", alias.id))
+        bindings = replace(self.bindings, items=self.bindings.items | {alias.id: self.bindings.items["hammer"]})
+        with self.assertRaisesRegex(ValueError, "separate aliases"):
+            bindings.validate(aliased)
+
     def setUp(self) -> None:
         hammer = Item("hammer", "Hammer")
         paper = Item("paper", "Paperization")
@@ -65,6 +78,30 @@ class NativeGenerationTests(unittest.TestCase):
             self.assertEqual(plan.checks[-1].reward.kind, NativeRewardKind.VICTORY)
             self.assertTrue(plan.ability_mode)
             self.assertEqual(generate_native_seed(self.game, self.bindings, str(number)), (generated, plan))
+
+    def test_catalog_royal_rewards_automatically_suppress_vanilla_source_ownership(self) -> None:
+        royals = tuple(Item(f"royal{index}", f"Royal Sticker {index}") for index in range(1, 7))
+        locations = tuple(Location(item.id, item.name, "menu") for item in royals)
+        game = replace(
+            self.game, items=self.game.items + royals, locations=self.game.locations + locations,
+            pool=self.game.pool + tuple(item.id for item in royals),
+        )
+        dummy = NativeReward(NativeRewardKind.COINS, 1)
+        sources: dict[str, FlagReward | ScriptReward] = {
+            f"royal{index}": FlagReward("boss", f"gf_evt_{stage}_royal_seal", dummy)
+            for index, stage in enumerate(("1_6", "2_5", "3_12", "4_5", "5_6"), 1)
+        }
+        sources["royal6"] = ScriptReward("boss", "Script/Map/W6_BOS/w6_bos_04.bin", "get_royal_seal_event", dummy)
+        bindings = replace(
+            self.bindings,
+            items=self.bindings.items | {
+                item.id: NativeReward(NativeRewardKind.ROYAL, index) for index, item in enumerate(royals, 1)
+            },
+            locations=self.bindings.locations | sources,
+        )
+        _, plan = generate_native_seed(game, bindings, "royals")
+        self.assertTrue(plan.shuffle_royals)
+        self.assertIn("gf_rando_royal_1", plan.local_flags)
 
     def test_unreachable_placement_and_incomplete_or_duplicate_bindings_fail(self) -> None:
         bad = Seed("bad", {"first": "coins", "second": "hammer", "third": "paper"}, (), True)

@@ -33,10 +33,15 @@ def replace_function(source: str, name: str, body: str) -> str:
 
 
 def compile_script(compiler: Path, file: Path) -> None:
+    compiler = compiler.resolve()
+    file = file.resolve()
+    driver = "_compile-script" if getattr(sys, "frozen", False) else str(Path(__file__).with_name("compiler_driver.py"))
     subprocess.run(
-        [sys.executable, str(Path(__file__).with_name("compiler_driver.py")), str(compiler), str(file)],
+        [sys.executable, driver, str(compiler), str(file)],
         check=True,
         stdout=subprocess.DEVNULL,
+        cwd=file.parent,
+        creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0,
     )
 
 

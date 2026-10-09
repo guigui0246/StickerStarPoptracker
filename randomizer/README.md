@@ -1,5 +1,71 @@
 # Typed Sticker Star randomizer
 
+Catalog-based standalone and native AP generation also produce a `.tracker.zip`
+pack alongside the tracker definitions. Load that pack in PopTracker to use the
+catalog's region check lists, received-item counters and shared access rules.
+The maps are schematic lists, not geographic maps. No game artwork is bundled.
+The pack follows the [PopTracker pack format](https://github.com/black-sliver/PopTracker/blob/master/doc/PACKS.md).
+Automatic tracking requires matching catalog hashes and exact item/location
+mappings; reconnects reset and replay state, and checked locations never grant
+received items. Starting inventory is displayed without double-counting its echoes.
+
+`tools/compile_native_catalog.py` incorporates reviewed room connections into
+the same version-2 catalog consumed by standalone, AP and tracker generation:
+
+```text
+python tools/compile_native_catalog.py --catalog catalog.json --link-table kdm_link_data.bin --review routes.json --output reviewed-catalog.json
+```
+
+The review has `format_version: 1`, the exact link table's `source_sha256`,
+`room_regions` mapping native room names to existing catalog region IDs, and a
+`links` object keyed by the native IDs reported by `export_native_room_links.py`.
+Each entry supplies `requires` (the usual item/all/any/count rule) and a nonempty
+`evidence` description, or `exclude` with a nonempty reason. Every source record
+requires a review. Virtual destinations must be explicitly excluded and handled
+by separately authored paths. Forward and reverse records remain independent;
+the compiler never invents a return route. Original catalog paths are retained,
+including the Menu admission paths. Recompute native binding hashes after
+changing a catalog. This tool checks review completeness and source identity;
+it cannot establish that an author's gameplay observations are correct.
+
+Production tutorial bypass now checks seed identity before changing original
+tutorial flags and polls delivery even on subsequent entry. With `skip_opening`
+enabled, the native shared scene-skip helper also automatically skips its safe
+intervals on first visits, using each scene's original cleanup callback. Battle
+setup outside those intervals remains intact. This covers the five boss intros
+and the quiz-show intro that use that helper. The five Royal intermission visual
+timelines are also bypassed, preserving original grants, book cleanup and exit
+handling; their page-notification button wait is removed. Page/Royal suppression
+still applies independently. All five intermissions passed original-script
+compile/decompile checks both with and without grant suppression. These changes
+do not cover every game cutscene, and gameplay remains unverified.
+
+The production source assembler reads the original European tables and map
+scripts rather than copying probe plans. It currently discovers 416 observed
+checks: 39 mini stars, 96 Thing/scrap pickups, three treasure-file scraps, 17 first
+peels, 77 global combat types, 160 museum exhibits, eight banners, six shop
+conversations, three Kamek fights, six Royal sources and the Bowser victory.
+Debug Thing pickups, the oasis chest stand-in, empty story chests and noncombat
+prop units are excluded. All 497 supported reward identities are surveyed;
+custom coin amounts are also supported. A survey is source evidence, not a
+verified progression graph. Wiggler story acquisition and exact physical puzzle
+access remain outstanding.
+
+```text
+cli_randomizer catalog survey "Mario Sticker Star.3ds" --compiler "gibberish/main.py" --output sources.json
+cli_randomizer catalog bind "Mario Sticker Star.3ds" --compiler "gibberish/main.py" --catalog reviewed-catalog.json --output bindings.json
+```
+
+Production catalogs use native check IDs as location IDs and `kind/value` item
+IDs, such as `ability/hammer`, `sticker_unlock/SL_JUMP`, `mini_star/GF_WM_A01_A02`,
+`item/PK_MAC_1_FOUNTAIN` and `victory/1`. Binding requires the complete observed
+check inventory. Additional fixed story Events use `event/gf_...` item IDs and
+their own locations, observing registered native story flags. Album and banner
+settings are applied by the shared generation pipeline after binding.
+The `patch` command dispatches to the full recipe interface, including
+`generate-native-catalog` and `apply`. Frozen builds use an internal compiler
+entry point instead of trying to run a Python source file as a CLI command.
+
 The typed generation engine works without external packages. The Archipelago
 adapter targets 0.6.8. Both use the same `GameDefinition`, rules, regions, and
 fixed rewards. The bundled catalog is explicitly a **logic demonstration**,

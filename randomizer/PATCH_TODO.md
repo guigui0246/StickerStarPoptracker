@@ -12,6 +12,17 @@ in `SPEC.md`. Checked entries distinguish implemented foundations from actual
 gameplay validation. The complete standalone and Archipelago randomizers are
 still unfinished.
 
+Human validation is recorded in [human_tests.todo](../human_tests.todo), including
+individual source, door, puzzle and directed-link coverage. Automated checks do
+not mark those gameplay observations complete.
+
+Catalog parsing rejects unknown fields, duplicate JSON keys and unsupported versions.
+Native boolean capabilities reject counted requirements and duplicate aliases.
+Catalog Royal rewards automatically enable Royal shuffle validation and ownership isolation.
+Seed output preflight checks registry input and existing sidecars before writing a recipe.
+Generated tracker packs paginate large regions, show settings, reject mismatched settings,
+and include actual Archipelago precollected items in their starting inventory.
+
 ## Native integration progress — 2026-10-09
 
 - [x] Exclude 30 native debug-room Thing pickups from automatic check assembly.
@@ -213,6 +224,22 @@ production starting-state handling, full-game AP generation and full playthrough
       do not let the skip bypass configured Hammer/Paperization or page gates.
 
 ## Required startup and dialogue skips
+
+- [x] Use the shared native safe-interval and cleanup callback to automatically
+      skip the five supported boss intros and quiz-show intro on first visits.
+      Original-script compilation and function preservation pass; gameplay and
+      other cutscene families remain unverified.
+- [x] Bypass all five Royal intermission visual timelines while retaining their
+      original completion routine, grants, book cleanup and exit. Remove the
+      page-notification button wait. All five compile/decompile with vanilla
+      grants and shuffled suppression; physical transitions remain unverified.
+- [x] Assemble the current 416 production source checks and supported reward
+      identities directly from original tables/scripts, with exact binding to a
+      caller-reviewed catalog. This is source coverage, not verified access logic.
+- [x] Emit self-contained catalog-specific tracker packs from standalone/AP
+      generation, including schematic region markers and received-item icons.
+- [x] Route packaged native recipe commands and external compilation through
+      the frozen CLI, without launching a visible compiler window on Windows.
 
 - [ ] Skip the intro, all long cutscenes, and textboxes regardless of the
       selected game language. Preserve required event flags and progression.

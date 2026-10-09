@@ -5,19 +5,26 @@ import sys
 from collections.abc import Callable
 
 from randomizer.client import main as client
+from randomizer.integrations.rom.compiler_driver import main as compile_script
+from randomizer.patch import main as patch
 from randomizer.standalone.__main__ import main as generate
 from randomizer.track_standalone import main as track
-from tools.build_sticker_patch import main as patch
+from tools.production_catalog import main as catalog
 
 COMMANDS: dict[str, Callable[[], None]] = {
     "generate": generate,
     "patch": patch,
     "track": track,
     "client": client,
+    "catalog": catalog,
 }
 
 
 def main() -> None:
+    if sys.argv[1:2] == ["_compile-script"]:
+        sys.argv = [sys.argv[0], *sys.argv[2:]]
+        compile_script()
+        return
     parser = argparse.ArgumentParser(description="Sticker Star generation, experimental sticker patching and tracking")
     parser.add_argument("command", choices=COMMANDS)
     args = parser.parse_args(sys.argv[1:2])
