@@ -7,6 +7,30 @@ from ..patch import main as patch_recipe
 
 
 class ReleaseCliTests(unittest.TestCase):
+    def test_legacy_direct_patch_arguments_keep_working(self) -> None:
+        with patch.object(release_cli, "combat_patch") as combat, patch.object(
+            sys, "argv", ["cli_randomizer", "patch", "ROM path.3ds", "--seed", "42", "--output", "mod"]
+        ):
+            release_cli.main()
+            combat.assert_called_once_with()
+            self.assertEqual(sys.argv[1], "ROM path.3ds")
+
+    def test_source_entry_uses_same_generate_command(self) -> None:
+        from .. import __main__ as source
+
+        command = Mock()
+        with patch.dict(release_cli.COMMANDS, {"generate": command}), patch.object(
+            sys, "argv", ["randomizer", "generate", "--seed", "42", "--output", "seed.json"]
+        ):
+            source.main()
+            command.assert_called_once_with()
+
+    def test_source_gui_uses_current_python(self) -> None:
+        from tools.release_gui import cli_command
+
+        with patch.object(sys, "frozen", False, create=True):
+            self.assertEqual(cli_command(), [sys.executable, "-m", "tools.release_cli"])
+
     def test_patch_dispatch_exposes_native_recipes(self) -> None:
         self.assertIs(release_cli.COMMANDS["patch"], patch_recipe)
         command = Mock()

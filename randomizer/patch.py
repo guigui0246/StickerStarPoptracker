@@ -59,10 +59,10 @@ def main() -> None:
     catalog_native.add_argument("--output", type=Path, required=True)
     catalog_native.add_argument("--registry", type=Path, help="Existing append-only tracker/AP identifier registry")
     apply = commands.add_parser("apply", help="Apply a recipe to your own decrypted European ROM")
-    apply.add_argument("patch", type=Path)
+    apply.add_argument("patch", type=Path, help="Recipe from patch generate or patch generate-native-catalog; not seed JSON")
     apply.add_argument("rom", type=Path)
     apply.add_argument("--compiler", type=Path)
-    apply.add_argument("--output", type=Path, required=True)
+    apply.add_argument("--output", type=Path, required=True, help="New mod directory (not a ZIP archive)")
     args = parser.parse_args()
     try:
         project = RomProject(args.rom)
@@ -155,6 +155,13 @@ def main() -> None:
             if len(data) > MAX_NATIVE_RECIPE_BYTES:
                 raise ValueError("Stickerpatch exceeds the supported size")
             header = obj(json.loads(data, object_pairs_hook=unique_object))
+            if "placements" in header and "source_hashes" not in header:
+                raise ValueError(
+                    "This is a logic seed JSON, not a ROM patch recipe. For a combat-sticker shuffle use "
+                    "patch generate ROM --seed SEED --output seed.stickerpatch, then apply that recipe. "
+                    "Native progression requires generate-native-catalog with a reviewed catalog and bindings. "
+                    "--output is a new mod directory, not a ZIP archive."
+                )
             if header.get("format_version") == 2:
                 if args.compiler is None:
                     raise ValueError("Native recipes require --compiler pointing to Gibberish main.py")

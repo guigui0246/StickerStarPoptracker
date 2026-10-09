@@ -22,6 +22,22 @@ The CLI supports `generate`, `patch`, `track`, `client` and `catalog` subcommand
 See [human_tests.todo](human_tests.todo) for gameplay and packaged-release validation.
 Start with `@critical` entries; `@blocked` entries identify prerequisites for full playthroughs.
 For example, `cli_randomizer generate --help` describes generation options.
+From source, use `python -m randomizer generate` with the same arguments.
+Without `--catalog`, generation uses the small logic demo, not the full game.
+Seed JSON lists every randomized placement in the selected catalog, fixed rewards
+separately, and location/item names. The complete reviewed game catalog remains unfinished.
+`patch ROM.3ds --seed SEED --output MOD` retains the original combat-only patch mode;
+recipe workflows use `patch generate`, `patch generate-native-catalog` and `patch apply`.
+Logic-demo seed JSON from `generate` cannot be passed to `patch apply`.
+For an experimental combat shuffle, use these source commands (replace `ROM.3ds` with your ROM path):
+
+```text
+python -m randomizer.patch generate "ROM.3ds" --seed 18 --output seed-18.stickerpatch
+python -m randomizer.patch apply seed-18.stickerpatch "ROM.3ds" --output mod-18
+```
+
+The apply output is a mod directory, not a ZIP archive. This mode shuffles combat
+stickers; it does not implement the unfinished full-game progression catalog.
 The GUI runs these same commands and installs the bundled APWorld into an
 Archipelago installation's `custom_worlds` directory. The APWorld is currently
 the Logic Demo; these builds do not make unfinished native progression playable.

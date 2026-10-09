@@ -10,12 +10,18 @@ import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
 
+def cli_command() -> list[str]:
+    if not getattr(sys, "frozen", False):
+        return [sys.executable, "-m", "tools.release_cli"]
+    bundle = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1])) / "bundled"
+    return [str(bundle / ("cli_randomizer.exe" if sys.platform == "win32" else "cli_randomizer"))]
+
+
 def main() -> None:
     root = tk.Tk()
     root.title("Sticker Star Randomizer")
     root.geometry("760x480")
     bundle = Path(getattr(sys, "_MEIPASS", Path(__file__).resolve().parents[1])) / "bundled"
-    cli = bundle / ("cli_randomizer.exe" if sys.platform == "win32" else "cli_randomizer")
     command = tk.StringVar(value="generate")
     arguments = tk.StringVar()
     ttk.Label(root, text="Existing tools: generation uses a logic catalog; sticker patching is experimental.").pack(pady=12)
@@ -45,7 +51,8 @@ def main() -> None:
             try:
                 flags = subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
                 with subprocess.Popen(
-                    [str(cli), selected, *values],
+                    [*cli_command(), selected, *values],
+                    cwd=Path(__file__).resolve().parents[1] if not getattr(sys, "frozen", False) else None,
                     stdout=subprocess.PIPE,
                     stderr=subprocess.STDOUT,
                     text=True,
