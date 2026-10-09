@@ -219,9 +219,9 @@ HONORS = frozenset(
         "seal_collector",
         "max_heart",
         "million_coin",
-        "btl_slot_machine",
-        "btl_excellent",
-        "btl_perfect",
+        "battle_slot_machine",
+        "battle_excellent",
+        "battle_perfect",
     }
 )
 

@@ -245,9 +245,9 @@ Observed native source coverage protocol (416 checks):
 
 Success-banner checks (8):
     Apply the source coverage protocol; record the fixture placement and observed native effects.
-    ☐ banner/btl_excellent @coverage
-    ☐ banner/btl_perfect @coverage
-    ☐ banner/btl_slot_machine @coverage
+    ☐ banner/battle_excellent @coverage
+    ☐ banner/battle_perfect @coverage
+    ☐ banner/battle_slot_machine @coverage
     ☐ banner/max_heart @coverage
     ☐ banner/million_coin @coverage
     ☐ banner/paper_door @coverage
@@ -399,166 +399,166 @@ Mini-star source checks (39):
 
 Individual museum donations (160):
     Apply the source coverage protocol; record the fixture placement and observed native effects.
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_001 / accepted SL_RAGGED_JUMP @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_002 / accepted SL_JUMP @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_003 / accepted SL_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_004 / accepted SL_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_005 / accepted SL_DEKA_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_006 / accepted SL_DODEKA_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_007 / accepted SL_IRON_JUMP @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_008 / accepted SL_IRON_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_009 / accepted SL_IRON_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_010 / accepted SL_DEKA_IRON_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_01] museum/gf_museum_btl_seal_011 / accepted SL_DODEKA_IRON_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_012 / accepted SL_BANE_JUMP @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_013 / accepted SL_BANE_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_014 / accepted SL_BANE_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_015 / accepted SL_DEKA_BANE_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_016 / accepted SL_DODEKA_BANE_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_017 / accepted SL_TSUGI_JUMP @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_018 / accepted SL_TSUGI_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_019 / accepted SL_TSUGI_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_020 / accepted SL_DEKA_TSUGI_JUMP_K @coverage
-    ☐ [location to classify / mac_mb_02] museum/gf_museum_btl_seal_021 / accepted SL_DODEKA_TSUGI_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_03] museum/gf_museum_btl_seal_022 / accepted SL_BUNSIN_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_03] museum/gf_museum_btl_seal_023 / accepted SL_DEKA_BUNSIN_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_03] museum/gf_museum_btl_seal_024 / accepted SL_DODEKA_BUNSIN_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_03] museum/gf_museum_btl_seal_025 / accepted SL_MUGEN_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_03] museum/gf_museum_btl_seal_026 / accepted SL_DEKA_MUGEN_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_03] museum/gf_museum_btl_seal_027 / accepted SL_DODEKA_MUGEN_JUMP_KK @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_028 / accepted SL_RAGGED_HAMMER @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_029 / accepted SL_HAMMER @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_030 / accepted SL_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_031 / accepted SL_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_032 / accepted SL_DEKA_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_033 / accepted SL_DODEKA_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_034 / accepted SL_BUN_HAMMER @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_035 / accepted SL_BUN_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_036 / accepted SL_BUN_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_037 / accepted SL_DEKA_BUN_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_04] museum/gf_museum_btl_seal_038 / accepted SL_DODEKA_BUN_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_039 / accepted SL_PICO_HAMMER @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_040 / accepted SL_PICO_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_041 / accepted SL_PICO_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_042 / accepted SL_DEKA_PICO_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_043 / accepted SL_DODEKA_PICO_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_044 / accepted SL_MEGATON_HAMMER @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_045 / accepted SL_MEGATON_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_046 / accepted SL_MEGATON_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_047 / accepted SL_DEKA_MEGATON_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_05] museum/gf_museum_btl_seal_048 / accepted SL_DODEKA_MEGATON_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_049 / accepted SL_MEE_HAMMER @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_050 / accepted SL_DEKA_MEE_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_051 / accepted SL_DODEKA_MEE_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_052 / accepted SL_BURNING_HAMMER @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_053 / accepted SL_DEKA_BURNING_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_054 / accepted SL_DODEKA_BURNING_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_055 / accepted SL_SEVERE_HAMMER @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_056 / accepted SL_DEKA_SEVERE_HAMMER_K @coverage
-    ☐ [location to classify / mac_mb_06] museum/gf_museum_btl_seal_057 / accepted SL_DODEKA_SEVERE_HAMMER_KK @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_058 / accepted SL_DEKA_BOOTS @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_059 / accepted SL_DEKA_BOOTS_K @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_060 / accepted SL_DEKA_TAIL @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_061 / accepted SL_DEKA_TAIL_K @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_062 / accepted SL_DEKA_FROG @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_063 / accepted SL_DEKA_FROG_K @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_064 / accepted SL_TOGE_HAT @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_065 / accepted SL_TOGE_HAT_K @coverage
-    ☐ [location to classify / mac_mb_07] museum/gf_museum_btl_seal_066 / accepted SL_TOGE_HAT_KK @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_067 / accepted SL_FIRE_FLOWER @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_068 / accepted SL_FIRE_FLOWER_K @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_069 / accepted SL_FIRE_FLOWER_KK @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_070 / accepted SL_ICE_FLOWER @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_071 / accepted SL_ICE_FLOWER_K @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_072 / accepted SL_ICE_FLOWER_KK @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_073 / accepted SL_POW_BLOCK @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_074 / accepted SL_POW_BLOCK_K @coverage
-    ☐ [location to classify / mac_mb_08] museum/gf_museum_btl_seal_075 / accepted SL_POW_BLOCK_KK @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_076 / accepted SL_NOKONOKO_KOURA @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_077 / accepted SL_NOKONOKO_KOURA_K @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_078 / accepted SL_NOKONOKO_KOURA_KK @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_079 / accepted SL_KINOKO @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_080 / accepted SL_KINOKO_K @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_081 / accepted SL_KINOKO_KK @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_082 / accepted SL_DEKA_1UP_KINOKO @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_083 / accepted SL_DEKA_1UP_KINOKO_K @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_084 / accepted SL_POISON_KINOKO @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_085 / accepted SL_LEAF @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_086 / accepted SL_LEAF_K @coverage
-    ☐ [location to classify / mac_mb_09] museum/gf_museum_btl_seal_087 / accepted SL_DOOR @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_088 / accepted SL_SNOW_BALL @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_089 / accepted SL_GABON_BALL @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_090 / accepted SL_BARREL @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_091 / accepted SL_SPANNER @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_092 / accepted SL_BONE @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_093 / accepted SL_BOOMERANG @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_094 / accepted SL_BOMB @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_095 / accepted SL_SOMBRERO @coverage
-    ☐ [location to classify / mac_mb_10] museum/gf_museum_btl_seal_096 / accepted SL_THROW_KNIFE @coverage
-    ☐ [location to classify / mac_mr_01] museum/gf_museum_robj_seal_001 / accepted SL_JAPANESE_SCISSORS @coverage
-    ☐ [location to classify / mac_mr_01] museum/gf_museum_robj_seal_002 / accepted SL_HAIRCUT_SCISSORS @coverage
-    ☐ [location to classify / mac_mr_01] museum/gf_museum_robj_seal_003 / accepted SL_SCISSORS @coverage
-    ☐ [location to classify / mac_mr_01] museum/gf_museum_robj_seal_004 / accepted SL_CLOTH_SCISSORS @coverage
-    ☐ [location to classify / mac_mr_02] museum/gf_museum_robj_seal_005 / accepted SL_BELLOWS @coverage
-    ☐ [location to classify / mac_mr_02] museum/gf_museum_robj_seal_006 / accepted SL_PAPER_FAN @coverage
-    ☐ [location to classify / mac_mr_02] museum/gf_museum_robj_seal_007 / accepted SL_FAN @coverage
-    ☐ [location to classify / mac_mr_02] museum/gf_museum_robj_seal_008 / accepted SL_HANDY_CLEANER @coverage
-    ☐ [location to classify / mac_mr_02] museum/gf_museum_robj_seal_009 / accepted SL_UPLIGHT_CLEANER @coverage
-    ☐ [location to classify / mac_mr_02] museum/gf_museum_robj_seal_010 / accepted SL_CLEANER @coverage
-    ☐ [location to classify / mac_mr_03] museum/gf_museum_robj_seal_011 / accepted SL_WATERING_CAN @coverage
-    ☐ [location to classify / mac_mr_03] museum/gf_museum_robj_seal_012 / accepted SL_TAP @coverage
-    ☐ [location to classify / mac_mr_03] museum/gf_museum_robj_seal_013 / accepted SL_KETTLE @coverage
-    ☐ [location to classify / mac_mr_03] museum/gf_museum_robj_seal_014 / accepted SL_TRUMPET @coverage
-    ☐ [location to classify / mac_mr_03] museum/gf_museum_robj_seal_015 / accepted SL_VIOLIN @coverage
-    ☐ [location to classify / mac_mr_03] museum/gf_museum_robj_seal_016 / accepted SL_GUITAR @coverage
-    ☐ [location to classify / mac_mr_04] museum/gf_museum_robj_seal_017 / accepted SL_NEWSPAPER_BAT @coverage
-    ☐ [location to classify / mac_mr_04] museum/gf_museum_robj_seal_018 / accepted SL_PLASTIC_BAT @coverage
-    ☐ [location to classify / mac_mr_04] museum/gf_museum_robj_seal_019 / accepted SL_BAT @coverage
-    ☐ [location to classify / mac_mr_04] museum/gf_museum_robj_seal_020 / accepted SL_ITTOKAN @coverage
-    ☐ [location to classify / mac_mr_04] museum/gf_museum_robj_seal_021 / accepted SL_TUB @coverage
-    ☐ [location to classify / mac_mr_04] museum/gf_museum_robj_seal_022 / accepted SL_DRUMKAN @coverage
-    ☐ [location to classify / mac_mr_05] museum/gf_museum_robj_seal_023 / accepted SL_LAMP @coverage
-    ☐ [location to classify / mac_mr_05] museum/gf_museum_robj_seal_024 / accepted SL_FLASHLIGHT @coverage
-    ☐ [location to classify / mac_mr_05] museum/gf_museum_robj_seal_025 / accepted SL_SEARCHLIGHT @coverage
-    ☐ [location to classify / mac_mr_05] museum/gf_museum_robj_seal_026 / accepted SL_BATTERY_BUTTON @coverage
-    ☐ [location to classify / mac_mr_05] museum/gf_museum_robj_seal_027 / accepted SL_BATTERY_1 @coverage
-    ☐ [location to classify / mac_mr_05] museum/gf_museum_robj_seal_028 / accepted SL_BATTERY_CAR @coverage
-    ☐ [location to classify / mac_mr_06] museum/gf_museum_robj_seal_029 / accepted SL_BILLIARD_BALL @coverage
-    ☐ [location to classify / mac_mr_06] museum/gf_museum_robj_seal_030 / accepted SL_CURLING_STONE @coverage
-    ☐ [location to classify / mac_mr_06] museum/gf_museum_robj_seal_031 / accepted SL_BOWLING @coverage
-    ☐ [location to classify / mac_mr_06] museum/gf_museum_robj_seal_032 / accepted SL_TROPHY @coverage
-    ☐ [location to classify / mac_mr_06] museum/gf_museum_robj_seal_033 / accepted SL_MOBILE_PHONE @coverage
-    ☐ [location to classify / mac_mr_06] museum/gf_museum_robj_seal_034 / accepted SL_JACKHAMMER @coverage
-    ☐ [location to classify / mac_mr_07] museum/gf_museum_robj_seal_035 / accepted SL_OIL_HEATER @coverage
-    ☐ [location to classify / mac_mr_07] museum/gf_museum_robj_seal_036 / accepted SL_DRYER @coverage
-    ☐ [location to classify / mac_mr_07] museum/gf_museum_robj_seal_037 / accepted SL_OVEN @coverage
-    ☐ [location to classify / mac_mr_07] museum/gf_museum_robj_seal_038 / accepted SL_MAGNIFYING_GLASS @coverage
-    ☐ [location to classify / mac_mr_07] museum/gf_museum_robj_seal_039 / accepted SL_MATCH @coverage
-    ☐ [location to classify / mac_mr_07] museum/gf_museum_robj_seal_040 / accepted SL_LIGHTER @coverage
-    ☐ [location to classify / mac_mr_08] museum/gf_museum_robj_seal_041 / accepted SL_SHAVED_ICE @coverage
-    ☐ [location to classify / mac_mr_08] museum/gf_museum_robj_seal_042 / accepted SL_AIR_CONDITIONER @coverage
-    ☐ [location to classify / mac_mr_08] museum/gf_museum_robj_seal_043 / accepted SL_FRIDGE @coverage
-    ☐ [location to classify / mac_mr_08] museum/gf_museum_robj_seal_044 / accepted SL_JUICE @coverage
-    ☐ [location to classify / mac_mr_08] museum/gf_museum_robj_seal_045 / accepted SL_WATER_PISTOL @coverage
-    ☐ [location to classify / mac_mr_08] museum/gf_museum_robj_seal_046 / accepted SL_DUCK @coverage
-    ☐ [location to classify / mac_mr_09] museum/gf_museum_robj_seal_047 / accepted SL_POWDER_PUFF @coverage
-    ☐ [location to classify / mac_mr_09] museum/gf_museum_robj_seal_048 / accepted SL_SPONGE @coverage
-    ☐ [location to classify / mac_mr_09] museum/gf_museum_robj_seal_049 / accepted SL_CAR_WASH_SPONGE @coverage
-    ☐ [location to classify / mac_mr_09] museum/gf_museum_robj_seal_050 / accepted SL_PILLOW @coverage
-    ☐ [location to classify / mac_mr_09] museum/gf_museum_robj_seal_051 / accepted SL_BED @coverage
-    ☐ [location to classify / mac_mr_09] museum/gf_museum_robj_seal_052 / accepted SL_CANOPY_BED @coverage
-    ☐ [location to classify / mac_mr_10] museum/gf_museum_robj_seal_053 / accepted SL_CELLOPHANE_TAPE @coverage
-    ☐ [location to classify / mac_mr_10] museum/gf_museum_robj_seal_054 / accepted SL_THUMBTACK @coverage
-    ☐ [location to classify / mac_mr_10] museum/gf_museum_robj_seal_055 / accepted SL_STAPLER @coverage
-    ☐ [location to classify / mac_mr_10] museum/gf_museum_robj_seal_056 / accepted SL_FOOK @coverage
-    ☐ [location to classify / mac_mr_10] museum/gf_museum_robj_seal_057 / accepted SL_BALLOON @coverage
-    ☐ [location to classify / mac_mr_10] museum/gf_museum_robj_seal_058 / accepted SL_POCKET_WATCH @coverage
-    ☐ [location to classify / mac_mr_11] museum/gf_museum_robj_seal_059 / accepted SL_MANEKINEKO @coverage
-    ☐ [location to classify / mac_mr_11] museum/gf_museum_robj_seal_060 / accepted SL_HIGHHEEL @coverage
-    ☐ [location to classify / mac_mr_11] museum/gf_museum_robj_seal_061 / accepted SL_GOAT @coverage
-    ☐ [location to classify / mac_mr_11] museum/gf_museum_robj_seal_062 / accepted SL_TURKEY @coverage
-    ☐ [location to classify / mac_mr_11] museum/gf_museum_robj_seal_063 / accepted SL_CAKE @coverage
-    ☐ [location to classify / mac_mr_11] museum/gf_museum_robj_seal_064 / accepted SL_BOOM_BOX @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_001 / accepted SL_RAGGED_JUMP @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_002 / accepted SL_JUMP @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_003 / accepted SL_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_004 / accepted SL_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_005 / accepted SL_DEKA_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_006 / accepted SL_DODEKA_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_007 / accepted SL_IRON_JUMP @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_008 / accepted SL_IRON_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_009 / accepted SL_IRON_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_010 / accepted SL_DEKA_IRON_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_01] museum/gf_museum_battle_seal_011 / accepted SL_DODEKA_IRON_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_012 / accepted SL_BANE_JUMP @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_013 / accepted SL_BANE_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_014 / accepted SL_BANE_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_015 / accepted SL_DEKA_BANE_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_016 / accepted SL_DODEKA_BANE_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_017 / accepted SL_TSUGI_JUMP @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_018 / accepted SL_TSUGI_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_019 / accepted SL_TSUGI_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_020 / accepted SL_DEKA_TSUGI_JUMP_K @coverage
+    ☐ [location to classify / mac_mb_02] museum/gf_museum_battle_seal_021 / accepted SL_DODEKA_TSUGI_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_03] museum/gf_museum_battle_seal_022 / accepted SL_BUNSIN_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_03] museum/gf_museum_battle_seal_023 / accepted SL_DEKA_BUNSIN_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_03] museum/gf_museum_battle_seal_024 / accepted SL_DODEKA_BUNSIN_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_03] museum/gf_museum_battle_seal_025 / accepted SL_MUGEN_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_03] museum/gf_museum_battle_seal_026 / accepted SL_DEKA_MUGEN_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_03] museum/gf_museum_battle_seal_027 / accepted SL_DODEKA_MUGEN_JUMP_KK @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_028 / accepted SL_RAGGED_HAMMER @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_029 / accepted SL_HAMMER @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_030 / accepted SL_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_031 / accepted SL_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_032 / accepted SL_DEKA_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_033 / accepted SL_DODEKA_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_034 / accepted SL_BUN_HAMMER @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_035 / accepted SL_BUN_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_036 / accepted SL_BUN_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_037 / accepted SL_DEKA_BUN_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_04] museum/gf_museum_battle_seal_038 / accepted SL_DODEKA_BUN_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_039 / accepted SL_PICO_HAMMER @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_040 / accepted SL_PICO_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_041 / accepted SL_PICO_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_042 / accepted SL_DEKA_PICO_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_043 / accepted SL_DODEKA_PICO_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_044 / accepted SL_MEGATON_HAMMER @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_045 / accepted SL_MEGATON_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_046 / accepted SL_MEGATON_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_047 / accepted SL_DEKA_MEGATON_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_05] museum/gf_museum_battle_seal_048 / accepted SL_DODEKA_MEGATON_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_049 / accepted SL_MEE_HAMMER @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_050 / accepted SL_DEKA_MEE_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_051 / accepted SL_DODEKA_MEE_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_052 / accepted SL_BURNING_HAMMER @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_053 / accepted SL_DEKA_BURNING_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_054 / accepted SL_DODEKA_BURNING_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_055 / accepted SL_SEVERE_HAMMER @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_056 / accepted SL_DEKA_SEVERE_HAMMER_K @coverage
+    ☐ [location to classify / mac_mb_06] museum/gf_museum_battle_seal_057 / accepted SL_DODEKA_SEVERE_HAMMER_KK @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_058 / accepted SL_DEKA_BOOTS @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_059 / accepted SL_DEKA_BOOTS_K @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_060 / accepted SL_DEKA_TAIL @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_061 / accepted SL_DEKA_TAIL_K @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_062 / accepted SL_DEKA_FROG @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_063 / accepted SL_DEKA_FROG_K @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_064 / accepted SL_TOGE_HAT @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_065 / accepted SL_TOGE_HAT_K @coverage
+    ☐ [location to classify / mac_mb_07] museum/gf_museum_battle_seal_066 / accepted SL_TOGE_HAT_KK @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_067 / accepted SL_FIRE_FLOWER @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_068 / accepted SL_FIRE_FLOWER_K @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_069 / accepted SL_FIRE_FLOWER_KK @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_070 / accepted SL_ICE_FLOWER @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_071 / accepted SL_ICE_FLOWER_K @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_072 / accepted SL_ICE_FLOWER_KK @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_073 / accepted SL_POW_BLOCK @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_074 / accepted SL_POW_BLOCK_K @coverage
+    ☐ [location to classify / mac_mb_08] museum/gf_museum_battle_seal_075 / accepted SL_POW_BLOCK_KK @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_076 / accepted SL_NOKONOKO_KOURA @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_077 / accepted SL_NOKONOKO_KOURA_K @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_078 / accepted SL_NOKONOKO_KOURA_KK @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_079 / accepted SL_KINOKO @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_080 / accepted SL_KINOKO_K @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_081 / accepted SL_KINOKO_KK @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_082 / accepted SL_DEKA_1UP_KINOKO @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_083 / accepted SL_DEKA_1UP_KINOKO_K @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_084 / accepted SL_POISON_KINOKO @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_085 / accepted SL_LEAF @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_086 / accepted SL_LEAF_K @coverage
+    ☐ [location to classify / mac_mb_09] museum/gf_museum_battle_seal_087 / accepted SL_DOOR @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_088 / accepted SL_SNOW_BALL @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_089 / accepted SL_GABON_BALL @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_090 / accepted SL_BARREL @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_091 / accepted SL_SPANNER @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_092 / accepted SL_BONE @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_093 / accepted SL_BOOMERANG @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_094 / accepted SL_BOMB @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_095 / accepted SL_SOMBRERO @coverage
+    ☐ [location to classify / mac_mb_10] museum/gf_museum_battle_seal_096 / accepted SL_THROW_KNIFE @coverage
+    ☐ [location to classify / mac_mr_01] museum/gf_museum_rareobject_seal_001 / accepted SL_JAPANESE_SCISSORS @coverage
+    ☐ [location to classify / mac_mr_01] museum/gf_museum_rareobject_seal_002 / accepted SL_HAIRCUT_SCISSORS @coverage
+    ☐ [location to classify / mac_mr_01] museum/gf_museum_rareobject_seal_003 / accepted SL_SCISSORS @coverage
+    ☐ [location to classify / mac_mr_01] museum/gf_museum_rareobject_seal_004 / accepted SL_CLOTH_SCISSORS @coverage
+    ☐ [location to classify / mac_mr_02] museum/gf_museum_rareobject_seal_005 / accepted SL_BELLOWS @coverage
+    ☐ [location to classify / mac_mr_02] museum/gf_museum_rareobject_seal_006 / accepted SL_PAPER_FAN @coverage
+    ☐ [location to classify / mac_mr_02] museum/gf_museum_rareobject_seal_007 / accepted SL_FAN @coverage
+    ☐ [location to classify / mac_mr_02] museum/gf_museum_rareobject_seal_008 / accepted SL_HANDY_CLEANER @coverage
+    ☐ [location to classify / mac_mr_02] museum/gf_museum_rareobject_seal_009 / accepted SL_UPLIGHT_CLEANER @coverage
+    ☐ [location to classify / mac_mr_02] museum/gf_museum_rareobject_seal_010 / accepted SL_CLEANER @coverage
+    ☐ [location to classify / mac_mr_03] museum/gf_museum_rareobject_seal_011 / accepted SL_WATERING_CAN @coverage
+    ☐ [location to classify / mac_mr_03] museum/gf_museum_rareobject_seal_012 / accepted SL_TAP @coverage
+    ☐ [location to classify / mac_mr_03] museum/gf_museum_rareobject_seal_013 / accepted SL_KETTLE @coverage
+    ☐ [location to classify / mac_mr_03] museum/gf_museum_rareobject_seal_014 / accepted SL_TRUMPET @coverage
+    ☐ [location to classify / mac_mr_03] museum/gf_museum_rareobject_seal_015 / accepted SL_VIOLIN @coverage
+    ☐ [location to classify / mac_mr_03] museum/gf_museum_rareobject_seal_016 / accepted SL_GUITAR @coverage
+    ☐ [location to classify / mac_mr_04] museum/gf_museum_rareobject_seal_017 / accepted SL_NEWSPAPER_BAT @coverage
+    ☐ [location to classify / mac_mr_04] museum/gf_museum_rareobject_seal_018 / accepted SL_PLASTIC_BAT @coverage
+    ☐ [location to classify / mac_mr_04] museum/gf_museum_rareobject_seal_019 / accepted SL_BAT @coverage
+    ☐ [location to classify / mac_mr_04] museum/gf_museum_rareobject_seal_020 / accepted SL_ITTOKAN @coverage
+    ☐ [location to classify / mac_mr_04] museum/gf_museum_rareobject_seal_021 / accepted SL_TUB @coverage
+    ☐ [location to classify / mac_mr_04] museum/gf_museum_rareobject_seal_022 / accepted SL_DRUMKAN @coverage
+    ☐ [location to classify / mac_mr_05] museum/gf_museum_rareobject_seal_023 / accepted SL_LAMP @coverage
+    ☐ [location to classify / mac_mr_05] museum/gf_museum_rareobject_seal_024 / accepted SL_FLASHLIGHT @coverage
+    ☐ [location to classify / mac_mr_05] museum/gf_museum_rareobject_seal_025 / accepted SL_SEARCHLIGHT @coverage
+    ☐ [location to classify / mac_mr_05] museum/gf_museum_rareobject_seal_026 / accepted SL_BATTERY_BUTTON @coverage
+    ☐ [location to classify / mac_mr_05] museum/gf_museum_rareobject_seal_027 / accepted SL_BATTERY_1 @coverage
+    ☐ [location to classify / mac_mr_05] museum/gf_museum_rareobject_seal_028 / accepted SL_BATTERY_CAR @coverage
+    ☐ [location to classify / mac_mr_06] museum/gf_museum_rareobject_seal_029 / accepted SL_BILLIARD_BALL @coverage
+    ☐ [location to classify / mac_mr_06] museum/gf_museum_rareobject_seal_030 / accepted SL_CURLING_STONE @coverage
+    ☐ [location to classify / mac_mr_06] museum/gf_museum_rareobject_seal_031 / accepted SL_BOWLING @coverage
+    ☐ [location to classify / mac_mr_06] museum/gf_museum_rareobject_seal_032 / accepted SL_TROPHY @coverage
+    ☐ [location to classify / mac_mr_06] museum/gf_museum_rareobject_seal_033 / accepted SL_MOBILE_PHONE @coverage
+    ☐ [location to classify / mac_mr_06] museum/gf_museum_rareobject_seal_034 / accepted SL_JACKHAMMER @coverage
+    ☐ [location to classify / mac_mr_07] museum/gf_museum_rareobject_seal_035 / accepted SL_OIL_HEATER @coverage
+    ☐ [location to classify / mac_mr_07] museum/gf_museum_rareobject_seal_036 / accepted SL_DRYER @coverage
+    ☐ [location to classify / mac_mr_07] museum/gf_museum_rareobject_seal_037 / accepted SL_OVEN @coverage
+    ☐ [location to classify / mac_mr_07] museum/gf_museum_rareobject_seal_038 / accepted SL_MAGNIFYING_GLASS @coverage
+    ☐ [location to classify / mac_mr_07] museum/gf_museum_rareobject_seal_039 / accepted SL_MATCH @coverage
+    ☐ [location to classify / mac_mr_07] museum/gf_museum_rareobject_seal_040 / accepted SL_LIGHTER @coverage
+    ☐ [location to classify / mac_mr_08] museum/gf_museum_rareobject_seal_041 / accepted SL_SHAVED_ICE @coverage
+    ☐ [location to classify / mac_mr_08] museum/gf_museum_rareobject_seal_042 / accepted SL_AIR_CONDITIONER @coverage
+    ☐ [location to classify / mac_mr_08] museum/gf_museum_rareobject_seal_043 / accepted SL_FRIDGE @coverage
+    ☐ [location to classify / mac_mr_08] museum/gf_museum_rareobject_seal_044 / accepted SL_JUICE @coverage
+    ☐ [location to classify / mac_mr_08] museum/gf_museum_rareobject_seal_045 / accepted SL_WATER_PISTOL @coverage
+    ☐ [location to classify / mac_mr_08] museum/gf_museum_rareobject_seal_046 / accepted SL_DUCK @coverage
+    ☐ [location to classify / mac_mr_09] museum/gf_museum_rareobject_seal_047 / accepted SL_POWDER_PUFF @coverage
+    ☐ [location to classify / mac_mr_09] museum/gf_museum_rareobject_seal_048 / accepted SL_SPONGE @coverage
+    ☐ [location to classify / mac_mr_09] museum/gf_museum_rareobject_seal_049 / accepted SL_CAR_WASH_SPONGE @coverage
+    ☐ [location to classify / mac_mr_09] museum/gf_museum_rareobject_seal_050 / accepted SL_PILLOW @coverage
+    ☐ [location to classify / mac_mr_09] museum/gf_museum_rareobject_seal_051 / accepted SL_BED @coverage
+    ☐ [location to classify / mac_mr_09] museum/gf_museum_rareobject_seal_052 / accepted SL_CANOPY_BED @coverage
+    ☐ [location to classify / mac_mr_10] museum/gf_museum_rareobject_seal_053 / accepted SL_CELLOPHANE_TAPE @coverage
+    ☐ [location to classify / mac_mr_10] museum/gf_museum_rareobject_seal_054 / accepted SL_THUMBTACK @coverage
+    ☐ [location to classify / mac_mr_10] museum/gf_museum_rareobject_seal_055 / accepted SL_STAPLER @coverage
+    ☐ [location to classify / mac_mr_10] museum/gf_museum_rareobject_seal_056 / accepted SL_FOOK @coverage
+    ☐ [location to classify / mac_mr_10] museum/gf_museum_rareobject_seal_057 / accepted SL_BALLOON @coverage
+    ☐ [location to classify / mac_mr_10] museum/gf_museum_rareobject_seal_058 / accepted SL_POCKET_WATCH @coverage
+    ☐ [location to classify / mac_mr_11] museum/gf_museum_rareobject_seal_059 / accepted SL_MANEKINEKO @coverage
+    ☐ [location to classify / mac_mr_11] museum/gf_museum_rareobject_seal_060 / accepted SL_HIGHHEEL @coverage
+    ☐ [location to classify / mac_mr_11] museum/gf_museum_rareobject_seal_061 / accepted SL_GOAT @coverage
+    ☐ [location to classify / mac_mr_11] museum/gf_museum_rareobject_seal_062 / accepted SL_TURKEY @coverage
+    ☐ [location to classify / mac_mr_11] museum/gf_museum_rareobject_seal_063 / accepted SL_CAKE @coverage
+    ☐ [location to classify / mac_mr_11] museum/gf_museum_rareobject_seal_064 / accepted SL_BOOM_BOX @coverage
 
 First-peel checks (17):
     Apply the source coverage protocol; record the fixture placement and observed native effects.
@@ -597,8 +597,8 @@ Thing pickup checks (72):
     ☐ [2-3 / w2_ise_04] pickup/w2_ise_04/real / original REAL_BAT @coverage
     ☐ [2-3 / w2_ise_20] pickup/w2_ise_20/REAL / original REAL_MAGNIFYING_GLASS @coverage
     ☐ [2-3 / w2_ise_D1] pickup/w2_ise_D1/REAL_LIGHTER / original REAL_LIGHTER @coverage
-    ☐ [2-4 / w2_oas_01] pickup/w2_oas_01/ROBJ_01 / original REAL_SHAVED_ICE @coverage
-    ☐ [2-4 / w2_oas_D1] pickup/w2_oas_D1/ROBJ_01 / original REAL_HAIRCUT_SCISSORS @coverage
+    ☐ [2-4 / w2_oas_01] pickup/w2_oas_01/RAREOBJECT_01 / original REAL_SHAVED_ICE @coverage
+    ☐ [2-4 / w2_oas_D1] pickup/w2_oas_D1/RAREOBJECT_01 / original REAL_HAIRCUT_SCISSORS @coverage
     ☐ [2-1 / w2_sab_09] pickup/w2_sab_09/REAL_JUICE / original REAL_JUICE @coverage
     ☐ [2-1 / w2_sab_D1] pickup/w2_sab_D1/REAL_BATTERY_1 / original REAL_BATTERY_CAR @coverage
     ☐ [2-2 / w2_yos_06] pickup/w2_yos_06/real_lamp / original REAL_LAMP @coverage
@@ -608,10 +608,10 @@ Thing pickup checks (72):
     ☐ [3-10 / w3_bea_D1] pickup/w3_bea_D1/K_REAL / original REAL_ITTOKAN @coverage
     ☐ [3-12 / w3_bos_00] pickup/w3_bos_00/REAL_POCKET_WATCH / original REAL_POCKET_WATCH @coverage
     ☐ [3-12 / w3_bos_D1] pickup/w3_bos_D1/K_REAL / original REAL_NEWSPAPER_BAT @coverage
-    ☐ [3-2 / w3_cho_24] pickup/w3_cho_24/ROBJ_01 / original REAL_BOWLING @coverage
-    ☐ [3-2 / w3_cho_24] pickup/w3_cho_24/ROBJ_02 / original REAL_TROPHY @coverage
-    ☐ [3-2 / w3_cho_D1] pickup/w3_cho_D1/ROBJ_01 / original REAL_VIOLIN @coverage
-    ☐ [3-1 / w3_dok_D1] pickup/w3_dok_D1/ROBJ_01 / original REAL_SEARCHLIGHT @coverage
+    ☐ [3-2 / w3_cho_24] pickup/w3_cho_24/RAREOBJECT_01 / original REAL_BOWLING @coverage
+    ☐ [3-2 / w3_cho_24] pickup/w3_cho_24/RAREOBJECT_02 / original REAL_TROPHY @coverage
+    ☐ [3-2 / w3_cho_D1] pickup/w3_cho_D1/RAREOBJECT_01 / original REAL_VIOLIN @coverage
+    ☐ [3-1 / w3_dok_D1] pickup/w3_dok_D1/RAREOBJECT_01 / original REAL_SEARCHLIGHT @coverage
     ☐ [3-6 / w3_dor_D1] pickup/w3_dor_D1/real / original REAL_FOOK @coverage
     ☐ [3-11 / w3_for_D1] pickup/w3_for_D1/K_REAL / original REAL_BALLOON @coverage
     ☐ [3-9 / w3_paz_02] pickup/w3_paz_02/real_sponge / original REAL_SPONGE @coverage
@@ -620,40 +620,40 @@ Thing pickup checks (72):
     ☐ [3-8 / w3_sta_D1] pickup/w3_sta_D1/K_REAL / original REAL_CELLOPHANE_TAPE @coverage
     ☐ [3-5 / w3_str_D1] pickup/w3_str_D1/K_REAL / original REAL_PILLOW @coverage
     ☐ [3-4 / w3_thr_01] pickup/w3_thr_01/REAL_BILLIARD_BALL / original REAL_BILLIARD_BALL @coverage
-    ☐ [3-4 / w3_thr_03] pickup/w3_thr_03/ROBJ_01 / original REAL_BOWLING @coverage
+    ☐ [3-4 / w3_thr_03] pickup/w3_thr_03/RAREOBJECT_01 / original REAL_BOWLING @coverage
     ☐ [3-4 / w3_thr_D1] pickup/w3_thr_D1/REAL_DRUMKAN / original REAL_DRUMKAN @coverage
-    ☐ [3-3 / w3_tre_01] pickup/w3_tre_01/ROBJ_01 / original REAL_HIGHHEEL @coverage
-    ☐ [3-3 / w3_tre_01] pickup/w3_tre_01/ROBJ_02 / original REAL_BOOM_BOX @coverage
-    ☐ [4-6 / w4_bos_01] pickup/w4_bos_01/ROBJ_01 / original REAL_JAPANESE_SCISSORS @coverage
+    ☐ [3-3 / w3_tre_01] pickup/w3_tre_01/RAREOBJECT_01 / original REAL_HIGHHEEL @coverage
+    ☐ [3-3 / w3_tre_01] pickup/w3_tre_01/RAREOBJECT_02 / original REAL_BOOM_BOX @coverage
+    ☐ [4-6 / w4_bos_01] pickup/w4_bos_01/RAREOBJECT_01 / original REAL_JAPANESE_SCISSORS @coverage
     ☐ [4-2 / w4_kaw_00] pickup/w4_kaw_00/realobj001 / original REAL_CURLING_STONE @coverage
-    ☐ [4-2 / w4_kaw_D1] pickup/w4_kaw_D1/ROBJ_00 / original REAL_DRYER @coverage
-    ☐ [4-5 / w4_lif_D1] pickup/w4_lif_D1/ROBJ_01 / original REAL_FLASHLIGHT @coverage
-    ☐ [4-3 / w4_yak_04] pickup/w4_yak_04/ROBJ_01 / original REAL_STAPLER @coverage
-    ☐ [4-3 / w4_yak_04_AFTER] pickup/w4_yak_04_AFTER/ROBJ_01 / original REAL_STAPLER @coverage
-    ☐ [4-3 / w4_yak_05] pickup/w4_yak_05/ROBJ_01 / original REAL_CAKE @coverage
-    ☐ [4-3 / w4_yak_05] pickup/w4_yak_05/ROBJ_02 / original REAL_FRIDGE @coverage
-    ☐ [4-3 / w4_yak_05] pickup/w4_yak_05/ROBJ_03 / original REAL_OVEN @coverage
-    ☐ [4-3 / w4_yak_05_AFTER] pickup/w4_yak_05_AFTER/ROBJ_01 / original REAL_CAKE @coverage
-    ☐ [4-3 / w4_yak_05_AFTER] pickup/w4_yak_05_AFTER/ROBJ_02 / original REAL_FRIDGE @coverage
-    ☐ [4-3 / w4_yak_05_AFTER] pickup/w4_yak_05_AFTER/ROBJ_03 / original REAL_OVEN @coverage
-    ☐ [4-3 / w4_yak_12] pickup/w4_yak_12/ROBJ_01 / original REAL_WATERING_CAN @coverage
-    ☐ [4-3 / w4_yak_12_AFTER] pickup/w4_yak_12_AFTER/ROBJ_01 / original REAL_WATERING_CAN @coverage
+    ☐ [4-2 / w4_kaw_D1] pickup/w4_kaw_D1/RAREOBJECT_00 / original REAL_DRYER @coverage
+    ☐ [4-5 / w4_lif_D1] pickup/w4_lif_D1/RAREOBJECT_01 / original REAL_FLASHLIGHT @coverage
+    ☐ [4-3 / w4_yak_04] pickup/w4_yak_04/RAREOBJECT_01 / original REAL_STAPLER @coverage
+    ☐ [4-3 / w4_yak_04_AFTER] pickup/w4_yak_04_AFTER/RAREOBJECT_01 / original REAL_STAPLER @coverage
+    ☐ [4-3 / w4_yak_05] pickup/w4_yak_05/RAREOBJECT_01 / original REAL_CAKE @coverage
+    ☐ [4-3 / w4_yak_05] pickup/w4_yak_05/RAREOBJECT_02 / original REAL_FRIDGE @coverage
+    ☐ [4-3 / w4_yak_05] pickup/w4_yak_05/RAREOBJECT_03 / original REAL_OVEN @coverage
+    ☐ [4-3 / w4_yak_05_AFTER] pickup/w4_yak_05_AFTER/RAREOBJECT_01 / original REAL_CAKE @coverage
+    ☐ [4-3 / w4_yak_05_AFTER] pickup/w4_yak_05_AFTER/RAREOBJECT_02 / original REAL_FRIDGE @coverage
+    ☐ [4-3 / w4_yak_05_AFTER] pickup/w4_yak_05_AFTER/RAREOBJECT_03 / original REAL_OVEN @coverage
+    ☐ [4-3 / w4_yak_12] pickup/w4_yak_12/RAREOBJECT_01 / original REAL_WATERING_CAN @coverage
+    ☐ [4-3 / w4_yak_12_AFTER] pickup/w4_yak_12_AFTER/RAREOBJECT_01 / original REAL_WATERING_CAN @coverage
     ☐ [4-1 / w4_yuk_04] pickup/w4_yuk_04/real_goat / original REAL_GOAT @coverage
-    ☐ [4-1 / w4_yuk_D1] pickup/w4_yuk_D1/ROBJ_01 / original REAL_MOBILE_PHONE @coverage
-    ☐ [5-3 / w5_bak_D1] pickup/w5_bak_D1/ROBJ_01 / original REAL_CANOPY_BED @coverage
-    ☐ [5-6 / w5_bos_D1] pickup/w5_bos_D1/ROBJ_01 / original REAL_GUITAR @coverage
+    ☐ [4-1 / w4_yuk_D1] pickup/w4_yuk_D1/RAREOBJECT_01 / original REAL_MOBILE_PHONE @coverage
+    ☐ [5-3 / w5_bak_D1] pickup/w5_bak_D1/RAREOBJECT_01 / original REAL_CANOPY_BED @coverage
+    ☐ [5-6 / w5_bos_D1] pickup/w5_bos_D1/RAREOBJECT_01 / original REAL_GUITAR @coverage
     ☐ [5-2 / w5_cru_02] pickup/w5_cru_02/real / original REAL_DUCK @coverage
     ☐ [5-2 / w5_cru_03_real] pickup/w5_cru_03_real/real / original REAL_DUCK @coverage
-    ☐ [5-2 / w5_cru_D1] pickup/w5_cru_D1/ROBJ_01 / original REAL_HANDY_CLEANER @coverage
-    ☐ [5-1 / w5_jun_07] pickup/w5_jun_07/ROBJ_01 / original REAL_PLASTIC_BAT @coverage
-    ☐ [5-1 / w5_jun_08] pickup/w5_jun_08/ROBJ_01 / original REAL_POWDER_PUFF @coverage
-    ☐ [5-1 / w5_jun_D1] pickup/w5_jun_D1/ROBJ_01 / original REAL_CLOTH_SCISSORS @coverage
-    ☐ [5-5 / w5_mag_19] pickup/w5_mag_19/ROBJ_01 / original REAL_TURKEY @coverage
-    ☐ [5-5 / w5_mag_20] pickup/w5_mag_20/ROBJ_01 / original REAL_CAR_WASH_SPONGE @coverage
-    ☐ [5-5 / w5_mag_D1] pickup/w5_mag_D1/ROBJ_01 / original REAL_TUB @coverage
-    ☐ [5-4 / w5_wan_00] pickup/w5_wan_00/ROBJ_01 / original REAL_BATTERY_1 @coverage
-    ☐ [5-4 / w5_wan_08] pickup/w5_wan_08/ROBJ_01 / original REAL_KETTLE @coverage
-    ☐ [5-4 / w5_wan_D1] pickup/w5_wan_D1/ROBJ_01 / original REAL_AIR_CONDITIONER @coverage
+    ☐ [5-2 / w5_cru_D1] pickup/w5_cru_D1/RAREOBJECT_01 / original REAL_HANDY_CLEANER @coverage
+    ☐ [5-1 / w5_jun_07] pickup/w5_jun_07/RAREOBJECT_01 / original REAL_PLASTIC_BAT @coverage
+    ☐ [5-1 / w5_jun_08] pickup/w5_jun_08/RAREOBJECT_01 / original REAL_POWDER_PUFF @coverage
+    ☐ [5-1 / w5_jun_D1] pickup/w5_jun_D1/RAREOBJECT_01 / original REAL_CLOTH_SCISSORS @coverage
+    ☐ [5-5 / w5_mag_19] pickup/w5_mag_19/RAREOBJECT_01 / original REAL_TURKEY @coverage
+    ☐ [5-5 / w5_mag_20] pickup/w5_mag_20/RAREOBJECT_01 / original REAL_CAR_WASH_SPONGE @coverage
+    ☐ [5-5 / w5_mag_D1] pickup/w5_mag_D1/RAREOBJECT_01 / original REAL_TUB @coverage
+    ☐ [5-4 / w5_wan_00] pickup/w5_wan_00/RAREOBJECT_01 / original REAL_BATTERY_1 @coverage
+    ☐ [5-4 / w5_wan_08] pickup/w5_wan_08/RAREOBJECT_01 / original REAL_KETTLE @coverage
+    ☐ [5-4 / w5_wan_D1] pickup/w5_wan_D1/RAREOBJECT_01 / original REAL_AIR_CONDITIONER @coverage
 
 Field/scripted scrap checks (24):
     Apply the source coverage protocol; record the fixture placement and observed native effects.
@@ -1647,7 +1647,7 @@ Directed native room-link evidence (1135 records):
     ☐ room_link/tst_22/af_e_bero@00011b00 / tst_22:af_e_bero -> tst_22:af_w_bero / enter=e_bero_enter, exit=e_bero_exit @catalog
     ☐ room_link/tst_22/af_w_bero@00011b2c / tst_22:af_w_bero -> tst_22:af_e_bero / enter=w_bero_enter, exit=w_bero_exit @catalog
     ☐ room_link/tst_25/zone@00011b7c / tst_25:zone -> :zf_wangwang / enter=zone_enter, exit=zone_exit @catalog
-    ☐ room_link/tst_25/zone_btl@00011ba8 / tst_25:zone_btl -> :zb_strong_kuribo / enter=zone_enter, exit=zone_exit @catalog
+    ☐ room_link/tst_25/zone_battle@00011ba8 / tst_25:zone_battle -> :zb_strong_kuribo / enter=zone_enter, exit=zone_exit @catalog
     ☐ room_link/tst_32/af_e_bero@00011bf8 / tst_32:af_e_bero -> tst_32:af_w_bero / enter=e_bero_enter, exit=e_bero_exit @catalog
     ☐ room_link/tst_32/af_w_bero@00011c24 / tst_32:af_w_bero -> tst_32:af_e_bero / enter=w_bero_enter, exit=w_bero_exit @catalog
     ☐ room_link/tst_32/af_n_bero@00011c50 / tst_32:af_n_bero -> 不要:af_n_bero / enter=n_bero_enter, exit=n_bero_exit @catalog

@@ -35,7 +35,7 @@ def main() -> None:
         action="store_true",
         help="Fill the disposable album, reject a grant, remove one copy natively and retry",
     )
-    parser.add_argument("--removal-header", type=Path, help="Your extracted btl_cyucyu.hksm, required for the retry fixture")
+    parser.add_argument("--removal-header", type=Path, help="Your extracted battle_cyucyu.hksm, required for the retry fixture")
     parser.add_argument(
         "--save-probe", action="store_true", help="Save the disposable world-map fixture through the original game script"
     )

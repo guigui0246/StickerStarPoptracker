@@ -190,7 +190,7 @@ def configure_catalog(
             # remain enabled. Enemy first-victory checks are the optional pool.
             removed.add(identifier)
         if isinstance(source, FlagReward) and source.category == "museum":
-            things = source.source_flag.startswith("gf_museum_robj_")
+            things = source.source_flag.startswith("gf_museum_rareobject_")
             if (settings.museum == Museum.OFF or (settings.museum == Museum.NORMAL and things)
                     or (settings.museum == Museum.THINGS and not things)):
                 removed.add(identifier)

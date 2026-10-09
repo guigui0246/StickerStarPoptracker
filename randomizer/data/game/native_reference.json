@@ -3876,24 +3876,24 @@
   ],
   "locations": [
     {
-      "id": "banner/btl_excellent",
-      "name": "banner/btl excellent",
+      "id": "banner/battle_excellent",
+      "name": "banner/battle excellent",
       "region": "checks/banner",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "banner/btl_perfect",
-      "name": "banner/btl perfect",
+      "id": "banner/battle_perfect",
+      "name": "banner/battle perfect",
       "region": "checks/banner",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "banner/btl_slot_machine",
-      "name": "banner/btl slot machine",
+      "id": "banner/battle_slot_machine",
+      "name": "banner/battle slot machine",
       "region": "checks/banner",
       "requires": {
         "all": []
@@ -4964,1280 +4964,1280 @@
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_001",
-      "name": "museum/gf museum btl seal 001",
+      "id": "museum/gf_museum_battle_seal_001",
+      "name": "museum/gf museum battle seal 001",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_002",
-      "name": "museum/gf museum btl seal 002",
+      "id": "museum/gf_museum_battle_seal_002",
+      "name": "museum/gf museum battle seal 002",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_003",
-      "name": "museum/gf museum btl seal 003",
+      "id": "museum/gf_museum_battle_seal_003",
+      "name": "museum/gf museum battle seal 003",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_004",
-      "name": "museum/gf museum btl seal 004",
+      "id": "museum/gf_museum_battle_seal_004",
+      "name": "museum/gf museum battle seal 004",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_005",
-      "name": "museum/gf museum btl seal 005",
+      "id": "museum/gf_museum_battle_seal_005",
+      "name": "museum/gf museum battle seal 005",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_006",
-      "name": "museum/gf museum btl seal 006",
+      "id": "museum/gf_museum_battle_seal_006",
+      "name": "museum/gf museum battle seal 006",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_007",
-      "name": "museum/gf museum btl seal 007",
+      "id": "museum/gf_museum_battle_seal_007",
+      "name": "museum/gf museum battle seal 007",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_008",
-      "name": "museum/gf museum btl seal 008",
+      "id": "museum/gf_museum_battle_seal_008",
+      "name": "museum/gf museum battle seal 008",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_009",
-      "name": "museum/gf museum btl seal 009",
+      "id": "museum/gf_museum_battle_seal_009",
+      "name": "museum/gf museum battle seal 009",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_010",
-      "name": "museum/gf museum btl seal 010",
+      "id": "museum/gf_museum_battle_seal_010",
+      "name": "museum/gf museum battle seal 010",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_011",
-      "name": "museum/gf museum btl seal 011",
+      "id": "museum/gf_museum_battle_seal_011",
+      "name": "museum/gf museum battle seal 011",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_012",
-      "name": "museum/gf museum btl seal 012",
+      "id": "museum/gf_museum_battle_seal_012",
+      "name": "museum/gf museum battle seal 012",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_013",
-      "name": "museum/gf museum btl seal 013",
+      "id": "museum/gf_museum_battle_seal_013",
+      "name": "museum/gf museum battle seal 013",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_014",
-      "name": "museum/gf museum btl seal 014",
+      "id": "museum/gf_museum_battle_seal_014",
+      "name": "museum/gf museum battle seal 014",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_015",
-      "name": "museum/gf museum btl seal 015",
+      "id": "museum/gf_museum_battle_seal_015",
+      "name": "museum/gf museum battle seal 015",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_016",
-      "name": "museum/gf museum btl seal 016",
+      "id": "museum/gf_museum_battle_seal_016",
+      "name": "museum/gf museum battle seal 016",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_017",
-      "name": "museum/gf museum btl seal 017",
+      "id": "museum/gf_museum_battle_seal_017",
+      "name": "museum/gf museum battle seal 017",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_018",
-      "name": "museum/gf museum btl seal 018",
+      "id": "museum/gf_museum_battle_seal_018",
+      "name": "museum/gf museum battle seal 018",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_019",
-      "name": "museum/gf museum btl seal 019",
+      "id": "museum/gf_museum_battle_seal_019",
+      "name": "museum/gf museum battle seal 019",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_020",
-      "name": "museum/gf museum btl seal 020",
+      "id": "museum/gf_museum_battle_seal_020",
+      "name": "museum/gf museum battle seal 020",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_021",
-      "name": "museum/gf museum btl seal 021",
+      "id": "museum/gf_museum_battle_seal_021",
+      "name": "museum/gf museum battle seal 021",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_022",
-      "name": "museum/gf museum btl seal 022",
+      "id": "museum/gf_museum_battle_seal_022",
+      "name": "museum/gf museum battle seal 022",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_023",
-      "name": "museum/gf museum btl seal 023",
+      "id": "museum/gf_museum_battle_seal_023",
+      "name": "museum/gf museum battle seal 023",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_024",
-      "name": "museum/gf museum btl seal 024",
+      "id": "museum/gf_museum_battle_seal_024",
+      "name": "museum/gf museum battle seal 024",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_025",
-      "name": "museum/gf museum btl seal 025",
+      "id": "museum/gf_museum_battle_seal_025",
+      "name": "museum/gf museum battle seal 025",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_026",
-      "name": "museum/gf museum btl seal 026",
+      "id": "museum/gf_museum_battle_seal_026",
+      "name": "museum/gf museum battle seal 026",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_027",
-      "name": "museum/gf museum btl seal 027",
+      "id": "museum/gf_museum_battle_seal_027",
+      "name": "museum/gf museum battle seal 027",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_028",
-      "name": "museum/gf museum btl seal 028",
+      "id": "museum/gf_museum_battle_seal_028",
+      "name": "museum/gf museum battle seal 028",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_029",
-      "name": "museum/gf museum btl seal 029",
+      "id": "museum/gf_museum_battle_seal_029",
+      "name": "museum/gf museum battle seal 029",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_030",
-      "name": "museum/gf museum btl seal 030",
+      "id": "museum/gf_museum_battle_seal_030",
+      "name": "museum/gf museum battle seal 030",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_031",
-      "name": "museum/gf museum btl seal 031",
+      "id": "museum/gf_museum_battle_seal_031",
+      "name": "museum/gf museum battle seal 031",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_032",
-      "name": "museum/gf museum btl seal 032",
+      "id": "museum/gf_museum_battle_seal_032",
+      "name": "museum/gf museum battle seal 032",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_033",
-      "name": "museum/gf museum btl seal 033",
+      "id": "museum/gf_museum_battle_seal_033",
+      "name": "museum/gf museum battle seal 033",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_034",
-      "name": "museum/gf museum btl seal 034",
+      "id": "museum/gf_museum_battle_seal_034",
+      "name": "museum/gf museum battle seal 034",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_035",
-      "name": "museum/gf museum btl seal 035",
+      "id": "museum/gf_museum_battle_seal_035",
+      "name": "museum/gf museum battle seal 035",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_036",
-      "name": "museum/gf museum btl seal 036",
+      "id": "museum/gf_museum_battle_seal_036",
+      "name": "museum/gf museum battle seal 036",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_037",
-      "name": "museum/gf museum btl seal 037",
+      "id": "museum/gf_museum_battle_seal_037",
+      "name": "museum/gf museum battle seal 037",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_038",
-      "name": "museum/gf museum btl seal 038",
+      "id": "museum/gf_museum_battle_seal_038",
+      "name": "museum/gf museum battle seal 038",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_039",
-      "name": "museum/gf museum btl seal 039",
+      "id": "museum/gf_museum_battle_seal_039",
+      "name": "museum/gf museum battle seal 039",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_040",
-      "name": "museum/gf museum btl seal 040",
+      "id": "museum/gf_museum_battle_seal_040",
+      "name": "museum/gf museum battle seal 040",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_041",
-      "name": "museum/gf museum btl seal 041",
+      "id": "museum/gf_museum_battle_seal_041",
+      "name": "museum/gf museum battle seal 041",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_042",
-      "name": "museum/gf museum btl seal 042",
+      "id": "museum/gf_museum_battle_seal_042",
+      "name": "museum/gf museum battle seal 042",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_043",
-      "name": "museum/gf museum btl seal 043",
+      "id": "museum/gf_museum_battle_seal_043",
+      "name": "museum/gf museum battle seal 043",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_044",
-      "name": "museum/gf museum btl seal 044",
+      "id": "museum/gf_museum_battle_seal_044",
+      "name": "museum/gf museum battle seal 044",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_045",
-      "name": "museum/gf museum btl seal 045",
+      "id": "museum/gf_museum_battle_seal_045",
+      "name": "museum/gf museum battle seal 045",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_046",
-      "name": "museum/gf museum btl seal 046",
+      "id": "museum/gf_museum_battle_seal_046",
+      "name": "museum/gf museum battle seal 046",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_047",
-      "name": "museum/gf museum btl seal 047",
+      "id": "museum/gf_museum_battle_seal_047",
+      "name": "museum/gf museum battle seal 047",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_048",
-      "name": "museum/gf museum btl seal 048",
+      "id": "museum/gf_museum_battle_seal_048",
+      "name": "museum/gf museum battle seal 048",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_049",
-      "name": "museum/gf museum btl seal 049",
+      "id": "museum/gf_museum_battle_seal_049",
+      "name": "museum/gf museum battle seal 049",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_050",
-      "name": "museum/gf museum btl seal 050",
+      "id": "museum/gf_museum_battle_seal_050",
+      "name": "museum/gf museum battle seal 050",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_051",
-      "name": "museum/gf museum btl seal 051",
+      "id": "museum/gf_museum_battle_seal_051",
+      "name": "museum/gf museum battle seal 051",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_052",
-      "name": "museum/gf museum btl seal 052",
+      "id": "museum/gf_museum_battle_seal_052",
+      "name": "museum/gf museum battle seal 052",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_053",
-      "name": "museum/gf museum btl seal 053",
+      "id": "museum/gf_museum_battle_seal_053",
+      "name": "museum/gf museum battle seal 053",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_054",
-      "name": "museum/gf museum btl seal 054",
+      "id": "museum/gf_museum_battle_seal_054",
+      "name": "museum/gf museum battle seal 054",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_055",
-      "name": "museum/gf museum btl seal 055",
+      "id": "museum/gf_museum_battle_seal_055",
+      "name": "museum/gf museum battle seal 055",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_056",
-      "name": "museum/gf museum btl seal 056",
+      "id": "museum/gf_museum_battle_seal_056",
+      "name": "museum/gf museum battle seal 056",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_057",
-      "name": "museum/gf museum btl seal 057",
+      "id": "museum/gf_museum_battle_seal_057",
+      "name": "museum/gf museum battle seal 057",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_058",
-      "name": "museum/gf museum btl seal 058",
+      "id": "museum/gf_museum_battle_seal_058",
+      "name": "museum/gf museum battle seal 058",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_059",
-      "name": "museum/gf museum btl seal 059",
+      "id": "museum/gf_museum_battle_seal_059",
+      "name": "museum/gf museum battle seal 059",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_060",
-      "name": "museum/gf museum btl seal 060",
+      "id": "museum/gf_museum_battle_seal_060",
+      "name": "museum/gf museum battle seal 060",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_061",
-      "name": "museum/gf museum btl seal 061",
+      "id": "museum/gf_museum_battle_seal_061",
+      "name": "museum/gf museum battle seal 061",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_062",
-      "name": "museum/gf museum btl seal 062",
+      "id": "museum/gf_museum_battle_seal_062",
+      "name": "museum/gf museum battle seal 062",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_063",
-      "name": "museum/gf museum btl seal 063",
+      "id": "museum/gf_museum_battle_seal_063",
+      "name": "museum/gf museum battle seal 063",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_064",
-      "name": "museum/gf museum btl seal 064",
+      "id": "museum/gf_museum_battle_seal_064",
+      "name": "museum/gf museum battle seal 064",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_065",
-      "name": "museum/gf museum btl seal 065",
+      "id": "museum/gf_museum_battle_seal_065",
+      "name": "museum/gf museum battle seal 065",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_066",
-      "name": "museum/gf museum btl seal 066",
+      "id": "museum/gf_museum_battle_seal_066",
+      "name": "museum/gf museum battle seal 066",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_067",
-      "name": "museum/gf museum btl seal 067",
+      "id": "museum/gf_museum_battle_seal_067",
+      "name": "museum/gf museum battle seal 067",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_068",
-      "name": "museum/gf museum btl seal 068",
+      "id": "museum/gf_museum_battle_seal_068",
+      "name": "museum/gf museum battle seal 068",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_069",
-      "name": "museum/gf museum btl seal 069",
+      "id": "museum/gf_museum_battle_seal_069",
+      "name": "museum/gf museum battle seal 069",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_070",
-      "name": "museum/gf museum btl seal 070",
+      "id": "museum/gf_museum_battle_seal_070",
+      "name": "museum/gf museum battle seal 070",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_071",
-      "name": "museum/gf museum btl seal 071",
+      "id": "museum/gf_museum_battle_seal_071",
+      "name": "museum/gf museum battle seal 071",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_072",
-      "name": "museum/gf museum btl seal 072",
+      "id": "museum/gf_museum_battle_seal_072",
+      "name": "museum/gf museum battle seal 072",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_073",
-      "name": "museum/gf museum btl seal 073",
+      "id": "museum/gf_museum_battle_seal_073",
+      "name": "museum/gf museum battle seal 073",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_074",
-      "name": "museum/gf museum btl seal 074",
+      "id": "museum/gf_museum_battle_seal_074",
+      "name": "museum/gf museum battle seal 074",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_075",
-      "name": "museum/gf museum btl seal 075",
+      "id": "museum/gf_museum_battle_seal_075",
+      "name": "museum/gf museum battle seal 075",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_076",
-      "name": "museum/gf museum btl seal 076",
+      "id": "museum/gf_museum_battle_seal_076",
+      "name": "museum/gf museum battle seal 076",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_077",
-      "name": "museum/gf museum btl seal 077",
+      "id": "museum/gf_museum_battle_seal_077",
+      "name": "museum/gf museum battle seal 077",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_078",
-      "name": "museum/gf museum btl seal 078",
+      "id": "museum/gf_museum_battle_seal_078",
+      "name": "museum/gf museum battle seal 078",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_079",
-      "name": "museum/gf museum btl seal 079",
+      "id": "museum/gf_museum_battle_seal_079",
+      "name": "museum/gf museum battle seal 079",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_080",
-      "name": "museum/gf museum btl seal 080",
+      "id": "museum/gf_museum_battle_seal_080",
+      "name": "museum/gf museum battle seal 080",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_081",
-      "name": "museum/gf museum btl seal 081",
+      "id": "museum/gf_museum_battle_seal_081",
+      "name": "museum/gf museum battle seal 081",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_082",
-      "name": "museum/gf museum btl seal 082",
+      "id": "museum/gf_museum_battle_seal_082",
+      "name": "museum/gf museum battle seal 082",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_083",
-      "name": "museum/gf museum btl seal 083",
+      "id": "museum/gf_museum_battle_seal_083",
+      "name": "museum/gf museum battle seal 083",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_084",
-      "name": "museum/gf museum btl seal 084",
+      "id": "museum/gf_museum_battle_seal_084",
+      "name": "museum/gf museum battle seal 084",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_085",
-      "name": "museum/gf museum btl seal 085",
+      "id": "museum/gf_museum_battle_seal_085",
+      "name": "museum/gf museum battle seal 085",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_086",
-      "name": "museum/gf museum btl seal 086",
+      "id": "museum/gf_museum_battle_seal_086",
+      "name": "museum/gf museum battle seal 086",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_087",
-      "name": "museum/gf museum btl seal 087",
+      "id": "museum/gf_museum_battle_seal_087",
+      "name": "museum/gf museum battle seal 087",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_088",
-      "name": "museum/gf museum btl seal 088",
+      "id": "museum/gf_museum_battle_seal_088",
+      "name": "museum/gf museum battle seal 088",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_089",
-      "name": "museum/gf museum btl seal 089",
+      "id": "museum/gf_museum_battle_seal_089",
+      "name": "museum/gf museum battle seal 089",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_090",
-      "name": "museum/gf museum btl seal 090",
+      "id": "museum/gf_museum_battle_seal_090",
+      "name": "museum/gf museum battle seal 090",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_091",
-      "name": "museum/gf museum btl seal 091",
+      "id": "museum/gf_museum_battle_seal_091",
+      "name": "museum/gf museum battle seal 091",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_092",
-      "name": "museum/gf museum btl seal 092",
+      "id": "museum/gf_museum_battle_seal_092",
+      "name": "museum/gf museum battle seal 092",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_093",
-      "name": "museum/gf museum btl seal 093",
+      "id": "museum/gf_museum_battle_seal_093",
+      "name": "museum/gf museum battle seal 093",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_094",
-      "name": "museum/gf museum btl seal 094",
+      "id": "museum/gf_museum_battle_seal_094",
+      "name": "museum/gf museum battle seal 094",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_095",
-      "name": "museum/gf museum btl seal 095",
+      "id": "museum/gf_museum_battle_seal_095",
+      "name": "museum/gf museum battle seal 095",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_btl_seal_096",
-      "name": "museum/gf museum btl seal 096",
+      "id": "museum/gf_museum_battle_seal_096",
+      "name": "museum/gf museum battle seal 096",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_001",
-      "name": "museum/gf museum robj seal 001",
+      "id": "museum/gf_museum_rareobject_seal_001",
+      "name": "museum/gf museum rareobject seal 001",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_002",
-      "name": "museum/gf museum robj seal 002",
+      "id": "museum/gf_museum_rareobject_seal_002",
+      "name": "museum/gf museum rareobject seal 002",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_003",
-      "name": "museum/gf museum robj seal 003",
+      "id": "museum/gf_museum_rareobject_seal_003",
+      "name": "museum/gf museum rareobject seal 003",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_004",
-      "name": "museum/gf museum robj seal 004",
+      "id": "museum/gf_museum_rareobject_seal_004",
+      "name": "museum/gf museum rareobject seal 004",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_005",
-      "name": "museum/gf museum robj seal 005",
+      "id": "museum/gf_museum_rareobject_seal_005",
+      "name": "museum/gf museum rareobject seal 005",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_006",
-      "name": "museum/gf museum robj seal 006",
+      "id": "museum/gf_museum_rareobject_seal_006",
+      "name": "museum/gf museum rareobject seal 006",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_007",
-      "name": "museum/gf museum robj seal 007",
+      "id": "museum/gf_museum_rareobject_seal_007",
+      "name": "museum/gf museum rareobject seal 007",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_008",
-      "name": "museum/gf museum robj seal 008",
+      "id": "museum/gf_museum_rareobject_seal_008",
+      "name": "museum/gf museum rareobject seal 008",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_009",
-      "name": "museum/gf museum robj seal 009",
+      "id": "museum/gf_museum_rareobject_seal_009",
+      "name": "museum/gf museum rareobject seal 009",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_010",
-      "name": "museum/gf museum robj seal 010",
+      "id": "museum/gf_museum_rareobject_seal_010",
+      "name": "museum/gf museum rareobject seal 010",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_011",
-      "name": "museum/gf museum robj seal 011",
+      "id": "museum/gf_museum_rareobject_seal_011",
+      "name": "museum/gf museum rareobject seal 011",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_012",
-      "name": "museum/gf museum robj seal 012",
+      "id": "museum/gf_museum_rareobject_seal_012",
+      "name": "museum/gf museum rareobject seal 012",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_013",
-      "name": "museum/gf museum robj seal 013",
+      "id": "museum/gf_museum_rareobject_seal_013",
+      "name": "museum/gf museum rareobject seal 013",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_014",
-      "name": "museum/gf museum robj seal 014",
+      "id": "museum/gf_museum_rareobject_seal_014",
+      "name": "museum/gf museum rareobject seal 014",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_015",
-      "name": "museum/gf museum robj seal 015",
+      "id": "museum/gf_museum_rareobject_seal_015",
+      "name": "museum/gf museum rareobject seal 015",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_016",
-      "name": "museum/gf museum robj seal 016",
+      "id": "museum/gf_museum_rareobject_seal_016",
+      "name": "museum/gf museum rareobject seal 016",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_017",
-      "name": "museum/gf museum robj seal 017",
+      "id": "museum/gf_museum_rareobject_seal_017",
+      "name": "museum/gf museum rareobject seal 017",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_018",
-      "name": "museum/gf museum robj seal 018",
+      "id": "museum/gf_museum_rareobject_seal_018",
+      "name": "museum/gf museum rareobject seal 018",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_019",
-      "name": "museum/gf museum robj seal 019",
+      "id": "museum/gf_museum_rareobject_seal_019",
+      "name": "museum/gf museum rareobject seal 019",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_020",
-      "name": "museum/gf museum robj seal 020",
+      "id": "museum/gf_museum_rareobject_seal_020",
+      "name": "museum/gf museum rareobject seal 020",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_021",
-      "name": "museum/gf museum robj seal 021",
+      "id": "museum/gf_museum_rareobject_seal_021",
+      "name": "museum/gf museum rareobject seal 021",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_022",
-      "name": "museum/gf museum robj seal 022",
+      "id": "museum/gf_museum_rareobject_seal_022",
+      "name": "museum/gf museum rareobject seal 022",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_023",
-      "name": "museum/gf museum robj seal 023",
+      "id": "museum/gf_museum_rareobject_seal_023",
+      "name": "museum/gf museum rareobject seal 023",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_024",
-      "name": "museum/gf museum robj seal 024",
+      "id": "museum/gf_museum_rareobject_seal_024",
+      "name": "museum/gf museum rareobject seal 024",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_025",
-      "name": "museum/gf museum robj seal 025",
+      "id": "museum/gf_museum_rareobject_seal_025",
+      "name": "museum/gf museum rareobject seal 025",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_026",
-      "name": "museum/gf museum robj seal 026",
+      "id": "museum/gf_museum_rareobject_seal_026",
+      "name": "museum/gf museum rareobject seal 026",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_027",
-      "name": "museum/gf museum robj seal 027",
+      "id": "museum/gf_museum_rareobject_seal_027",
+      "name": "museum/gf museum rareobject seal 027",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_028",
-      "name": "museum/gf museum robj seal 028",
+      "id": "museum/gf_museum_rareobject_seal_028",
+      "name": "museum/gf museum rareobject seal 028",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_029",
-      "name": "museum/gf museum robj seal 029",
+      "id": "museum/gf_museum_rareobject_seal_029",
+      "name": "museum/gf museum rareobject seal 029",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_030",
-      "name": "museum/gf museum robj seal 030",
+      "id": "museum/gf_museum_rareobject_seal_030",
+      "name": "museum/gf museum rareobject seal 030",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_031",
-      "name": "museum/gf museum robj seal 031",
+      "id": "museum/gf_museum_rareobject_seal_031",
+      "name": "museum/gf museum rareobject seal 031",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_032",
-      "name": "museum/gf museum robj seal 032",
+      "id": "museum/gf_museum_rareobject_seal_032",
+      "name": "museum/gf museum rareobject seal 032",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_033",
-      "name": "museum/gf museum robj seal 033",
+      "id": "museum/gf_museum_rareobject_seal_033",
+      "name": "museum/gf museum rareobject seal 033",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_034",
-      "name": "museum/gf museum robj seal 034",
+      "id": "museum/gf_museum_rareobject_seal_034",
+      "name": "museum/gf museum rareobject seal 034",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_035",
-      "name": "museum/gf museum robj seal 035",
+      "id": "museum/gf_museum_rareobject_seal_035",
+      "name": "museum/gf museum rareobject seal 035",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_036",
-      "name": "museum/gf museum robj seal 036",
+      "id": "museum/gf_museum_rareobject_seal_036",
+      "name": "museum/gf museum rareobject seal 036",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_037",
-      "name": "museum/gf museum robj seal 037",
+      "id": "museum/gf_museum_rareobject_seal_037",
+      "name": "museum/gf museum rareobject seal 037",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_038",
-      "name": "museum/gf museum robj seal 038",
+      "id": "museum/gf_museum_rareobject_seal_038",
+      "name": "museum/gf museum rareobject seal 038",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_039",
-      "name": "museum/gf museum robj seal 039",
+      "id": "museum/gf_museum_rareobject_seal_039",
+      "name": "museum/gf museum rareobject seal 039",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_040",
-      "name": "museum/gf museum robj seal 040",
+      "id": "museum/gf_museum_rareobject_seal_040",
+      "name": "museum/gf museum rareobject seal 040",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_041",
-      "name": "museum/gf museum robj seal 041",
+      "id": "museum/gf_museum_rareobject_seal_041",
+      "name": "museum/gf museum rareobject seal 041",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_042",
-      "name": "museum/gf museum robj seal 042",
+      "id": "museum/gf_museum_rareobject_seal_042",
+      "name": "museum/gf museum rareobject seal 042",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_043",
-      "name": "museum/gf museum robj seal 043",
+      "id": "museum/gf_museum_rareobject_seal_043",
+      "name": "museum/gf museum rareobject seal 043",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_044",
-      "name": "museum/gf museum robj seal 044",
+      "id": "museum/gf_museum_rareobject_seal_044",
+      "name": "museum/gf museum rareobject seal 044",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_045",
-      "name": "museum/gf museum robj seal 045",
+      "id": "museum/gf_museum_rareobject_seal_045",
+      "name": "museum/gf museum rareobject seal 045",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_046",
-      "name": "museum/gf museum robj seal 046",
+      "id": "museum/gf_museum_rareobject_seal_046",
+      "name": "museum/gf museum rareobject seal 046",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_047",
-      "name": "museum/gf museum robj seal 047",
+      "id": "museum/gf_museum_rareobject_seal_047",
+      "name": "museum/gf museum rareobject seal 047",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_048",
-      "name": "museum/gf museum robj seal 048",
+      "id": "museum/gf_museum_rareobject_seal_048",
+      "name": "museum/gf museum rareobject seal 048",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_049",
-      "name": "museum/gf museum robj seal 049",
+      "id": "museum/gf_museum_rareobject_seal_049",
+      "name": "museum/gf museum rareobject seal 049",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_050",
-      "name": "museum/gf museum robj seal 050",
+      "id": "museum/gf_museum_rareobject_seal_050",
+      "name": "museum/gf museum rareobject seal 050",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_051",
-      "name": "museum/gf museum robj seal 051",
+      "id": "museum/gf_museum_rareobject_seal_051",
+      "name": "museum/gf museum rareobject seal 051",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_052",
-      "name": "museum/gf museum robj seal 052",
+      "id": "museum/gf_museum_rareobject_seal_052",
+      "name": "museum/gf museum rareobject seal 052",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_053",
-      "name": "museum/gf museum robj seal 053",
+      "id": "museum/gf_museum_rareobject_seal_053",
+      "name": "museum/gf museum rareobject seal 053",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_054",
-      "name": "museum/gf museum robj seal 054",
+      "id": "museum/gf_museum_rareobject_seal_054",
+      "name": "museum/gf museum rareobject seal 054",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_055",
-      "name": "museum/gf museum robj seal 055",
+      "id": "museum/gf_museum_rareobject_seal_055",
+      "name": "museum/gf museum rareobject seal 055",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_056",
-      "name": "museum/gf museum robj seal 056",
+      "id": "museum/gf_museum_rareobject_seal_056",
+      "name": "museum/gf museum rareobject seal 056",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_057",
-      "name": "museum/gf museum robj seal 057",
+      "id": "museum/gf_museum_rareobject_seal_057",
+      "name": "museum/gf museum rareobject seal 057",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_058",
-      "name": "museum/gf museum robj seal 058",
+      "id": "museum/gf_museum_rareobject_seal_058",
+      "name": "museum/gf museum rareobject seal 058",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_059",
-      "name": "museum/gf museum robj seal 059",
+      "id": "museum/gf_museum_rareobject_seal_059",
+      "name": "museum/gf museum rareobject seal 059",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_060",
-      "name": "museum/gf museum robj seal 060",
+      "id": "museum/gf_museum_rareobject_seal_060",
+      "name": "museum/gf museum rareobject seal 060",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_061",
-      "name": "museum/gf museum robj seal 061",
+      "id": "museum/gf_museum_rareobject_seal_061",
+      "name": "museum/gf museum rareobject seal 061",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_062",
-      "name": "museum/gf museum robj seal 062",
+      "id": "museum/gf_museum_rareobject_seal_062",
+      "name": "museum/gf museum rareobject seal 062",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_063",
-      "name": "museum/gf museum robj seal 063",
+      "id": "museum/gf_museum_rareobject_seal_063",
+      "name": "museum/gf museum rareobject seal 063",
       "region": "checks/museum",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "museum/gf_museum_robj_seal_064",
-      "name": "museum/gf museum robj seal 064",
+      "id": "museum/gf_museum_rareobject_seal_064",
+      "name": "museum/gf museum rareobject seal 064",
       "region": "checks/museum",
       "requires": {
         "all": []
@@ -6540,16 +6540,16 @@
       }
     },
     {
-      "id": "pickup/w2_oas_01/ROBJ_01",
-      "name": "pickup/w2 oas 01/ROBJ 01",
+      "id": "pickup/w2_oas_01/RAREOBJECT_01",
+      "name": "pickup/w2 oas 01/RAREOBJECT 01",
       "region": "room/w2_oas_01",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w2_oas_D1/ROBJ_01",
-      "name": "pickup/w2 oas D1/ROBJ 01",
+      "id": "pickup/w2_oas_D1/RAREOBJECT_01",
+      "name": "pickup/w2 oas D1/RAREOBJECT 01",
       "region": "room/w2_oas_D1",
       "requires": {
         "all": []
@@ -6636,32 +6636,32 @@
       }
     },
     {
-      "id": "pickup/w3_cho_24/ROBJ_01",
-      "name": "pickup/w3 cho 24/ROBJ 01",
+      "id": "pickup/w3_cho_24/RAREOBJECT_01",
+      "name": "pickup/w3 cho 24/RAREOBJECT 01",
       "region": "room/w3_cho_24",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w3_cho_24/ROBJ_02",
-      "name": "pickup/w3 cho 24/ROBJ 02",
+      "id": "pickup/w3_cho_24/RAREOBJECT_02",
+      "name": "pickup/w3 cho 24/RAREOBJECT 02",
       "region": "room/w3_cho_24",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w3_cho_D1/ROBJ_01",
-      "name": "pickup/w3 cho D1/ROBJ 01",
+      "id": "pickup/w3_cho_D1/RAREOBJECT_01",
+      "name": "pickup/w3 cho D1/RAREOBJECT 01",
       "region": "room/w3_cho_D1",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w3_dok_D1/ROBJ_01",
-      "name": "pickup/w3 dok D1/ROBJ 01",
+      "id": "pickup/w3_dok_D1/RAREOBJECT_01",
+      "name": "pickup/w3 dok D1/RAREOBJECT 01",
       "region": "room/w3_dok_D1",
       "requires": {
         "all": []
@@ -6764,8 +6764,8 @@
       }
     },
     {
-      "id": "pickup/w3_thr_03/ROBJ_01",
-      "name": "pickup/w3 thr 03/ROBJ 01",
+      "id": "pickup/w3_thr_03/RAREOBJECT_01",
+      "name": "pickup/w3 thr 03/RAREOBJECT 01",
       "region": "room/w3_thr_03",
       "requires": {
         "all": []
@@ -6780,24 +6780,24 @@
       }
     },
     {
-      "id": "pickup/w3_tre_01/ROBJ_01",
-      "name": "pickup/w3 tre 01/ROBJ 01",
+      "id": "pickup/w3_tre_01/RAREOBJECT_01",
+      "name": "pickup/w3 tre 01/RAREOBJECT 01",
       "region": "room/w3_tre_01",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w3_tre_01/ROBJ_02",
-      "name": "pickup/w3 tre 01/ROBJ 02",
+      "id": "pickup/w3_tre_01/RAREOBJECT_02",
+      "name": "pickup/w3 tre 01/RAREOBJECT 02",
       "region": "room/w3_tre_01",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_bos_01/ROBJ_01",
-      "name": "pickup/w4 bos 01/ROBJ 01",
+      "id": "pickup/w4_bos_01/RAREOBJECT_01",
+      "name": "pickup/w4 bos 01/RAREOBJECT 01",
       "region": "room/w4_bos_01",
       "requires": {
         "all": []
@@ -6828,16 +6828,16 @@
       }
     },
     {
-      "id": "pickup/w4_kaw_D1/ROBJ_00",
-      "name": "pickup/w4 kaw D1/ROBJ 00",
+      "id": "pickup/w4_kaw_D1/RAREOBJECT_00",
+      "name": "pickup/w4 kaw D1/RAREOBJECT 00",
       "region": "room/w4_kaw_D1",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_lif_D1/ROBJ_01",
-      "name": "pickup/w4 lif D1/ROBJ 01",
+      "id": "pickup/w4_lif_D1/RAREOBJECT_01",
+      "name": "pickup/w4 lif D1/RAREOBJECT 01",
       "region": "room/w4_lif_D1",
       "requires": {
         "all": []
@@ -6876,64 +6876,64 @@
       }
     },
     {
-      "id": "pickup/w4_yak_04/ROBJ_01",
-      "name": "pickup/w4 yak 04/ROBJ 01",
+      "id": "pickup/w4_yak_04/RAREOBJECT_01",
+      "name": "pickup/w4 yak 04/RAREOBJECT 01",
       "region": "room/w4_yak_04",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_04_AFTER/ROBJ_01",
-      "name": "pickup/w4 yak 04 AFTER/ROBJ 01",
+      "id": "pickup/w4_yak_04_AFTER/RAREOBJECT_01",
+      "name": "pickup/w4 yak 04 AFTER/RAREOBJECT 01",
       "region": "room/w4_yak_04_AFTER",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_05/ROBJ_01",
-      "name": "pickup/w4 yak 05/ROBJ 01",
+      "id": "pickup/w4_yak_05/RAREOBJECT_01",
+      "name": "pickup/w4 yak 05/RAREOBJECT 01",
       "region": "room/w4_yak_05",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_05/ROBJ_02",
-      "name": "pickup/w4 yak 05/ROBJ 02",
+      "id": "pickup/w4_yak_05/RAREOBJECT_02",
+      "name": "pickup/w4 yak 05/RAREOBJECT 02",
       "region": "room/w4_yak_05",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_05/ROBJ_03",
-      "name": "pickup/w4 yak 05/ROBJ 03",
+      "id": "pickup/w4_yak_05/RAREOBJECT_03",
+      "name": "pickup/w4 yak 05/RAREOBJECT 03",
       "region": "room/w4_yak_05",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_05_AFTER/ROBJ_01",
-      "name": "pickup/w4 yak 05 AFTER/ROBJ 01",
+      "id": "pickup/w4_yak_05_AFTER/RAREOBJECT_01",
+      "name": "pickup/w4 yak 05 AFTER/RAREOBJECT 01",
       "region": "room/w4_yak_05_AFTER",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_05_AFTER/ROBJ_02",
-      "name": "pickup/w4 yak 05 AFTER/ROBJ 02",
+      "id": "pickup/w4_yak_05_AFTER/RAREOBJECT_02",
+      "name": "pickup/w4 yak 05 AFTER/RAREOBJECT 02",
       "region": "room/w4_yak_05_AFTER",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_05_AFTER/ROBJ_03",
-      "name": "pickup/w4 yak 05 AFTER/ROBJ 03",
+      "id": "pickup/w4_yak_05_AFTER/RAREOBJECT_03",
+      "name": "pickup/w4 yak 05 AFTER/RAREOBJECT 03",
       "region": "room/w4_yak_05_AFTER",
       "requires": {
         "all": []
@@ -6948,16 +6948,16 @@
       }
     },
     {
-      "id": "pickup/w4_yak_12/ROBJ_01",
-      "name": "pickup/w4 yak 12/ROBJ 01",
+      "id": "pickup/w4_yak_12/RAREOBJECT_01",
+      "name": "pickup/w4 yak 12/RAREOBJECT 01",
       "region": "room/w4_yak_12",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w4_yak_12_AFTER/ROBJ_01",
-      "name": "pickup/w4 yak 12 AFTER/ROBJ 01",
+      "id": "pickup/w4_yak_12_AFTER/RAREOBJECT_01",
+      "name": "pickup/w4 yak 12 AFTER/RAREOBJECT 01",
       "region": "room/w4_yak_12_AFTER",
       "requires": {
         "all": []
@@ -6980,24 +6980,24 @@
       }
     },
     {
-      "id": "pickup/w4_yuk_D1/ROBJ_01",
-      "name": "pickup/w4 yuk D1/ROBJ 01",
+      "id": "pickup/w4_yuk_D1/RAREOBJECT_01",
+      "name": "pickup/w4 yuk D1/RAREOBJECT 01",
       "region": "room/w4_yuk_D1",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_bak_D1/ROBJ_01",
-      "name": "pickup/w5 bak D1/ROBJ 01",
+      "id": "pickup/w5_bak_D1/RAREOBJECT_01",
+      "name": "pickup/w5 bak D1/RAREOBJECT 01",
       "region": "room/w5_bak_D1",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_bos_D1/ROBJ_01",
-      "name": "pickup/w5 bos D1/ROBJ 01",
+      "id": "pickup/w5_bos_D1/RAREOBJECT_01",
+      "name": "pickup/w5 bos D1/RAREOBJECT 01",
       "region": "room/w5_bos_D1",
       "requires": {
         "all": []
@@ -7020,8 +7020,8 @@
       }
     },
     {
-      "id": "pickup/w5_cru_D1/ROBJ_01",
-      "name": "pickup/w5 cru D1/ROBJ 01",
+      "id": "pickup/w5_cru_D1/RAREOBJECT_01",
+      "name": "pickup/w5 cru D1/RAREOBJECT 01",
       "region": "room/w5_cru_D1",
       "requires": {
         "all": []
@@ -7060,24 +7060,24 @@
       }
     },
     {
-      "id": "pickup/w5_jun_07/ROBJ_01",
-      "name": "pickup/w5 jun 07/ROBJ 01",
+      "id": "pickup/w5_jun_07/RAREOBJECT_01",
+      "name": "pickup/w5 jun 07/RAREOBJECT 01",
       "region": "room/w5_jun_07",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_jun_08/ROBJ_01",
-      "name": "pickup/w5 jun 08/ROBJ 01",
+      "id": "pickup/w5_jun_08/RAREOBJECT_01",
+      "name": "pickup/w5 jun 08/RAREOBJECT 01",
       "region": "room/w5_jun_08",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_jun_D1/ROBJ_01",
-      "name": "pickup/w5 jun D1/ROBJ 01",
+      "id": "pickup/w5_jun_D1/RAREOBJECT_01",
+      "name": "pickup/w5 jun D1/RAREOBJECT 01",
       "region": "room/w5_jun_D1",
       "requires": {
         "all": []
@@ -7092,32 +7092,32 @@
       }
     },
     {
-      "id": "pickup/w5_mag_19/ROBJ_01",
-      "name": "pickup/w5 mag 19/ROBJ 01",
+      "id": "pickup/w5_mag_19/RAREOBJECT_01",
+      "name": "pickup/w5 mag 19/RAREOBJECT 01",
       "region": "room/w5_mag_19",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_mag_20/ROBJ_01",
-      "name": "pickup/w5 mag 20/ROBJ 01",
+      "id": "pickup/w5_mag_20/RAREOBJECT_01",
+      "name": "pickup/w5 mag 20/RAREOBJECT 01",
       "region": "room/w5_mag_20",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_mag_D1/ROBJ_01",
-      "name": "pickup/w5 mag D1/ROBJ 01",
+      "id": "pickup/w5_mag_D1/RAREOBJECT_01",
+      "name": "pickup/w5 mag D1/RAREOBJECT 01",
       "region": "room/w5_mag_D1",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_wan_00/ROBJ_01",
-      "name": "pickup/w5 wan 00/ROBJ 01",
+      "id": "pickup/w5_wan_00/RAREOBJECT_01",
+      "name": "pickup/w5 wan 00/RAREOBJECT 01",
       "region": "room/w5_wan_00",
       "requires": {
         "all": []
@@ -7132,16 +7132,16 @@
       }
     },
     {
-      "id": "pickup/w5_wan_08/ROBJ_01",
-      "name": "pickup/w5 wan 08/ROBJ 01",
+      "id": "pickup/w5_wan_08/RAREOBJECT_01",
+      "name": "pickup/w5 wan 08/RAREOBJECT 01",
       "region": "room/w5_wan_08",
       "requires": {
         "all": []
       }
     },
     {
-      "id": "pickup/w5_wan_D1/ROBJ_01",
-      "name": "pickup/w5 wan D1/ROBJ 01",
+      "id": "pickup/w5_wan_D1/RAREOBJECT_01",
+      "name": "pickup/w5 wan D1/RAREOBJECT 01",
       "region": "room/w5_wan_D1",
       "requires": {
         "all": []
@@ -7208,7 +7208,7 @@
   ],
   "paths": [
     {
-      "id": "no_logic/checks/banner",
+      "id": "checks/banner",
       "forward": {
         "source": "menu",
         "target": "checks/banner"
@@ -7219,7 +7219,7 @@
       }
     },
     {
-      "id": "no_logic/checks/boss",
+      "id": "checks/boss",
       "forward": {
         "source": "menu",
         "target": "checks/boss"
@@ -7230,7 +7230,7 @@
       }
     },
     {
-      "id": "no_logic/checks/enemy",
+      "id": "checks/enemy",
       "forward": {
         "source": "menu",
         "target": "checks/enemy"
@@ -7241,7 +7241,7 @@
       }
     },
     {
-      "id": "no_logic/checks/kamek",
+      "id": "checks/kamek",
       "forward": {
         "source": "menu",
         "target": "checks/kamek"
@@ -7252,7 +7252,7 @@
       }
     },
     {
-      "id": "no_logic/checks/museum",
+      "id": "checks/museum",
       "forward": {
         "source": "menu",
         "target": "checks/museum"
@@ -7263,7 +7263,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_00",
+      "id": "room/hei_2_00",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_00"
@@ -7274,7 +7274,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_01",
+      "id": "room/hei_2_01",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_01"
@@ -7285,7 +7285,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_02",
+      "id": "room/hei_2_02",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_02"
@@ -7296,7 +7296,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_03",
+      "id": "room/hei_2_03",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_03"
@@ -7307,7 +7307,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_04",
+      "id": "room/hei_2_04",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_04"
@@ -7318,7 +7318,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_06",
+      "id": "room/hei_2_06",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_06"
@@ -7329,7 +7329,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_2_D1",
+      "id": "room/hei_2_D1",
       "forward": {
         "source": "menu",
         "target": "room/hei_2_D1"
@@ -7340,7 +7340,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_00",
+      "id": "room/hei_3_00",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_00"
@@ -7351,7 +7351,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_01",
+      "id": "room/hei_3_01",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_01"
@@ -7362,7 +7362,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_02",
+      "id": "room/hei_3_02",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_02"
@@ -7373,7 +7373,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_03",
+      "id": "room/hei_3_03",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_03"
@@ -7384,7 +7384,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_04",
+      "id": "room/hei_3_04",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_04"
@@ -7395,7 +7395,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_05",
+      "id": "room/hei_3_05",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_05"
@@ -7406,7 +7406,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_06",
+      "id": "room/hei_3_06",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_06"
@@ -7417,7 +7417,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_3_D1",
+      "id": "room/hei_3_D1",
       "forward": {
         "source": "menu",
         "target": "room/hei_3_D1"
@@ -7428,7 +7428,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_00",
+      "id": "room/hei_4_00",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_00"
@@ -7439,7 +7439,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_01",
+      "id": "room/hei_4_01",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_01"
@@ -7450,7 +7450,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_02",
+      "id": "room/hei_4_02",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_02"
@@ -7461,7 +7461,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_03",
+      "id": "room/hei_4_03",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_03"
@@ -7472,7 +7472,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_04",
+      "id": "room/hei_4_04",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_04"
@@ -7483,7 +7483,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_05",
+      "id": "room/hei_4_05",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_05"
@@ -7494,7 +7494,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_4_D1",
+      "id": "room/hei_4_D1",
       "forward": {
         "source": "menu",
         "target": "room/hei_4_D1"
@@ -7505,7 +7505,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_5_00",
+      "id": "room/hei_5_00",
       "forward": {
         "source": "menu",
         "target": "room/hei_5_00"
@@ -7516,7 +7516,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_5_03",
+      "id": "room/hei_5_03",
       "forward": {
         "source": "menu",
         "target": "room/hei_5_03"
@@ -7527,7 +7527,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_5_06",
+      "id": "room/hei_5_06",
       "forward": {
         "source": "menu",
         "target": "room/hei_5_06"
@@ -7538,7 +7538,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_5_07",
+      "id": "room/hei_5_07",
       "forward": {
         "source": "menu",
         "target": "room/hei_5_07"
@@ -7549,7 +7549,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_5_11",
+      "id": "room/hei_5_11",
       "forward": {
         "source": "menu",
         "target": "room/hei_5_11"
@@ -7560,7 +7560,7 @@
       }
     },
     {
-      "id": "no_logic/room/hei_5_D1",
+      "id": "room/hei_5_D1",
       "forward": {
         "source": "menu",
         "target": "room/hei_5_D1"
@@ -7571,7 +7571,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_00",
+      "id": "room/iwa_2_00",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_00"
@@ -7582,7 +7582,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_01",
+      "id": "room/iwa_2_01",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_01"
@@ -7593,7 +7593,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_02",
+      "id": "room/iwa_2_02",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_02"
@@ -7604,7 +7604,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_03",
+      "id": "room/iwa_2_03",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_03"
@@ -7615,7 +7615,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_04",
+      "id": "room/iwa_2_04",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_04"
@@ -7626,7 +7626,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_05",
+      "id": "room/iwa_2_05",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_05"
@@ -7637,7 +7637,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_06",
+      "id": "room/iwa_2_06",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_06"
@@ -7648,7 +7648,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_07",
+      "id": "room/iwa_2_07",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_07"
@@ -7659,7 +7659,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_08",
+      "id": "room/iwa_2_08",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_08"
@@ -7670,7 +7670,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_09",
+      "id": "room/iwa_2_09",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_09"
@@ -7681,7 +7681,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_10",
+      "id": "room/iwa_2_10",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_10"
@@ -7692,7 +7692,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_2_D1",
+      "id": "room/iwa_2_D1",
       "forward": {
         "source": "menu",
         "target": "room/iwa_2_D1"
@@ -7703,7 +7703,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_4_00",
+      "id": "room/iwa_4_00",
       "forward": {
         "source": "menu",
         "target": "room/iwa_4_00"
@@ -7714,7 +7714,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_4_01",
+      "id": "room/iwa_4_01",
       "forward": {
         "source": "menu",
         "target": "room/iwa_4_01"
@@ -7725,7 +7725,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_4_02",
+      "id": "room/iwa_4_02",
       "forward": {
         "source": "menu",
         "target": "room/iwa_4_02"
@@ -7736,7 +7736,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_4_04",
+      "id": "room/iwa_4_04",
       "forward": {
         "source": "menu",
         "target": "room/iwa_4_04"
@@ -7747,7 +7747,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_4_05",
+      "id": "room/iwa_4_05",
       "forward": {
         "source": "menu",
         "target": "room/iwa_4_05"
@@ -7758,7 +7758,7 @@
       }
     },
     {
-      "id": "no_logic/room/iwa_4_D1",
+      "id": "room/iwa_4_D1",
       "forward": {
         "source": "menu",
         "target": "room/iwa_4_D1"
@@ -7769,7 +7769,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_00",
+      "id": "room/mac_1_00",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_00"
@@ -7780,7 +7780,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_01",
+      "id": "room/mac_1_01",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_01"
@@ -7791,7 +7791,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_03",
+      "id": "room/mac_1_03",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_03"
@@ -7802,7 +7802,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_04",
+      "id": "room/mac_1_04",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_04"
@@ -7813,7 +7813,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_05",
+      "id": "room/mac_1_05",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_05"
@@ -7824,7 +7824,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_07",
+      "id": "room/mac_1_07",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_07"
@@ -7835,7 +7835,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_20",
+      "id": "room/mac_1_20",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_20"
@@ -7846,7 +7846,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_21",
+      "id": "room/mac_1_21",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_21"
@@ -7857,7 +7857,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_22",
+      "id": "room/mac_1_22",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_22"
@@ -7868,7 +7868,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_23",
+      "id": "room/mac_1_23",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_23"
@@ -7879,7 +7879,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_30",
+      "id": "room/mac_1_30",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_30"
@@ -7890,7 +7890,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_31",
+      "id": "room/mac_1_31",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_31"
@@ -7901,7 +7901,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_34",
+      "id": "room/mac_1_34",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_34"
@@ -7912,7 +7912,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_40",
+      "id": "room/mac_1_40",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_40"
@@ -7923,7 +7923,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_41",
+      "id": "room/mac_1_41",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_41"
@@ -7934,7 +7934,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_42",
+      "id": "room/mac_1_42",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_42"
@@ -7945,7 +7945,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_50",
+      "id": "room/mac_1_50",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_50"
@@ -7956,7 +7956,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_1_F",
+      "id": "room/mac_1_F",
       "forward": {
         "source": "menu",
         "target": "room/mac_1_F"
@@ -7967,7 +7967,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_2_00",
+      "id": "room/mac_2_00",
       "forward": {
         "source": "menu",
         "target": "room/mac_2_00"
@@ -7978,7 +7978,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_2_01",
+      "id": "room/mac_2_01",
       "forward": {
         "source": "menu",
         "target": "room/mac_2_01"
@@ -7989,7 +7989,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_2_02",
+      "id": "room/mac_2_02",
       "forward": {
         "source": "menu",
         "target": "room/mac_2_02"
@@ -8000,7 +8000,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_2_20",
+      "id": "room/mac_2_20",
       "forward": {
         "source": "menu",
         "target": "room/mac_2_20"
@@ -8011,7 +8011,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_2_21",
+      "id": "room/mac_2_21",
       "forward": {
         "source": "menu",
         "target": "room/mac_2_21"
@@ -8022,7 +8022,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_2_22",
+      "id": "room/mac_2_22",
       "forward": {
         "source": "menu",
         "target": "room/mac_2_22"
@@ -8033,7 +8033,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_m_00",
+      "id": "room/mac_m_00",
       "forward": {
         "source": "menu",
         "target": "room/mac_m_00"
@@ -8044,7 +8044,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_m_01",
+      "id": "room/mac_m_01",
       "forward": {
         "source": "menu",
         "target": "room/mac_m_01"
@@ -8055,7 +8055,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_m_02",
+      "id": "room/mac_m_02",
       "forward": {
         "source": "menu",
         "target": "room/mac_m_02"
@@ -8066,7 +8066,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_01",
+      "id": "room/mac_mb_01",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_01"
@@ -8077,7 +8077,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_02",
+      "id": "room/mac_mb_02",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_02"
@@ -8088,7 +8088,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_03",
+      "id": "room/mac_mb_03",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_03"
@@ -8099,7 +8099,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_04",
+      "id": "room/mac_mb_04",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_04"
@@ -8110,7 +8110,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_05",
+      "id": "room/mac_mb_05",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_05"
@@ -8121,7 +8121,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_06",
+      "id": "room/mac_mb_06",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_06"
@@ -8132,7 +8132,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_07",
+      "id": "room/mac_mb_07",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_07"
@@ -8143,7 +8143,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_08",
+      "id": "room/mac_mb_08",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_08"
@@ -8154,7 +8154,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_09",
+      "id": "room/mac_mb_09",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_09"
@@ -8165,7 +8165,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_10",
+      "id": "room/mac_mb_10",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_10"
@@ -8176,7 +8176,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_11",
+      "id": "room/mac_mb_11",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_11"
@@ -8187,7 +8187,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mb_20",
+      "id": "room/mac_mb_20",
       "forward": {
         "source": "menu",
         "target": "room/mac_mb_20"
@@ -8198,7 +8198,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_01",
+      "id": "room/mac_mr_01",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_01"
@@ -8209,7 +8209,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_02",
+      "id": "room/mac_mr_02",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_02"
@@ -8220,7 +8220,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_03",
+      "id": "room/mac_mr_03",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_03"
@@ -8231,7 +8231,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_04",
+      "id": "room/mac_mr_04",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_04"
@@ -8242,7 +8242,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_05",
+      "id": "room/mac_mr_05",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_05"
@@ -8253,7 +8253,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_06",
+      "id": "room/mac_mr_06",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_06"
@@ -8264,7 +8264,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_07",
+      "id": "room/mac_mr_07",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_07"
@@ -8275,7 +8275,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_08",
+      "id": "room/mac_mr_08",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_08"
@@ -8286,7 +8286,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_09",
+      "id": "room/mac_mr_09",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_09"
@@ -8297,7 +8297,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_10",
+      "id": "room/mac_mr_10",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_10"
@@ -8308,7 +8308,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_11",
+      "id": "room/mac_mr_11",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_11"
@@ -8319,7 +8319,7 @@
       }
     },
     {
-      "id": "no_logic/room/mac_mr_20",
+      "id": "room/mac_mr_20",
       "forward": {
         "source": "menu",
         "target": "room/mac_mr_20"
@@ -8330,7 +8330,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_00",
+      "id": "room/w2_ise_00",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_00"
@@ -8341,7 +8341,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_01",
+      "id": "room/w2_ise_01",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_01"
@@ -8352,7 +8352,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_02",
+      "id": "room/w2_ise_02",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_02"
@@ -8363,7 +8363,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_03",
+      "id": "room/w2_ise_03",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_03"
@@ -8374,7 +8374,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_04",
+      "id": "room/w2_ise_04",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_04"
@@ -8385,7 +8385,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_05",
+      "id": "room/w2_ise_05",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_05"
@@ -8396,7 +8396,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_06",
+      "id": "room/w2_ise_06",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_06"
@@ -8407,7 +8407,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_07",
+      "id": "room/w2_ise_07",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_07"
@@ -8418,7 +8418,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_08",
+      "id": "room/w2_ise_08",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_08"
@@ -8429,7 +8429,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_09",
+      "id": "room/w2_ise_09",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_09"
@@ -8440,7 +8440,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_10",
+      "id": "room/w2_ise_10",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_10"
@@ -8451,7 +8451,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_20",
+      "id": "room/w2_ise_20",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_20"
@@ -8462,7 +8462,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_ise_D1",
+      "id": "room/w2_ise_D1",
       "forward": {
         "source": "menu",
         "target": "room/w2_ise_D1"
@@ -8473,7 +8473,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_oas_00",
+      "id": "room/w2_oas_00",
       "forward": {
         "source": "menu",
         "target": "room/w2_oas_00"
@@ -8484,7 +8484,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_oas_01",
+      "id": "room/w2_oas_01",
       "forward": {
         "source": "menu",
         "target": "room/w2_oas_01"
@@ -8495,7 +8495,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_oas_02",
+      "id": "room/w2_oas_02",
       "forward": {
         "source": "menu",
         "target": "room/w2_oas_02"
@@ -8506,7 +8506,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_oas_D1",
+      "id": "room/w2_oas_D1",
       "forward": {
         "source": "menu",
         "target": "room/w2_oas_D1"
@@ -8517,7 +8517,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_00",
+      "id": "room/w2_sab_00",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_00"
@@ -8528,7 +8528,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_01",
+      "id": "room/w2_sab_01",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_01"
@@ -8539,7 +8539,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_02",
+      "id": "room/w2_sab_02",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_02"
@@ -8550,7 +8550,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_05",
+      "id": "room/w2_sab_05",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_05"
@@ -8561,7 +8561,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_06",
+      "id": "room/w2_sab_06",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_06"
@@ -8572,7 +8572,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_08",
+      "id": "room/w2_sab_08",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_08"
@@ -8583,7 +8583,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_09",
+      "id": "room/w2_sab_09",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_09"
@@ -8594,7 +8594,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_20",
+      "id": "room/w2_sab_20",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_20"
@@ -8605,7 +8605,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_sab_D1",
+      "id": "room/w2_sab_D1",
       "forward": {
         "source": "menu",
         "target": "room/w2_sab_D1"
@@ -8616,7 +8616,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_00",
+      "id": "room/w2_tow_00",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_00"
@@ -8627,7 +8627,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_01",
+      "id": "room/w2_tow_01",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_01"
@@ -8638,7 +8638,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_02",
+      "id": "room/w2_tow_02",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_02"
@@ -8649,7 +8649,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_03",
+      "id": "room/w2_tow_03",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_03"
@@ -8660,7 +8660,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_04",
+      "id": "room/w2_tow_04",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_04"
@@ -8671,7 +8671,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_05",
+      "id": "room/w2_tow_05",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_05"
@@ -8682,7 +8682,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_06",
+      "id": "room/w2_tow_06",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_06"
@@ -8693,7 +8693,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_07",
+      "id": "room/w2_tow_07",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_07"
@@ -8704,7 +8704,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_08",
+      "id": "room/w2_tow_08",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_08"
@@ -8715,7 +8715,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_09",
+      "id": "room/w2_tow_09",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_09"
@@ -8726,7 +8726,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_10",
+      "id": "room/w2_tow_10",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_10"
@@ -8737,7 +8737,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_11",
+      "id": "room/w2_tow_11",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_11"
@@ -8748,7 +8748,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_12",
+      "id": "room/w2_tow_12",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_12"
@@ -8759,7 +8759,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_13",
+      "id": "room/w2_tow_13",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_13"
@@ -8770,7 +8770,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_14",
+      "id": "room/w2_tow_14",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_14"
@@ -8781,7 +8781,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_15",
+      "id": "room/w2_tow_15",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_15"
@@ -8792,7 +8792,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_tow_D1",
+      "id": "room/w2_tow_D1",
       "forward": {
         "source": "menu",
         "target": "room/w2_tow_D1"
@@ -8803,7 +8803,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_00",
+      "id": "room/w2_yos_00",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_00"
@@ -8814,7 +8814,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_01",
+      "id": "room/w2_yos_01",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_01"
@@ -8825,7 +8825,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_02",
+      "id": "room/w2_yos_02",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_02"
@@ -8836,7 +8836,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_03",
+      "id": "room/w2_yos_03",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_03"
@@ -8847,7 +8847,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_04",
+      "id": "room/w2_yos_04",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_04"
@@ -8858,7 +8858,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_05",
+      "id": "room/w2_yos_05",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_05"
@@ -8869,7 +8869,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_06",
+      "id": "room/w2_yos_06",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_06"
@@ -8880,7 +8880,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_07",
+      "id": "room/w2_yos_07",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_07"
@@ -8891,7 +8891,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_08",
+      "id": "room/w2_yos_08",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_08"
@@ -8902,7 +8902,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_09",
+      "id": "room/w2_yos_09",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_09"
@@ -8913,7 +8913,7 @@
       }
     },
     {
-      "id": "no_logic/room/w2_yos_D1",
+      "id": "room/w2_yos_D1",
       "forward": {
         "source": "menu",
         "target": "room/w2_yos_D1"
@@ -8924,7 +8924,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_00",
+      "id": "room/w3_bea_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_00"
@@ -8935,7 +8935,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_01",
+      "id": "room/w3_bea_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_01"
@@ -8946,7 +8946,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_02",
+      "id": "room/w3_bea_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_02"
@@ -8957,7 +8957,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_03",
+      "id": "room/w3_bea_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_03"
@@ -8968,7 +8968,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_04",
+      "id": "room/w3_bea_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_04"
@@ -8979,7 +8979,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_05",
+      "id": "room/w3_bea_05",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_05"
@@ -8990,7 +8990,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_06",
+      "id": "room/w3_bea_06",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_06"
@@ -9001,7 +9001,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bea_D1",
+      "id": "room/w3_bea_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_bea_D1"
@@ -9012,7 +9012,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bos_00",
+      "id": "room/w3_bos_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_bos_00"
@@ -9023,7 +9023,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bos_01",
+      "id": "room/w3_bos_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_bos_01"
@@ -9034,7 +9034,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bos_02",
+      "id": "room/w3_bos_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_bos_02"
@@ -9045,7 +9045,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bos_03",
+      "id": "room/w3_bos_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_bos_03"
@@ -9056,7 +9056,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bos_04",
+      "id": "room/w3_bos_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_bos_04"
@@ -9067,7 +9067,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_bos_D1",
+      "id": "room/w3_bos_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_bos_D1"
@@ -9078,7 +9078,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_00",
+      "id": "room/w3_cho_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_00"
@@ -9089,7 +9089,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_01",
+      "id": "room/w3_cho_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_01"
@@ -9100,7 +9100,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_02",
+      "id": "room/w3_cho_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_02"
@@ -9111,7 +9111,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_03",
+      "id": "room/w3_cho_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_03"
@@ -9122,7 +9122,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_04",
+      "id": "room/w3_cho_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_04"
@@ -9133,7 +9133,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_05",
+      "id": "room/w3_cho_05",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_05"
@@ -9144,7 +9144,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_06",
+      "id": "room/w3_cho_06",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_06"
@@ -9155,7 +9155,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_07",
+      "id": "room/w3_cho_07",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_07"
@@ -9166,7 +9166,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_08",
+      "id": "room/w3_cho_08",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_08"
@@ -9177,7 +9177,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_09",
+      "id": "room/w3_cho_09",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_09"
@@ -9188,7 +9188,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_10",
+      "id": "room/w3_cho_10",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_10"
@@ -9199,7 +9199,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_11",
+      "id": "room/w3_cho_11",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_11"
@@ -9210,7 +9210,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_12",
+      "id": "room/w3_cho_12",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_12"
@@ -9221,7 +9221,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_13",
+      "id": "room/w3_cho_13",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_13"
@@ -9232,7 +9232,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_14",
+      "id": "room/w3_cho_14",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_14"
@@ -9243,7 +9243,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_15",
+      "id": "room/w3_cho_15",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_15"
@@ -9254,7 +9254,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_16",
+      "id": "room/w3_cho_16",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_16"
@@ -9265,7 +9265,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_17",
+      "id": "room/w3_cho_17",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_17"
@@ -9276,7 +9276,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_18",
+      "id": "room/w3_cho_18",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_18"
@@ -9287,7 +9287,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_20",
+      "id": "room/w3_cho_20",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_20"
@@ -9298,7 +9298,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_22",
+      "id": "room/w3_cho_22",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_22"
@@ -9309,7 +9309,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_23",
+      "id": "room/w3_cho_23",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_23"
@@ -9320,7 +9320,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_24",
+      "id": "room/w3_cho_24",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_24"
@@ -9331,7 +9331,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_cho_D1",
+      "id": "room/w3_cho_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_cho_D1"
@@ -9342,7 +9342,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dok_00",
+      "id": "room/w3_dok_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_dok_00"
@@ -9353,7 +9353,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dok_01",
+      "id": "room/w3_dok_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_dok_01"
@@ -9364,7 +9364,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dok_02",
+      "id": "room/w3_dok_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_dok_02"
@@ -9375,7 +9375,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dok_03",
+      "id": "room/w3_dok_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_dok_03"
@@ -9386,7 +9386,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dok_04",
+      "id": "room/w3_dok_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_dok_04"
@@ -9397,7 +9397,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dok_D1",
+      "id": "room/w3_dok_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_dok_D1"
@@ -9408,7 +9408,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dor_00",
+      "id": "room/w3_dor_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_dor_00"
@@ -9419,7 +9419,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dor_01",
+      "id": "room/w3_dor_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_dor_01"
@@ -9430,7 +9430,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_dor_D1",
+      "id": "room/w3_dor_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_dor_D1"
@@ -9441,7 +9441,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_for_00",
+      "id": "room/w3_for_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_for_00"
@@ -9452,7 +9452,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_for_01",
+      "id": "room/w3_for_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_for_01"
@@ -9463,7 +9463,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_for_02",
+      "id": "room/w3_for_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_for_02"
@@ -9474,7 +9474,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_for_03",
+      "id": "room/w3_for_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_for_03"
@@ -9485,7 +9485,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_for_04",
+      "id": "room/w3_for_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_for_04"
@@ -9496,7 +9496,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_for_D1",
+      "id": "room/w3_for_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_for_D1"
@@ -9507,7 +9507,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_paz_00",
+      "id": "room/w3_paz_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_paz_00"
@@ -9518,7 +9518,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_paz_01",
+      "id": "room/w3_paz_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_paz_01"
@@ -9529,7 +9529,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_paz_02",
+      "id": "room/w3_paz_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_paz_02"
@@ -9540,7 +9540,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_paz_20",
+      "id": "room/w3_paz_20",
       "forward": {
         "source": "menu",
         "target": "room/w3_paz_20"
@@ -9551,7 +9551,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_00",
+      "id": "room/w3_sar_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_00"
@@ -9562,7 +9562,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_01",
+      "id": "room/w3_sar_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_01"
@@ -9573,7 +9573,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_02",
+      "id": "room/w3_sar_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_02"
@@ -9584,7 +9584,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_03",
+      "id": "room/w3_sar_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_03"
@@ -9595,7 +9595,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_04",
+      "id": "room/w3_sar_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_04"
@@ -9606,7 +9606,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_05",
+      "id": "room/w3_sar_05",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_05"
@@ -9617,7 +9617,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_06",
+      "id": "room/w3_sar_06",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_06"
@@ -9628,7 +9628,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sar_D1",
+      "id": "room/w3_sar_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_sar_D1"
@@ -9639,7 +9639,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sta_00",
+      "id": "room/w3_sta_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_sta_00"
@@ -9650,7 +9650,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sta_02",
+      "id": "room/w3_sta_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_sta_02"
@@ -9661,7 +9661,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sta_20",
+      "id": "room/w3_sta_20",
       "forward": {
         "source": "menu",
         "target": "room/w3_sta_20"
@@ -9672,7 +9672,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_sta_D1",
+      "id": "room/w3_sta_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_sta_D1"
@@ -9683,7 +9683,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_str_04",
+      "id": "room/w3_str_04",
       "forward": {
         "source": "menu",
         "target": "room/w3_str_04"
@@ -9694,7 +9694,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_str_05",
+      "id": "room/w3_str_05",
       "forward": {
         "source": "menu",
         "target": "room/w3_str_05"
@@ -9705,7 +9705,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_str_06",
+      "id": "room/w3_str_06",
       "forward": {
         "source": "menu",
         "target": "room/w3_str_06"
@@ -9716,7 +9716,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_str_07",
+      "id": "room/w3_str_07",
       "forward": {
         "source": "menu",
         "target": "room/w3_str_07"
@@ -9727,7 +9727,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_str_D1",
+      "id": "room/w3_str_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_str_D1"
@@ -9738,7 +9738,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_thr_00",
+      "id": "room/w3_thr_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_thr_00"
@@ -9749,7 +9749,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_thr_01",
+      "id": "room/w3_thr_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_thr_01"
@@ -9760,7 +9760,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_thr_02",
+      "id": "room/w3_thr_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_thr_02"
@@ -9771,7 +9771,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_thr_03",
+      "id": "room/w3_thr_03",
       "forward": {
         "source": "menu",
         "target": "room/w3_thr_03"
@@ -9782,7 +9782,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_thr_D1",
+      "id": "room/w3_thr_D1",
       "forward": {
         "source": "menu",
         "target": "room/w3_thr_D1"
@@ -9793,7 +9793,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_tre_00",
+      "id": "room/w3_tre_00",
       "forward": {
         "source": "menu",
         "target": "room/w3_tre_00"
@@ -9804,7 +9804,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_tre_01",
+      "id": "room/w3_tre_01",
       "forward": {
         "source": "menu",
         "target": "room/w3_tre_01"
@@ -9815,7 +9815,7 @@
       }
     },
     {
-      "id": "no_logic/room/w3_tre_02",
+      "id": "room/w3_tre_02",
       "forward": {
         "source": "menu",
         "target": "room/w3_tre_02"
@@ -9826,7 +9826,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_bos_00",
+      "id": "room/w4_bos_00",
       "forward": {
         "source": "menu",
         "target": "room/w4_bos_00"
@@ -9837,7 +9837,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_bos_01",
+      "id": "room/w4_bos_01",
       "forward": {
         "source": "menu",
         "target": "room/w4_bos_01"
@@ -9848,7 +9848,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_bos_02",
+      "id": "room/w4_bos_02",
       "forward": {
         "source": "menu",
         "target": "room/w4_bos_02"
@@ -9859,7 +9859,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_bos_03",
+      "id": "room/w4_bos_03",
       "forward": {
         "source": "menu",
         "target": "room/w4_bos_03"
@@ -9870,7 +9870,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_bos_04",
+      "id": "room/w4_bos_04",
       "forward": {
         "source": "menu",
         "target": "room/w4_bos_04"
@@ -9881,7 +9881,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_bos_05",
+      "id": "room/w4_bos_05",
       "forward": {
         "source": "menu",
         "target": "room/w4_bos_05"
@@ -9892,7 +9892,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_kaw_00",
+      "id": "room/w4_kaw_00",
       "forward": {
         "source": "menu",
         "target": "room/w4_kaw_00"
@@ -9903,7 +9903,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_kaw_01",
+      "id": "room/w4_kaw_01",
       "forward": {
         "source": "menu",
         "target": "room/w4_kaw_01"
@@ -9914,7 +9914,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_kaw_02",
+      "id": "room/w4_kaw_02",
       "forward": {
         "source": "menu",
         "target": "room/w4_kaw_02"
@@ -9925,7 +9925,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_kaw_03",
+      "id": "room/w4_kaw_03",
       "forward": {
         "source": "menu",
         "target": "room/w4_kaw_03"
@@ -9936,7 +9936,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_kaw_D1",
+      "id": "room/w4_kaw_D1",
       "forward": {
         "source": "menu",
         "target": "room/w4_kaw_D1"
@@ -9947,7 +9947,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_lif_00",
+      "id": "room/w4_lif_00",
       "forward": {
         "source": "menu",
         "target": "room/w4_lif_00"
@@ -9958,7 +9958,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_lif_01",
+      "id": "room/w4_lif_01",
       "forward": {
         "source": "menu",
         "target": "room/w4_lif_01"
@@ -9969,7 +9969,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_lif_02",
+      "id": "room/w4_lif_02",
       "forward": {
         "source": "menu",
         "target": "room/w4_lif_02"
@@ -9980,7 +9980,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_lif_03",
+      "id": "room/w4_lif_03",
       "forward": {
         "source": "menu",
         "target": "room/w4_lif_03"
@@ -9991,7 +9991,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_lif_04",
+      "id": "room/w4_lif_04",
       "forward": {
         "source": "menu",
         "target": "room/w4_lif_04"
@@ -10002,7 +10002,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_lif_D1",
+      "id": "room/w4_lif_D1",
       "forward": {
         "source": "menu",
         "target": "room/w4_lif_D1"
@@ -10013,7 +10013,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_sho_00",
+      "id": "room/w4_sho_00",
       "forward": {
         "source": "menu",
         "target": "room/w4_sho_00"
@@ -10024,7 +10024,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_00",
+      "id": "room/w4_yak_00",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_00"
@@ -10035,7 +10035,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_01",
+      "id": "room/w4_yak_01",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_01"
@@ -10046,7 +10046,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_02",
+      "id": "room/w4_yak_02",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_02"
@@ -10057,7 +10057,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_02_AFTER",
+      "id": "room/w4_yak_02_AFTER",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_02_AFTER"
@@ -10068,7 +10068,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_03",
+      "id": "room/w4_yak_03",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_03"
@@ -10079,7 +10079,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_04",
+      "id": "room/w4_yak_04",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_04"
@@ -10090,7 +10090,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_04_AFTER",
+      "id": "room/w4_yak_04_AFTER",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_04_AFTER"
@@ -10101,7 +10101,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_05",
+      "id": "room/w4_yak_05",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_05"
@@ -10112,7 +10112,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_05_AFTER",
+      "id": "room/w4_yak_05_AFTER",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_05_AFTER"
@@ -10123,7 +10123,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_06",
+      "id": "room/w4_yak_06",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_06"
@@ -10134,7 +10134,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_07",
+      "id": "room/w4_yak_07",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_07"
@@ -10145,7 +10145,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_08",
+      "id": "room/w4_yak_08",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_08"
@@ -10156,7 +10156,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_09",
+      "id": "room/w4_yak_09",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_09"
@@ -10167,7 +10167,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_10",
+      "id": "room/w4_yak_10",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_10"
@@ -10178,7 +10178,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_11",
+      "id": "room/w4_yak_11",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_11"
@@ -10189,7 +10189,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_12",
+      "id": "room/w4_yak_12",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_12"
@@ -10200,7 +10200,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_12_AFTER",
+      "id": "room/w4_yak_12_AFTER",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_12_AFTER"
@@ -10211,7 +10211,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_14",
+      "id": "room/w4_yak_14",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_14"
@@ -10222,7 +10222,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yak_15",
+      "id": "room/w4_yak_15",
       "forward": {
         "source": "menu",
         "target": "room/w4_yak_15"
@@ -10233,7 +10233,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_00",
+      "id": "room/w4_yuk_00",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_00"
@@ -10244,7 +10244,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_01",
+      "id": "room/w4_yuk_01",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_01"
@@ -10255,7 +10255,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_02",
+      "id": "room/w4_yuk_02",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_02"
@@ -10266,7 +10266,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_03",
+      "id": "room/w4_yuk_03",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_03"
@@ -10277,7 +10277,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_04",
+      "id": "room/w4_yuk_04",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_04"
@@ -10288,7 +10288,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_05",
+      "id": "room/w4_yuk_05",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_05"
@@ -10299,7 +10299,7 @@
       }
     },
     {
-      "id": "no_logic/room/w4_yuk_D1",
+      "id": "room/w4_yuk_D1",
       "forward": {
         "source": "menu",
         "target": "room/w4_yuk_D1"
@@ -10310,7 +10310,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bak_00",
+      "id": "room/w5_bak_00",
       "forward": {
         "source": "menu",
         "target": "room/w5_bak_00"
@@ -10321,7 +10321,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bak_01",
+      "id": "room/w5_bak_01",
       "forward": {
         "source": "menu",
         "target": "room/w5_bak_01"
@@ -10332,7 +10332,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bak_02",
+      "id": "room/w5_bak_02",
       "forward": {
         "source": "menu",
         "target": "room/w5_bak_02"
@@ -10343,7 +10343,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bak_D1",
+      "id": "room/w5_bak_D1",
       "forward": {
         "source": "menu",
         "target": "room/w5_bak_D1"
@@ -10354,7 +10354,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_00",
+      "id": "room/w5_bos_00",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_00"
@@ -10365,7 +10365,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_01",
+      "id": "room/w5_bos_01",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_01"
@@ -10376,7 +10376,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_02",
+      "id": "room/w5_bos_02",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_02"
@@ -10387,7 +10387,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_03",
+      "id": "room/w5_bos_03",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_03"
@@ -10398,7 +10398,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_04",
+      "id": "room/w5_bos_04",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_04"
@@ -10409,7 +10409,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_05",
+      "id": "room/w5_bos_05",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_05"
@@ -10420,7 +10420,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_bos_D1",
+      "id": "room/w5_bos_D1",
       "forward": {
         "source": "menu",
         "target": "room/w5_bos_D1"
@@ -10431,7 +10431,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_cru_00",
+      "id": "room/w5_cru_00",
       "forward": {
         "source": "menu",
         "target": "room/w5_cru_00"
@@ -10442,7 +10442,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_cru_01",
+      "id": "room/w5_cru_01",
       "forward": {
         "source": "menu",
         "target": "room/w5_cru_01"
@@ -10453,7 +10453,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_cru_02",
+      "id": "room/w5_cru_02",
       "forward": {
         "source": "menu",
         "target": "room/w5_cru_02"
@@ -10464,7 +10464,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_cru_03",
+      "id": "room/w5_cru_03",
       "forward": {
         "source": "menu",
         "target": "room/w5_cru_03"
@@ -10475,7 +10475,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_cru_03_real",
+      "id": "room/w5_cru_03_real",
       "forward": {
         "source": "menu",
         "target": "room/w5_cru_03_real"
@@ -10486,7 +10486,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_cru_D1",
+      "id": "room/w5_cru_D1",
       "forward": {
         "source": "menu",
         "target": "room/w5_cru_D1"
@@ -10497,7 +10497,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_00",
+      "id": "room/w5_jun_00",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_00"
@@ -10508,7 +10508,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_01",
+      "id": "room/w5_jun_01",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_01"
@@ -10519,7 +10519,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_02",
+      "id": "room/w5_jun_02",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_02"
@@ -10530,7 +10530,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_03",
+      "id": "room/w5_jun_03",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_03"
@@ -10541,7 +10541,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_04",
+      "id": "room/w5_jun_04",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_04"
@@ -10552,7 +10552,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_05",
+      "id": "room/w5_jun_05",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_05"
@@ -10563,7 +10563,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_06",
+      "id": "room/w5_jun_06",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_06"
@@ -10574,7 +10574,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_07",
+      "id": "room/w5_jun_07",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_07"
@@ -10585,7 +10585,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_08",
+      "id": "room/w5_jun_08",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_08"
@@ -10596,7 +10596,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_jun_D1",
+      "id": "room/w5_jun_D1",
       "forward": {
         "source": "menu",
         "target": "room/w5_jun_D1"
@@ -10607,7 +10607,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_10",
+      "id": "room/w5_mag_10",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_10"
@@ -10618,7 +10618,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_11",
+      "id": "room/w5_mag_11",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_11"
@@ -10629,7 +10629,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_12",
+      "id": "room/w5_mag_12",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_12"
@@ -10640,7 +10640,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_13",
+      "id": "room/w5_mag_13",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_13"
@@ -10651,7 +10651,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_14",
+      "id": "room/w5_mag_14",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_14"
@@ -10662,7 +10662,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_15",
+      "id": "room/w5_mag_15",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_15"
@@ -10673,7 +10673,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_16",
+      "id": "room/w5_mag_16",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_16"
@@ -10684,7 +10684,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_19",
+      "id": "room/w5_mag_19",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_19"
@@ -10695,7 +10695,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_20",
+      "id": "room/w5_mag_20",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_20"
@@ -10706,7 +10706,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_mag_D1",
+      "id": "room/w5_mag_D1",
       "forward": {
         "source": "menu",
         "target": "room/w5_mag_D1"
@@ -10717,7 +10717,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_00",
+      "id": "room/w5_wan_00",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_00"
@@ -10728,7 +10728,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_01",
+      "id": "room/w5_wan_01",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_01"
@@ -10739,7 +10739,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_02",
+      "id": "room/w5_wan_02",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_02"
@@ -10750,7 +10750,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_03",
+      "id": "room/w5_wan_03",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_03"
@@ -10761,7 +10761,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_04",
+      "id": "room/w5_wan_04",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_04"
@@ -10772,7 +10772,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_05",
+      "id": "room/w5_wan_05",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_05"
@@ -10783,7 +10783,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_06",
+      "id": "room/w5_wan_06",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_06"
@@ -10794,7 +10794,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_08",
+      "id": "room/w5_wan_08",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_08"
@@ -10805,7 +10805,7 @@
       }
     },
     {
-      "id": "no_logic/room/w5_wan_D1",
+      "id": "room/w5_wan_D1",
       "forward": {
         "source": "menu",
         "target": "room/w5_wan_D1"
@@ -10816,7 +10816,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_bos_00",
+      "id": "room/w6_bos_00",
       "forward": {
         "source": "menu",
         "target": "room/w6_bos_00"
@@ -10827,7 +10827,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_bos_01",
+      "id": "room/w6_bos_01",
       "forward": {
         "source": "menu",
         "target": "room/w6_bos_01"
@@ -10838,7 +10838,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_bos_02",
+      "id": "room/w6_bos_02",
       "forward": {
         "source": "menu",
         "target": "room/w6_bos_02"
@@ -10849,7 +10849,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_bos_03",
+      "id": "room/w6_bos_03",
       "forward": {
         "source": "menu",
         "target": "room/w6_bos_03"
@@ -10860,7 +10860,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_bos_04",
+      "id": "room/w6_bos_04",
       "forward": {
         "source": "menu",
         "target": "room/w6_bos_04"
@@ -10871,7 +10871,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_gak_00",
+      "id": "room/w6_gak_00",
       "forward": {
         "source": "menu",
         "target": "room/w6_gak_00"
@@ -10882,7 +10882,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_gak_01",
+      "id": "room/w6_gak_01",
       "forward": {
         "source": "menu",
         "target": "room/w6_gak_01"
@@ -10893,7 +10893,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_00",
+      "id": "room/w6_sky_00",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_00"
@@ -10904,7 +10904,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_01",
+      "id": "room/w6_sky_01",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_01"
@@ -10915,7 +10915,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_02",
+      "id": "room/w6_sky_02",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_02"
@@ -10926,7 +10926,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_03",
+      "id": "room/w6_sky_03",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_03"
@@ -10937,7 +10937,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_04",
+      "id": "room/w6_sky_04",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_04"
@@ -10948,7 +10948,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_05",
+      "id": "room/w6_sky_05",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_05"
@@ -10959,7 +10959,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_06",
+      "id": "room/w6_sky_06",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_06"
@@ -10970,7 +10970,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_07",
+      "id": "room/w6_sky_07",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_07"
@@ -10981,7 +10981,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_08",
+      "id": "room/w6_sky_08",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_08"
@@ -10992,7 +10992,7 @@
       }
     },
     {
-      "id": "no_logic/room/w6_sky_D1",
+      "id": "room/w6_sky_D1",
       "forward": {
         "source": "menu",
         "target": "room/w6_sky_D1"

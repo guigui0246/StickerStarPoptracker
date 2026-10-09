@@ -6,7 +6,7 @@ from . import regions
 
 PATHS: tuple[Path, ...] = (
     Path(
-        'no_logic/checks/banner',
+        'checks/banner',
         Vector(
             regions.MENU.id,
             regions.CHECKS_BANNER.id,
@@ -19,7 +19,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/checks/boss',
+        'checks/boss',
         Vector(
             regions.MENU.id,
             regions.CHECKS_BOSS.id,
@@ -32,7 +32,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/checks/enemy',
+        'checks/enemy',
         Vector(
             regions.MENU.id,
             regions.CHECKS_ENEMY.id,
@@ -45,7 +45,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/checks/kamek',
+        'checks/kamek',
         Vector(
             regions.MENU.id,
             regions.CHECKS_KAMEK.id,
@@ -58,7 +58,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/checks/museum',
+        'checks/museum',
         Vector(
             regions.MENU.id,
             regions.CHECKS_MUSEUM.id,
@@ -71,7 +71,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_00',
+        'room/hei_2_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_00.id,
@@ -84,7 +84,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_01',
+        'room/hei_2_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_01.id,
@@ -97,7 +97,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_02',
+        'room/hei_2_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_02.id,
@@ -110,7 +110,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_03',
+        'room/hei_2_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_03.id,
@@ -123,7 +123,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_04',
+        'room/hei_2_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_04.id,
@@ -136,7 +136,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_06',
+        'room/hei_2_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_06.id,
@@ -149,7 +149,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_2_D1',
+        'room/hei_2_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_2_D1.id,
@@ -162,7 +162,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_00',
+        'room/hei_3_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_00.id,
@@ -175,7 +175,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_01',
+        'room/hei_3_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_01.id,
@@ -188,7 +188,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_02',
+        'room/hei_3_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_02.id,
@@ -201,7 +201,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_03',
+        'room/hei_3_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_03.id,
@@ -214,7 +214,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_04',
+        'room/hei_3_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_04.id,
@@ -227,7 +227,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_05',
+        'room/hei_3_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_05.id,
@@ -240,7 +240,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_06',
+        'room/hei_3_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_06.id,
@@ -253,7 +253,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_3_D1',
+        'room/hei_3_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_3_D1.id,
@@ -266,7 +266,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_00',
+        'room/hei_4_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_00.id,
@@ -279,7 +279,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_01',
+        'room/hei_4_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_01.id,
@@ -292,7 +292,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_02',
+        'room/hei_4_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_02.id,
@@ -305,7 +305,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_03',
+        'room/hei_4_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_03.id,
@@ -318,7 +318,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_04',
+        'room/hei_4_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_04.id,
@@ -331,7 +331,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_05',
+        'room/hei_4_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_05.id,
@@ -344,7 +344,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_4_D1',
+        'room/hei_4_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_4_D1.id,
@@ -357,7 +357,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_5_00',
+        'room/hei_5_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_00.id,
@@ -370,7 +370,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_5_03',
+        'room/hei_5_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_03.id,
@@ -383,7 +383,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_5_06',
+        'room/hei_5_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_06.id,
@@ -396,7 +396,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_5_07',
+        'room/hei_5_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_07.id,
@@ -409,7 +409,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_5_11',
+        'room/hei_5_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_11.id,
@@ -422,7 +422,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/hei_5_D1',
+        'room/hei_5_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_D1.id,
@@ -435,7 +435,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_00',
+        'room/iwa_2_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_00.id,
@@ -448,7 +448,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_01',
+        'room/iwa_2_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_01.id,
@@ -461,7 +461,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_02',
+        'room/iwa_2_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_02.id,
@@ -474,7 +474,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_03',
+        'room/iwa_2_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_03.id,
@@ -487,7 +487,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_04',
+        'room/iwa_2_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_04.id,
@@ -500,7 +500,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_05',
+        'room/iwa_2_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_05.id,
@@ -513,7 +513,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_06',
+        'room/iwa_2_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_06.id,
@@ -526,7 +526,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_07',
+        'room/iwa_2_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_07.id,
@@ -539,7 +539,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_08',
+        'room/iwa_2_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_08.id,
@@ -552,7 +552,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_09',
+        'room/iwa_2_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_09.id,
@@ -565,7 +565,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_10',
+        'room/iwa_2_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_10.id,
@@ -578,7 +578,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_2_D1',
+        'room/iwa_2_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_2_D1.id,
@@ -591,7 +591,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_4_00',
+        'room/iwa_4_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_4_00.id,
@@ -604,7 +604,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_4_01',
+        'room/iwa_4_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_4_01.id,
@@ -617,7 +617,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_4_02',
+        'room/iwa_4_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_4_02.id,
@@ -630,7 +630,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_4_04',
+        'room/iwa_4_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_4_04.id,
@@ -643,7 +643,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_4_05',
+        'room/iwa_4_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_4_05.id,
@@ -656,7 +656,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/iwa_4_D1',
+        'room/iwa_4_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_IWA_4_D1.id,
@@ -669,7 +669,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_00',
+        'room/mac_1_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_00.id,
@@ -682,7 +682,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_01',
+        'room/mac_1_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_01.id,
@@ -695,7 +695,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_03',
+        'room/mac_1_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_03.id,
@@ -708,7 +708,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_04',
+        'room/mac_1_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_04.id,
@@ -721,7 +721,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_05',
+        'room/mac_1_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_05.id,
@@ -734,7 +734,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_07',
+        'room/mac_1_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_07.id,
@@ -747,7 +747,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_20',
+        'room/mac_1_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_20.id,
@@ -760,7 +760,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_21',
+        'room/mac_1_21',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_21.id,
@@ -773,7 +773,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_22',
+        'room/mac_1_22',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_22.id,
@@ -786,7 +786,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_23',
+        'room/mac_1_23',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_23.id,
@@ -799,7 +799,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_30',
+        'room/mac_1_30',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_30.id,
@@ -812,7 +812,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_31',
+        'room/mac_1_31',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_31.id,
@@ -825,7 +825,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_34',
+        'room/mac_1_34',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_34.id,
@@ -838,7 +838,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_40',
+        'room/mac_1_40',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_40.id,
@@ -851,7 +851,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_41',
+        'room/mac_1_41',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_41.id,
@@ -864,7 +864,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_42',
+        'room/mac_1_42',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_42.id,
@@ -877,7 +877,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_50',
+        'room/mac_1_50',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_50.id,
@@ -890,7 +890,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_1_F',
+        'room/mac_1_F',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_1_F.id,
@@ -903,7 +903,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_2_00',
+        'room/mac_2_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_2_00.id,
@@ -916,7 +916,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_2_01',
+        'room/mac_2_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_2_01.id,
@@ -929,7 +929,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_2_02',
+        'room/mac_2_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_2_02.id,
@@ -942,7 +942,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_2_20',
+        'room/mac_2_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_2_20.id,
@@ -955,7 +955,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_2_21',
+        'room/mac_2_21',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_2_21.id,
@@ -968,7 +968,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_2_22',
+        'room/mac_2_22',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_2_22.id,
@@ -981,7 +981,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_m_00',
+        'room/mac_m_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_M_00.id,
@@ -994,7 +994,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_m_01',
+        'room/mac_m_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_M_01.id,
@@ -1007,7 +1007,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_m_02',
+        'room/mac_m_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_M_02.id,
@@ -1020,7 +1020,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_01',
+        'room/mac_mb_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_01.id,
@@ -1033,7 +1033,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_02',
+        'room/mac_mb_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_02.id,
@@ -1046,7 +1046,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_03',
+        'room/mac_mb_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_03.id,
@@ -1059,7 +1059,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_04',
+        'room/mac_mb_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_04.id,
@@ -1072,7 +1072,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_05',
+        'room/mac_mb_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_05.id,
@@ -1085,7 +1085,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_06',
+        'room/mac_mb_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_06.id,
@@ -1098,7 +1098,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_07',
+        'room/mac_mb_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_07.id,
@@ -1111,7 +1111,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_08',
+        'room/mac_mb_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_08.id,
@@ -1124,7 +1124,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_09',
+        'room/mac_mb_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_09.id,
@@ -1137,7 +1137,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_10',
+        'room/mac_mb_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_10.id,
@@ -1150,7 +1150,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_11',
+        'room/mac_mb_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_11.id,
@@ -1163,7 +1163,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mb_20',
+        'room/mac_mb_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MB_20.id,
@@ -1176,7 +1176,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_01',
+        'room/mac_mr_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_01.id,
@@ -1189,7 +1189,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_02',
+        'room/mac_mr_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_02.id,
@@ -1202,7 +1202,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_03',
+        'room/mac_mr_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_03.id,
@@ -1215,7 +1215,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_04',
+        'room/mac_mr_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_04.id,
@@ -1228,7 +1228,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_05',
+        'room/mac_mr_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_05.id,
@@ -1241,7 +1241,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_06',
+        'room/mac_mr_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_06.id,
@@ -1254,7 +1254,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_07',
+        'room/mac_mr_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_07.id,
@@ -1267,7 +1267,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_08',
+        'room/mac_mr_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_08.id,
@@ -1280,7 +1280,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_09',
+        'room/mac_mr_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_09.id,
@@ -1293,7 +1293,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_10',
+        'room/mac_mr_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_10.id,
@@ -1306,7 +1306,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_11',
+        'room/mac_mr_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_11.id,
@@ -1319,7 +1319,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/mac_mr_20',
+        'room/mac_mr_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_MAC_MR_20.id,
@@ -1332,7 +1332,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_00',
+        'room/w2_ise_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_00.id,
@@ -1345,7 +1345,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_01',
+        'room/w2_ise_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_01.id,
@@ -1358,7 +1358,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_02',
+        'room/w2_ise_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_02.id,
@@ -1371,7 +1371,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_03',
+        'room/w2_ise_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_03.id,
@@ -1384,7 +1384,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_04',
+        'room/w2_ise_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_04.id,
@@ -1397,7 +1397,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_05',
+        'room/w2_ise_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_05.id,
@@ -1410,7 +1410,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_06',
+        'room/w2_ise_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_06.id,
@@ -1423,7 +1423,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_07',
+        'room/w2_ise_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_07.id,
@@ -1436,7 +1436,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_08',
+        'room/w2_ise_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_08.id,
@@ -1449,7 +1449,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_09',
+        'room/w2_ise_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_09.id,
@@ -1462,7 +1462,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_10',
+        'room/w2_ise_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_10.id,
@@ -1475,7 +1475,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_20',
+        'room/w2_ise_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_20.id,
@@ -1488,7 +1488,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_ise_D1',
+        'room/w2_ise_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_ISE_D1.id,
@@ -1501,7 +1501,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_oas_00',
+        'room/w2_oas_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_OAS_00.id,
@@ -1514,7 +1514,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_oas_01',
+        'room/w2_oas_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_OAS_01.id,
@@ -1527,7 +1527,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_oas_02',
+        'room/w2_oas_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_OAS_02.id,
@@ -1540,7 +1540,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_oas_D1',
+        'room/w2_oas_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_OAS_D1.id,
@@ -1553,7 +1553,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_00',
+        'room/w2_sab_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_00.id,
@@ -1566,7 +1566,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_01',
+        'room/w2_sab_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_01.id,
@@ -1579,7 +1579,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_02',
+        'room/w2_sab_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_02.id,
@@ -1592,7 +1592,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_05',
+        'room/w2_sab_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_05.id,
@@ -1605,7 +1605,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_06',
+        'room/w2_sab_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_06.id,
@@ -1618,7 +1618,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_08',
+        'room/w2_sab_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_08.id,
@@ -1631,7 +1631,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_09',
+        'room/w2_sab_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_09.id,
@@ -1644,7 +1644,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_20',
+        'room/w2_sab_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_20.id,
@@ -1657,7 +1657,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_sab_D1',
+        'room/w2_sab_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_SAB_D1.id,
@@ -1670,7 +1670,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_00',
+        'room/w2_tow_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_00.id,
@@ -1683,7 +1683,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_01',
+        'room/w2_tow_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_01.id,
@@ -1696,7 +1696,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_02',
+        'room/w2_tow_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_02.id,
@@ -1709,7 +1709,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_03',
+        'room/w2_tow_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_03.id,
@@ -1722,7 +1722,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_04',
+        'room/w2_tow_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_04.id,
@@ -1735,7 +1735,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_05',
+        'room/w2_tow_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_05.id,
@@ -1748,7 +1748,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_06',
+        'room/w2_tow_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_06.id,
@@ -1761,7 +1761,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_07',
+        'room/w2_tow_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_07.id,
@@ -1774,7 +1774,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_08',
+        'room/w2_tow_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_08.id,
@@ -1787,7 +1787,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_09',
+        'room/w2_tow_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_09.id,
@@ -1800,7 +1800,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_10',
+        'room/w2_tow_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_10.id,
@@ -1813,7 +1813,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_11',
+        'room/w2_tow_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_11.id,
@@ -1826,7 +1826,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_12',
+        'room/w2_tow_12',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_12.id,
@@ -1839,7 +1839,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_13',
+        'room/w2_tow_13',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_13.id,
@@ -1852,7 +1852,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_14',
+        'room/w2_tow_14',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_14.id,
@@ -1865,7 +1865,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_15',
+        'room/w2_tow_15',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_15.id,
@@ -1878,7 +1878,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_tow_D1',
+        'room/w2_tow_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_TOW_D1.id,
@@ -1891,7 +1891,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_00',
+        'room/w2_yos_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_00.id,
@@ -1904,7 +1904,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_01',
+        'room/w2_yos_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_01.id,
@@ -1917,7 +1917,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_02',
+        'room/w2_yos_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_02.id,
@@ -1930,7 +1930,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_03',
+        'room/w2_yos_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_03.id,
@@ -1943,7 +1943,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_04',
+        'room/w2_yos_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_04.id,
@@ -1956,7 +1956,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_05',
+        'room/w2_yos_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_05.id,
@@ -1969,7 +1969,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_06',
+        'room/w2_yos_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_06.id,
@@ -1982,7 +1982,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_07',
+        'room/w2_yos_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_07.id,
@@ -1995,7 +1995,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_08',
+        'room/w2_yos_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_08.id,
@@ -2008,7 +2008,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_09',
+        'room/w2_yos_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_09.id,
@@ -2021,7 +2021,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w2_yos_D1',
+        'room/w2_yos_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W2_YOS_D1.id,
@@ -2034,7 +2034,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_00',
+        'room/w3_bea_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_00.id,
@@ -2047,7 +2047,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_01',
+        'room/w3_bea_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_01.id,
@@ -2060,7 +2060,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_02',
+        'room/w3_bea_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_02.id,
@@ -2073,7 +2073,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_03',
+        'room/w3_bea_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_03.id,
@@ -2086,7 +2086,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_04',
+        'room/w3_bea_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_04.id,
@@ -2099,7 +2099,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_05',
+        'room/w3_bea_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_05.id,
@@ -2112,7 +2112,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_06',
+        'room/w3_bea_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_06.id,
@@ -2125,7 +2125,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bea_D1',
+        'room/w3_bea_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BEA_D1.id,
@@ -2138,7 +2138,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bos_00',
+        'room/w3_bos_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BOS_00.id,
@@ -2151,7 +2151,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bos_01',
+        'room/w3_bos_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BOS_01.id,
@@ -2164,7 +2164,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bos_02',
+        'room/w3_bos_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BOS_02.id,
@@ -2177,7 +2177,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bos_03',
+        'room/w3_bos_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BOS_03.id,
@@ -2190,7 +2190,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bos_04',
+        'room/w3_bos_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BOS_04.id,
@@ -2203,7 +2203,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_bos_D1',
+        'room/w3_bos_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_BOS_D1.id,
@@ -2216,7 +2216,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_00',
+        'room/w3_cho_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_00.id,
@@ -2229,7 +2229,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_01',
+        'room/w3_cho_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_01.id,
@@ -2242,7 +2242,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_02',
+        'room/w3_cho_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_02.id,
@@ -2255,7 +2255,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_03',
+        'room/w3_cho_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_03.id,
@@ -2268,7 +2268,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_04',
+        'room/w3_cho_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_04.id,
@@ -2281,7 +2281,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_05',
+        'room/w3_cho_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_05.id,
@@ -2294,7 +2294,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_06',
+        'room/w3_cho_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_06.id,
@@ -2307,7 +2307,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_07',
+        'room/w3_cho_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_07.id,
@@ -2320,7 +2320,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_08',
+        'room/w3_cho_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_08.id,
@@ -2333,7 +2333,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_09',
+        'room/w3_cho_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_09.id,
@@ -2346,7 +2346,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_10',
+        'room/w3_cho_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_10.id,
@@ -2359,7 +2359,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_11',
+        'room/w3_cho_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_11.id,
@@ -2372,7 +2372,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_12',
+        'room/w3_cho_12',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_12.id,
@@ -2385,7 +2385,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_13',
+        'room/w3_cho_13',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_13.id,
@@ -2398,7 +2398,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_14',
+        'room/w3_cho_14',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_14.id,
@@ -2411,7 +2411,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_15',
+        'room/w3_cho_15',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_15.id,
@@ -2424,7 +2424,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_16',
+        'room/w3_cho_16',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_16.id,
@@ -2437,7 +2437,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_17',
+        'room/w3_cho_17',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_17.id,
@@ -2450,7 +2450,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_18',
+        'room/w3_cho_18',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_18.id,
@@ -2463,7 +2463,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_20',
+        'room/w3_cho_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_20.id,
@@ -2476,7 +2476,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_22',
+        'room/w3_cho_22',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_22.id,
@@ -2489,7 +2489,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_23',
+        'room/w3_cho_23',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_23.id,
@@ -2502,7 +2502,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_24',
+        'room/w3_cho_24',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_24.id,
@@ -2515,7 +2515,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_cho_D1',
+        'room/w3_cho_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_CHO_D1.id,
@@ -2528,7 +2528,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dok_00',
+        'room/w3_dok_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOK_00.id,
@@ -2541,7 +2541,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dok_01',
+        'room/w3_dok_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOK_01.id,
@@ -2554,7 +2554,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dok_02',
+        'room/w3_dok_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOK_02.id,
@@ -2567,7 +2567,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dok_03',
+        'room/w3_dok_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOK_03.id,
@@ -2580,7 +2580,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dok_04',
+        'room/w3_dok_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOK_04.id,
@@ -2593,7 +2593,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dok_D1',
+        'room/w3_dok_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOK_D1.id,
@@ -2606,7 +2606,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dor_00',
+        'room/w3_dor_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOR_00.id,
@@ -2619,7 +2619,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dor_01',
+        'room/w3_dor_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOR_01.id,
@@ -2632,7 +2632,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_dor_D1',
+        'room/w3_dor_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_DOR_D1.id,
@@ -2645,7 +2645,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_for_00',
+        'room/w3_for_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_FOR_00.id,
@@ -2658,7 +2658,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_for_01',
+        'room/w3_for_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_FOR_01.id,
@@ -2671,7 +2671,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_for_02',
+        'room/w3_for_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_FOR_02.id,
@@ -2684,7 +2684,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_for_03',
+        'room/w3_for_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_FOR_03.id,
@@ -2697,7 +2697,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_for_04',
+        'room/w3_for_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_FOR_04.id,
@@ -2710,7 +2710,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_for_D1',
+        'room/w3_for_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_FOR_D1.id,
@@ -2723,7 +2723,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_paz_00',
+        'room/w3_paz_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_PAZ_00.id,
@@ -2736,7 +2736,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_paz_01',
+        'room/w3_paz_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_PAZ_01.id,
@@ -2749,7 +2749,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_paz_02',
+        'room/w3_paz_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_PAZ_02.id,
@@ -2762,7 +2762,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_paz_20',
+        'room/w3_paz_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_PAZ_20.id,
@@ -2775,7 +2775,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_00',
+        'room/w3_sar_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_00.id,
@@ -2788,7 +2788,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_01',
+        'room/w3_sar_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_01.id,
@@ -2801,7 +2801,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_02',
+        'room/w3_sar_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_02.id,
@@ -2814,7 +2814,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_03',
+        'room/w3_sar_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_03.id,
@@ -2827,7 +2827,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_04',
+        'room/w3_sar_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_04.id,
@@ -2840,7 +2840,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_05',
+        'room/w3_sar_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_05.id,
@@ -2853,7 +2853,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_06',
+        'room/w3_sar_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_06.id,
@@ -2866,7 +2866,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sar_D1',
+        'room/w3_sar_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_SAR_D1.id,
@@ -2879,7 +2879,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sta_00',
+        'room/w3_sta_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STA_00.id,
@@ -2892,7 +2892,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sta_02',
+        'room/w3_sta_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STA_02.id,
@@ -2905,7 +2905,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sta_20',
+        'room/w3_sta_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STA_20.id,
@@ -2918,7 +2918,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_sta_D1',
+        'room/w3_sta_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STA_D1.id,
@@ -2931,7 +2931,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_str_04',
+        'room/w3_str_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STR_04.id,
@@ -2944,7 +2944,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_str_05',
+        'room/w3_str_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STR_05.id,
@@ -2957,7 +2957,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_str_06',
+        'room/w3_str_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STR_06.id,
@@ -2970,7 +2970,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_str_07',
+        'room/w3_str_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STR_07.id,
@@ -2983,7 +2983,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_str_D1',
+        'room/w3_str_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_STR_D1.id,
@@ -2996,7 +2996,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_thr_00',
+        'room/w3_thr_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_THR_00.id,
@@ -3009,7 +3009,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_thr_01',
+        'room/w3_thr_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_THR_01.id,
@@ -3022,7 +3022,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_thr_02',
+        'room/w3_thr_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_THR_02.id,
@@ -3035,7 +3035,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_thr_03',
+        'room/w3_thr_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_THR_03.id,
@@ -3048,7 +3048,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_thr_D1',
+        'room/w3_thr_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_THR_D1.id,
@@ -3061,7 +3061,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_tre_00',
+        'room/w3_tre_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_TRE_00.id,
@@ -3074,7 +3074,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_tre_01',
+        'room/w3_tre_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_TRE_01.id,
@@ -3087,7 +3087,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w3_tre_02',
+        'room/w3_tre_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W3_TRE_02.id,
@@ -3100,7 +3100,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_bos_00',
+        'room/w4_bos_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_BOS_00.id,
@@ -3113,7 +3113,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_bos_01',
+        'room/w4_bos_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_BOS_01.id,
@@ -3126,7 +3126,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_bos_02',
+        'room/w4_bos_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_BOS_02.id,
@@ -3139,7 +3139,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_bos_03',
+        'room/w4_bos_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_BOS_03.id,
@@ -3152,7 +3152,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_bos_04',
+        'room/w4_bos_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_BOS_04.id,
@@ -3165,7 +3165,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_bos_05',
+        'room/w4_bos_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_BOS_05.id,
@@ -3178,7 +3178,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_kaw_00',
+        'room/w4_kaw_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_KAW_00.id,
@@ -3191,7 +3191,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_kaw_01',
+        'room/w4_kaw_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_KAW_01.id,
@@ -3204,7 +3204,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_kaw_02',
+        'room/w4_kaw_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_KAW_02.id,
@@ -3217,7 +3217,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_kaw_03',
+        'room/w4_kaw_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_KAW_03.id,
@@ -3230,7 +3230,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_kaw_D1',
+        'room/w4_kaw_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_KAW_D1.id,
@@ -3243,7 +3243,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_lif_00',
+        'room/w4_lif_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_LIF_00.id,
@@ -3256,7 +3256,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_lif_01',
+        'room/w4_lif_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_LIF_01.id,
@@ -3269,7 +3269,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_lif_02',
+        'room/w4_lif_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_LIF_02.id,
@@ -3282,7 +3282,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_lif_03',
+        'room/w4_lif_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_LIF_03.id,
@@ -3295,7 +3295,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_lif_04',
+        'room/w4_lif_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_LIF_04.id,
@@ -3308,7 +3308,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_lif_D1',
+        'room/w4_lif_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_LIF_D1.id,
@@ -3321,7 +3321,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_sho_00',
+        'room/w4_sho_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_SHO_00.id,
@@ -3334,7 +3334,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_00',
+        'room/w4_yak_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_00.id,
@@ -3347,7 +3347,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_01',
+        'room/w4_yak_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_01.id,
@@ -3360,7 +3360,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_02',
+        'room/w4_yak_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_02.id,
@@ -3373,7 +3373,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_02_AFTER',
+        'room/w4_yak_02_AFTER',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_02_AFTER.id,
@@ -3386,7 +3386,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_03',
+        'room/w4_yak_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_03.id,
@@ -3399,7 +3399,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_04',
+        'room/w4_yak_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_04.id,
@@ -3412,7 +3412,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_04_AFTER',
+        'room/w4_yak_04_AFTER',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_04_AFTER.id,
@@ -3425,7 +3425,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_05',
+        'room/w4_yak_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_05.id,
@@ -3438,7 +3438,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_05_AFTER',
+        'room/w4_yak_05_AFTER',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_05_AFTER.id,
@@ -3451,7 +3451,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_06',
+        'room/w4_yak_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_06.id,
@@ -3464,7 +3464,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_07',
+        'room/w4_yak_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_07.id,
@@ -3477,7 +3477,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_08',
+        'room/w4_yak_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_08.id,
@@ -3490,7 +3490,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_09',
+        'room/w4_yak_09',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_09.id,
@@ -3503,7 +3503,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_10',
+        'room/w4_yak_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_10.id,
@@ -3516,7 +3516,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_11',
+        'room/w4_yak_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_11.id,
@@ -3529,7 +3529,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_12',
+        'room/w4_yak_12',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_12.id,
@@ -3542,7 +3542,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_12_AFTER',
+        'room/w4_yak_12_AFTER',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_12_AFTER.id,
@@ -3555,7 +3555,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_14',
+        'room/w4_yak_14',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_14.id,
@@ -3568,7 +3568,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yak_15',
+        'room/w4_yak_15',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YAK_15.id,
@@ -3581,7 +3581,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_00',
+        'room/w4_yuk_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_00.id,
@@ -3594,7 +3594,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_01',
+        'room/w4_yuk_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_01.id,
@@ -3607,7 +3607,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_02',
+        'room/w4_yuk_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_02.id,
@@ -3620,7 +3620,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_03',
+        'room/w4_yuk_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_03.id,
@@ -3633,7 +3633,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_04',
+        'room/w4_yuk_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_04.id,
@@ -3646,7 +3646,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_05',
+        'room/w4_yuk_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_05.id,
@@ -3659,7 +3659,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w4_yuk_D1',
+        'room/w4_yuk_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W4_YUK_D1.id,
@@ -3672,7 +3672,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bak_00',
+        'room/w5_bak_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BAK_00.id,
@@ -3685,7 +3685,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bak_01',
+        'room/w5_bak_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BAK_01.id,
@@ -3698,7 +3698,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bak_02',
+        'room/w5_bak_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BAK_02.id,
@@ -3711,7 +3711,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bak_D1',
+        'room/w5_bak_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BAK_D1.id,
@@ -3724,7 +3724,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_00',
+        'room/w5_bos_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_00.id,
@@ -3737,7 +3737,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_01',
+        'room/w5_bos_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_01.id,
@@ -3750,7 +3750,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_02',
+        'room/w5_bos_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_02.id,
@@ -3763,7 +3763,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_03',
+        'room/w5_bos_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_03.id,
@@ -3776,7 +3776,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_04',
+        'room/w5_bos_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_04.id,
@@ -3789,7 +3789,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_05',
+        'room/w5_bos_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_05.id,
@@ -3802,7 +3802,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_bos_D1',
+        'room/w5_bos_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_BOS_D1.id,
@@ -3815,7 +3815,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_cru_00',
+        'room/w5_cru_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_CRU_00.id,
@@ -3828,7 +3828,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_cru_01',
+        'room/w5_cru_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_CRU_01.id,
@@ -3841,7 +3841,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_cru_02',
+        'room/w5_cru_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_CRU_02.id,
@@ -3854,7 +3854,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_cru_03',
+        'room/w5_cru_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_CRU_03.id,
@@ -3867,7 +3867,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_cru_03_real',
+        'room/w5_cru_03_real',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_CRU_03_REAL.id,
@@ -3880,7 +3880,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_cru_D1',
+        'room/w5_cru_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_CRU_D1.id,
@@ -3893,7 +3893,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_00',
+        'room/w5_jun_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_00.id,
@@ -3906,7 +3906,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_01',
+        'room/w5_jun_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_01.id,
@@ -3919,7 +3919,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_02',
+        'room/w5_jun_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_02.id,
@@ -3932,7 +3932,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_03',
+        'room/w5_jun_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_03.id,
@@ -3945,7 +3945,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_04',
+        'room/w5_jun_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_04.id,
@@ -3958,7 +3958,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_05',
+        'room/w5_jun_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_05.id,
@@ -3971,7 +3971,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_06',
+        'room/w5_jun_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_06.id,
@@ -3984,7 +3984,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_07',
+        'room/w5_jun_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_07.id,
@@ -3997,7 +3997,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_08',
+        'room/w5_jun_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_08.id,
@@ -4010,7 +4010,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_jun_D1',
+        'room/w5_jun_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_JUN_D1.id,
@@ -4023,7 +4023,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_10',
+        'room/w5_mag_10',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_10.id,
@@ -4036,7 +4036,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_11',
+        'room/w5_mag_11',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_11.id,
@@ -4049,7 +4049,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_12',
+        'room/w5_mag_12',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_12.id,
@@ -4062,7 +4062,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_13',
+        'room/w5_mag_13',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_13.id,
@@ -4075,7 +4075,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_14',
+        'room/w5_mag_14',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_14.id,
@@ -4088,7 +4088,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_15',
+        'room/w5_mag_15',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_15.id,
@@ -4101,7 +4101,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_16',
+        'room/w5_mag_16',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_16.id,
@@ -4114,7 +4114,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_19',
+        'room/w5_mag_19',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_19.id,
@@ -4127,7 +4127,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_20',
+        'room/w5_mag_20',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_20.id,
@@ -4140,7 +4140,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_mag_D1',
+        'room/w5_mag_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_MAG_D1.id,
@@ -4153,7 +4153,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_00',
+        'room/w5_wan_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_00.id,
@@ -4166,7 +4166,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_01',
+        'room/w5_wan_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_01.id,
@@ -4179,7 +4179,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_02',
+        'room/w5_wan_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_02.id,
@@ -4192,7 +4192,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_03',
+        'room/w5_wan_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_03.id,
@@ -4205,7 +4205,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_04',
+        'room/w5_wan_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_04.id,
@@ -4218,7 +4218,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_05',
+        'room/w5_wan_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_05.id,
@@ -4231,7 +4231,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_06',
+        'room/w5_wan_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_06.id,
@@ -4244,7 +4244,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_08',
+        'room/w5_wan_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_08.id,
@@ -4257,7 +4257,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w5_wan_D1',
+        'room/w5_wan_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W5_WAN_D1.id,
@@ -4270,7 +4270,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_bos_00',
+        'room/w6_bos_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_BOS_00.id,
@@ -4283,7 +4283,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_bos_01',
+        'room/w6_bos_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_BOS_01.id,
@@ -4296,7 +4296,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_bos_02',
+        'room/w6_bos_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_BOS_02.id,
@@ -4309,7 +4309,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_bos_03',
+        'room/w6_bos_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_BOS_03.id,
@@ -4322,7 +4322,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_bos_04',
+        'room/w6_bos_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_BOS_04.id,
@@ -4335,7 +4335,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_gak_00',
+        'room/w6_gak_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_GAK_00.id,
@@ -4348,7 +4348,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_gak_01',
+        'room/w6_gak_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_GAK_01.id,
@@ -4361,7 +4361,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_00',
+        'room/w6_sky_00',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_00.id,
@@ -4374,7 +4374,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_01',
+        'room/w6_sky_01',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_01.id,
@@ -4387,7 +4387,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_02',
+        'room/w6_sky_02',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_02.id,
@@ -4400,7 +4400,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_03',
+        'room/w6_sky_03',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_03.id,
@@ -4413,7 +4413,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_04',
+        'room/w6_sky_04',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_04.id,
@@ -4426,7 +4426,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_05',
+        'room/w6_sky_05',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_05.id,
@@ -4439,7 +4439,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_06',
+        'room/w6_sky_06',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_06.id,
@@ -4452,7 +4452,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_07',
+        'room/w6_sky_07',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_07.id,
@@ -4465,7 +4465,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_08',
+        'room/w6_sky_08',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_08.id,
@@ -4478,7 +4478,7 @@ PATHS: tuple[Path, ...] = (
         ),
     ),
     Path(
-        'no_logic/room/w6_sky_D1',
+        'room/w6_sky_D1',
         Vector(
             regions.MENU.id,
             regions.ROOM_W6_SKY_D1.id,

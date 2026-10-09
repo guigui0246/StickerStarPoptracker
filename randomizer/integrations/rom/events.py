@@ -99,10 +99,10 @@ def museum_exhibits(document: KdmDocument, switches: KdmDocument) -> tuple[Museu
             lock_id = text(values[0])
             if "_test_" in lock_id:
                 continue
-            if not re.fullmatch(r"museum_(?:btl|robj)_[0-9]{2}_[0-9]{2}", lock_id):
+            if not re.fullmatch(r"museum_(?:battle|rareobject)_[0-9]{2}_[0-9]{2}", lock_id):
                 raise ValueError("Unknown museum record identity")
             flag = text(values[44]).lower()
-            if not re.fullmatch(r"gf_museum_(?:btl|robj)_seal_[0-9]{3}", flag) or flag not in known:
+            if not re.fullmatch(r"gf_museum_(?:battle|rareobject)_seal_[0-9]{3}", flag) or flag not in known:
                 raise ValueError("Museum record lacks a registered donation flag")
             exhibit = MuseumExhibit(
                 lock_id, text(values[11]), text(values[46]), flag, tuple(text(value) for value in values[60:] if text(value))

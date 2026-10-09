@@ -9,8 +9,8 @@ class EnemyTests(unittest.TestCase):
     def setUp(self):
         reward = NativeReward(NativeRewardKind.COINS, 20)
         self.checks = (
-            EnemyReward("クリボー", "Script/Battle/Enemy/btl_kuriboo.bin", "kuriboo_dead", reward),
-            EnemyReward("別のクリボー", "Script/Battle/Enemy/btl_kuriboo.bin", "kuriboo_dead", reward),
+            EnemyReward("クリボー", "Script/Battle/Enemy/battle_kuriboo.bin", "kuriboo_dead", reward),
+            EnemyReward("別のクリボー", "Script/Battle/Enemy/battle_kuriboo.bin", "kuriboo_dead", reward),
         )
         self.plan = DeliveryPlan(self.checks)
 
@@ -44,7 +44,7 @@ class EnemyTests(unittest.TestCase):
         self.assertNotEqual(self.checks[0].id, self.checks[1].id)
         self.assertEqual(self.checks[0].id, self.checks[0].id)
         with self.assertRaises(ValueError):
-            EnemyReward('enemy"', "Script/Battle/Enemy/btl_kuriboo.bin", "dead", self.checks[0].reward)
+            EnemyReward('enemy"', "Script/Battle/Enemy/battle_kuriboo.bin", "dead", self.checks[0].reward)
         with self.assertRaises(ValueError):
             EnemyReward("enemy", "Script/Map/fake.bin", "dead", self.checks[0].reward)
 

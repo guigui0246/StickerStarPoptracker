@@ -31,17 +31,17 @@ def restoration_fixture() -> tuple[bytes, int, int]:
 
 class EventRewardTests(unittest.TestCase):
     def test_donation_signal_reuses_native_check_flag_and_keeps_delivery_distinct(self) -> None:
-        check = FlagReward("museum", "gf_museum_btl_seal_001", NativeReward(NativeRewardKind.COINS, 10))
+        check = FlagReward("museum", "gf_museum_battle_seal_001", NativeReward(NativeRewardKind.COINS, 10))
         plan = DeliveryPlan((check,))
         self.assertNotIn(check.source_flag, plan.flags)
         self.assertIn(check.source_flag, plan.references)
         self.assertEqual(plan.receipt(0), (check.source_flag, "gf_rando_delivered_0000"))
-        self.assertIn("gf_museum_btl_seal_001 && gf_rando_delivered_0000 == false", plan.delivery_body())
+        self.assertIn("gf_museum_battle_seal_001 && gf_rando_delivered_0000 == false", plan.delivery_body())
 
     def test_reduced_banner_uses_exact_integer_comparison_and_native_max(self) -> None:
         filler = NativeReward(NativeRewardKind.COINS, 10)
         plan = DeliveryPlan(
-            (FlagReward("museum", "gf_museum_btl_seal_001", filler), BannerReward("million_coin", Banners.REDUCED, filler))
+            (FlagReward("museum", "gf_museum_battle_seal_001", filler), BannerReward("million_coin", Banners.REDUCED, filler))
         )
         body = plan.delivery_body()
         self.assertIn("temp tempVar1;", body)

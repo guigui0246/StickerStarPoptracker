@@ -93,7 +93,7 @@ def build_no_logic_catalog(
             for check in sources.checks
         ],
         "paths": [
-            {"id": "no_logic/" + region, "forward": {"source": "menu", "target": region},
+            {"id": "" + region, "forward": {"source": "menu", "target": region},
              "reverse": {"source": region, "target": "menu"}}
             for region in regions
         ],

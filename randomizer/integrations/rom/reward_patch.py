@@ -354,9 +354,9 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             tuple(
                 decompile(project, filename, work, compiler)
                 for filename in (
-                    "Script/Battle/Player/btl_mario_balloon.bin",
-                    "Script/Battle/ksm_btl_event.bin",
-                    "Script/Battle/ksm_btl_ui.bin",
+                    "Script/Battle/Player/battle_mario_balloon.bin",
+                    "Script/Battle/ksm_battle_event.bin",
+                    "Script/Battle/ksm_battle_ui.bin",
                 )
             )
             if enemy_checks

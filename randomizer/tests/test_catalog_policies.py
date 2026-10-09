@@ -27,7 +27,7 @@ class CatalogPolicyTests(unittest.TestCase):
                 self.assertEqual(sum(check.reward.kind == NativeRewardKind.VICTORY for check in plan.checks), 1)
 
     def test_enemy_filter_and_vanilla_pages_do_not_disable_the_goal(self) -> None:
-        source = EnemyReward("KURI", "Script/Battle/Enemy/btl_kuri.bin", "dead",
+        source = EnemyReward("KURI", "Script/Battle/Enemy/battle_kuri.bin", "dead",
                              NativeReward(NativeRewardKind.COINS, 25))
         bindings = replace(self.bindings, locations=self.bindings.locations | {"star0": source})
         seed, plan = generate_native_seed(

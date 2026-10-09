@@ -8,8 +8,8 @@ from .native_delivery import DeliveryPlan, EnemyReward, EnemyVariant, NativeRewa
 from .pickups import record, text
 from .script_build import prepend_body
 
-PLAYER_SCRIPT = "Script/Battle/Player/btl_mario.bin"
-WIN_SCRIPT = "Script/Battle/Event/btl_win.bin"
+PLAYER_SCRIPT = "Script/Battle/Player/battle_mario.bin"
+WIN_SCRIPT = "Script/Battle/Event/battle_win.bin"
 
 
 @dataclass(frozen=True)

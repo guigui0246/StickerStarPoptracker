@@ -14,7 +14,7 @@ and 416 checks. They contain identifiers and rules, not ROM bytes or game assets
 | `__init__.py` | Assemble and validate the authoring objects as a `GameDefinition`. |
 
 The initial paths are **no-logic placeholders**, not a reviewed physical graph.
-Replace the `no_logic/...` Menu spokes with actual connections as you research
+Replace the `...` Menu spokes with actual connections as you research
 the game. Global enemy and museum checks need deliberate accessibility rules.
 The default starting Jump is a **copy**, so it becomes a small slipper while
 Jump is locked. The Jump **unlock** is in the shuffled pool.

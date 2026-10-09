@@ -117,7 +117,7 @@ the tracker sidecars. The catalog contains room regions, item identities, check
 identities, fixed victory, starting inventory and the pool. Regions without
 checks are included when their scripts were observed.
 
-The generated `no_logic/...` paths are unconditional Menu spokes. They are
+The generated `...` paths are unconditional Menu spokes. They are
 placeholders for generation, not evidence that the player can walk between
 rooms. Replace them with actual directed physical links. Global enemy and museum
 checks have category regions: assign their accessibility deliberately rather

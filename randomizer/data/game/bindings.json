@@ -1993,23 +1993,23 @@
   },
   "locations": [
     {
-      "location": "banner/btl_excellent",
+      "location": "banner/battle_excellent",
       "source": {
-        "honor": "btl_excellent",
+        "honor": "battle_excellent",
         "mode": "original"
       }
     },
     {
-      "location": "banner/btl_perfect",
+      "location": "banner/battle_perfect",
       "source": {
-        "honor": "btl_perfect",
+        "honor": "battle_perfect",
         "mode": "original"
       }
     },
     {
-      "location": "banner/btl_slot_machine",
+      "location": "banner/battle_slot_machine",
       "source": {
-        "honor": "btl_slot_machine",
+        "honor": "battle_slot_machine",
         "mode": "original"
       }
     },
@@ -2122,7 +2122,7 @@
       "location": "enemy/type/enemy_name_16MAI_KUR",
       "source": {
         "unit_id": "１６枚クリボー",
-        "script_file": "Script/Battle/Enemy/btl_16mai_kuriboo.bin",
+        "script_file": "Script/Battle/Enemy/battle_16mai_kuriboo.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_16MAI_KUR",
         "variants": []
@@ -2132,7 +2132,7 @@
       "location": "enemy/type/enemy_name_2MAI_KUR",
       "source": {
         "unit_id": "２枚クリボー",
-        "script_file": "Script/Battle/Enemy/btl_2mai_kuriboo.bin",
+        "script_file": "Script/Battle/Enemy/battle_2mai_kuriboo.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_2MAI_KUR",
         "variants": []
@@ -2142,7 +2142,7 @@
       "location": "enemy/type/enemy_name_2MAI_KUR_K",
       "source": {
         "unit_id": "２枚クリボー_K",
-        "script_file": "Script/Battle/Enemy/btl_2mai_kuriboo_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_2mai_kuriboo_k.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_2MAI_KUR_K",
         "variants": []
@@ -2152,7 +2152,7 @@
       "location": "enemy/type/enemy_name_5MAI_PTK",
       "source": {
         "unit_id": "５枚パタクリボー",
-        "script_file": "Script/Battle/Enemy/btl_5mai_patakuriboo.bin",
+        "script_file": "Script/Battle/Enemy/battle_5mai_patakuriboo.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_5MAI_PTK",
         "variants": []
@@ -2162,7 +2162,7 @@
       "location": "enemy/type/enemy_name_AHE",
       "source": {
         "unit_id": "アコーディオンヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_accordion_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_accordion_heihoo.bin",
         "function": "heihoo_dead",
         "type_id": "enemy_name_AHE",
         "variants": []
@@ -2172,7 +2172,7 @@
       "location": "enemy/type/enemy_name_BBL",
       "source": {
         "unit_id": "クッパ_バブル",
-        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_koopa.bin",
         "function": "bubble_dead",
         "type_id": "enemy_name_BBL",
         "variants": []
@@ -2182,7 +2182,7 @@
       "location": "enemy/type/enemy_name_BBR",
       "source": {
         "unit_id": "ブーメランブロス",
-        "script_file": "Script/Battle/Enemy/btl_boomerang_bros.bin",
+        "script_file": "Script/Battle/Enemy/battle_boomerang_bros.bin",
         "function": "boomerang_bross_dead",
         "type_id": "enemy_name_BBR",
         "variants": []
@@ -2192,7 +2192,7 @@
       "location": "enemy/type/enemy_name_BIG_PKPK",
       "source": {
         "unit_id": "巨大プクプク",
-        "script_file": "Script/Battle/Enemy/btl_boss_pukupuku.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_pukupuku.bin",
         "function": "pukupuku_dead",
         "type_id": "enemy_name_BIG_PKPK",
         "variants": []
@@ -2202,7 +2202,7 @@
       "location": "enemy/type/enemy_name_BOM",
       "source": {
         "unit_id": "ボムヘイ",
-        "script_file": "Script/Battle/Enemy/btl_bomhei.bin",
+        "script_file": "Script/Battle/Enemy/battle_bomhei.bin",
         "function": "dead",
         "type_id": "enemy_name_BOM",
         "variants": []
@@ -2212,7 +2212,7 @@
       "location": "enemy/type/enemy_name_BOM_K",
       "source": {
         "unit_id": "キラボムヘイ",
-        "script_file": "Script/Battle/Enemy/btl_bomhei_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_bomhei_k.bin",
         "function": "dead",
         "type_id": "enemy_name_BOM_K",
         "variants": []
@@ -2222,7 +2222,7 @@
       "location": "enemy/type/enemy_name_BOS_GES",
       "source": {
         "unit_id": "ボスゲッソーRE",
-        "script_file": "Script/Battle/Enemy/btl_boss_gesso_re.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_gesso_re.bin",
         "function": "dead",
         "type_id": "enemy_name_BOS_GES",
         "variants": []
@@ -2232,7 +2232,7 @@
       "location": "enemy/type/enemy_name_BPK",
       "source": {
         "unit_id": "ボスパックン",
-        "script_file": "Script/Battle/Enemy/btl_boss_packn.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_packn.bin",
         "function": "packn_dead",
         "type_id": "enemy_name_BPK",
         "variants": []
@@ -2242,7 +2242,7 @@
       "location": "enemy/type/enemy_name_BSA",
       "source": {
         "unit_id": "バサバサ",
-        "script_file": "Script/Battle/Enemy/btl_basabasa.bin",
+        "script_file": "Script/Battle/Enemy/battle_basabasa.bin",
         "function": "dead",
         "type_id": "enemy_name_BSA",
         "variants": []
@@ -2252,7 +2252,7 @@
       "location": "enemy/type/enemy_name_BTN",
       "source": {
         "unit_id": "クッパ_壁",
-        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_koopa.bin",
         "function": "wall_dead",
         "type_id": "enemy_name_BTN",
         "variants": []
@@ -2262,7 +2262,7 @@
       "location": "enemy/type/enemy_name_CBN",
       "source": {
         "unit_id": "チョロボン",
-        "script_file": "Script/Battle/Enemy/btl_chorobon.bin",
+        "script_file": "Script/Battle/Enemy/battle_chorobon.bin",
         "function": "dead",
         "type_id": "enemy_name_CBN",
         "variants": []
@@ -2272,7 +2272,7 @@
       "location": "enemy/type/enemy_name_CHE",
       "source": {
         "unit_id": "クリップヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_clip_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_clip_heihoo.bin",
         "function": "clip_heihoo_dead",
         "type_id": "enemy_name_CHE",
         "variants": []
@@ -2282,7 +2282,7 @@
       "location": "enemy/type/enemy_name_CRA",
       "source": {
         "unit_id": "クラッシャー",
-        "script_file": "Script/Battle/Enemy/btl_crasher.bin",
+        "script_file": "Script/Battle/Enemy/battle_crasher.bin",
         "function": "dead",
         "type_id": "enemy_name_CRA",
         "variants": []
@@ -2292,7 +2292,7 @@
       "location": "enemy/type/enemy_name_CYU",
       "source": {
         "unit_id": "チューチュー",
-        "script_file": "Script/Battle/Enemy/btl_cyucyu.bin",
+        "script_file": "Script/Battle/Enemy/battle_cyucyu.bin",
         "function": "dead",
         "type_id": "enemy_name_CYU",
         "variants": []
@@ -2302,7 +2302,7 @@
       "location": "enemy/type/enemy_name_DGSGS",
       "source": {
         "unit_id": "デカガサゴソ",
-        "script_file": "Script/Battle/Enemy/btl_dekagasagoso.bin",
+        "script_file": "Script/Battle/Enemy/battle_dekagasagoso.bin",
         "function": "gasagoso_s_dead",
         "type_id": "enemy_name_DGSGS",
         "variants": []
@@ -2312,7 +2312,7 @@
       "location": "enemy/type/enemy_name_DMT",
       "source": {
         "unit_id": "でかメット",
-        "script_file": "Script/Battle/Enemy/btl_bigmet.bin",
+        "script_file": "Script/Battle/Enemy/battle_bigmet.bin",
         "function": "met_dead",
         "type_id": "enemy_name_DMT",
         "variants": []
@@ -2322,7 +2322,7 @@
       "location": "enemy/type/enemy_name_DSB",
       "source": {
         "unit_id": "ボスサンボ",
-        "script_file": "Script/Battle/Enemy/btl_boss_sanbo.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_sanbo.bin",
         "function": "dead",
         "type_id": "enemy_name_DSB",
         "variants": []
@@ -2332,7 +2332,7 @@
       "location": "enemy/type/enemy_name_DTR",
       "source": {
         "unit_id": "ボステレサ",
-        "script_file": "Script/Battle/Enemy/btl_boss_teresa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_teresa.bin",
         "function": "boss_teresa_dead",
         "type_id": "enemy_name_DTR",
         "variants": []
@@ -2342,7 +2342,7 @@
       "location": "enemy/type/enemy_name_DWN",
       "source": {
         "unit_id": "でかワンワン",
-        "script_file": "Script/Battle/Enemy/btl_deka_wanwan.bin",
+        "script_file": "Script/Battle/Enemy/battle_deka_wanwan.bin",
         "function": "dead",
         "type_id": "enemy_name_DWN",
         "variants": []
@@ -2352,18 +2352,18 @@
       "location": "enemy/type/enemy_name_EMP",
       "source": {
         "unit_id": "W3エンペラ",
-        "script_file": "Script/Battle/Enemy/btl_w3_gesso_p.bin",
+        "script_file": "Script/Battle/Enemy/battle_w3_gesso_p.bin",
         "function": "dead",
         "type_id": "enemy_name_EMP",
         "variants": [
           {
             "unit_id": "W3エンペラ_2",
-            "script_file": "Script/Battle/Enemy/btl_w3_gesso_p.bin",
+            "script_file": "Script/Battle/Enemy/battle_w3_gesso_p.bin",
             "function": "dead"
           },
           {
             "unit_id": "エンペラ",
-            "script_file": "Script/Battle/Enemy/btl_gesso_p.bin",
+            "script_file": "Script/Battle/Enemy/battle_gesso_p.bin",
             "function": "dead"
           }
         ]
@@ -2373,7 +2373,7 @@
       "location": "enemy/type/enemy_name_FBR",
       "source": {
         "unit_id": "ファイアブロス",
-        "script_file": "Script/Battle/Enemy/btl_fire_bros.bin",
+        "script_file": "Script/Battle/Enemy/battle_fire_bros.bin",
         "function": "dead",
         "type_id": "enemy_name_FBR",
         "variants": []
@@ -2383,7 +2383,7 @@
       "location": "enemy/type/enemy_name_FFPK",
       "source": {
         "unit_id": "フーフーパックン",
-        "script_file": "Script/Battle/Enemy/btl_blow_packn.bin",
+        "script_file": "Script/Battle/Enemy/battle_blow_packn.bin",
         "function": "packn_dead",
         "type_id": "enemy_name_FFPK",
         "variants": []
@@ -2393,7 +2393,7 @@
       "location": "enemy/type/enemy_name_FPK",
       "source": {
         "unit_id": "ファイアパックン",
-        "script_file": "Script/Battle/Enemy/btl_fire_packn.bin",
+        "script_file": "Script/Battle/Enemy/battle_fire_packn.bin",
         "function": "packn_dead",
         "type_id": "enemy_name_FPK",
         "variants": []
@@ -2403,7 +2403,7 @@
       "location": "enemy/type/enemy_name_GBN",
       "source": {
         "unit_id": "ガボン",
-        "script_file": "Script/Battle/Enemy/btl_gabon.bin",
+        "script_file": "Script/Battle/Enemy/battle_gabon.bin",
         "function": "gabon_dead",
         "type_id": "enemy_name_GBN",
         "variants": []
@@ -2413,18 +2413,18 @@
       "location": "enemy/type/enemy_name_GSA",
       "source": {
         "unit_id": "ガサゴソ地上",
-        "script_file": "Script/Battle/Enemy/btl_gasagoso_ground.bin",
+        "script_file": "Script/Battle/Enemy/battle_gasagoso_ground.bin",
         "function": "gasagoso_g_dead",
         "type_id": "enemy_name_GSA",
         "variants": [
           {
             "unit_id": "ガサゴソ空中",
-            "script_file": "Script/Battle/Enemy/btl_gasagoso_sky.bin",
+            "script_file": "Script/Battle/Enemy/battle_gasagoso_sky.bin",
             "function": "gasagoso_s_dead"
           },
           {
             "unit_id": "ガサゴソ高空",
-            "script_file": "Script/Battle/Enemy/btl_gasagoso_sky.bin",
+            "script_file": "Script/Battle/Enemy/battle_gasagoso_sky.bin",
             "function": "gasagoso_s_dead"
           }
         ]
@@ -2434,7 +2434,7 @@
       "location": "enemy/type/enemy_name_HBR",
       "source": {
         "unit_id": "ハンマーブロス",
-        "script_file": "Script/Battle/Enemy/btl_hammer_bros.bin",
+        "script_file": "Script/Battle/Enemy/battle_hammer_bros.bin",
         "function": "dead",
         "type_id": "enemy_name_HBR",
         "variants": []
@@ -2444,13 +2444,13 @@
       "location": "enemy/type/enemy_name_HEI",
       "source": {
         "unit_id": "ヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_heihoo.bin",
         "function": "heihoo_dead",
         "type_id": "enemy_name_HEI",
         "variants": [
           {
             "unit_id": "１０枚ヘイホー",
-            "script_file": "Script/Battle/Enemy/btl_10mai_heihoo.bin",
+            "script_file": "Script/Battle/Enemy/battle_10mai_heihoo.bin",
             "function": "w4_heihoo_dead"
           }
         ]
@@ -2460,7 +2460,7 @@
       "location": "enemy/type/enemy_name_HKN",
       "source": {
         "unit_id": "ハックン",
-        "script_file": "Script/Battle/Enemy/btl_hakkun.bin",
+        "script_file": "Script/Battle/Enemy/battle_hakkun.bin",
         "function": "dead",
         "type_id": "enemy_name_HKN",
         "variants": []
@@ -2470,7 +2470,7 @@
       "location": "enemy/type/enemy_name_HKR",
       "source": {
         "unit_id": "壁画クリボー",
-        "script_file": "Script/Battle/Enemy/btl_hekiga_kuriboo.bin",
+        "script_file": "Script/Battle/Enemy/battle_hekiga_kuriboo.bin",
         "function": "dead",
         "type_id": "enemy_name_HKR",
         "variants": []
@@ -2480,7 +2480,7 @@
       "location": "enemy/type/enemy_name_HMT",
       "source": {
         "unit_id": "ホネメット",
-        "script_file": "Script/Battle/Enemy/btl_hone_met.bin",
+        "script_file": "Script/Battle/Enemy/battle_hone_met.bin",
         "function": "hone_met_dead",
         "type_id": "enemy_name_HMT",
         "variants": []
@@ -2490,23 +2490,23 @@
       "location": "enemy/type/enemy_name_HNB",
       "source": {
         "unit_id": "ハナちゃん胴体Type1",
-        "script_file": "Script/Battle/Enemy/btl_hanachan_body_type1.bin",
+        "script_file": "Script/Battle/Enemy/battle_hanachan_body_type1.bin",
         "function": "dead",
         "type_id": "enemy_name_HNB",
         "variants": [
           {
             "unit_id": "ハナちゃん胴体Type2",
-            "script_file": "Script/Battle/Enemy/btl_hanachan_body_type2.bin",
+            "script_file": "Script/Battle/Enemy/battle_hanachan_body_type2.bin",
             "function": "dead"
           },
           {
             "unit_id": "ハナちゃん胴体Type3",
-            "script_file": "Script/Battle/Enemy/btl_hanachan_body_type3.bin",
+            "script_file": "Script/Battle/Enemy/battle_hanachan_body_type3.bin",
             "function": "dead"
           },
           {
             "unit_id": "ハナちゃん胴体Type4",
-            "script_file": "Script/Battle/Enemy/btl_hanachan_body_type4.bin",
+            "script_file": "Script/Battle/Enemy/battle_hanachan_body_type4.bin",
             "function": "dead"
           }
         ]
@@ -2516,7 +2516,7 @@
       "location": "enemy/type/enemy_name_HNK",
       "source": {
         "unit_id": "壁画ノコノコ",
-        "script_file": "Script/Battle/Enemy/btl_hekiga_nokonoko.bin",
+        "script_file": "Script/Battle/Enemy/battle_hekiga_nokonoko.bin",
         "function": "dead",
         "type_id": "enemy_name_HNK",
         "variants": []
@@ -2526,7 +2526,7 @@
       "location": "enemy/type/enemy_name_IBR",
       "source": {
         "unit_id": "アイスブロス",
-        "script_file": "Script/Battle/Enemy/btl_ice_bros.bin",
+        "script_file": "Script/Battle/Enemy/battle_ice_bros.bin",
         "function": "dead",
         "type_id": "enemy_name_IBR",
         "variants": []
@@ -2536,13 +2536,13 @@
       "location": "enemy/type/enemy_name_IGB",
       "source": {
         "unit_id": "アイスガボン",
-        "script_file": "Script/Battle/Enemy/btl_ice_gabon.bin",
+        "script_file": "Script/Battle/Enemy/battle_ice_gabon.bin",
         "function": "gabon_dead",
         "type_id": "enemy_name_IGB",
         "variants": [
           {
             "unit_id": "アイスガボンC",
-            "script_file": "Script/Battle/Enemy/btl_ice_gabon.bin",
+            "script_file": "Script/Battle/Enemy/battle_ice_gabon.bin",
             "function": "gabon_dead"
           }
         ]
@@ -2552,7 +2552,7 @@
       "location": "enemy/type/enemy_name_IPK",
       "source": {
         "unit_id": "スミパックン",
-        "script_file": "Script/Battle/Enemy/btl_sumi_packn.bin",
+        "script_file": "Script/Battle/Enemy/battle_sumi_packn.bin",
         "function": "packn_dead",
         "type_id": "enemy_name_IPK",
         "variants": []
@@ -2562,7 +2562,7 @@
       "location": "enemy/type/enemy_name_KAMI_TGK",
       "source": {
         "unit_id": "紙トゲクリ",
-        "script_file": "Script/Battle/Enemy/btl_pera_togekuri.bin",
+        "script_file": "Script/Battle/Enemy/battle_pera_togekuri.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_KAMI_TGK",
         "variants": []
@@ -2572,7 +2572,7 @@
       "location": "enemy/type/enemy_name_KAMI_TGK_K",
       "source": {
         "unit_id": "紙トゲクリ_K",
-        "script_file": "Script/Battle/Enemy/btl_pera_togekuri_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_pera_togekuri_k.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_KAMI_TGK_K",
         "variants": []
@@ -2582,28 +2582,28 @@
       "location": "enemy/type/enemy_name_KMK",
       "source": {
         "unit_id": "W2カメック",
-        "script_file": "Script/Battle/Enemy/btl_w2_kamec.bin",
+        "script_file": "Script/Battle/Enemy/battle_w2_kamec.bin",
         "function": "kamec_fly_dead",
         "type_id": "enemy_name_KMK",
         "variants": [
           {
             "unit_id": "W6カメック",
-            "script_file": "Script/Battle/Enemy/btl_w6_kamec.bin",
+            "script_file": "Script/Battle/Enemy/battle_w6_kamec.bin",
             "function": "kamec_fly_dead"
           },
           {
             "unit_id": "カメック",
-            "script_file": "Script/Battle/Enemy/btl_kamec.bin",
+            "script_file": "Script/Battle/Enemy/battle_kamec.bin",
             "function": "kamec_dead"
           },
           {
             "unit_id": "カメック_FAKE",
-            "script_file": "Script/Battle/Enemy/btl_kamec.bin",
+            "script_file": "Script/Battle/Enemy/battle_kamec.bin",
             "function": "kamec_dead"
           },
           {
             "unit_id": "ホウキカメック",
-            "script_file": "Script/Battle/Enemy/btl_kamec_fly.bin",
+            "script_file": "Script/Battle/Enemy/battle_kamec_fly.bin",
             "function": "kamec_fly_dead"
           }
         ]
@@ -2613,13 +2613,13 @@
       "location": "enemy/type/enemy_name_KOOPA",
       "source": {
         "unit_id": "クッパ",
-        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_koopa.bin",
         "function": "koopa_dead",
         "type_id": "enemy_name_KOOPA",
         "variants": [
           {
             "unit_id": "クッパ２",
-            "script_file": "Script/Battle/Enemy/btl_boss_koopa2.bin",
+            "script_file": "Script/Battle/Enemy/battle_boss_koopa2.bin",
             "function": "koopa2_dead"
           }
         ]
@@ -2629,23 +2629,23 @@
       "location": "enemy/type/enemy_name_KPJ",
       "source": {
         "unit_id": "クッパＪｒ．",
-        "script_file": "Script/Battle/Enemy/btl_koopa_jr.bin",
+        "script_file": "Script/Battle/Enemy/battle_koopa_jr.bin",
         "function": "dead",
         "type_id": "enemy_name_KPJ",
         "variants": [
           {
             "unit_id": "クッパＪｒ．_m2",
-            "script_file": "Script/Battle/Enemy/btl_koopa_jr_m2.bin",
+            "script_file": "Script/Battle/Enemy/battle_koopa_jr_m2.bin",
             "function": "dead"
           },
           {
             "unit_id": "クッパＪｒ．_w6",
-            "script_file": "Script/Battle/Enemy/btl_koopa_jr_w6.bin",
+            "script_file": "Script/Battle/Enemy/battle_koopa_jr_w6.bin",
             "function": "dead"
           },
           {
             "unit_id": "クッパＪｒ．_world_1_1",
-            "script_file": "Script/Battle/Enemy/btl_koopa_jr.bin",
+            "script_file": "Script/Battle/Enemy/battle_koopa_jr.bin",
             "function": "dead"
           }
         ]
@@ -2655,13 +2655,13 @@
       "location": "enemy/type/enemy_name_KRN",
       "source": {
         "unit_id": "カロン",
-        "script_file": "Script/Battle/Enemy/btl_karon.bin",
+        "script_file": "Script/Battle/Enemy/battle_karon.bin",
         "function": "karon_dead",
         "type_id": "enemy_name_KRN",
         "variants": [
           {
             "unit_id": "カロン_BPK",
-            "script_file": "Script/Battle/Enemy/btl_karon.bin",
+            "script_file": "Script/Battle/Enemy/battle_karon.bin",
             "function": "karon_dead"
           }
         ]
@@ -2671,7 +2671,7 @@
       "location": "enemy/type/enemy_name_KRN_K",
       "source": {
         "unit_id": "カロン_K",
-        "script_file": "Script/Battle/Enemy/btl_karon_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_karon_k.bin",
         "function": "karon_dead",
         "type_id": "enemy_name_KRN_K",
         "variants": []
@@ -2681,7 +2681,7 @@
       "location": "enemy/type/enemy_name_KRS",
       "source": {
         "unit_id": "クロスケー",
-        "script_file": "Script/Battle/Enemy/btl_kurosuke.bin",
+        "script_file": "Script/Battle/Enemy/battle_kurosuke.bin",
         "function": "kurosuke_dead",
         "type_id": "enemy_name_KRS",
         "variants": []
@@ -2691,38 +2691,38 @@
       "location": "enemy/type/enemy_name_KUR",
       "source": {
         "unit_id": "SAMPLE",
-        "script_file": "Script/Battle/Enemy/btl_sample.bin",
+        "script_file": "Script/Battle/Enemy/battle_sample.bin",
         "function": "dead",
         "type_id": "enemy_name_KUR",
         "variants": [
           {
             "unit_id": "クリボー",
-            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "script_file": "Script/Battle/Enemy/battle_kuriboo.bin",
             "function": "kuriboo_dead"
           },
           {
             "unit_id": "クリボー_TUTORIAL",
-            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "script_file": "Script/Battle/Enemy/battle_kuriboo.bin",
             "function": "kuriboo_dead"
           },
           {
             "unit_id": "スピンクリボー",
-            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "script_file": "Script/Battle/Enemy/battle_kuriboo.bin",
             "function": "kuriboo_dead"
           },
           {
             "unit_id": "回避クリボー",
-            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "script_file": "Script/Battle/Enemy/battle_kuriboo.bin",
             "function": "kuriboo_dead"
           },
           {
             "unit_id": "攻撃しないクリボー",
-            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "script_file": "Script/Battle/Enemy/battle_kuriboo.bin",
             "function": "kuriboo_dead"
           },
           {
             "unit_id": "身代わりクリボー",
-            "script_file": "Script/Battle/Enemy/btl_kuriboo.bin",
+            "script_file": "Script/Battle/Enemy/battle_kuriboo.bin",
             "function": "kuriboo_dead"
           }
         ]
@@ -2732,7 +2732,7 @@
       "location": "enemy/type/enemy_name_KUR_K",
       "source": {
         "unit_id": "クリボー_K",
-        "script_file": "Script/Battle/Enemy/btl_kuriboo_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_kuriboo_k.bin",
         "function": "kuriboo_dead",
         "type_id": "enemy_name_KUR_K",
         "variants": []
@@ -2742,7 +2742,7 @@
       "location": "enemy/type/enemy_name_MCH",
       "source": {
         "unit_id": "ムーチョ",
-        "script_file": "Script/Battle/Enemy/btl_mucho.bin",
+        "script_file": "Script/Battle/Enemy/battle_mucho.bin",
         "function": "mucho_dead",
         "type_id": "enemy_name_MCH",
         "variants": []
@@ -2752,7 +2752,7 @@
       "location": "enemy/type/enemy_name_MET",
       "source": {
         "unit_id": "メット",
-        "script_file": "Script/Battle/Enemy/btl_met.bin",
+        "script_file": "Script/Battle/Enemy/battle_met.bin",
         "function": "met_dead",
         "type_id": "enemy_name_MET",
         "variants": []
@@ -2762,7 +2762,7 @@
       "location": "enemy/type/enemy_name_MET_K",
       "source": {
         "unit_id": "キラメット",
-        "script_file": "Script/Battle/Enemy/btl_met_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_met_k.bin",
         "function": "met_dead",
         "type_id": "enemy_name_MET_K",
         "variants": []
@@ -2772,7 +2772,7 @@
       "location": "enemy/type/enemy_name_MHE",
       "source": {
         "unit_id": "メキシカンヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_mexican_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_mexican_heihoo.bin",
         "function": "heihoo_dead",
         "type_id": "enemy_name_MHE",
         "variants": []
@@ -2782,7 +2782,7 @@
       "location": "enemy/type/enemy_name_MRHE",
       "source": {
         "unit_id": "マラカスヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_maracas_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_maracas_heihoo.bin",
         "function": "heihoo_dead",
         "type_id": "enemy_name_MRHE",
         "variants": []
@@ -2792,13 +2792,13 @@
       "location": "enemy/type/enemy_name_NKT",
       "source": {
         "unit_id": "あかノコノコ",
-        "script_file": "Script/Battle/Enemy/btl_r_nokonoko.bin",
+        "script_file": "Script/Battle/Enemy/battle_r_nokonoko.bin",
         "function": "r_nokonoko_dead",
         "type_id": "enemy_name_NKT",
         "variants": [
           {
             "unit_id": "ノコノコ",
-            "script_file": "Script/Battle/Enemy/btl_g_nokonoko.bin",
+            "script_file": "Script/Battle/Enemy/battle_g_nokonoko.bin",
             "function": "nokonoko_dead"
           }
         ]
@@ -2808,13 +2808,13 @@
       "location": "enemy/type/enemy_name_NKT_K",
       "source": {
         "unit_id": "キラあかノコノコ",
-        "script_file": "Script/Battle/Enemy/btl_r_nokonoko_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_r_nokonoko_k.bin",
         "function": "r_nokonoko_dead",
         "type_id": "enemy_name_NKT_K",
         "variants": [
           {
             "unit_id": "ノコノコ_K",
-            "script_file": "Script/Battle/Enemy/btl_g_nokonoko_k.bin",
+            "script_file": "Script/Battle/Enemy/battle_g_nokonoko_k.bin",
             "function": "nokonoko_dead"
           }
         ]
@@ -2824,7 +2824,7 @@
       "location": "enemy/type/enemy_name_PHE",
       "source": {
         "unit_id": "ペンキヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_bucket_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_bucket_heihoo.bin",
         "function": "bucket_heihoo_dead",
         "type_id": "enemy_name_PHE",
         "variants": []
@@ -2834,7 +2834,7 @@
       "location": "enemy/type/enemy_name_PKF",
       "source": {
         "unit_id": "パックンフラワー",
-        "script_file": "Script/Battle/Enemy/btl_packn.bin",
+        "script_file": "Script/Battle/Enemy/battle_packn.bin",
         "function": "packn_dead",
         "type_id": "enemy_name_PKF",
         "variants": []
@@ -2844,7 +2844,7 @@
       "location": "enemy/type/enemy_name_PKPK",
       "source": {
         "unit_id": "プクプク",
-        "script_file": "Script/Battle/Enemy/btl_pukupuku.bin",
+        "script_file": "Script/Battle/Enemy/battle_pukupuku.bin",
         "function": "pukupuku_dead",
         "type_id": "enemy_name_PKPK",
         "variants": []
@@ -2854,7 +2854,7 @@
       "location": "enemy/type/enemy_name_POO",
       "source": {
         "unit_id": "プー",
-        "script_file": "Script/Battle/Enemy/btl_puu.bin",
+        "script_file": "Script/Battle/Enemy/battle_puu.bin",
         "function": "dead",
         "type_id": "enemy_name_POO",
         "variants": []
@@ -2864,7 +2864,7 @@
       "location": "enemy/type/enemy_name_PTK",
       "source": {
         "unit_id": "パタクリ",
-        "script_file": "Script/Battle/Enemy/btl_pata_kuriboo.bin",
+        "script_file": "Script/Battle/Enemy/battle_pata_kuriboo.bin",
         "function": "pata_kuriboo_dead",
         "type_id": "enemy_name_PTK",
         "variants": []
@@ -2874,7 +2874,7 @@
       "location": "enemy/type/enemy_name_PTK_K",
       "source": {
         "unit_id": "キラパタクリ",
-        "script_file": "Script/Battle/Enemy/btl_pata_kuriboo_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_pata_kuriboo_k.bin",
         "function": "pata_kuriboo_dead",
         "type_id": "enemy_name_PTK_K",
         "variants": []
@@ -2884,13 +2884,13 @@
       "location": "enemy/type/enemy_name_PTT",
       "source": {
         "unit_id": "W2編隊パタパタ",
-        "script_file": "Script/Battle/Enemy/btl_w2_patapata.bin",
+        "script_file": "Script/Battle/Enemy/battle_w2_patapata.bin",
         "function": "r_patapata_dead",
         "type_id": "enemy_name_PTT",
         "variants": [
           {
             "unit_id": "パタパタ",
-            "script_file": "Script/Battle/Enemy/btl_r_patapata.bin",
+            "script_file": "Script/Battle/Enemy/battle_r_patapata.bin",
             "function": "r_patapata_dead"
           }
         ]
@@ -2900,7 +2900,7 @@
       "location": "enemy/type/enemy_name_PTT_G",
       "source": {
         "unit_id": "みどりパタパタ",
-        "script_file": "Script/Battle/Enemy/btl_g_patapata.bin",
+        "script_file": "Script/Battle/Enemy/battle_g_patapata.bin",
         "function": "patapata_dead",
         "type_id": "enemy_name_PTT_G",
         "variants": []
@@ -2910,7 +2910,7 @@
       "location": "enemy/type/enemy_name_PTT_K",
       "source": {
         "unit_id": "キラパタパタ",
-        "script_file": "Script/Battle/Enemy/btl_r_patapata_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_r_patapata_k.bin",
         "function": "r_patapata_dead",
         "type_id": "enemy_name_PTT_K",
         "variants": []
@@ -2920,7 +2920,7 @@
       "location": "enemy/type/enemy_name_SKP",
       "source": {
         "unit_id": "ボス雪像",
-        "script_file": "Script/Battle/Enemy/btl_boss_snow_koopa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_snow_koopa.bin",
         "function": "snow_koopa_dead",
         "type_id": "enemy_name_SKP",
         "variants": []
@@ -2930,18 +2930,18 @@
       "location": "enemy/type/enemy_name_SNB",
       "source": {
         "unit_id": "サンボ",
-        "script_file": "Script/Battle/Enemy/btl_sanbo.bin",
+        "script_file": "Script/Battle/Enemy/battle_sanbo.bin",
         "function": "dead",
         "type_id": "enemy_name_SNB",
         "variants": [
           {
             "unit_id": "ミニサンボ",
-            "script_file": "Script/Battle/Enemy/btl_sanbo_mini.bin",
+            "script_file": "Script/Battle/Enemy/battle_sanbo_mini.bin",
             "function": "dead"
           },
           {
             "unit_id": "黄色サンボ",
-            "script_file": "Script/Battle/Enemy/btl_sanbo_y.bin",
+            "script_file": "Script/Battle/Enemy/battle_sanbo_y.bin",
             "function": "dead"
           }
         ]
@@ -2951,13 +2951,13 @@
       "location": "enemy/type/enemy_name_TGZ",
       "source": {
         "unit_id": "トゲゾー",
-        "script_file": "Script/Battle/Enemy/btl_togezo.bin",
+        "script_file": "Script/Battle/Enemy/battle_togezo.bin",
         "function": "togezo_dead",
         "type_id": "enemy_name_TGZ",
         "variants": [
           {
             "unit_id": "トゲゾー_G",
-            "script_file": "Script/Battle/Enemy/btl_togezo.bin",
+            "script_file": "Script/Battle/Enemy/battle_togezo.bin",
             "function": "togezo_dead"
           }
         ]
@@ -2967,7 +2967,7 @@
       "location": "enemy/type/enemy_name_TGZ_K",
       "source": {
         "unit_id": "トゲゾー_K",
-        "script_file": "Script/Battle/Enemy/btl_togezo_k.bin",
+        "script_file": "Script/Battle/Enemy/battle_togezo_k.bin",
         "function": "togezo_dead",
         "type_id": "enemy_name_TGZ_K",
         "variants": []
@@ -2977,7 +2977,7 @@
       "location": "enemy/type/enemy_name_THM",
       "source": {
         "unit_id": "ボススローマン",
-        "script_file": "Script/Battle/Enemy/btl_boss_snow_koopa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_snow_koopa.bin",
         "function": "snow_koopa_dead",
         "type_id": "enemy_name_THM",
         "variants": []
@@ -2987,7 +2987,7 @@
       "location": "enemy/type/enemy_name_TMT",
       "source": {
         "unit_id": "トゲメット",
-        "script_file": "Script/Battle/Enemy/btl_toge_met.bin",
+        "script_file": "Script/Battle/Enemy/battle_toge_met.bin",
         "function": "met_dead",
         "type_id": "enemy_name_TMT",
         "variants": []
@@ -2997,7 +2997,7 @@
       "location": "enemy/type/enemy_name_TRIO",
       "source": {
         "unit_id": "トリオくん",
-        "script_file": "Script/Battle/Enemy/btl_trio_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_trio_heihoo.bin",
         "function": "trio_dead",
         "type_id": "enemy_name_TRIO",
         "variants": []
@@ -3007,18 +3007,18 @@
       "location": "enemy/type/enemy_name_TRS",
       "source": {
         "unit_id": "ゴミ箱テレサ",
-        "script_file": "Script/Battle/Enemy/btl_dustbox_teresa.bin",
+        "script_file": "Script/Battle/Enemy/battle_dustbox_teresa.bin",
         "function": "gomibako_teresa_dead",
         "type_id": "enemy_name_TRS",
         "variants": [
           {
             "unit_id": "テレサ",
-            "script_file": "Script/Battle/Enemy/btl_teresa.bin",
+            "script_file": "Script/Battle/Enemy/battle_teresa.bin",
             "function": "teresa_dead"
           },
           {
             "unit_id": "金色テレサ",
-            "script_file": "Script/Battle/Enemy/btl_teresa_g.bin",
+            "script_file": "Script/Battle/Enemy/battle_teresa_g.bin",
             "function": "teresa_dead"
           }
         ]
@@ -3028,7 +3028,7 @@
       "location": "enemy/type/enemy_name_TTR",
       "source": {
         "unit_id": "90体テレサ",
-        "script_file": "Script/Battle/Enemy/btl_90tai_teresa.bin",
+        "script_file": "Script/Battle/Enemy/battle_90tai_teresa.bin",
         "function": "teresa_90_dead",
         "type_id": "enemy_name_TTR",
         "variants": []
@@ -3038,7 +3038,7 @@
       "location": "enemy/type/enemy_name_W5D",
       "source": {
         "unit_id": "W5ダミーくん",
-        "script_file": "Script/Battle/Enemy/btl_W5_dammy_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_W5_dammy_heihoo.bin",
         "function": "dead",
         "type_id": "enemy_name_W5D",
         "variants": []
@@ -3048,7 +3048,7 @@
       "location": "enemy/type/enemy_name_WAN",
       "source": {
         "unit_id": "クッパ_ワンワン",
-        "script_file": "Script/Battle/Enemy/btl_boss_koopa.bin",
+        "script_file": "Script/Battle/Enemy/battle_boss_koopa.bin",
         "function": "wanwan_dead",
         "type_id": "enemy_name_WAN",
         "variants": []
@@ -3058,18 +3058,18 @@
       "location": "enemy/type/enemy_name_YHH",
       "source": {
         "unit_id": "W5ヤリヘイホー",
-        "script_file": "Script/Battle/Enemy/btl_w5_spear_heihoo.bin",
+        "script_file": "Script/Battle/Enemy/battle_w5_spear_heihoo.bin",
         "function": "yariheihoo_dead",
         "type_id": "enemy_name_YHH",
         "variants": [
           {
             "unit_id": "ヤリヘイホー",
-            "script_file": "Script/Battle/Enemy/btl_spear_heihoo.bin",
+            "script_file": "Script/Battle/Enemy/battle_spear_heihoo.bin",
             "function": "yariheihoo_dead"
           },
           {
             "unit_id": "ヤリヘイホーLv2",
-            "script_file": "Script/Battle/Enemy/btl_spear_heihoo_lv2.bin",
+            "script_file": "Script/Battle/Enemy/battle_spear_heihoo_lv2.bin",
             "function": "yariheihoo_dead"
           }
         ]
@@ -3370,1123 +3370,1123 @@
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_001",
+      "location": "museum/gf_museum_battle_seal_001",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_001"
+        "source_flag": "gf_museum_battle_seal_001"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_002",
+      "location": "museum/gf_museum_battle_seal_002",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_002"
+        "source_flag": "gf_museum_battle_seal_002"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_003",
+      "location": "museum/gf_museum_battle_seal_003",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_003"
+        "source_flag": "gf_museum_battle_seal_003"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_004",
+      "location": "museum/gf_museum_battle_seal_004",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_004"
+        "source_flag": "gf_museum_battle_seal_004"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_005",
+      "location": "museum/gf_museum_battle_seal_005",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_005"
+        "source_flag": "gf_museum_battle_seal_005"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_006",
+      "location": "museum/gf_museum_battle_seal_006",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_006"
+        "source_flag": "gf_museum_battle_seal_006"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_007",
+      "location": "museum/gf_museum_battle_seal_007",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_007"
+        "source_flag": "gf_museum_battle_seal_007"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_008",
+      "location": "museum/gf_museum_battle_seal_008",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_008"
+        "source_flag": "gf_museum_battle_seal_008"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_009",
+      "location": "museum/gf_museum_battle_seal_009",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_009"
+        "source_flag": "gf_museum_battle_seal_009"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_010",
+      "location": "museum/gf_museum_battle_seal_010",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_010"
+        "source_flag": "gf_museum_battle_seal_010"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_011",
+      "location": "museum/gf_museum_battle_seal_011",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_011"
+        "source_flag": "gf_museum_battle_seal_011"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_012",
+      "location": "museum/gf_museum_battle_seal_012",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_012"
+        "source_flag": "gf_museum_battle_seal_012"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_013",
+      "location": "museum/gf_museum_battle_seal_013",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_013"
+        "source_flag": "gf_museum_battle_seal_013"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_014",
+      "location": "museum/gf_museum_battle_seal_014",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_014"
+        "source_flag": "gf_museum_battle_seal_014"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_015",
+      "location": "museum/gf_museum_battle_seal_015",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_015"
+        "source_flag": "gf_museum_battle_seal_015"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_016",
+      "location": "museum/gf_museum_battle_seal_016",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_016"
+        "source_flag": "gf_museum_battle_seal_016"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_017",
+      "location": "museum/gf_museum_battle_seal_017",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_017"
+        "source_flag": "gf_museum_battle_seal_017"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_018",
+      "location": "museum/gf_museum_battle_seal_018",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_018"
+        "source_flag": "gf_museum_battle_seal_018"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_019",
+      "location": "museum/gf_museum_battle_seal_019",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_019"
+        "source_flag": "gf_museum_battle_seal_019"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_020",
+      "location": "museum/gf_museum_battle_seal_020",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_020"
+        "source_flag": "gf_museum_battle_seal_020"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_021",
+      "location": "museum/gf_museum_battle_seal_021",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_021"
+        "source_flag": "gf_museum_battle_seal_021"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_022",
+      "location": "museum/gf_museum_battle_seal_022",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_022"
+        "source_flag": "gf_museum_battle_seal_022"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_023",
+      "location": "museum/gf_museum_battle_seal_023",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_023"
+        "source_flag": "gf_museum_battle_seal_023"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_024",
+      "location": "museum/gf_museum_battle_seal_024",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_024"
+        "source_flag": "gf_museum_battle_seal_024"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_025",
+      "location": "museum/gf_museum_battle_seal_025",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_025"
+        "source_flag": "gf_museum_battle_seal_025"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_026",
+      "location": "museum/gf_museum_battle_seal_026",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_026"
+        "source_flag": "gf_museum_battle_seal_026"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_027",
+      "location": "museum/gf_museum_battle_seal_027",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_027"
+        "source_flag": "gf_museum_battle_seal_027"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_028",
+      "location": "museum/gf_museum_battle_seal_028",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_028"
+        "source_flag": "gf_museum_battle_seal_028"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_029",
+      "location": "museum/gf_museum_battle_seal_029",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_029"
+        "source_flag": "gf_museum_battle_seal_029"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_030",
+      "location": "museum/gf_museum_battle_seal_030",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_030"
+        "source_flag": "gf_museum_battle_seal_030"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_031",
+      "location": "museum/gf_museum_battle_seal_031",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_031"
+        "source_flag": "gf_museum_battle_seal_031"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_032",
+      "location": "museum/gf_museum_battle_seal_032",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_032"
+        "source_flag": "gf_museum_battle_seal_032"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_033",
+      "location": "museum/gf_museum_battle_seal_033",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_033"
+        "source_flag": "gf_museum_battle_seal_033"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_034",
+      "location": "museum/gf_museum_battle_seal_034",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_034"
+        "source_flag": "gf_museum_battle_seal_034"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_035",
+      "location": "museum/gf_museum_battle_seal_035",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_035"
+        "source_flag": "gf_museum_battle_seal_035"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_036",
+      "location": "museum/gf_museum_battle_seal_036",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_036"
+        "source_flag": "gf_museum_battle_seal_036"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_037",
+      "location": "museum/gf_museum_battle_seal_037",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_037"
+        "source_flag": "gf_museum_battle_seal_037"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_038",
+      "location": "museum/gf_museum_battle_seal_038",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_038"
+        "source_flag": "gf_museum_battle_seal_038"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_039",
+      "location": "museum/gf_museum_battle_seal_039",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_039"
+        "source_flag": "gf_museum_battle_seal_039"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_040",
+      "location": "museum/gf_museum_battle_seal_040",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_040"
+        "source_flag": "gf_museum_battle_seal_040"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_041",
+      "location": "museum/gf_museum_battle_seal_041",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_041"
+        "source_flag": "gf_museum_battle_seal_041"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_042",
+      "location": "museum/gf_museum_battle_seal_042",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_042"
+        "source_flag": "gf_museum_battle_seal_042"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_043",
+      "location": "museum/gf_museum_battle_seal_043",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_043"
+        "source_flag": "gf_museum_battle_seal_043"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_044",
+      "location": "museum/gf_museum_battle_seal_044",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_044"
+        "source_flag": "gf_museum_battle_seal_044"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_045",
+      "location": "museum/gf_museum_battle_seal_045",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_045"
+        "source_flag": "gf_museum_battle_seal_045"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_046",
+      "location": "museum/gf_museum_battle_seal_046",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_046"
+        "source_flag": "gf_museum_battle_seal_046"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_047",
+      "location": "museum/gf_museum_battle_seal_047",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_047"
+        "source_flag": "gf_museum_battle_seal_047"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_048",
+      "location": "museum/gf_museum_battle_seal_048",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_048"
+        "source_flag": "gf_museum_battle_seal_048"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_049",
+      "location": "museum/gf_museum_battle_seal_049",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_049"
+        "source_flag": "gf_museum_battle_seal_049"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_050",
+      "location": "museum/gf_museum_battle_seal_050",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_050"
+        "source_flag": "gf_museum_battle_seal_050"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_051",
+      "location": "museum/gf_museum_battle_seal_051",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_051"
+        "source_flag": "gf_museum_battle_seal_051"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_052",
+      "location": "museum/gf_museum_battle_seal_052",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_052"
+        "source_flag": "gf_museum_battle_seal_052"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_053",
+      "location": "museum/gf_museum_battle_seal_053",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_053"
+        "source_flag": "gf_museum_battle_seal_053"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_054",
+      "location": "museum/gf_museum_battle_seal_054",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_054"
+        "source_flag": "gf_museum_battle_seal_054"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_055",
+      "location": "museum/gf_museum_battle_seal_055",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_055"
+        "source_flag": "gf_museum_battle_seal_055"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_056",
+      "location": "museum/gf_museum_battle_seal_056",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_056"
+        "source_flag": "gf_museum_battle_seal_056"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_057",
+      "location": "museum/gf_museum_battle_seal_057",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_057"
+        "source_flag": "gf_museum_battle_seal_057"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_058",
+      "location": "museum/gf_museum_battle_seal_058",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_058"
+        "source_flag": "gf_museum_battle_seal_058"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_059",
+      "location": "museum/gf_museum_battle_seal_059",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_059"
+        "source_flag": "gf_museum_battle_seal_059"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_060",
+      "location": "museum/gf_museum_battle_seal_060",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_060"
+        "source_flag": "gf_museum_battle_seal_060"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_061",
+      "location": "museum/gf_museum_battle_seal_061",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_061"
+        "source_flag": "gf_museum_battle_seal_061"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_062",
+      "location": "museum/gf_museum_battle_seal_062",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_062"
+        "source_flag": "gf_museum_battle_seal_062"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_063",
+      "location": "museum/gf_museum_battle_seal_063",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_063"
+        "source_flag": "gf_museum_battle_seal_063"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_064",
+      "location": "museum/gf_museum_battle_seal_064",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_064"
+        "source_flag": "gf_museum_battle_seal_064"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_065",
+      "location": "museum/gf_museum_battle_seal_065",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_065"
+        "source_flag": "gf_museum_battle_seal_065"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_066",
+      "location": "museum/gf_museum_battle_seal_066",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_066"
+        "source_flag": "gf_museum_battle_seal_066"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_067",
+      "location": "museum/gf_museum_battle_seal_067",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_067"
+        "source_flag": "gf_museum_battle_seal_067"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_068",
+      "location": "museum/gf_museum_battle_seal_068",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_068"
+        "source_flag": "gf_museum_battle_seal_068"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_069",
+      "location": "museum/gf_museum_battle_seal_069",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_069"
+        "source_flag": "gf_museum_battle_seal_069"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_070",
+      "location": "museum/gf_museum_battle_seal_070",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_070"
+        "source_flag": "gf_museum_battle_seal_070"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_071",
+      "location": "museum/gf_museum_battle_seal_071",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_071"
+        "source_flag": "gf_museum_battle_seal_071"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_072",
+      "location": "museum/gf_museum_battle_seal_072",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_072"
+        "source_flag": "gf_museum_battle_seal_072"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_073",
+      "location": "museum/gf_museum_battle_seal_073",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_073"
+        "source_flag": "gf_museum_battle_seal_073"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_074",
+      "location": "museum/gf_museum_battle_seal_074",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_074"
+        "source_flag": "gf_museum_battle_seal_074"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_075",
+      "location": "museum/gf_museum_battle_seal_075",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_075"
+        "source_flag": "gf_museum_battle_seal_075"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_076",
+      "location": "museum/gf_museum_battle_seal_076",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_076"
+        "source_flag": "gf_museum_battle_seal_076"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_077",
+      "location": "museum/gf_museum_battle_seal_077",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_077"
+        "source_flag": "gf_museum_battle_seal_077"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_078",
+      "location": "museum/gf_museum_battle_seal_078",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_078"
+        "source_flag": "gf_museum_battle_seal_078"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_079",
+      "location": "museum/gf_museum_battle_seal_079",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_079"
+        "source_flag": "gf_museum_battle_seal_079"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_080",
+      "location": "museum/gf_museum_battle_seal_080",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_080"
+        "source_flag": "gf_museum_battle_seal_080"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_081",
+      "location": "museum/gf_museum_battle_seal_081",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_081"
+        "source_flag": "gf_museum_battle_seal_081"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_082",
+      "location": "museum/gf_museum_battle_seal_082",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_082"
+        "source_flag": "gf_museum_battle_seal_082"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_083",
+      "location": "museum/gf_museum_battle_seal_083",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_083"
+        "source_flag": "gf_museum_battle_seal_083"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_084",
+      "location": "museum/gf_museum_battle_seal_084",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_084"
+        "source_flag": "gf_museum_battle_seal_084"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_085",
+      "location": "museum/gf_museum_battle_seal_085",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_085"
+        "source_flag": "gf_museum_battle_seal_085"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_086",
+      "location": "museum/gf_museum_battle_seal_086",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_086"
+        "source_flag": "gf_museum_battle_seal_086"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_087",
+      "location": "museum/gf_museum_battle_seal_087",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_087"
+        "source_flag": "gf_museum_battle_seal_087"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_088",
+      "location": "museum/gf_museum_battle_seal_088",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_088"
+        "source_flag": "gf_museum_battle_seal_088"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_089",
+      "location": "museum/gf_museum_battle_seal_089",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_089"
+        "source_flag": "gf_museum_battle_seal_089"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_090",
+      "location": "museum/gf_museum_battle_seal_090",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_090"
+        "source_flag": "gf_museum_battle_seal_090"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_091",
+      "location": "museum/gf_museum_battle_seal_091",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_091"
+        "source_flag": "gf_museum_battle_seal_091"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_092",
+      "location": "museum/gf_museum_battle_seal_092",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_092"
+        "source_flag": "gf_museum_battle_seal_092"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_093",
+      "location": "museum/gf_museum_battle_seal_093",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_093"
+        "source_flag": "gf_museum_battle_seal_093"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_094",
+      "location": "museum/gf_museum_battle_seal_094",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_094"
+        "source_flag": "gf_museum_battle_seal_094"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_095",
+      "location": "museum/gf_museum_battle_seal_095",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_095"
+        "source_flag": "gf_museum_battle_seal_095"
       }
     },
     {
-      "location": "museum/gf_museum_btl_seal_096",
+      "location": "museum/gf_museum_battle_seal_096",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_btl_seal_096"
+        "source_flag": "gf_museum_battle_seal_096"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_001",
+      "location": "museum/gf_museum_rareobject_seal_001",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_001"
+        "source_flag": "gf_museum_rareobject_seal_001"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_002",
+      "location": "museum/gf_museum_rareobject_seal_002",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_002"
+        "source_flag": "gf_museum_rareobject_seal_002"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_003",
+      "location": "museum/gf_museum_rareobject_seal_003",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_003"
+        "source_flag": "gf_museum_rareobject_seal_003"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_004",
+      "location": "museum/gf_museum_rareobject_seal_004",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_004"
+        "source_flag": "gf_museum_rareobject_seal_004"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_005",
+      "location": "museum/gf_museum_rareobject_seal_005",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_005"
+        "source_flag": "gf_museum_rareobject_seal_005"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_006",
+      "location": "museum/gf_museum_rareobject_seal_006",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_006"
+        "source_flag": "gf_museum_rareobject_seal_006"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_007",
+      "location": "museum/gf_museum_rareobject_seal_007",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_007"
+        "source_flag": "gf_museum_rareobject_seal_007"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_008",
+      "location": "museum/gf_museum_rareobject_seal_008",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_008"
+        "source_flag": "gf_museum_rareobject_seal_008"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_009",
+      "location": "museum/gf_museum_rareobject_seal_009",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_009"
+        "source_flag": "gf_museum_rareobject_seal_009"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_010",
+      "location": "museum/gf_museum_rareobject_seal_010",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_010"
+        "source_flag": "gf_museum_rareobject_seal_010"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_011",
+      "location": "museum/gf_museum_rareobject_seal_011",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_011"
+        "source_flag": "gf_museum_rareobject_seal_011"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_012",
+      "location": "museum/gf_museum_rareobject_seal_012",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_012"
+        "source_flag": "gf_museum_rareobject_seal_012"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_013",
+      "location": "museum/gf_museum_rareobject_seal_013",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_013"
+        "source_flag": "gf_museum_rareobject_seal_013"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_014",
+      "location": "museum/gf_museum_rareobject_seal_014",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_014"
+        "source_flag": "gf_museum_rareobject_seal_014"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_015",
+      "location": "museum/gf_museum_rareobject_seal_015",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_015"
+        "source_flag": "gf_museum_rareobject_seal_015"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_016",
+      "location": "museum/gf_museum_rareobject_seal_016",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_016"
+        "source_flag": "gf_museum_rareobject_seal_016"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_017",
+      "location": "museum/gf_museum_rareobject_seal_017",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_017"
+        "source_flag": "gf_museum_rareobject_seal_017"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_018",
+      "location": "museum/gf_museum_rareobject_seal_018",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_018"
+        "source_flag": "gf_museum_rareobject_seal_018"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_019",
+      "location": "museum/gf_museum_rareobject_seal_019",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_019"
+        "source_flag": "gf_museum_rareobject_seal_019"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_020",
+      "location": "museum/gf_museum_rareobject_seal_020",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_020"
+        "source_flag": "gf_museum_rareobject_seal_020"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_021",
+      "location": "museum/gf_museum_rareobject_seal_021",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_021"
+        "source_flag": "gf_museum_rareobject_seal_021"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_022",
+      "location": "museum/gf_museum_rareobject_seal_022",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_022"
+        "source_flag": "gf_museum_rareobject_seal_022"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_023",
+      "location": "museum/gf_museum_rareobject_seal_023",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_023"
+        "source_flag": "gf_museum_rareobject_seal_023"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_024",
+      "location": "museum/gf_museum_rareobject_seal_024",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_024"
+        "source_flag": "gf_museum_rareobject_seal_024"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_025",
+      "location": "museum/gf_museum_rareobject_seal_025",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_025"
+        "source_flag": "gf_museum_rareobject_seal_025"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_026",
+      "location": "museum/gf_museum_rareobject_seal_026",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_026"
+        "source_flag": "gf_museum_rareobject_seal_026"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_027",
+      "location": "museum/gf_museum_rareobject_seal_027",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_027"
+        "source_flag": "gf_museum_rareobject_seal_027"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_028",
+      "location": "museum/gf_museum_rareobject_seal_028",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_028"
+        "source_flag": "gf_museum_rareobject_seal_028"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_029",
+      "location": "museum/gf_museum_rareobject_seal_029",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_029"
+        "source_flag": "gf_museum_rareobject_seal_029"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_030",
+      "location": "museum/gf_museum_rareobject_seal_030",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_030"
+        "source_flag": "gf_museum_rareobject_seal_030"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_031",
+      "location": "museum/gf_museum_rareobject_seal_031",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_031"
+        "source_flag": "gf_museum_rareobject_seal_031"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_032",
+      "location": "museum/gf_museum_rareobject_seal_032",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_032"
+        "source_flag": "gf_museum_rareobject_seal_032"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_033",
+      "location": "museum/gf_museum_rareobject_seal_033",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_033"
+        "source_flag": "gf_museum_rareobject_seal_033"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_034",
+      "location": "museum/gf_museum_rareobject_seal_034",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_034"
+        "source_flag": "gf_museum_rareobject_seal_034"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_035",
+      "location": "museum/gf_museum_rareobject_seal_035",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_035"
+        "source_flag": "gf_museum_rareobject_seal_035"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_036",
+      "location": "museum/gf_museum_rareobject_seal_036",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_036"
+        "source_flag": "gf_museum_rareobject_seal_036"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_037",
+      "location": "museum/gf_museum_rareobject_seal_037",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_037"
+        "source_flag": "gf_museum_rareobject_seal_037"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_038",
+      "location": "museum/gf_museum_rareobject_seal_038",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_038"
+        "source_flag": "gf_museum_rareobject_seal_038"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_039",
+      "location": "museum/gf_museum_rareobject_seal_039",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_039"
+        "source_flag": "gf_museum_rareobject_seal_039"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_040",
+      "location": "museum/gf_museum_rareobject_seal_040",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_040"
+        "source_flag": "gf_museum_rareobject_seal_040"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_041",
+      "location": "museum/gf_museum_rareobject_seal_041",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_041"
+        "source_flag": "gf_museum_rareobject_seal_041"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_042",
+      "location": "museum/gf_museum_rareobject_seal_042",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_042"
+        "source_flag": "gf_museum_rareobject_seal_042"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_043",
+      "location": "museum/gf_museum_rareobject_seal_043",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_043"
+        "source_flag": "gf_museum_rareobject_seal_043"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_044",
+      "location": "museum/gf_museum_rareobject_seal_044",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_044"
+        "source_flag": "gf_museum_rareobject_seal_044"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_045",
+      "location": "museum/gf_museum_rareobject_seal_045",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_045"
+        "source_flag": "gf_museum_rareobject_seal_045"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_046",
+      "location": "museum/gf_museum_rareobject_seal_046",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_046"
+        "source_flag": "gf_museum_rareobject_seal_046"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_047",
+      "location": "museum/gf_museum_rareobject_seal_047",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_047"
+        "source_flag": "gf_museum_rareobject_seal_047"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_048",
+      "location": "museum/gf_museum_rareobject_seal_048",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_048"
+        "source_flag": "gf_museum_rareobject_seal_048"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_049",
+      "location": "museum/gf_museum_rareobject_seal_049",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_049"
+        "source_flag": "gf_museum_rareobject_seal_049"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_050",
+      "location": "museum/gf_museum_rareobject_seal_050",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_050"
+        "source_flag": "gf_museum_rareobject_seal_050"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_051",
+      "location": "museum/gf_museum_rareobject_seal_051",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_051"
+        "source_flag": "gf_museum_rareobject_seal_051"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_052",
+      "location": "museum/gf_museum_rareobject_seal_052",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_052"
+        "source_flag": "gf_museum_rareobject_seal_052"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_053",
+      "location": "museum/gf_museum_rareobject_seal_053",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_053"
+        "source_flag": "gf_museum_rareobject_seal_053"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_054",
+      "location": "museum/gf_museum_rareobject_seal_054",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_054"
+        "source_flag": "gf_museum_rareobject_seal_054"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_055",
+      "location": "museum/gf_museum_rareobject_seal_055",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_055"
+        "source_flag": "gf_museum_rareobject_seal_055"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_056",
+      "location": "museum/gf_museum_rareobject_seal_056",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_056"
+        "source_flag": "gf_museum_rareobject_seal_056"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_057",
+      "location": "museum/gf_museum_rareobject_seal_057",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_057"
+        "source_flag": "gf_museum_rareobject_seal_057"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_058",
+      "location": "museum/gf_museum_rareobject_seal_058",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_058"
+        "source_flag": "gf_museum_rareobject_seal_058"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_059",
+      "location": "museum/gf_museum_rareobject_seal_059",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_059"
+        "source_flag": "gf_museum_rareobject_seal_059"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_060",
+      "location": "museum/gf_museum_rareobject_seal_060",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_060"
+        "source_flag": "gf_museum_rareobject_seal_060"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_061",
+      "location": "museum/gf_museum_rareobject_seal_061",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_061"
+        "source_flag": "gf_museum_rareobject_seal_061"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_062",
+      "location": "museum/gf_museum_rareobject_seal_062",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_062"
+        "source_flag": "gf_museum_rareobject_seal_062"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_063",
+      "location": "museum/gf_museum_rareobject_seal_063",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_063"
+        "source_flag": "gf_museum_rareobject_seal_063"
       }
     },
     {
-      "location": "museum/gf_museum_robj_seal_064",
+      "location": "museum/gf_museum_rareobject_seal_064",
       "source": {
         "category": "museum",
-        "source_flag": "gf_museum_robj_seal_064"
+        "source_flag": "gf_museum_rareobject_seal_064"
       }
     },
     {
@@ -4808,18 +4808,18 @@
       }
     },
     {
-      "location": "pickup/w2_oas_01/ROBJ_01",
+      "location": "pickup/w2_oas_01/RAREOBJECT_01",
       "source": {
         "map_name": "w2_oas_01",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_SHAVED_ICE"
       }
     },
     {
-      "location": "pickup/w2_oas_D1/ROBJ_01",
+      "location": "pickup/w2_oas_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w2_oas_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_HAIRCUT_SCISSORS"
       }
     },
@@ -4904,34 +4904,34 @@
       }
     },
     {
-      "location": "pickup/w3_cho_24/ROBJ_01",
+      "location": "pickup/w3_cho_24/RAREOBJECT_01",
       "source": {
         "map_name": "w3_cho_24",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_BOWLING"
       }
     },
     {
-      "location": "pickup/w3_cho_24/ROBJ_02",
+      "location": "pickup/w3_cho_24/RAREOBJECT_02",
       "source": {
         "map_name": "w3_cho_24",
-        "object_name": "ROBJ_02",
+        "object_name": "RAREOBJECT_02",
         "source_item": "REAL_TROPHY"
       }
     },
     {
-      "location": "pickup/w3_cho_D1/ROBJ_01",
+      "location": "pickup/w3_cho_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w3_cho_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_VIOLIN"
       }
     },
     {
-      "location": "pickup/w3_dok_D1/ROBJ_01",
+      "location": "pickup/w3_dok_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w3_dok_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_SEARCHLIGHT"
       }
     },
@@ -5032,10 +5032,10 @@
       }
     },
     {
-      "location": "pickup/w3_thr_03/ROBJ_01",
+      "location": "pickup/w3_thr_03/RAREOBJECT_01",
       "source": {
         "map_name": "w3_thr_03",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_BOWLING"
       }
     },
@@ -5048,26 +5048,26 @@
       }
     },
     {
-      "location": "pickup/w3_tre_01/ROBJ_01",
+      "location": "pickup/w3_tre_01/RAREOBJECT_01",
       "source": {
         "map_name": "w3_tre_01",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_HIGHHEEL"
       }
     },
     {
-      "location": "pickup/w3_tre_01/ROBJ_02",
+      "location": "pickup/w3_tre_01/RAREOBJECT_02",
       "source": {
         "map_name": "w3_tre_01",
-        "object_name": "ROBJ_02",
+        "object_name": "RAREOBJECT_02",
         "source_item": "REAL_BOOM_BOX"
       }
     },
     {
-      "location": "pickup/w4_bos_01/ROBJ_01",
+      "location": "pickup/w4_bos_01/RAREOBJECT_01",
       "source": {
         "map_name": "w4_bos_01",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_JAPANESE_SCISSORS"
       }
     },
@@ -5096,18 +5096,18 @@
       }
     },
     {
-      "location": "pickup/w4_kaw_D1/ROBJ_00",
+      "location": "pickup/w4_kaw_D1/RAREOBJECT_00",
       "source": {
         "map_name": "w4_kaw_D1",
-        "object_name": "ROBJ_00",
+        "object_name": "RAREOBJECT_00",
         "source_item": "REAL_DRYER"
       }
     },
     {
-      "location": "pickup/w4_lif_D1/ROBJ_01",
+      "location": "pickup/w4_lif_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w4_lif_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_FLASHLIGHT"
       }
     },
@@ -5144,66 +5144,66 @@
       }
     },
     {
-      "location": "pickup/w4_yak_04/ROBJ_01",
+      "location": "pickup/w4_yak_04/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yak_04",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_STAPLER"
       }
     },
     {
-      "location": "pickup/w4_yak_04_AFTER/ROBJ_01",
+      "location": "pickup/w4_yak_04_AFTER/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yak_04_AFTER",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_STAPLER"
       }
     },
     {
-      "location": "pickup/w4_yak_05/ROBJ_01",
+      "location": "pickup/w4_yak_05/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yak_05",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_CAKE"
       }
     },
     {
-      "location": "pickup/w4_yak_05/ROBJ_02",
+      "location": "pickup/w4_yak_05/RAREOBJECT_02",
       "source": {
         "map_name": "w4_yak_05",
-        "object_name": "ROBJ_02",
+        "object_name": "RAREOBJECT_02",
         "source_item": "REAL_FRIDGE"
       }
     },
     {
-      "location": "pickup/w4_yak_05/ROBJ_03",
+      "location": "pickup/w4_yak_05/RAREOBJECT_03",
       "source": {
         "map_name": "w4_yak_05",
-        "object_name": "ROBJ_03",
+        "object_name": "RAREOBJECT_03",
         "source_item": "REAL_OVEN"
       }
     },
     {
-      "location": "pickup/w4_yak_05_AFTER/ROBJ_01",
+      "location": "pickup/w4_yak_05_AFTER/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yak_05_AFTER",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_CAKE"
       }
     },
     {
-      "location": "pickup/w4_yak_05_AFTER/ROBJ_02",
+      "location": "pickup/w4_yak_05_AFTER/RAREOBJECT_02",
       "source": {
         "map_name": "w4_yak_05_AFTER",
-        "object_name": "ROBJ_02",
+        "object_name": "RAREOBJECT_02",
         "source_item": "REAL_FRIDGE"
       }
     },
     {
-      "location": "pickup/w4_yak_05_AFTER/ROBJ_03",
+      "location": "pickup/w4_yak_05_AFTER/RAREOBJECT_03",
       "source": {
         "map_name": "w4_yak_05_AFTER",
-        "object_name": "ROBJ_03",
+        "object_name": "RAREOBJECT_03",
         "source_item": "REAL_OVEN"
       }
     },
@@ -5216,18 +5216,18 @@
       }
     },
     {
-      "location": "pickup/w4_yak_12/ROBJ_01",
+      "location": "pickup/w4_yak_12/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yak_12",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_WATERING_CAN"
       }
     },
     {
-      "location": "pickup/w4_yak_12_AFTER/ROBJ_01",
+      "location": "pickup/w4_yak_12_AFTER/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yak_12_AFTER",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_WATERING_CAN"
       }
     },
@@ -5248,26 +5248,26 @@
       }
     },
     {
-      "location": "pickup/w4_yuk_D1/ROBJ_01",
+      "location": "pickup/w4_yuk_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w4_yuk_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_MOBILE_PHONE"
       }
     },
     {
-      "location": "pickup/w5_bak_D1/ROBJ_01",
+      "location": "pickup/w5_bak_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w5_bak_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_CANOPY_BED"
       }
     },
     {
-      "location": "pickup/w5_bos_D1/ROBJ_01",
+      "location": "pickup/w5_bos_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w5_bos_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_GUITAR"
       }
     },
@@ -5288,10 +5288,10 @@
       }
     },
     {
-      "location": "pickup/w5_cru_D1/ROBJ_01",
+      "location": "pickup/w5_cru_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w5_cru_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_HANDY_CLEANER"
       }
     },
@@ -5328,26 +5328,26 @@
       }
     },
     {
-      "location": "pickup/w5_jun_07/ROBJ_01",
+      "location": "pickup/w5_jun_07/RAREOBJECT_01",
       "source": {
         "map_name": "w5_jun_07",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_PLASTIC_BAT"
       }
     },
     {
-      "location": "pickup/w5_jun_08/ROBJ_01",
+      "location": "pickup/w5_jun_08/RAREOBJECT_01",
       "source": {
         "map_name": "w5_jun_08",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_POWDER_PUFF"
       }
     },
     {
-      "location": "pickup/w5_jun_D1/ROBJ_01",
+      "location": "pickup/w5_jun_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w5_jun_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_CLOTH_SCISSORS"
       }
     },
@@ -5360,34 +5360,34 @@
       }
     },
     {
-      "location": "pickup/w5_mag_19/ROBJ_01",
+      "location": "pickup/w5_mag_19/RAREOBJECT_01",
       "source": {
         "map_name": "w5_mag_19",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_TURKEY"
       }
     },
     {
-      "location": "pickup/w5_mag_20/ROBJ_01",
+      "location": "pickup/w5_mag_20/RAREOBJECT_01",
       "source": {
         "map_name": "w5_mag_20",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_CAR_WASH_SPONGE"
       }
     },
     {
-      "location": "pickup/w5_mag_D1/ROBJ_01",
+      "location": "pickup/w5_mag_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w5_mag_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_TUB"
       }
     },
     {
-      "location": "pickup/w5_wan_00/ROBJ_01",
+      "location": "pickup/w5_wan_00/RAREOBJECT_01",
       "source": {
         "map_name": "w5_wan_00",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_BATTERY_1"
       }
     },
@@ -5400,18 +5400,18 @@
       }
     },
     {
-      "location": "pickup/w5_wan_08/ROBJ_01",
+      "location": "pickup/w5_wan_08/RAREOBJECT_01",
       "source": {
         "map_name": "w5_wan_08",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_KETTLE"
       }
     },
     {
-      "location": "pickup/w5_wan_D1/ROBJ_01",
+      "location": "pickup/w5_wan_D1/RAREOBJECT_01",
       "source": {
         "map_name": "w5_wan_D1",
-        "object_name": "ROBJ_01",
+        "object_name": "RAREOBJECT_01",
         "source_item": "REAL_AIR_CONDITIONER"
       }
     },

@@ -67,12 +67,12 @@ def fixture() -> tuple[dict, dict]:
             + [
                 {
                     "location": f"museum{index}",
-                    "source": {"category": "museum", "source_flag": f"gf_museum_btl_seal_{index + 1:03d}"},
+                    "source": {"category": "museum", "source_flag": f"gf_museum_battle_seal_{index + 1:03d}"},
                 }
                 for index in range(6)
             ]
             + [
-                {"location": "banner", "source": {"honor": "btl_excellent", "mode": "original"}},
+                {"location": "banner", "source": {"honor": "battle_excellent", "mode": "original"}},
                 {
                     "location": "end",
                     "source": {

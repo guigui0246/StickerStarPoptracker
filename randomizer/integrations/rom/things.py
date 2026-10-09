@@ -24,9 +24,9 @@ SOURCE_EFFECTS = {
     "Script/Map/HEI/hei_3_01.bin": ("hei_3_01", "fan", "REAL_FAN", 1),
     "Script/Map/W3_THR/w3_thr_01.bin": ("w3_thr_01", "REAL_BILLIARD_BALL", "REAL_BILLIARD_BALL", 1),
     "Script/Map/W3_BEA/w3_bea_06.bin": ("w3_bea_06", "real", "REAL_OIL_HEATER", 1),
-    "Script/Map/W5_MAG/w5_mag_19.bin": ("w5_mag_19", "ROBJ_01", "REAL_TURKEY", 2),
-    "Script/Map/W5_MAG/w5_mag_D1.bin": ("w5_mag_D1", "ROBJ_01", "REAL_TUB", 1),
-    "Script/Map/W5_WAN/w5_wan_D1.bin": ("w5_wan_D1", "ROBJ_01", "REAL_AIR_CONDITIONER", 1),
+    "Script/Map/W5_MAG/w5_mag_19.bin": ("w5_mag_19", "RAREOBJECT_01", "REAL_TURKEY", 2),
+    "Script/Map/W5_MAG/w5_mag_D1.bin": ("w5_mag_D1", "RAREOBJECT_01", "REAL_TUB", 1),
+    "Script/Map/W5_WAN/w5_wan_D1.bin": ("w5_wan_D1", "RAREOBJECT_01", "REAL_AIR_CONDITIONER", 1),
 }
 
 
