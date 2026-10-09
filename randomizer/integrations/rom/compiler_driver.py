@@ -17,6 +17,7 @@ from typing import Protocol, cast
 class TokenReader(Protocol):
     term: str
     line: str
+    def getNextTerm(self) -> None: ...
     def readConstValue(self, enforceUnsignedInt: bool = False) -> tuple[object, str | None]: ...
 
 
@@ -26,7 +27,7 @@ InstructionReader = Callable[[TokenReader, object, bool], object]
 
 def hoist_literal_arrays(source: str) -> str:
     """Predeclare arrays of literals/header slots for the single-pass reader."""
-    literal = r'(?:var_0x[0-9a-fA-F]+|[-+]?(?:0x[0-9a-fA-F]+|[0-9]+(?:\.[0-9]*)?(?:[eE][-+]?[0-9]+)?)|true|false|"(?:[^"\\]|\\.)*")'
+    literal = r'(?:var_0x[0-9a-fA-F]+|[-+]?(?:inf|0x[0-9a-fA-F]+|[0-9]+(?:\.[0-9]*)?(?:[eE][-+]?[0-9]+)?)|true|false|"(?:[^"\\]|\\.)*")'
     declarations: list[str] = []
 
     def select(match: re.Match[str]) -> str:
@@ -46,6 +47,11 @@ def digit_identifier(token: str) -> bool:
 
 def read_literal(reader: TokenReader, original: LiteralReader, unsigned: bool = False) -> tuple[object, str | None]:
     token = reader.term
+    if token == "inf":
+        return float("inf"), "float"
+    if token in ("-", "+") and re.match(r"^\s*inf\b", reader.line):
+        reader.getNextTerm()
+        return float("-inf" if token == "-" else "inf"), "float"
     if digit_identifier(token):
         return None, None
     return original(reader, unsigned)

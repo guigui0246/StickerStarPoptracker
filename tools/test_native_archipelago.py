@@ -92,6 +92,13 @@ def main() -> None:
                     self.assertEqual(identifier in local, placed.player == player)
                     if placed.player == player:
                         self.assertEqual(local[identifier]["item"], placed.code)
+                        self.assertNotIn(world.bindings.locations[location.id].id, config["remote_placements"])
+                    else:
+                        description = config["remote_placements"][world.bindings.locations[location.id].id]
+                        self.assertEqual(description["item"], placed.name)
+                        self.assertEqual(description["player"], placed.player)
+                        self.assertEqual(description["location_name"], location.name)
+                        self.assertEqual(description["player_name"], multiworld.player_name[placed.player])
 
         def test_packaged_two_player_generation_produces_native_recipes(self) -> None:
             for seed in range(10):
@@ -102,6 +109,19 @@ def main() -> None:
             self.assertFalse(any(location.id == "banner" for location in world.worlds[1].definition.locations))
             self.assertEqual(world.worlds[1].definition.pool.count("page"), 6)
             self.verify(world)
+
+        def test_precollected_page_has_priority_receipts_and_an_echo_selector(self) -> None:
+            world = setup_multiworld(StickerStarWorld, seed=321, options={"album_pages": "randomized"})
+            native = world.worlds[1]
+            world.push_precollected(native.create_item("Album Page"))
+            world.itempool.remove(next(item for item in world.itempool if item.name == "Album Page"))
+            world.itempool.append(native.create_item("25 Coins"))
+            self.verify(world)
+            plan = native.native_plan()
+            self.assertTrue(plan.priority_pages)
+            self.assertEqual(len(plan.saved_bytes), 29)
+            self.assertEqual(len(plan.remote_page_flags), 6)
+            self.assertEqual(plan.starting_item_ids, (native.item_name_to_id["Album Page"],))
 
         def test_precollected_native_items_have_echo_receipts(self) -> None:
             world = setup_multiworld(StickerStarWorld, seed=123)

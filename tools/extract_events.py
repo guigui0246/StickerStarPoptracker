@@ -16,6 +16,10 @@ from randomizer.integrations.rom.project import RomProject
 from randomizer.integrations.rom.script_build import decompile
 from randomizer.integrations.rom.enemies import enemy_types
 from randomizer.integrations.rom.doors import door_places
+from randomizer.integrations.rom.peels import peel_sources
+from randomizer.integrations.rom.containers import container_sources
+from randomizer.integrations.rom.pickups import item_pickups
+from randomizer.integrations.rom.things import SCRIPTED_THING_SCRIPTS, scripted_things
 
 
 def main() -> None:
@@ -32,12 +36,15 @@ def main() -> None:
     checks = []
     shops = []
     kamek = []
+    things = []
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".event-survey-", dir=args.output.parent) as directory:
-        for filename in sorted(SHOP_SCRIPTS.keys() | KAMEK_FLAGS.keys()):
+        for filename in sorted(SHOP_SCRIPTS.keys() | KAMEK_FLAGS.keys() | set(SCRIPTED_THING_SCRIPTS.values())):
             binary = project.read_file(filename)
             script = decompile(project, filename, Path(directory), compiler)
             source = script.source.read_text(encoding="utf-8")
+            if filename in SCRIPTED_THING_SCRIPTS.values():
+                things.extend(asdict(entry) for entry in scripted_things(filename.rsplit("/", 1)[1][:-4], source))
             if filename in SHOP_SCRIPTS:
                 shop = shop_conversation(filename, source, binary)
                 shops.append({"id": shop.id, **asdict(shop)})
@@ -60,10 +67,19 @@ def main() -> None:
         raise ValueError("Mini-star registry is empty or ambiguous")
     world_stages = stages(KdmDocument(project.read_file("Data/kdm_worldmap_data.bin")))
     script_files = {entry.name for entry in project.inspection.romfs}
+    disposition = KdmDocument(project.read_file("Data/kdm_dispos_data.bin"))
+    pickups = item_pickups(disposition)
+    containers = container_sources(disposition)
     data = {"format_version": 1, "title_id": project.inspection.title_id,
             "verified_access_rules": False,
             "shops": shops, "kamek": kamek,
             "enemy_types": [{**asdict(enemy), "script_present": enemy.script_file in script_files, "has_death_hook": bool(enemy.death_function)} for enemy in enemy_types(project.read_file("Data/kdm_battle.bin"))],
+            "pickups": [asdict(source) for source in pickups if source.group_name != "TST"],
+            "scripted_things": things,
+            "excluded_debug_pickups": [asdict(source) for source in pickups if source.group_name == "TST"],
+            "container_sources": [asdict(source) for source in containers if source.group_name != "TST"],
+            "excluded_debug_containers": [asdict(source) for source in containers if source.group_name == "TST"],
+            "peeled_scraps": [asdict(source) for source in peel_sources(KdmDocument(project.read_file("Data/kdm_pepalyze.bin")))],
             "door_places": [asdict(place) for place in door_places(project.read_file("Data/kdm_pepalyze.bin"), world_stages)],
             "museum": [{"id": exhibit.id, **asdict(exhibit)} for exhibit in museum_exhibits(KdmDocument(project.read_file("Data/kdm_pepalyze_museum.bin")), switches)],
             "stages": [asdict(stage) for stage in world_stages],

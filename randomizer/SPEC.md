@@ -107,8 +107,9 @@ recipes and AP patches. Standalone tracking observes native receipts without
 writing game memory. Assembly sources accompany the executable guards.
 
 The authoritative full-game catalog, exact traversal effects for all native
-links and puzzles, complete source/enemy classification, worst-case mixed AP
-save capacity and full gameplay playthrough remain unfinished. Infinite capacity
+links and puzzles, complete source/enemy classification and full gameplay
+playthrough remain unfinished. The 425-check all-local/incoming storage fixture
+passes native delivery and save/reload validation. Infinite capacity
 and comprehensive automatic cutscene/text skipping also remain experimental.
 These limits prevent advertising a complete playable randomizer.
 
@@ -117,3 +118,8 @@ unrolling work, the album contains four Jump/boot stickers, four Hammer stickers
 and two Mushrooms, and normal movement resumes. This starting inventory is a
 test fixture, not an exception to randomized Hammer or production starting rules.
 See `PATCH_TODO.md` for the complete remaining implementation checklist.
+
+Incoming page upgrades have independent native save receipts. When album
+capacity blocks a remote sticker, a later remote page may arrive first without
+acknowledging or losing the earlier sticker. Both grants remain replay-safe
+across native save/reload; ordinary rewards keep their original ordered delivery.

@@ -40,3 +40,27 @@ class NativeClientConfigTests(unittest.TestCase):
             data[key] = value
             with self.assertRaises(ValueError):
                 NativeClientConfig.parse(data)
+
+    def test_remote_descriptions_are_bound_to_native_owner_and_location(self) -> None:
+        data = deepcopy(self.data)
+        data["local_rewards"] = []
+        data["remote_placements"] = {"star": {"item": "Hammer", "player": 2, "player_name": "Other", "location_name": "Goal"}}
+        profile = replace(self.profile, check_rewards={"star": NativeReward(NativeRewardKind.REMOTE, 2)})
+        config = NativeClientConfig.parse(data)
+        config.validate(profile)
+        self.assertEqual(config.remote_placements["star"].item, "Hammer")
+        for owner in (1, 3):
+            invalid = deepcopy(data)
+            invalid["remote_placements"]["star"]["player"] = owner
+            with self.assertRaises(ValueError):
+                NativeClientConfig.parse(invalid).validate(profile)
+        for key in ("unknown",):
+            invalid = deepcopy(data)
+            invalid["remote_placements"][key] = invalid["remote_placements"].pop("star")
+            with self.assertRaises(ValueError):
+                NativeClientConfig.parse(invalid)
+        with self.assertRaises(ValueError):
+            config.validate(self.profile)
+        data["local_rewards"] = self.data["local_rewards"]
+        with self.assertRaises(ValueError):
+            NativeClientConfig.parse(data)

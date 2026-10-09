@@ -101,6 +101,26 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(game.grants, [101, 100])
         self.assertEqual(self.ledger.flush(game), 0)
 
+    def test_pending_local_copy_and_echo_do_not_block_remote_capacity_upgrade(self) -> None:
+        local = ReceivedItem(101, 201, 1, 1)
+        page = ReceivedItem(102, 202, 2, 1)
+        self.ledger.bind_local_rewards({201: local})
+        self.ledger.record_check(201)
+        self.ledger.receive(0, (local, page))
+
+        class FullAlbumGame(FakeGame):
+            def deliver(self, receipt, item):
+                if receipt.startswith("local/") and not self.received("ap/1"):
+                    return False
+                return super().deliver(receipt, item)
+
+        game = FullAlbumGame()
+        self.assertEqual(self.ledger.flush(game), 1)
+        self.assertEqual(game.grants, [102])
+        self.assertEqual(self.ledger.flush(game), 1)
+        self.assertEqual(game.grants, [102, 101])
+        self.assertEqual(self.ledger.flush(game), 0)
+
     def test_remote_local_table_rejected(self) -> None:
         with self.assertRaises(ValueError):
             self.ledger.bind_local_rewards({200: ITEM})
@@ -165,3 +185,24 @@ class RuntimeTests(unittest.TestCase):
             self.assertTrue(socket.closed)
             self.assertEqual(json.loads(socket.sent[0])[0]["cmd"], "Connect")
         asyncio.run(scenario())
+
+    def test_later_remote_page_can_unblock_an_earlier_remote_sticker(self) -> None:
+        class PriorityGame(FakeGame):
+            def prepare_pages(self, items):
+                self.pages = {index for index, item in items if item.item == 101}
+            def deliver_priority(self, receipt, item):
+                if item.item != 101:
+                    return False
+                self.full = False
+                self.receipts.add(receipt)
+                self.grants.append(item.item)
+                return True
+        game = PriorityGame()
+        game.full = True
+        self.ledger.receive(0, (ITEM, ReceivedItem(101, 201, 2, 1)))
+        self.assertEqual(self.ledger.flush(game), 1)
+        self.assertFalse(game.received("ap/0"))
+        self.assertTrue(game.received("ap/1"))
+        self.assertEqual(self.ledger.flush(game), 1)
+        self.assertEqual(game.grants, [101, 100])
+        self.assertEqual(self.ledger.flush(game), 0)

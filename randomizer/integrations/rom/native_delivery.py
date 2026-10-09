@@ -58,8 +58,8 @@ class NativeReward:
             if not isinstance(self.value, str) or not re.fullmatch(r"[A-FX][0-9]{2}", self.value):
                 raise ValueError("Expected a native world-map stage code")
         elif self.kind == NativeRewardKind.DOOR_ACCESS:
-            if not isinstance(self.value, str) or not re.fullmatch(r"[A-F][0-9]{2}", self.value):
-                raise ValueError("Expected a numbered native stage for door admission")
+            if not isinstance(self.value, str) or not re.fullmatch(r"(?:[A-F][0-9]{2}|[a-z][a-z0-9_]{0,95})", self.value):
+                raise ValueError("Expected an exact native Secret Door identity or numbered stage")
         elif self.kind == NativeRewardKind.BOSS_ACCESS:
             if self.value not in ("w1", "w2", "w3", "w4", "w5", "w6", "harbor"):
                 raise ValueError("Expected one of the six Royal bosses or Harbor boss")
@@ -83,6 +83,18 @@ class NativeReward:
                 raise ValueError("Fixed native events require an exact global story flag")
         else:
             raise ValueError("Unsupported native reward kind")
+
+
+def capability_receipt(reward: NativeReward, shuffle_royals: bool = False) -> str | None:
+    """Only idempotent entitlements can bypass a blocked inventory command."""
+    prefixes = {NativeRewardKind.ABILITY: "ability", NativeRewardKind.STAGE_ACCESS: "stage",
+                NativeRewardKind.DOOR_ACCESS: "door", NativeRewardKind.BOSS_ACCESS: "boss"}
+    prefix = prefixes.get(reward.kind)
+    if prefix is not None:
+        return f"gf_rando_{prefix}_{str(reward.value).lower()}"
+    if reward.kind == NativeRewardKind.ROYAL and shuffle_royals:
+        return f"gf_rando_royal_{reward.value}"
+    return None
 
 
 @dataclass(frozen=True)
@@ -119,6 +131,62 @@ class PickupReward:
     @property
     def id(self) -> str:
         return f"pickup/{self.map_name}/{self.object_name}"
+
+
+@dataclass(frozen=True)
+class ContainerReward:
+    map_name: str
+    object_name: str
+    source_item: str
+    reward: NativeReward
+    container_type: str = "TREASURE_FILE"
+
+    def __post_init__(self) -> None:
+        PickupReward(self.map_name, self.object_name, self.source_item, self.reward)
+        if self.container_type != "TREASURE_FILE":
+            raise ValueError("Only the observed deterministic treasure-file callback is supported")
+
+    @property
+    def id(self) -> str:
+        return f"container/{self.map_name}/{self.object_name}"
+
+
+@dataclass(frozen=True)
+class PeelVariant:
+    lock_id: str
+    source_item: str
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.lock_id, str) or not re.fullmatch(r"[a-z0-9_]+", self.lock_id):
+            raise ValueError("Invalid native peel lock identity")
+        if not isinstance(self.source_item, str) or not re.fullmatch(r"PK_(?!FIELD_)[A-Z0-9_]+", self.source_item):
+            raise ValueError("Peel sources require a native inventory scrap")
+
+
+@dataclass(frozen=True)
+class PeelReward:
+    map_name: str
+    lock_id: str
+    source_item: str
+    reward: NativeReward
+    variants: tuple[PeelVariant, ...] = ()
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.map_name, str) or not re.fullmatch(r"[a-z0-9_]+", self.map_name):
+            raise ValueError("Invalid peel map identity")
+        PeelVariant(self.lock_id, self.source_item)
+        if any(not isinstance(variant, PeelVariant) for variant in self.variants):
+            raise ValueError("Peel aliases require typed native variants")
+        if len(self.variants) > 16 or len({variant.lock_id for variant in self.hooks}) != len(self.hooks):
+            raise ValueError("Peel aliases must be distinct and bounded")
+
+    @property
+    def hooks(self) -> tuple[PeelVariant, ...]:
+        return (PeelVariant(self.lock_id, self.source_item),) + self.variants
+
+    @property
+    def id(self) -> str:
+        return f"peel/{self.map_name}/{self.lock_id}"
 
 
 @dataclass(frozen=True)
@@ -223,7 +291,7 @@ class EnemyReward:
 
 @dataclass(frozen=True)
 class DeliveryPlan:
-    checks: tuple[GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward, ...]
+    checks: tuple[GoalBlockReward | PickupReward | ContainerReward | PeelReward | FlagReward | BannerReward | ScriptReward | EnemyReward, ...]
     album_pages: AlbumPages | None = None
     shuffle_royals: bool = False
     remote_rewards: tuple[RemoteReward, ...] = ()
@@ -235,8 +303,14 @@ class DeliveryPlan:
     starting_rewards: tuple[NativeReward, ...] = ()
     starting_item_ids: tuple[int, ...] = ()
     catalog_hash: str | None = None
+    saved_byte_mailbox: bool = False
+    priority_pages: bool = False
 
     def __post_init__(self) -> None:
+        if type(self.priority_pages) is not bool or (self.priority_pages and (not self.saved_byte_mailbox or not any(entry.reward.kind == NativeRewardKind.PAGE for entry in self.remote_rewards))):
+            raise ValueError("Priority pages require a saved-byte page mailbox")
+        if type(self.saved_byte_mailbox) is not bool or (self.saved_byte_mailbox and not self.remote_rewards):
+            raise ValueError("Saved-byte mailbox requires incoming rewards")
         if self.catalog_hash is not None and (not isinstance(self.catalog_hash, str) or not re.fullmatch(r"[0-9a-f]{64}", self.catalog_hash)):
             raise ValueError("Native catalogs require a SHA-256 identity")
         if self.catalog_hash is not None and self.remote_session is not None and self.catalog_hash != self.remote_session.catalog_hash:
@@ -251,6 +325,9 @@ class DeliveryPlan:
             raise ValueError("Delivery plans require unique native check IDs")
         if len(self.checks) > 1024:
             raise ValueError("Delivery plan exceeds the bounded native check limit")
+        peels = [(check.map_name, hook.lock_id) for check in self.checks if isinstance(check, PeelReward) for hook in check.hooks]
+        if len(peels) != len(set(peels)):
+            raise ValueError("A peel source cannot belong to multiple checks")
         units = [hook.unit_id for check in self.checks if isinstance(check, EnemyReward) for hook in check.hooks]
         if len(units) != len(set(units)):
             raise ValueError("An enemy unit cannot belong to two global victory checks")
@@ -389,11 +466,21 @@ class DeliveryPlan:
     @property
     def flags(self) -> tuple[str, ...]:
         from .mailbox import mailbox_flags
-        return self.local_flags + (mailbox_flags(1446 + len(self.local_flags)) if self.remote_rewards else ())
+        return self.local_flags + self.remote_page_flags + (mailbox_flags(1446 + len(self.local_flags)) if self.remote_rewards and not self.saved_byte_mailbox else ())
+
+    @property
+    def saved_bytes(self) -> tuple[str, ...]:
+        from .mailbox import saved_mailbox_bytes
+        mailbox = saved_mailbox_bytes(self.priority_pages) if self.saved_byte_mailbox else ()
+        return mailbox + (("gs_rando_peel_pending",) if any(isinstance(check, PeelReward) for check in self.checks) else ())
+
+    @property
+    def remote_page_flags(self) -> tuple[str, ...]:
+        return tuple(f"gf_rando_remote_page_{index}" for index in range(6)) if self.priority_pages else ()
 
     @property
     def references(self) -> tuple[str, ...]:
-        return self.flags + tuple(sorted({check.source_flag for check in self.checks if isinstance(check, FlagReward)}))
+        return self.flags + self.saved_bytes + tuple(sorted({check.source_flag for check in self.checks if isinstance(check, FlagReward)}))
 
     @property
     def required_references(self) -> tuple[str, ...]:
@@ -401,7 +488,7 @@ class DeliveryPlan:
         # no VM references. The compiler correctly drops their declarations.
         rewards = self.rewards
         unlocks = {self.sticker_policy.flag(str(reward.value)) for reward in rewards if self.sticker_policy and reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} and reward.value in self.sticker_policy.generic}
-        return tuple(flag for flag in self.references if not flag.startswith(("gf_rando_enemy_pending_", "gf_rando_boss_pending_")) and (not flag.startswith("gf_rando_unlock_") or flag in unlocks) and (not flag.startswith("gf_rando_rpc_") or re.fullmatch(r"gf_rando_rpc_(?:item|sequence|ack)_[0-9]{2}", flag) or flag in {"gf_rando_rpc_ready_00", "gf_rando_rpc_ack_ready_00"}))
+        return tuple(flag for flag in self.references if not flag.startswith(("gf_rando_enemy_pending_", "gf_rando_boss_pending_", "gs_rando_rpc_save_")) and (not flag.startswith("gf_rando_unlock_") or flag in unlocks) and (not flag.startswith("gf_rando_rpc_") or re.fullmatch(r"gf_rando_rpc_(?:item|sequence|ack)_[0-9]{2}", flag) or flag in {"gf_rando_rpc_ready_00", "gf_rando_rpc_ack_ready_00"}))
 
     def receipt(self, index: int) -> tuple[str, str]:
         checked, delivered = self.receipt_flags(index)
@@ -427,7 +514,13 @@ class DeliveryPlan:
             # earlier two-bit-layout save as this layout, even for the same seed.
             identity.append("compact-network-check-receipts-v1")
         if self.remote_rewards:
-            identity.append("word-owner-safe-compact-mailbox-v2")
+            identity.append("native-saved-byte-mailbox-v1" if self.saved_byte_mailbox else "word-owner-safe-compact-mailbox-v2")
+        if self.priority_pages:
+            identity.append("independent-remote-page-receipts-v1")
+            if any(capability_receipt(entry.reward, self.shuffle_royals) for entry in self.remote_rewards):
+                identity.append("priority-idempotent-capabilities-v1")
+        if any(isinstance(check, PeelReward) for check in self.checks):
+            identity.append("reserved-persistent-peel-returns-v2")
         if self.enemy_pending_flags:
             identity.append("transient-native-encounter-state-v1")
         if self.starting_rewards:
@@ -589,7 +682,7 @@ class DeliveryPlan:
         # Story callbacks call item_get_evt_piece directly rather than the
         # ordinary map_piece_get wrapper. Its argument is the field item ID.
         pieces = [(index, check) for index, check in enumerate(self.checks)
-                  if isinstance(check, PickupReward) and check.source_item.startswith("PK_FIELD_")]
+                  if isinstance(check, (PickupReward, ContainerReward)) and check.source_item.startswith("PK_FIELD_")]
         identities = [(check.map_name, check.source_item) for _, check in pieces]
         if len(identities) != len(set(identities)):
             raise ValueError("Direct scrap acquisition needs an unambiguous item within each room")

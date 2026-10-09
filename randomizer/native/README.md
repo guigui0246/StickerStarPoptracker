@@ -35,3 +35,10 @@ without duplicate inventory. Hosts write only mailbox requests and save nonce.
 The Python builder emits the same words directly so a separate ARM assembler
 is not required. Assembly-to-IPS byte comparisons are regression checked, and
 the executable behavior was tested in 384 isolated ARM executions.
+
+[`runtime-pool-reference.S`](runtime-pool-reference.S) shows the five ARM edits
+that expand the script-variable arena from 12,288 to 24,576 cells. Allocation,
+clearing, initialization and both allocator scans share the expanded bounds.
+The patch uses 288 KiB more runtime heap without changing save layout. Native
+allocator boundary tests and a live 425-check fixture validate the expansion.
+The same edits appear in every generated `exefs/code.S`.

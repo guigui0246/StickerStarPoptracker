@@ -77,3 +77,23 @@ def desert_gate_requirements(locks: tuple[PaperizationLock, ...], items: Mapping
     if any(name not in by_id or by_id[name].map_name != "w2_sab_00" for name in names):
         raise ValueError("Desert gate does not match the inspected six native slots")
     return Rules.all_of(*(by_id[name].requirements(items, paperization) for name in names))
+
+
+def wiggler_restoration_requirements(locks: tuple[PaperizationLock, ...], items: Mapping[str, str],
+                                     paperization: str) -> Rules:
+    """All four distinct segments are consumed by the four restoration slots.
+
+    Each slot accepts any segment, so combining four independent alternatives
+    would incorrectly allow one received segment to satisfy every slot.
+    """
+    bodies = tuple(f"PK_HANACHAN_BODY_{index}" for index in range(1, 5))
+    by_id = {lock.id: lock for lock in locks}
+    for index in range(1, 5):
+        lock = by_id.get(f"w3_tre_02_hanachan_{index}")
+        if (lock is None or lock.map_name != "w3_tre_02"
+                or set(lock.accepted_items) != set(bodies)
+                or lock.completion_flag.lower() != f"gf_w3_tre_rev_hanachan_{index}"):
+            raise ValueError("Wiggler restoration does not match the four observed native slots")
+    if set(bodies) - items.keys() or len({items[body] for body in bodies}) != 4:
+        raise ValueError("Wiggler restoration requires four distinct mapped segment items")
+    return Rules.all_of(Rules.has(paperization), *(Rules.has(items[body]) for body in bodies))

@@ -1,6 +1,7 @@
 """Checked script transformations using the external Gibberish compiler."""
 
 from dataclasses import dataclass
+from collections import Counter
 import hashlib
 from pathlib import Path
 import re
@@ -50,6 +51,18 @@ def validate_function_contracts(source: str, canonical: str) -> None:
     rebuilt = set(re.findall(pattern, canonical, re.MULTILINE))
     if original != rebuilt:
         raise ValueError(f"Script compilation changed named function contracts: missing {sorted(original - rebuilt)}, added {sorted(rebuilt - original)}")
+
+
+def validate_runtime_calls(source: str, canonical: str) -> None:
+    """Reject compiler round trips that silently drop injected helper calls."""
+    pattern = r"\b(rando_[A-Za-z0-9_]+)\*?\s*\("
+    def calls(text: str) -> Counter[str]:
+        code = "".join(re.split(r'("(?:[^"\\]|\\.)*"|//[^\n]*)', text)[::2])
+        return Counter(re.findall(pattern, code))
+    original = calls(source)
+    rebuilt = calls(canonical)
+    if original != rebuilt:
+        raise ValueError(f"Script compilation changed randomizer calls: missing {dict(original - rebuilt)}, added {dict(rebuilt - original)}")
 
 
 def lower_temporary_registers(source: str) -> str:
@@ -155,6 +168,7 @@ def compile_checked(script: ScriptSource, compiler: Path, flags: tuple[str, ...]
     compile_script(compiler, rebuilt)
     canonical = rebuilt.with_suffix(".cksm").read_text(encoding="utf-8")
     validate_function_contracts(source, canonical)
+    validate_runtime_calls(source, canonical)
     if required_function is not None and required_function not in canonical:
-        raise ValueError("Compiled delivery script lost its delivery function")
+        raise ValueError(f"Compiled script {script.binary.name} lost required function {required_function}")
     return result

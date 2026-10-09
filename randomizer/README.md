@@ -404,15 +404,15 @@ using 826 bits. It compiles and its client profile loads. The capacity tool
 reports excluded obsolete shop-setup hooks; production builds reject them.
 These fixtures are not complete progression seeds.
 
-Validation on 2026-10-08: 147 repository tests, five actual Lua tracker tests,
+Validation on 2026-10-08: 163 repository tests, five actual Lua tracker tests,
 384 native ARM ability executions, 17,760 sticker-guard ARM executions,
 and AP 0.6.8 WebSocket transport checks pass.
 Native fixtures compile for all 39 mini-stars, 160 exhibits, six shop callbacks,
 112 existing enemy definitions with death callbacks, abilities, all 38 door
 capabilities, pages and remote delivery. The enemy table also contains missing
 scripts and units without death callbacks; these are not advertised as complete
-combat checks. The authoritative catalog, save-capacity solution for the full
-combined check set, boss encounter gameplay and full playthrough remain unfinished.
+combat checks. The authoritative catalog, boss encounter gameplay and full playthrough
+remain unfinished. The tested 425-check all-local/incoming fixture now fits.
 All seven boss gates compile, including a combined Royal replacement fixture;
 compilation alone does not establish encounter behavior or progression safety.
 
@@ -472,8 +472,8 @@ Enemy grouping gives one receipt per observed combat display type while keeping
 all associated native callbacks. The current grouped fixture has 419 checks
 and 77 selected enemy types. A standalone fixture containing all implemented
 reward capabilities and six randomized pages compiles within 1100/1114 bits;
-the network-only counterpart uses 986 bits. Other mixed network/local layouts
-can exceed capacity and are rejected before patching.
+the network-only counterpart uses 986 bits. Larger incoming layouts now use the
+compact saved-byte mailbox described below; local flag overflow is rejected.
 
 `python tools/export_native_room_links.py kdm_link_data.bin --output links.json`
 exports 1,135 exact directed records from 406 room groups in the inspected dump.
@@ -505,9 +505,12 @@ The updated native encounter engine stores battle-only pending deaths in shared
 script variables, while collection and delivery receipts remain saved. A live
 77-type mark/read/reset probe passes; escape/museum/controller combat scenarios
 still need gameplay verification. The 423-check capability fixture now uses
-890 reserved save bits. This does not solve every mixed AP layout: the same
-fixture with all local placements and its incoming mailbox exceeds the 1,114-bit
-budget and is rejected.
+890 reserved save bits. A 425-check all-local/incoming fixture uses 1,060
+GF bits and 28 previously unused native GS bytes. Native save/reload, exact
+acknowledgements, replay and maximum-sequence tests pass. Builds automatically
+select this mailbox when the GF layout would exceed 1,114 bits. Five ARM edits
+expand the native script-variable arena so this larger fixture can run.
+Layouts exceeding the remaining local GF budget are still rejected.
 
 Native puzzle export reads all 177 paperization locks and their exact accepted
 input alternatives. The desert gate requires all six independent slots. Fixed
@@ -515,3 +518,97 @@ native story events can observe original completion flags without inventing
 inventory grants or extra delivery flags. Royal castle admission counts Royals
 1–5, so receiving Royal 6 cannot substitute for a missing earlier Royal.
 Physical castle and complete progression playthroughs remain unverified.
+
+Door access rewards accept an exact native lock identity such as
+`w3_for_04_door`. These unlock only that placement, including stages containing
+multiple doors. Legacy numbered-stage rewards remain supported where a door
+was observed; overlapping exact and stage-wide rewards are rejected.
+
+Incoming randomized pages now use separate saved receipts, so a later remote
+page can add album capacity while an earlier remote sticker waits. This does
+not advance the normal item acknowledgement past that sticker. The page is
+counted once, including after replay and native save/reload. Starting-page
+server echoes do not grant another page. New incoming-page plans automatically
+use the GS mailbox with 29 saved bytes and six additional GF receipts; old
+explicit recipes retain their original layout and fingerprint. The combined
+425-check fixture with all 40 exact doors compiles with 1,071 GF bits.
+
+To audit enemy coverage against the original native formations, run:
+
+```text
+python tools/audit_native_enemy_coverage.py --rom YOUR_ROM --patch-report MOD/patch-report.json --output enemy-coverage.json
+```
+
+The current combined fixture covers all combat display types and all available
+combat variants in 862 observed formations. The audit also exposes unavailable
+script records, units without death callbacks and debug formations, preserving
+their actual names rather than inventing checks. It does not assert that every
+formation is reachable or replace encounter gameplay validation.
+
+### First-peel sources and scrap capacity
+
+Explicit native plans now accept `PeelReward` sources: 17 checks cover the 18
+observed peelable scrap variants. The two portrait locks share one reward.
+The first successful peel latches a check; restored pieces can be peeled again
+without receiving the randomized reward twice. Native restoration inputs,
+paired locks and map effects are retained.
+
+Repeat peels reserve native scrap-album space before the pickup sequence. A
+committed return uses the separate game-owned `gs_rando_peel_pending` byte and
+retries until insertion succeeds. The client cannot write this receipt. The
+scrap album has nine fixed pages and is independent of combat album upgrades;
+large pieces can exhaust it even with fewer than 18 distinct scraps.
+
+The native helper test passes all first rewards and all 18 bounded returns.
+It uses the game's inventory-clear helper between isolated return cases; this
+is not a physical peeling/restoration playthrough. The combined 442-check
+all-local/incoming build compiles with 1,105 GF bits and 30 GS bytes. Full-game
+traversal rules, physical source effects and a complete playthrough remain
+unverified.
+
+Independent mailbox commands also support idempotent Hammer/Paperization,
+stage, door and boss access, plus shuffled Royal ownership. Their existing
+ownership flags provide receipts without acknowledging an earlier blocked
+inventory command. Coins, copies and ordinary item grants retain prefix order.
+Live tests deliver Paperization, town access and Hammer while a scrap command
+is blocked, preserving its acknowledgement, album contents and pending peel
+return. The selected-variant pending return and saved identity also survive an
+emulator restart without clearing inventory.
+
+Validation on 2026-10-09: 191 repository tests and strict typing across all 73
+production modules pass. The 416-check production fixture compiles with observed
+unconfigured Paperization targets preserved in rooms containing shuffled peels.
+A first-time peel reward succeeds while an older scrap return is queued, and
+both persist across an actual restart without clearing inventory.
+The received-first Faucet test passes its original full story event, source
+visibility, native water effect, replacement prize and replay checks. Its
+cross-script water query and all seven shared Thing initializer callers are
+evaluated before native conditions. Physical hammer input remains unverified.
+The original D02 Curling Stone initializer also passes with its unlock received
+first, including native source eligibility, shared acquisition, replacement
+prize and replay. The original skiing acquisition callback and its carrier
+position/state cleanup also pass with a staged native carrier slot. Skiing
+controls remain unverified.
+
+### Native treasure-file sources
+
+`ContainerReward` binds a map and its actual `TREASURE_FILE` object to a
+randomized prize. The original opening sequence and chest flag remain intact.
+Configured chests suppress the two original inventory grants and source-item
+notification; their check and pending prize use separate randomizer receipts.
+Unconfigured chests keep their normal behavior. Direct scripted acquisitions
+of the same field scrap share the configured chest receipt.
+
+The production table contains three nonempty scrap chests. A fourth matching
+record belongs to the `TST` debug group; an empty production story chest has no
+reward definition. The inaccessible `map_piece_c` oasis stand-in is replaced
+by its actual chest in the combined fixture. All 416 production checks compile
+in 1,053 GF bits and 30 GS bytes. The earlier 444-check fixture included 30 debug
+Thing pickups and omitted the two scripted Things; those source identities are
+now corrected. Physical chest opening still requires validation.
+
+`tools/audit_native_scrap_coverage.py` accounts for all 58 real scrap inventory
+descriptors without treating restoration variants as extra checks. The four
+Wiggler inputs remain story evidence. Complete restoration requires four
+distinct segments despite every native slot accepting any of them; this rule
+is available to the shared catalog through `wiggler_restoration_requirements`.

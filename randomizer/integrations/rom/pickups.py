@@ -14,6 +14,7 @@ class GamePickup:
     x: float
     y: float
     z: float
+    group_name: str = ""
 
     @property
     def id(self) -> str:
@@ -86,6 +87,7 @@ def item_pickups(document: KdmDocument) -> tuple[GamePickup, ...]:
                             coordinate(values[3]),
                             coordinate(values[4]),
                             coordinate(values[5]),
+                            text(group_fields[0]),
                         )
                         previous = result.get(pickup.item_field_offset)
                         if previous and previous != pickup:
@@ -94,3 +96,8 @@ def item_pickups(document: KdmDocument) -> tuple[GamePickup, ...]:
                             )
                         result[pickup.item_field_offset] = pickup
     return tuple(result.values())
+
+
+def production_pickups(document: KdmDocument) -> tuple[GamePickup, ...]:
+    """Exclude the native test group without guessing from room/object names."""
+    return tuple(pickup for pickup in item_pickups(document) if pickup.group_name != "TST")

@@ -111,9 +111,8 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
             plan = DeliveryPlan(tuple(checks), self.native_settings.album_pages, royals, selectors, session,
                                 catalog.sticker_policy, seed_name=session.seed, starting_rewards=starting,
                                 starting_item_ids=starting_ids)
-            if len(plan.flags) > 1114:
-                raise ValueError(f"Native AP placement needs {len(plan.flags)} save bits; this revision supports 1114")
-            return plan
+            from ..rom.mailbox import fit_mailbox
+            return fit_mailbox(plan)
 
         def generate_output(self, output_directory: str) -> None:
             from .tracker_catalog import TrackerCatalog
@@ -125,6 +124,7 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
             locations = {self.bindings.locations[location.id].id: catalog.registry.locations[location.id]
                          for location in self.definition.locations if location.id not in self.definition.fixed_rewards}
             local = []
+            remote = {}
             for location in self.definition.locations:
                 if location.id in self.definition.fixed_rewards:
                     continue
@@ -134,9 +134,12 @@ def create_native_world(catalog: NativeAPCatalog) -> type[SharedCatalogWorld]:
                     local.append({"class": "NetworkItem", "item": cast(int, placed.code),
                                   "location": catalog.registry.locations[location.id], "player": self.player,
                                   "flags": placed.flags})
+                else:
+                    remote[self.bindings.locations[location.id].id] = {"item": placed.name, "player": placed.player,
+                        "player_name": self.multiworld.player_name[placed.player], "location_name": location.name}
             Path(str(stem) + ".client.json").write_text(json.dumps({"format_version": 1, "game": self.game,
                 "name": self.multiworld.player_name[self.player], "seed": self.multiworld.seed_name,
-                "catalog_hash": catalog.catalog_hash, "locations": locations, "local_rewards": local,
+                "catalog_hash": catalog.catalog_hash, "locations": locations, "local_rewards": local, "remote_placements": remote,
                 "settings": self.native_settings.to_json(), "save_seed_fingerprint": plan.fingerprint.hex()}, indent=2) + "\n", encoding="utf-8")
             tracker = TrackerCatalog(self.definition, catalog.registry, catalog.catalog_hash)
             Path(str(stem) + ".tracker.lua").write_text(tracker.lua(), encoding="utf-8")

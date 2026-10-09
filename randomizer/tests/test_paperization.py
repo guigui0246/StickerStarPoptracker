@@ -1,7 +1,7 @@
 from collections import Counter
 import unittest
 
-from ..integrations.rom.paperization import PaperizationLock, desert_gate_requirements
+from ..integrations.rom.paperization import PaperizationLock, desert_gate_requirements, wiggler_restoration_requirements
 from ..standalone.generation import InventoryState
 
 
@@ -31,3 +31,19 @@ class PaperizationTests(unittest.TestCase):
             lock("windmill", ("SL_FAN",)).requirements({}, "paper")
         with self.assertRaisesRegex(ValueError, "six native slots"):
             desert_gate_requirements((), {}, "paper")
+
+    def test_wiggler_requires_four_distinct_segments_despite_shared_slot_alternatives(self) -> None:
+        bodies = tuple(f"PK_HANACHAN_BODY_{index}" for index in range(1, 5))
+        locks = tuple(PaperizationLock(f"w3_tre_02_hanachan_{index}", index, "w3_tre_02",
+                                      f"GF_W3_TRE_REV_HANACHAN_{index}", "", bodies, ("init", "before", "after", "cancel"))
+                      for index in range(1, 5))
+        mapping = {body: f"body{index}" for index, body in enumerate(bodies, 1)}
+        rules = wiggler_restoration_requirements(locks, mapping, "paper")
+        self.assertFalse(rules.allows(InventoryState(Counter({"paper": 1, "body1": 4}))))
+        self.assertTrue(rules.allows(InventoryState(Counter(("paper", "body1", "body2", "body3", "body4")))))
+        with self.assertRaisesRegex(ValueError, "distinct"):
+            wiggler_restoration_requirements(locks, {body: "one_body" for body in bodies}, "paper")
+
+    def test_wiggler_rejects_incomplete_native_slots(self) -> None:
+        with self.assertRaisesRegex(ValueError, "four observed"):
+            wiggler_restoration_requirements((), {}, "paper")

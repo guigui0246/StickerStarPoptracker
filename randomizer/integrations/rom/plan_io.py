@@ -7,7 +7,7 @@ from pathlib import Path
 from ...data.catalog import Json, array, obj, string
 from ...settings import AlbumPages, Banners
 from .mailbox import RemoteReward, RemoteSession
-from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, EnemyVariant, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward, ScriptReward
+from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, EnemyVariant, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward, ContainerReward, PeelReward, PeelVariant, ScriptReward
 from .stickers import StickerPolicy
 
 
@@ -48,8 +48,8 @@ def decode_sticker_policy(value: Json) -> StickerPolicy | None:
     return StickerPolicy(tuple(string(item) for item in array(entry["generic"])), tuple(things), string(entry["replacement"]))
 
 
-def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward, ...]:
-    result: list[GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward] = []
+def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | ContainerReward | PeelReward | FlagReward | BannerReward | ScriptReward | EnemyReward, ...]:
+    result: list[GoalBlockReward | PickupReward | ContainerReward | PeelReward | FlagReward | BannerReward | ScriptReward | EnemyReward] = []
     for raw in array(value):
         row = obj(raw)
         native = reward(row.get("reward"))
@@ -58,6 +58,16 @@ def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | FlagReward | B
             result.append(GoalBlockReward(string(row["map_name"]), string(row["source_flag"]), native))
         elif fields == {"map_name", "object_name", "source_item", "reward"}:
             result.append(PickupReward(string(row["map_name"]), string(row["object_name"]), string(row["source_item"]), native))
+        elif fields == {"map_name", "object_name", "source_item", "reward", "container_type"}:
+            result.append(ContainerReward(string(row["map_name"]), string(row["object_name"]), string(row["source_item"]), native, string(row["container_type"])))
+        elif {"map_name", "lock_id", "source_item", "reward"} <= fields <= {"map_name", "lock_id", "source_item", "reward", "variants"}:
+            peel_variants = []
+            for raw_variant in array(row.get("variants", [])):
+                variant = obj(raw_variant)
+                if set(variant) != {"lock_id", "source_item"}:
+                    raise ValueError("Peel aliases require exact source fields")
+                peel_variants.append(PeelVariant(string(variant["lock_id"]), string(variant["source_item"])))
+            result.append(PeelReward(string(row["map_name"]), string(row["lock_id"]), string(row["source_item"]), native, tuple(peel_variants)))
         elif fields == {"category", "source_flag", "reward"}:
             result.append(FlagReward(string(row["category"]), string(row["source_flag"]), native))
         elif fields == {"honor", "mode", "reward"}:
@@ -81,7 +91,7 @@ def checks(value: Json) -> tuple[GoalBlockReward | PickupReward | FlagReward | B
 def decode_plan(value: Json) -> DeliveryPlan:
     row = obj(value)
     expected = {"checks", "album_pages", "shuffle_royals", "remote_rewards", "remote_session", "sticker_policy", "skip_opening", "skip_dialogue", "seed_name"}
-    if not expected <= set(row) <= expected | {"starting_rewards", "starting_item_ids", "catalog_hash"}:
+    if not expected <= set(row) <= expected | {"starting_rewards", "starting_item_ids", "catalog_hash", "saved_byte_mailbox", "priority_pages"}:
         raise ValueError("Unsupported native plan fields")
     if any(type(row[key]) is not bool for key in ("shuffle_royals", "skip_opening", "skip_dialogue")):
         raise ValueError("Native settings must be boolean")
@@ -103,7 +113,8 @@ def decode_plan(value: Json) -> DeliveryPlan:
     return DeliveryPlan(checks(row["checks"]), pages, boolean(row["shuffle_royals"]), tuple(remote), session, policy, boolean(row["skip_opening"]), boolean(row["skip_dialogue"]), seed,
                         tuple(reward(entry) for entry in array(row.get("starting_rewards", []))),
                         tuple(integer(identifier) for identifier in array(row.get("starting_item_ids", []))),
-                        string(row["catalog_hash"]) if row.get("catalog_hash") is not None else None)
+                        string(row["catalog_hash"]) if row.get("catalog_hash") is not None else None,
+                        boolean(row.get("saved_byte_mailbox", False)), boolean(row.get("priority_pages", False)))
 
 
 def encode_plan(plan: DeliveryPlan) -> Json:
@@ -115,6 +126,10 @@ def encode_plan(plan: DeliveryPlan) -> Json:
         obj(value).pop("starting_item_ids")
     if plan.catalog_hash is None:
         obj(value).pop("catalog_hash")
+    if not plan.saved_byte_mailbox:
+        obj(value).pop("saved_byte_mailbox")
+    if not plan.priority_pages:
+        obj(value).pop("priority_pages")
     decode_plan(value)
     return value
 

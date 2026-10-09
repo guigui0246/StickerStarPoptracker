@@ -14,10 +14,10 @@ from ...data.catalog import Json, array, obj, string
 from ...domain import EndGoal, GameDefinition
 from ...settings import AlbumPages, Banners, Settings
 from ...standalone.generation import Seed, generate_seed, playthrough
-from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward, ScriptReward
+from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward, ContainerReward, PeelReward, PeelVariant, ScriptReward
 from .plan_io import checks, reward
 
-NativeCheck = GoalBlockReward | PickupReward | FlagReward | BannerReward | ScriptReward | EnemyReward
+NativeCheck = GoalBlockReward | PickupReward | ContainerReward | PeelReward | FlagReward | BannerReward | ScriptReward | EnemyReward
 
 
 def catalog_digest(data: Json) -> str:

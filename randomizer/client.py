@@ -9,7 +9,7 @@ from pathlib import Path
 
 from .data.catalog import array, obj
 from .integrations.archipelago.network import run_client
-from .integrations.archipelago.client_config import NativeClientConfig
+from .integrations.archipelago.client_config import NativeClientConfig, RemotePlacement
 from .integrations.archipelago.runtime import Ledger, ProtocolClient, ReceivedItem, integer
 from .integrations.archipelago.tracker_server import TrackerServer, TrackingSnapshot
 from .integrations.citra.memory import CitraMemory
@@ -18,11 +18,13 @@ from .integrations.citra.native import NativeGame, NativeProfile
 
 async def run(args: argparse.Namespace) -> None:
     profile = NativeProfile.load(args.patch_report)
+    remote_notices: dict[int, RemotePlacement] = {}
     if args.config:
         client_config = NativeClientConfig.load(args.config)
         client_config.validate(profile)
         locations = client_config.locations
         configured_rewards = client_config.local_rewards
+        remote_notices = {client_config.locations[identifier]: entry for identifier, entry in client_config.remote_placements.items()}
         args.name = args.name or client_config.name
         args.game = args.game or client_config.game
     else:
@@ -60,13 +62,20 @@ async def run(args: argparse.Namespace) -> None:
         async def watch() -> None:
             nonlocal snapshot
             while not stop.is_set():
+                game.verify_executable()
                 if game.identity() != session:
                     raise ValueError("Save changed while the client was connected")
-                for location in game.collected():
+                checked, delivered, won = game.observe()
+                previous_checks = set(ledger.checks)
+                for location in checked:
                     ledger.record_check(location)
-                if game.won():
+                    if location not in previous_checks and location in remote_notices:
+                        entry = remote_notices[location]
+                        logging.info("Collected %s: %s for %s", entry.location_name, entry.item, entry.player_name)
+                if won:
                     ledger.victory()
-                ledger.flush(game)
+                with game.cached_local_receipts():
+                    ledger.flush(game)
                 if tracker:
                     checked, delivered, won = game.observe()
                     previous = {(item.location, item.item): item for item in snapshot.items if item.location in delivered}

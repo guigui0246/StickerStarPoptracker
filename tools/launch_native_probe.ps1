@@ -6,6 +6,14 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+# The Windows Python launcher can leave its child alive after the terminal is
+# interrupted. An earlier observer must not query the newly started RPC server
+# before guest memory exists, because this emulator build crashes on that read.
+$activeObservers = Get-CimInstance Win32_Process -Filter "Name = 'python.exe'" |
+    Where-Object { $_.CommandLine -match 'tools[/\\]test_native_(thing|peel|ski)_probe\.py' }
+if ($activeObservers) {
+    throw 'Stop previous native Thing/peel/ski observers and their Python child processes before restarting the emulator.'
+}
 $workspacePath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $validationPath = [IO.Path]::GetFullPath((Join-Path $workspacePath '.validation'))
 $resolvedProfile = (Resolve-Path -LiteralPath $ProfilePath).Path

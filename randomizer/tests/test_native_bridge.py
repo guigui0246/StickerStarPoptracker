@@ -59,6 +59,27 @@ class FakeMemory:
 
 
 class NativeBridgeTests(unittest.TestCase):
+    def test_local_poll_cache_avoids_per_check_reads_without_caching_remote_ack(self) -> None:
+        reads = []
+        original = self.memory.read
+        def read(address, size):
+            reads.append((address, size))
+            return original(address, size)
+        self.memory.read = read
+        self.memory.set_flag(1581, True)
+        with self.game.cached_local_receipts():
+            before = len(reads)
+            for _ in range(425):
+                self.assertTrue(self.game.received("local/200"))
+            self.assertEqual(len(reads), before)
+            self.memory.set_word("ack_ready", 1)
+            self.memory.set_word("ack", 1)
+            self.assertFalse(self.game.received("ap/1"))
+            self.memory.set_word("ack", 2)
+            self.assertTrue(self.game.received("ap/1"))
+            self.memory.set_flag(1581, False)
+        self.assertFalse(self.game.received("local/200"))
+
     def test_compact_request_and_acknowledgement_words_keep_distinct_writers(self) -> None:
         self.profile.validate_word_ownership()
         self.assertEqual(self.profile.word_bits("item"), 16)

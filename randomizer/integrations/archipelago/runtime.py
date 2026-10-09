@@ -149,6 +149,12 @@ class Ledger:
             raise ValueError("Connected game has the wrong save or seed")
         delivered = 0
         local = {int(row[0]): (int(row[1]), int(row[2])) for row in self.db.execute("SELECT location,item,flags FROM local_rewards")}
+        rows = [(int(row[0]), ReceivedItem(*(int(value) for value in row[1:])))
+                for row in self.db.execute("SELECT idx,item,location,player,flags FROM items ORDER BY idx")]
+        incoming = [(index, item) for index, item in rows if not (item.player == self.session.slot and item.location in local)]
+        prepare_pages = getattr(game, "prepare_pages", None)
+        if prepare_pages is not None:
+            prepare_pages(incoming)
         # Direct local delivery runs even when the server has never connected.
         for location in self.checks:
             if location not in local:
@@ -158,21 +164,41 @@ class Ledger:
             if game.received(receipt):
                 continue
             if not game.deliver(receipt, ReceivedItem(item, location, self.session.slot, flags)):
-                return delivered
+                # Local rewards have independent native receipts. A full album
+                # must not block a remote page upgrade that can free capacity.
+                continue
             if not game.received(receipt):
                 raise RuntimeError("Game adapter did not persist its delivery receipt")
             delivered += 1
-        for row in self.db.execute("SELECT idx,item,location,player,flags FROM items ORDER BY idx"):
-            index, item, location, player, flags = (int(value) for value in row)
+        for index, received_item in rows:
+            item, location, player, flags = received_item.item, received_item.location, received_item.player, received_item.flags
             receipt = f"ap/{index}"
+            local_echo = False
             if player == self.session.slot and location in local:
                 if local[location] != (item, flags):
                     raise ValueError("Server reward conflicts with the installed local placement")
                 receipt = f"local/{location}"
+                local_echo = True
             # Re-read native receipts on every pass, including after save rollback.
             if game.received(receipt):
                 continue
             if not game.deliver(receipt, ReceivedItem(item, location, player, flags)):
+                if local_echo:
+                    continue
+                priority = getattr(game, "deliver_priority", None)
+                if priority is not None:
+                    eligible = getattr(game, "is_priority_item", None)
+                    for later_index, later_item in incoming:
+                        if eligible is not None and not eligible(later_item):
+                            continue
+                        if later_index <= index or game.received(f"ap/{later_index}"):
+                            continue
+                        # Only the adapter can identify safe, independently saved
+                        # page receipts. Ordinary rewards retain prefix ordering.
+                        if priority(f"ap/{later_index}", later_item):
+                            if not game.received(f"ap/{later_index}"):
+                                raise RuntimeError("Priority grant lacks its native receipt")
+                            delivered += 1
                 break
             if not game.received(receipt):
                 raise RuntimeError("Game adapter did not persist its delivery receipt")

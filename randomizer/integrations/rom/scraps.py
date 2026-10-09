@@ -90,3 +90,43 @@ def scripted_scraps(map_name: str, source: str) -> tuple[ScriptedScrap, ...]:
         key = (name, item)
         result[key] = ScriptedScrap(map_name, name, item)
     return tuple(result[key] for key in sorted(result))
+
+
+@dataclass(frozen=True)
+class ScrapInventoryAudit:
+    inventory_items: tuple[str, ...]
+    field_rewards: tuple[str, ...]
+    peeled_rewards: tuple[str, ...]
+    restoration_inputs: tuple[tuple[str, str], ...]
+    story_inputs: tuple[str, ...]
+    unclassified: tuple[str, ...]
+
+
+def audit_scrap_inventory(items: KdmDocument, puzzles: KdmDocument) -> ScrapInventoryAudit:
+    """Account for inventory descriptors without inventing pickup locations.
+
+    An accepted input differing from its peel reward is evidence of a native
+    restoration transformation, not an additional check or a logic alias.
+    Wiggler story inputs remain explicit until their acquisition is verified.
+    """
+    from .paperization import paperization_locks
+    from .peels import peel_sources
+    from .pickups import integer
+    inventory = {text(record(row, 19)[0]) for array in items.arrays.values()
+                 if array.type_id == 30 for row in array.values
+                 if integer(record(row, 19)[18]) == 3 and text(record(row, 19)[0]).startswith("PK_")
+                 and not text(record(row, 19)[0]).startswith("PK_FIELD_")}
+    field = {entry.inventory_item for entry in scrap_items(items)}
+    peels = {variant.source_item for source in peel_sources(puzzles) for variant in source.variants}
+    if (field | peels) - inventory:
+        raise ValueError("Native scrap sources reference missing inventory descriptors")
+    locks = paperization_locks(puzzles)
+    transformed = {(lock.key_item, accepted) for lock in locks if lock.key_item in peels
+                   for accepted in lock.accepted_items if accepted in inventory - field - peels}
+    story = {accepted for lock in locks for accepted in lock.accepted_items
+             if re.fullmatch(r"PK_HANACHAN_BODY_[1-4]", accepted)}
+    if story - inventory:
+        raise ValueError("Wiggler puzzles reference missing native inventory descriptors")
+    classified = field | peels | {accepted for _, accepted in transformed} | story
+    return ScrapInventoryAudit(tuple(sorted(inventory)), tuple(sorted(field)), tuple(sorted(peels)),
+                               tuple(sorted(transformed)), tuple(sorted(story)), tuple(sorted(inventory - classified)))

@@ -12,8 +12,77 @@ in `SPEC.md`. Checked entries distinguish implemented foundations from actual
 gameplay validation. The complete standalone and Archipelago randomizers are
 still unfinished.
 
-## Native integration progress — 2026-10-08
+## Native integration progress — 2026-10-09
 
+- [x] Exclude 30 native debug-room Thing pickups from automatic check assembly.
+      Add the scripted Faucet and Curling Stone sources. All 72 production
+      Thing sources and all 64 Thing types have hooks in the 416-check fixture.
+- [x] Separate Thing source visibility and native source effects from received
+      Thing ownership. Preserve the Faucet display actor; direct acquisition
+      callbacks share the normal receipt. Native receive-first Faucet
+      initialization, original full story event, water effect, replacement prize
+      and replay pass. Physical hammer input remains unverified. Hoist all seven
+      native inline Thing initializer callers before their conditions.
+      Curling Stone initialization in the original D02 course, received-first
+      source eligibility, shared acquisition, replacement prize and replay also
+      pass. The original skiing acquisition callback and carrier-position/state
+      cleanup pass with a staged native carrier slot. Skiing controls remain
+      unverified.
+- [x] Preserve native signed infinity constants in compiler round trips and
+      reject compilation that drops injected helper calls.
+- [x] Check every selected Secret Door in a multi-target operation, retaining
+      the original miss/take-back path for an unowned place.
+- [x] Add three production treasure-file scrap checks through the original
+      shared chest callback, retaining its opening effects and suppressing both
+      native inventory grants. Replace the below-map oasis stand-in with its
+      actual chest. Exclude the debug chest and the empty story prop. The
+      production fixture contains 416 checks after excluding debug pickups and
+      adding the two scripted Things; it compiles with 1,053 GF bits and 30 GS bytes.
+- [x] Audit all 58 native inventory scrap descriptors: 25 field reward families,
+      18 peeled variants, 11 restoration-input transformations and four Wiggler
+      story inputs. No unclassified descriptors or unhooked ordinary reward
+      families remain in the fixture. Story acquisition, transformations and
+      physical source accessibility are still explicitly unverified.
+- [x] Require all four distinct Wiggler segment inputs for complete restoration;
+      one segment cannot satisfy all four native alternative-input slots.
+- [x] Compile 17 first-peel checks covering all 18 native scrap variants,
+      including the shared portrait callback. Preserve restoration inputs and
+      original effects; reserve repeat-peel capacity and persist a deferred
+      return in a game-owned GS byte. Native first rewards and all 18 bounded
+      returns pass. A full-album deferred return and save identity survive an
+      emulator restart without clearing inventory. Physical peeling/restoration
+      still requires gameplay tests.
+      A first-time coin reward also succeeds while an older return is queued;
+      both persist across an actual restart without clearing inventory.
+- [x] Extend independent incoming commands to idempotent ability and access
+      capabilities, with Royal ownership when shuffled. Blocked inventory
+      commands retain their prefix acknowledgement. Rollback, stream ownership
+      and game-owned pending-byte isolation pass repository tests;
+      native Paperization, town access and Hammer delivery during a full scrap
+      album pass without advancing the blocked acknowledgement or changing inventory.
+- [x] Preserve observed, unconfigured Paperization targets in rooms containing
+      randomized peels. Unknown targets still fail closed.
+- [x] Validate 191 repository tests, strict typing of all 73 production modules
+      and four actual Archipelago 0.6.8 generation/precollected checks.
+- [x] Deliver later incoming page upgrades ahead of a remote sticker blocked by
+      a full album. Six independent saved page receipts leave the normal prefix
+      acknowledgement unchanged. Native isolation, replay and save/reload pass.
+      The combined 425-check/40-door fixture compiles with 1,071 GF bits and
+      29 GS bytes. Precollected page echoes pass actual AP generation checks.
+- [x] Parse and audit all 862 native battle formations against the selected
+      77 combat types: zero unrepresented combat types and zero unhooked
+      available formation variants. Debug tables, unavailable script records
+      and units without death callbacks remain explicit evidence; encounter
+      access and dynamic/escape/museum gameplay still require verification.
+- [x] Fit the 425-check all-local/incoming fixture in 1,060 GF bits and 28
+      native GS bytes. Native save/reload preserves mailbox identity and exact
+      acknowledgements; boundary/replay tests include sequence 2,147,483,646.
+- [x] Expand the native script-variable arena with five checked ARM edits;
+      test initialization, allocation beyond the old bound, wrapping and exhaustion.
+- [x] Allow a pending local sticker to wait while an incoming page adds capacity;
+      native album/replay tests pass without host inventory writes.
+- [x] Display actual remote item and recipient descriptions in the AP client,
+      validating ownership against the installed patch.
 - [x] Observe standalone native checks and committed rewards without a network
       mailbox, game-memory writes or an Archipelago server. Emit seed-bound
       tracker configuration and stable data packages alongside catalog recipes.
@@ -22,7 +91,8 @@ still unfinished.
 - [x] Move battle-only pending deaths into the shared native runtime. A live
       77-type mark/read/reset probe passes without falsely collecting checks.
       The 423-check network fixture uses 890 bits; the all-local variant with
-      its incoming mailbox remains over budget. Real combat scenarios pending.
+      incoming mailbox now fits using unused native saved bytes. Real combat
+      scenarios remain pending.
 - [x] Parse original paperization input alternatives, including all six desert
       gate slots. Fixed story events observe original flags without additional
       saved receipts. Traversal effects still require explicit verification.
@@ -30,7 +100,8 @@ still unfinished.
       Native counter tests pass; physical castle traversal remains unverified.
 - [x] Cover verified scripted scrap objects, including scoped jungle pickup
       callbacks, while excluding nongivable story props. The updated 425-check
-      experimental fixture compiles. This does not assert complete scrap-source
+      experimental fixture passes live native delivery with an expanded script
+      variable arena. This does not assert complete scrap-source
       coverage for peeled/chest-native paths.
 
 - [x] Compile persistent museum checks for all 160 actual production exhibits,
@@ -68,8 +139,8 @@ still unfinished.
       replacements without dropping original functions. Gameplay pending.
 - [x] Compile additional world-map stage admission gates, including Decalburg,
       retaining native route/admission checks and supporting local/remote grants.
-- [x] Compile all 38 numbered-stage Secret Door capabilities for 40 observed
-      placements, using the native miss/take-back path before fit completion.
+- [x] Support 40 exact Secret Door capabilities plus compatible stage-wide
+      rewards for observed placements, using the native miss/take-back path before fit completion.
       Gameplay/sticker retention verification remains pending.
 - [x] Compile an ability-safe post-tutorial/world-map startup experiment and
       world-map delivery poll. Emulator observations confirm seed and album
@@ -84,7 +155,7 @@ still unfinished.
       unreachable seeds and missing mappings. Native starting inventory now
       has separate retryable receipts, including AP precollected echo handling.
       The authoritative full-game catalog remains pending.
-- [x] Validate 147 repository tests, five real-Lua tracker tests, strict typing
+- [x] Validate 163 repository tests, five real-Lua tracker tests, strict typing
       of changed native modules and AP 0.6.8 wire transport.
 - [x] Centralize the seed validator and delivery engine in the persistent
       native item script. The duplicated engine exhausted the game's 12,288
@@ -179,7 +250,7 @@ their contracts throughout the real game catalog, patch and clients.
       adapters, including different requirements in each direction of a path.
 - [ ] Replace remaining legacy/prototype behavior in production entry points;
       keep game-specific binary formats and emulator/network details in adapters.
-- [ ] Apply strict typing to every production module and avoid untyped catalog,
+- [x] Apply strict typing to every production module and avoid untyped catalog,
       patch-state and network-state boundaries.
 
 ## Game inspection

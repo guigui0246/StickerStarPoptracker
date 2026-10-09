@@ -71,3 +71,44 @@ def register_flags(source: bytes, names: tuple[str, ...]) -> tuple[bytes, tuple[
     if checked != flags + additions:
         raise ValueError("Save-switch registry verification failed")
     return bytes(result), additions
+
+
+def register_saved_bytes(source: bytes, names: tuple[str, ...]) -> tuple[bytes, tuple[SaveSwitch, ...]]:
+    """Allocate unused GS bytes without enlarging the native 256-byte buffer.
+
+    The original item-range markers alias live system slots in this revision;
+    they are markers, not usable storage. Allocate strictly above every named
+    live slot, including system and boss counters, and below the buffer end.
+    """
+    if len(set(names)) != len(names) or any(not re.fullmatch(r"gs_rando_[a-z0-9_]+", name) for name in names):
+        raise ValueError("Saved bytes require unique gs_rando_ names")
+    original = KdmDocument(source)
+    table = original.tables["gsSwitchTable"]
+    rows = tuple((text(record(row, 2)[0]), integer(record(row, 2)[1])) for row in table.values)
+    if table.type_id != 21 or rows[-1] != ("", 0) or any(not name.startswith("gs_") or not 0 <= index < 256 for name, index in rows[:-1]):
+        raise ValueError("Unsupported native saved-byte registry")
+    if any(name in {row[0] for row in rows} for name in names):
+        raise ValueError("Saved byte is already registered")
+    live = [index for name, index in rows[:-1] if name not in {"gs_mobj_item_start", "gs_mobj_item_end"}]
+    start = max(live, default=-1) + 1
+    if start < 220 or start + len(names) > 256:
+        raise ValueError("Saved bytes exceed the verified unused native range")
+    additions = tuple(SaveSwitch(name, start + offset) for offset, name in enumerate(names))
+    if not additions:
+        return source, ()
+    document = KdmDocument(original.add_strings(names))
+    table = document.tables["gsSwitchTable"]
+    words = (len(table.values) + len(additions)) * 2
+    if words > 0xFFFF:
+        raise ValueError("Saved-byte registry exceeds the KDM array size")
+    pointers = {value: offset for offset, value in document.strings.items()}
+    inserted = b"".join(struct.pack("<Ii", pointers[flag.name], flag.index) for flag in additions)
+    insertion = table.values[-1].offset
+    result = bytearray(document.data[:insertion] + inserted + document.data[insertion:])
+    struct.pack_into("<H", result, table.address - 6, words)
+    struct.pack_into("<I", result, 8 + 7 * 4, (document.sections[7] + len(inserted)) // 4)
+    checked = KdmDocument(bytes(result))
+    actual = tuple((text(record(row, 2)[0]), integer(record(row, 2)[1])) for row in checked.tables["gsSwitchTable"].values)
+    if actual != rows[:-1] + tuple((entry.name, entry.index) for entry in additions) + rows[-1:] or global_flags(checked) != global_flags(original):
+        raise ValueError("Saved-byte registry verification failed")
+    return bytes(result), additions

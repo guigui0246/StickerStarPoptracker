@@ -41,10 +41,27 @@ def door_places(data: bytes, world_stages: tuple[Stage, ...]) -> tuple[DoorPlace
     return tuple(sorted(result, key=lambda place: place.lock_id))
 
 
+def door_access_key(plan: DeliveryPlan, place: DoorPlace) -> str | None:
+    exact = place.lock_id in plan.door_access_codes
+    stage = place.stage_code in plan.door_access_codes
+    if exact and stage:
+        raise ValueError("Exact and stage-wide Secret Door rewards overlap")
+    return place.lock_id if exact else place.stage_code if stage else None
+
+
+def validate_door_access(plan: DeliveryPlan, places: tuple[DoorPlace, ...]) -> None:
+    known = {place.lock_id for place in places} | {place.stage_code for place in places}
+    if set(plan.door_access_codes) - known:
+        raise ValueError("Door admission reward references an unobserved Secret Door")
+    for place in places:
+        door_access_key(plan, place)
+
+
 def gate_door_fit(source: str, plan: DeliveryPlan, places: tuple[DoorPlace, ...], *, shared_seed: bool = False) -> str:
     # The existing miss path traces the placement and takes the selected sticker
     # back. The successful fit routine (which sets native completion flags) is
     # never reached for an unowned place. Other paperization modes are retained.
+    validate_door_access(plan, places)
     pattern = r"\bdecal_dokodemo_mario_control_main\*?\(\)"
     if len(re.findall(pattern, source)) != 3:
         raise ValueError("Paperization control flow no longer matches the inspected revision")
@@ -53,12 +70,13 @@ def gate_door_fit(source: str, plan: DeliveryPlan, places: tuple[DoorPlace, ...]
              "\ttemp tempVar1 = pepalyze_get_mode*();", "\tif ( tempVar1 != pepalyze_mode_unlock ) {\n\t\treturn* tempVar0;\n\t}",
              "\tif ( tempVar0 == pepalyze_select_cancel || tempVar0 == pepalyze_cancel || tempVar0 == pepalyze_miss || tempVar0 == pepalyze_area_out_miss || tempVar0 == pepalyze_miss_mappiece ) {\n\t\treturn* tempVar0;\n\t}",
              "\ttempVar1 = rando_seed_valid*();", "\tif ( tempVar1 == false ) {\n\t\treturn* pepalyze_miss;\n\t}",
-             "\ttemp tempVar2 = pouch_get_map_name*();", "\ttemp tempVar3 = pepalyze_get_now_play_unlock_num*();"]
+             "\ttemp tempVar2 = pouch_get_map_name*();"]
     for place in places:
-        if place.stage_code not in plan.door_access_codes:
+        key = door_access_key(plan, place)
+        if key is None:
             continue
-        lines.extend([f'\tif ( tempVar2 == "{place.map_name}" && gf_rando_door_{place.stage_code.lower()} == false ) {{',
-                      f'\t\ttempVar1 = pepalyze_get_access_number*("{place.lock_id}");',
-                      "\t\tif ( tempVar1 == tempVar3 ) {\n\t\t\treturn* pepalyze_miss;\n\t\t}", "\t}"])
+        lines.extend([f'\tif ( tempVar2 == "{place.map_name}" && gf_rando_door_{key.lower()} == false ) {{',
+                      f'\t\ttempVar1 = pepalyze_is_now_play_unlock*("{place.lock_id}");',
+                      "\t\tif ( tempVar1 ) {\n\t\t\treturn* pepalyze_miss;\n\t\t}", "\t}"])
     lines.extend(["\treturn* tempVar0;", "}"])
     return source + "\n" + "\n".join(lines) + "\n" + ("" if shared_seed else plan.seed_function())

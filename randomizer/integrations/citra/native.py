@@ -5,6 +5,8 @@ words and a persistent save nonce, never inventory or native receipt flags.
 """
 
 from dataclasses import dataclass, field
+from contextlib import contextmanager
+from collections.abc import Iterator, Sequence
 import hashlib
 from pathlib import Path
 import json
@@ -14,7 +16,7 @@ from typing import Protocol
 from ...data.catalog import array, obj, string
 from ..archipelago.runtime import ReceivedItem, Session, integer
 from ..rom.mailbox import RemoteReward, RemoteSession
-from ..rom.native_delivery import NativeReward, NativeRewardKind
+from ..rom.native_delivery import NativeReward, NativeRewardKind, capability_receipt
 from ..rom.sticker_guard import INSERTION_HOOKS
 
 
@@ -58,6 +60,11 @@ class NativeProfile:
     check_rewards: dict[str, NativeReward] = field(default_factory=dict)
     selector_rewards: dict[int, NativeReward] = field(default_factory=dict)
     code_signatures: tuple[CodeSignature, ...] = ()
+    saved_bytes: dict[str, int] = field(default_factory=dict)
+    priority_pages: bool = False
+    game_saved_bytes: dict[str, int] = field(default_factory=dict)
+    priority_capabilities: bool = False
+    shuffle_royals: bool = False
 
     @classmethod
     def load(cls, path: Path, *, standalone_catalog_hash: str | None = None) -> "NativeProfile":
@@ -119,14 +126,34 @@ class NativeProfile:
         patch = data.get("code_patch")
         signatures = tuple(CodeSignature(integer(obj(raw).get("address")), integer(obj(raw).get("size")), string(obj(raw).get("sha256")))
                            for raw in array(obj(patch).get("signatures"))) if patch is not None else ()
-        if any(reward.kind == NativeRewardKind.ABILITY for reward in (*check_rewards.values(), *selector_rewards.values())) and not signatures:
+        saved_bytes: dict[str, int] = {}
+        game_saved_bytes: dict[str, int] = {}
+        if data.get("allocated_saved_bytes"):
+
+            if (profile.get("saved_bytes_offset"), profile.get("saved_bytes_count")) != (4, 256):
+                raise ValueError("Unsupported saved-byte mailbox memory revision")
+            for raw in array(data.get("allocated_saved_bytes")):
+                entry = obj(raw)
+                name, index = string(entry.get("name")), integer(entry.get("index"))
+                if name in saved_bytes or name in game_saved_bytes or index in (*saved_bytes.values(), *game_saved_bytes.values()) or not (name.startswith("gs_rando_rpc_") or name == "gs_rando_peel_pending") or not 220 <= index < 256:
+                    raise ValueError("Duplicate or invalid mailbox saved byte")
+                (game_saved_bytes if name == "gs_rando_peel_pending" else saved_bytes)[name] = index
+            signature = obj(profile.get("saved_byte_signature"))
+            if (signature.get("address"), signature.get("size")) != (0x29404C, 0x24):
+                raise ValueError("Unsupported saved-byte setter signature")
+            signatures += (CodeSignature(0x29404C, 0x24, string(signature.get("sha256"))),)
+        if standalone and saved_bytes:
+            raise ValueError("Standalone observation cannot own an RPC mailbox")
+        if bool(game_saved_bytes) != bool(data.get("peeled_scrap_sources")):
+            raise ValueError("Peel sources require their game-owned pending-return byte")
+        if any(reward.kind == NativeRewardKind.ABILITY for reward in (*check_rewards.values(), *selector_rewards.values())) and 0x2D81C0 not in {signature.address for signature in signatures}:
             raise ValueError("Ability rewards require executable guard signatures")
         if data.get("sticker_policy") is not None and not INSERTION_HOOKS <= {signature.address for signature in signatures}:
             raise ValueError("Sticker policies require executable insertion guard signatures")
         result = cls(integer(profile.get("pointer_address")), integer(profile.get("global_flags_offset")),
                      integer(profile.get("flag_count")), integer(profile.get("signature_address")),
                      integer(profile.get("signature_size")), string(profile.get("signature_sha256")),
-                     fingerprint, flags, checks, selectors, session, check_rewards, selector_rewards, signatures)
+                     fingerprint, flags, checks, selectors, session, check_rewards, selector_rewards, signatures, saved_bytes, data.get("priority_pages") is True, game_saved_bytes, data.get("priority_capabilities") is True, data.get("shuffle_royals") is True)
         if (result.pointer_address, result.flags_offset, result.flag_count, result.signature_address, result.signature_size) != (0x43C190, 0x144, 3072, 0x282C98, 0x160):
             raise ValueError("Unsupported game memory revision")
         if len(result.signature_sha256) != 64:
@@ -140,6 +167,12 @@ class NativeProfile:
         return result
 
     def word_index(self, name: str) -> int:
+        if self.saved_bytes:
+            from ..rom.mailbox import byte_fields
+            positions = [self.saved_bytes[field] for field in byte_fields(name)]
+            if positions != list(range(positions[0], positions[0] + len(positions))):
+                raise ValueError("Saved mailbox bytes are not contiguous")
+            return 3072 + positions[0] * 8
         bits = self.word_bits(name)
         positions = [self.flags[f"gf_rando_rpc_{name}_{bit:02d}"] for bit in range(bits)]
         alignment = 1 if bits == 1 else 8 if bits < 32 else 32
@@ -148,6 +181,9 @@ class NativeProfile:
         return positions[0]
 
     def word_bits(self, name: str) -> int:
+        if self.saved_bytes:
+            from ..rom.mailbox import byte_fields
+            return len(byte_fields(name)) * 8
         prefix = f"gf_rando_rpc_{name}_"
         bits = len([flag for flag in self.flags if flag.startswith(prefix) and flag[len(prefix):].isdigit()])
         allowed = {"item": {16, 32}, "ready": {8, 32}, "ack_ready": {1, 32}}.get(name, {32})
@@ -158,7 +194,30 @@ class NativeProfile:
     def word_size(self, name: str) -> int:
         return max(1, self.word_bits(name) // 8)
 
+    def word_offset(self, name: str) -> int:
+        if self.saved_bytes:
+            return 4 - self.flags_offset + (self.word_index(name) - 3072) // 8
+        return self.word_index(name) // 8
+
     def validate_word_ownership(self) -> None:
+        if (set(self.game_saved_bytes) - {"gs_rando_peel_pending"} or len(set(self.game_saved_bytes.values())) != len(self.game_saved_bytes)
+                or any(not 220 <= index < 256 or index in self.saved_bytes.values() for index in self.game_saved_bytes.values())):
+            raise ValueError("Game-owned saved bytes overlap host mailbox fields")
+        if self.priority_capabilities and not self.priority_pages:
+            raise ValueError("Priority capabilities require the independent receipt protocol")
+        if self.saved_bytes:
+            from ..rom.mailbox import saved_mailbox_bytes
+            if set(self.saved_bytes) != set(saved_mailbox_bytes(self.priority_pages)) or any(flag.startswith("gf_rando_rpc_") for flag in self.flags):
+                raise ValueError("Saved-byte mailbox has missing or conflicting fields")
+            if len(set(self.saved_bytes.values())) != len(self.saved_bytes) or any(not 220 <= index < 256 for index in self.saved_bytes.values()):
+                raise ValueError("Saved-byte mailbox overlaps native slots")
+            if self.priority_pages and not any(reward.kind == NativeRewardKind.PAGE for reward in self.selector_rewards.values()):
+                raise ValueError("Priority page profile has no page selector")
+            if self.priority_pages and any(f"gf_rando_remote_page_{index}" not in self.flags for index in range(6)):
+                raise ValueError("Independent remote page receipts are missing")
+            return
+        if self.priority_pages:
+            raise ValueError("Priority pages require the saved-byte mailbox")
         host_fields = ("item", "sequence", "ready", "save_a", "save_b", "save_c", "save_d")
         host_flags = {f"gf_rando_rpc_{name}_{bit:02d}" for name in host_fields for bit in range(self.word_bits(name))}
         host_flags.update(flag for flag in self.flags if flag.startswith("gf_rando_rpc_reserved_"))
@@ -181,6 +240,23 @@ class NativeGame:
         self.seed, self.team, self.slot, self.catalog_hash = seed, team, slot, catalog_hash
         self.locations = {location: profile.checks[key] for key, location in location_ids.items()}
         self.signature_verified = False
+        self._local_receipts: set[int] | None = None
+        self._page_ranks: dict[int, int] = {}
+        self._page_items: dict[int, ReceivedItem] = {}
+        self._capability_items: dict[int, ReceivedItem] = {}
+        self._capability_flags: dict[int, str] = {}
+
+    @contextmanager
+    def cached_local_receipts(self) -> Iterator[None]:
+        if self._local_receipts is not None:
+            raise RuntimeError("Native receipt polling cannot be nested")
+        _, data = self.snapshot()
+        self._local_receipts = {location for location, flags in self.locations.items()
+                                if flags.delivered is not None and self.bit(data, flags.delivered)}
+        try:
+            yield
+        finally:
+            self._local_receipts = None
 
     @staticmethod
     def bit(data: bytes, index: int) -> bool:
@@ -212,6 +288,8 @@ class NativeGame:
                 fingerprint[bit // 8] |= 1 << (bit % 8)
         if bytes(fingerprint) != self.profile.fingerprint:
             raise ValueError("Loaded save belongs to a different native seed")
+        if self.profile.saved_bytes or self.profile.game_saved_bytes:
+            data += self.memory.read(pointer + 4, 256)
         return base, data
 
     def word(self, data: bytes, name: str) -> int:
@@ -221,12 +299,12 @@ class NativeGame:
         return int.from_bytes(data[index // 8:index // 8 + self.profile.word_size(name)], "little")
 
     def write_host_word(self, base: int, name: str, value: int) -> None:
-        if name not in {"item", "sequence", "ready", "save_a", "save_b", "save_c", "save_d"}:
+        if name not in {"item", "sequence", "ready", "save_a", "save_b", "save_c", "save_d", "page_rank"}:
             raise ValueError("Host may not modify native acknowledgement or inventory")
         # ROM reloads can replace executable guards while retaining this save's
         # fingerprint. Recheck installed code before each host-owned write.
         self.verify_executable()
-        self.memory.write(base + self.profile.word_index(name) // 8, value.to_bytes(self.profile.word_size(name), "little"))
+        self.memory.write(base + self.profile.word_offset(name), value.to_bytes(self.profile.word_size(name), "little"))
 
     def identity(self) -> Session:
         base, data = self.snapshot()
@@ -242,7 +320,6 @@ class NativeGame:
         return Session(self.seed, self.team, self.slot, self.catalog_hash, nonce.hex())
 
     def received(self, receipt: str) -> bool:
-        base, data = self.snapshot()
         kind, separator, value = receipt.partition("/")
         if not separator or not value.isdecimal():
             raise ValueError("Unsupported receipt identifier")
@@ -250,21 +327,80 @@ class NativeGame:
         if kind == "local":
             if index not in self.locations:
                 raise ValueError("Local receipt refers to an unknown location")
+            if self._local_receipts is not None:
+                return index in self._local_receipts
+            _, data = self.snapshot()
             delivered = self.locations[index].delivered
             return delivered is not None and self.bit(data, delivered)
         if kind != "ap" or not 0 <= index < 0x7FFFFFFE:
             raise ValueError("Unsupported AP receipt index")
+        base, data = self.snapshot()
+        if index in self._capability_flags:
+            return self.bit(data, self.profile.flags[self._capability_flags[index]])
+        if index in self._page_ranks:
+            return self.bit(data, self.profile.flags[f"gf_rando_remote_page_{self._page_ranks[index]}"])
         # Read the commit guard around the acknowledgement and confirm its
         # value again. A chunked flag snapshot alone can see a torn VM update.
-        ready_address = base + self.profile.word_index("ack_ready") // 8
-        ack_address = base + self.profile.word_index("ack") // 8
+        ready_address = base + self.profile.word_offset("ack_ready")
+        ack_address = base + self.profile.word_offset("ack")
         ready_size = self.profile.word_size("ack_ready")
         ready_mask = 1 << (self.profile.word_index("ack_ready") % 8)
         before = int.from_bytes(self.memory.read(ready_address, ready_size), "little")
         acknowledged = int.from_bytes(self.memory.read(ack_address, 4), "little")
         after = int.from_bytes(self.memory.read(ready_address, ready_size), "little")
         confirmed = int.from_bytes(self.memory.read(ack_address, 4), "little")
-        return bool(before & after & ready_mask) and acknowledged == confirmed and acknowledged > index
+        return bool(before & after & ready_mask) and acknowledged == confirmed and index < acknowledged <= 0x7FFFFFFE
+
+    def prepare_pages(self, items: Sequence[tuple[int, ReceivedItem]]) -> None:
+        if not self.profile.priority_pages:
+            return
+        pages = {index: item for index, item in items if self.profile.selector_rewards.get(item.item) == NativeReward(NativeRewardKind.PAGE, 1)}
+        if any(not 0 <= index < 0x7FFFFFFE for index in pages) or len(pages) > 6 or any(index not in pages or pages[index] != item for index, item in self._page_items.items()):
+            raise ValueError("Remote page stream changed or exceeds native capacity")
+        ordered = sorted(pages)
+        ranks = {index: rank for rank, index in enumerate(ordered)}
+        if any(ranks[index] != rank for index, rank in self._page_ranks.items()):
+            raise ValueError("Remote page receipt ordering changed")
+        if self.profile.priority_capabilities:
+            capabilities = {index: item for index, item in items if item.item in self.profile.selector_rewards and capability_receipt(self.profile.selector_rewards[item.item], self.profile.shuffle_royals)}
+            if any(index not in capabilities or capabilities[index] != item for index, item in self._capability_items.items()):
+                raise ValueError("Remote capability stream changed")
+            capability_flags: dict[int, str] = {}
+            for index, item in capabilities.items():
+                flag = capability_receipt(self.profile.selector_rewards[item.item], self.profile.shuffle_royals)
+                if not 0 <= index < 0x7FFFFFFE or flag is None or flag not in self.profile.flags:
+                    raise ValueError("Remote capability lacks a native receipt")
+                capability_flags[index] = flag
+            self._capability_flags, self._capability_items = capability_flags, capabilities
+        self._page_items, self._page_ranks = pages, ranks
+
+    def is_priority_item(self, item: ReceivedItem) -> bool:
+        reward = self.profile.selector_rewards.get(item.item)
+        return self.profile.priority_pages and (reward == NativeReward(NativeRewardKind.PAGE, 1) or (self.profile.priority_capabilities and reward is not None and capability_receipt(reward, self.profile.shuffle_royals) is not None))
+
+    def deliver_priority(self, receipt: str, item: ReceivedItem) -> bool:
+        if not receipt.startswith("ap/") or not receipt[3:].isdecimal():
+            raise ValueError("Unsupported priority receipt")
+        index = int(receipt[3:])
+        if index not in self._page_ranks and index not in self._capability_flags:
+            return False
+        if (self._page_items | self._capability_items)[index] != item:
+            raise ValueError("Page request conflicts with the durable stream")
+        if self.received(receipt):
+            return True
+        base, data = self.snapshot()
+        if self.word(data, "ready") == 2:
+            return False
+        self._publish(base, index + 1, self.profile.selectors[item.item], 2, self._page_ranks.get(index))
+        return False
+
+    def _publish(self, base: int, sequence: int, selector: int, ready: int, page_rank: int | None = None) -> None:
+        self.write_host_word(base, "ready", 0)
+        self.write_host_word(base, "item", selector)
+        self.write_host_word(base, "sequence", sequence)
+        if page_rank is not None:
+            self.write_host_word(base, "page_rank", page_rank)
+        self.write_host_word(base, "ready", ready)
 
     def deliver(self, receipt: str, item: ReceivedItem) -> bool:
         if self.received(receipt):
@@ -276,12 +412,16 @@ class NativeGame:
         index = int(receipt.split("/", 1)[1]) + 1
         base, data = self.snapshot()
         selector = self.profile.selectors[item.item]
-        if self.word(data, "ready") & 1 and self.word(data, "sequence") == index and self.word(data, "item") == selector:
+        if self.profile.priority_pages and self.word(data, "ready") == 2:
+            pending_index = self.word(data, "sequence") - 1
+            if not self.received(f"ap/{pending_index}"):
+                return False
+        if self.word(data, "ready") == 1 and self.word(data, "sequence") == index and self.word(data, "item") == selector:
             return False  # wait for game-owned acknowledgement; do not republish
-        self.write_host_word(base, "ready", 0)
-        self.write_host_word(base, "item", selector)
-        self.write_host_word(base, "sequence", index)
-        self.write_host_word(base, "ready", 1)
+        page_rank = self._page_ranks.get(index - 1)
+        if self.profile.priority_pages and self.profile.selector_rewards.get(item.item) == NativeReward(NativeRewardKind.PAGE, 1) and page_rank is None:
+            raise ValueError("Page stream must be prepared before native delivery")
+        self._publish(base, index, selector, 1, page_rank)
         return False
 
     def collected(self) -> set[int]:

@@ -70,13 +70,14 @@ def decode_native_recipe(data: bytes) -> NativeRecipe:
 
 
 def create_native_recipe(project: RomProject, seed: str, plan: DeliveryPlan) -> NativeRecipe:
+    from .mailbox import fit_mailbox
     rewards = plan.rewards
     if any(reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} for reward in rewards):
         policy = sticker_policy(project.read_file("Data/kdm_item_data.bin"))
         if plan.sticker_policy and plan.sticker_policy != policy:
             raise ValueError("Sticker policy does not match this ROM")
         plan = replace(plan, sticker_policy=policy)
-    return decode_native_recipe(NativeRecipe(seed, source_digest(project), plan).encode())
+    return decode_native_recipe(NativeRecipe(seed, source_digest(project), fit_mailbox(plan)).encode())
 
 
 def apply_native_recipe(project: RomProject, recipe: NativeRecipe, output: Path, compiler: Path) -> Path:

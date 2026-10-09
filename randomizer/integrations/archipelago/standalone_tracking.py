@@ -42,6 +42,7 @@ class StandaloneObservation:
         self.order: list[str] = []
 
     def snapshot(self) -> TrackingSnapshot:
+        self.game.verify_executable()
         _, flags = self.game.snapshot()
         collected = {location for location, check in self.game.locations.items() if self.game.bit(flags, check.collected)}
         receipts = set()
