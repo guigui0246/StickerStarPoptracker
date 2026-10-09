@@ -28,7 +28,9 @@ def main() -> None:
     native = enemy_types(args.battle_data.read_bytes())
     by_unit = {enemy.unit_id: enemy for enemy in native}
     selected = tuple(check for check in plan.checks if isinstance(check, EnemyReward))
-    props = tuple(check for check in selected if any(by_unit[hook.unit_id].name_label == "enemy_name_DOOR" for hook in check.hooks))
+    props = tuple(
+        check for check in selected if any(by_unit[hook.unit_id].name_label == "enemy_name_DOOR" for hook in check.hooks)
+    )
     # Dropping a placed progression reward is never an implicit operation.
     if any(check.reward.kind != NativeRewardKind.REMOTE for check in props):
         parser.error("Remove prop checks before placement; their local rewards cannot be discarded")
@@ -39,10 +41,19 @@ def main() -> None:
     with args.output.open("x", encoding="utf-8") as stream:
         json.dump(encode_plan(result), stream, indent=2, ensure_ascii=False)
         stream.write("\n")
-    print(json.dumps({"selected_unit_checks": len(selected), "global_enemy_type_checks": len(grouped),
-                      "excluded_prop_checks": [check.id for check in props],
-                      "total_checks": len(result.checks), "save_bits": len(result.flags),
-                      "complete_game_catalog": False}, indent=2))
+    print(
+        json.dumps(
+            {
+                "selected_unit_checks": len(selected),
+                "global_enemy_type_checks": len(grouped),
+                "excluded_prop_checks": [check.id for check in props],
+                "total_checks": len(result.checks),
+                "save_bits": len(result.flags),
+                "complete_game_catalog": False,
+            },
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":

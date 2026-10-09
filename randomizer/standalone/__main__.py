@@ -8,9 +8,7 @@ from .generation import generate_seed
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Generate a typed catalog seed (not a playable ROM patch)."
-    )
+    parser = argparse.ArgumentParser(description="Generate a typed catalog seed (not a playable ROM patch).")
     parser.add_argument(
         "--catalog",
         type=Path,
@@ -22,9 +20,7 @@ def main() -> None:
     game = load_catalog(args.catalog) if args.catalog else example_game()
     result = generate_seed(game, args.seed)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(asdict(result), indent=2) + "\n", encoding="utf-8"
-    )
+    args.output.write_text(json.dumps(asdict(result), indent=2) + "\n", encoding="utf-8")
     print(f"Wrote example seed to {args.output}")
 
 

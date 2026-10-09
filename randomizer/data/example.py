@@ -33,9 +33,7 @@ def example_game() -> GameDefinition:
             Location("field_pickup", "Field Pickup", "field"),
             Location("town_gift", "Town Gift", "town"),
             Location("rescue", "Rescue Toad", "field", Rules.has("hammer")),
-            Goal(
-                "boss", "Defeat Example Boss", "field", Rules.has("toad_rescued"), royal
-            ),
+            Goal("boss", "Defeat Example Boss", "field", Rules.has("toad_rescued"), royal),
             EndGoal("end", "Example Victory", "town", Rules.has("royal"), victory),
         ),
         paths=(

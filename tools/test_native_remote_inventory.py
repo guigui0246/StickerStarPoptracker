@@ -43,12 +43,25 @@ def main() -> None:
     if not report.get("native_sticker_probe") or not report.get("native_probe_retry"):
         raise ValueError("Run only against the disposable completed full-album probe")
     profile = NativeProfile.load(args.patch_report)
-    page_id = next(identifier for identifier, reward in profile.selector_rewards.items() if reward.kind == NativeRewardKind.PAGE)
-    jump_id = next(identifier for identifier, reward in profile.selector_rewards.items() if reward.kind == NativeRewardKind.STICKER_UNLOCK and reward.value == "SL_JUMP")
+    page_id = next(
+        identifier for identifier, reward in profile.selector_rewards.items() if reward.kind == NativeRewardKind.PAGE
+    )
+    jump_id = next(
+        identifier
+        for identifier, reward in profile.selector_rewards.items()
+        if reward.kind == NativeRewardKind.STICKER_UNLOCK and reward.value == "SL_JUMP"
+    )
     with CitraMemory(port=args.port, timeout=1) as memory:
         session = profile.session
-        game = NativeGame(memory, profile, session.seed, session.team, session.slot, session.catalog_hash,
-                          {identifier: index for index, identifier in enumerate(profile.checks, 1000)})
+        game = NativeGame(
+            memory,
+            profile,
+            session.seed,
+            session.team,
+            session.slot,
+            session.catalog_hash,
+            {identifier: index for index, identifier in enumerate(profile.checks, 1000)},
+        )
         game.identity()
         _, flags = game.snapshot()
         if not game.bit(flags, profile.flags["gf_rando_probe_done"]):
@@ -76,9 +89,18 @@ def main() -> None:
         assert album(memory) == (pages, counts), "Replayed native receipt duplicated inventory"
         _, flags = game.snapshot()
         assert game.bit(flags, profile.flags["gf_rando_unlock_sl_jump"]), "The received sticker did not unlock Jump"
-        print(json.dumps({"native_remote_inventory_passed": True, "page_count": pages,
-                          "jump_copies": counts[16], "acknowledged_sequence": 18,
-                          "host_inventory_writes": 0}, indent=2))
+        print(
+            json.dumps(
+                {
+                    "native_remote_inventory_passed": True,
+                    "page_count": pages,
+                    "jump_copies": counts[16],
+                    "acknowledged_sequence": 18,
+                    "host_inventory_writes": 0,
+                },
+                indent=2,
+            )
+        )
 
 
 if __name__ == "__main__":

@@ -18,7 +18,7 @@ def publish_directory(source: Path, target: Path) -> None:
         except PermissionError as error:
             if getattr(error, "winerror", None) != 5 or attempt == 5:
                 raise
-            time.sleep(0.05 * (2 ** attempt))
+            time.sleep(0.05 * (2**attempt))
 
 
 @dataclass
@@ -34,9 +34,7 @@ class RomProject:
             raise ValueError("Only the inspected European title is supported")
 
     def read_file(self, name: str) -> bytes:
-        entry = next(
-            (entry for entry in self.inspection.romfs if entry.name == name), None
-        )
+        entry = next((entry for entry in self.inspection.romfs if entry.name == name), None)
         if entry is None:
             raise ValueError(f"Unknown RomFS file: {name}")
         with self.source.open("rb") as stream:
@@ -61,10 +59,7 @@ class RomProject:
 
     def write_override(self, output: Path, name: str, data: bytes) -> Path:
         relative = PurePosixPath(name)
-        if relative.is_absolute() or any(
-            part in {"..", "."} or ":" in part or "\\" in part
-            for part in relative.parts
-        ):
+        if relative.is_absolute() or any(part in {"..", "."} or ":" in part or "\\" in part for part in relative.parts):
             raise ValueError("Unsafe RomFS path")
         if name not in {entry.name for entry in self.inspection.romfs}:
             raise ValueError("Overrides must replace existing game files")
@@ -74,8 +69,6 @@ class RomProject:
             raise ValueError("Override path escapes output folder")
         target.parent.mkdir(parents=True, exist_ok=True)
         if target.exists():
-            raise FileExistsError(
-                f"Refusing to overwrite an existing mod file: {target}"
-            )
+            raise FileExistsError(f"Refusing to overwrite an existing mod file: {target}")
         target.write_bytes(data)
         return target

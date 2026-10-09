@@ -26,14 +26,23 @@ class StartingInventoryTests(unittest.TestCase):
 
     def test_full_inventory_retries_without_marking_starting_copy_delivered(self) -> None:
         policy = StickerPolicy(("SL_JUMP", "SL_W6_SANDAL_S"), ())
-        plan = replace(self.plan, starting_rewards=(NativeReward(NativeRewardKind.STICKER_UNLOCK, "SL_JUMP"),), sticker_policy=policy)
+        plan = replace(
+            self.plan, starting_rewards=(NativeReward(NativeRewardKind.STICKER_UNLOCK, "SL_JUMP"),), sticker_policy=policy
+        )
         body = plan.delivery_body()
         self.assertLess(body.index("gf_rando_unlock_sl_jump *= true"), body.index('rando_item_grant*("SL_JUMP")'))
         self.assertIn("if ( tempVar0 ) {\n\t\t\tgf_rando_starting_0000 *= true", body)
         self.assertIn("gf_rando_unlock_sl_jump", plan.required_references)
 
     def test_starting_capabilities_participate_in_native_gate_registry(self) -> None:
-        plan = replace(self.plan, starting_rewards=(NativeReward(NativeRewardKind.STAGE_ACCESS, "A01"), NativeReward(NativeRewardKind.DOOR_ACCESS, "A02"), NativeReward(NativeRewardKind.BOSS_ACCESS, "harbor")))
+        plan = replace(
+            self.plan,
+            starting_rewards=(
+                NativeReward(NativeRewardKind.STAGE_ACCESS, "A01"),
+                NativeReward(NativeRewardKind.DOOR_ACCESS, "A02"),
+                NativeReward(NativeRewardKind.BOSS_ACCESS, "harbor"),
+            ),
+        )
         self.assertEqual(plan.stage_access_codes, ("A01",))
         self.assertEqual(plan.door_access_codes, ("A02",))
         self.assertEqual(plan.boss_access_codes, ("harbor",))
@@ -45,8 +54,13 @@ class StartingInventoryTests(unittest.TestCase):
 
     def test_ap_starting_echo_uses_the_saved_receipt_instead_of_granting_twice(self) -> None:
         reward = NativeReward(NativeRewardKind.COINS, 25)
-        plan = replace(self.plan, starting_rewards=(reward,), starting_item_ids=(100,),
-                       remote_rewards=(RemoteReward(100, reward),), remote_session=RemoteSession("seed", 0, 1, "a" * 64))
+        plan = replace(
+            self.plan,
+            starting_rewards=(reward,),
+            starting_item_ids=(100,),
+            remote_rewards=(RemoteReward(100, reward),),
+            remote_session=RemoteSession("seed", 0, 1, "a" * 64),
+        )
         self.assertEqual(decode_plan(encode_plan(plan)), plan)
         remote = runtime_functions(plan).split("private rando_remote()", 1)[1]
         self.assertIn("if ( tempVar0 <= 1 )", remote)

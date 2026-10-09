@@ -18,7 +18,9 @@ class FakeMemory:
         self.code: dict[int, bytes] = {}
         self.set_flag(profile.flags["gf_rando_seed_initialized"], True)
         for index in range(128):
-            self.set_flag(profile.flags[f"gf_rando_seed_{index:02d}"], bool(profile.fingerprint[index // 8] & (1 << (index % 8))))
+            self.set_flag(
+                profile.flags[f"gf_rando_seed_{index:02d}"], bool(profile.fingerprint[index // 8] & (1 << (index % 8)))
+            )
 
     @property
     def base(self) -> int:
@@ -34,7 +36,7 @@ class FakeMemory:
             return
         offset = self.profile.word_index(name) // 8
         size = self.profile.word_size(name)
-        self.buffer[offset:offset + size] = value.to_bytes(size, "little")
+        self.buffer[offset : offset + size] = value.to_bytes(size, "little")
 
     def read(self, address: int, size: int) -> bytes:
         if address in self.code:
@@ -48,23 +50,25 @@ class FakeMemory:
         offset = address - self.base
         if not 0 <= offset <= offset + size <= len(self.buffer):
             raise ValueError("Read outside test memory")
-        return bytes(self.buffer[offset:offset + size])
+        return bytes(self.buffer[offset : offset + size])
 
     def write(self, address: int, data: bytes) -> None:
         offset = address - self.base
         if not 0 <= offset <= offset + len(data) <= len(self.buffer):
             raise ValueError("Write outside test memory")
         self.writes.append((address, data))
-        self.buffer[offset:offset + len(data)] = data
+        self.buffer[offset : offset + len(data)] = data
 
 
 class NativeBridgeTests(unittest.TestCase):
     def test_local_poll_cache_avoids_per_check_reads_without_caching_remote_ack(self) -> None:
         reads = []
         original = self.memory.read
+
         def read(address, size):
             reads.append((address, size))
             return original(address, size)
+
         self.memory.read = read
         self.memory.set_flag(1581, True)
         with self.game.cached_local_receipts():
@@ -116,9 +120,19 @@ class NativeBridgeTests(unittest.TestCase):
         flags.update({f"gf_rando_seed_{index:02d}": 1447 + index for index in range(128)})
         for index, flag in enumerate(mailbox_flags(1600), 1600):
             flags[flag] = index
-        self.profile = NativeProfile(0x43C190, 0x144, 3072, 0x282C98, 0x160,
-            hashlib.sha256(b"A" * 0x160).hexdigest(), bytes(range(16)), flags,
-            {"star": CheckFlags(1580, 1581)}, {100: 1}, RemoteSession("seed", 0, 1, "a" * 64))
+        self.profile = NativeProfile(
+            0x43C190,
+            0x144,
+            3072,
+            0x282C98,
+            0x160,
+            hashlib.sha256(b"A" * 0x160).hexdigest(),
+            bytes(range(16)),
+            flags,
+            {"star": CheckFlags(1580, 1581)},
+            {100: 1},
+            RemoteSession("seed", 0, 1, "a" * 64),
+        )
         self.memory = FakeMemory(self.profile)
         self.game = NativeGame(self.memory, self.profile, "seed", 0, 1, "a" * 64, {"star": 200})
 

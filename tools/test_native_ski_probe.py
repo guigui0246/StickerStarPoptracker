@@ -27,15 +27,25 @@ def main() -> None:
     locations = {identifier: 95000 + index for index, identifier in enumerate(profile.checks)}
     time.sleep(args.startup_wait_seconds)
     with CitraMemory(timeout=1) as memory:
-        game = NativeGame(memory, profile, profile.session.seed, profile.session.team, profile.session.slot,
-                          profile.session.catalog_hash, locations)
+        game = NativeGame(
+            memory,
+            profile,
+            profile.session.seed,
+            profile.session.team,
+            profile.session.slot,
+            profile.session.catalog_hash,
+            locations,
+        )
         deadline = time.monotonic() + args.wait_seconds
         checkpoints = {}
         while time.monotonic() < deadline:
             try:
                 _, data = game.snapshot()
-                checkpoints = {name: game.bit(data, index) for name, index in profile.flags.items()
-                               if name.startswith("gf_rando_ski_probe_")}
+                checkpoints = {
+                    name: game.bit(data, index)
+                    for name, index in profile.flags.items()
+                    if name.startswith("gf_rando_ski_probe_")
+                }
                 if checkpoints.get("gf_rando_ski_probe_done"):
                     break
             except (OSError, RuntimeError):
@@ -49,8 +59,18 @@ def main() -> None:
         assert location in game.collected()
         assert game.received(f"local/{location}")
         method = "original acquisition callback and carrier cleanup" if probe.get("full_callback") else "shared acquisition"
-        limit = "skiing controls remain unverified" if probe.get("full_callback") else "skiing controls and event cleanup remain unverified"
-        print(f"Native Curling Stone initializer, received ownership, source eligibility, {method}, replacement prize and replay passed; {limit}")
+        limit = (
+            "skiing controls remain unverified"
+            if probe.get("full_callback")
+            else "skiing controls and event cleanup remain unverified"
+        )
+        print(
+            "Native Curling Stone initializer, received ownership, s"
+            "ource eligibility, "
+            f"{method}"
+            ", replacement prize and replay passed; "
+            f"{limit}"
+        )
 
 
 if __name__ == "__main__":

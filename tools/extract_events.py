@@ -9,7 +9,14 @@ import sys
 import tempfile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from randomizer.integrations.rom.events import KAMEK_FLAGS, SHOP_SCRIPTS, mini_stars, museum_exhibits, shop_conversation, stages
+from randomizer.integrations.rom.events import (
+    KAMEK_FLAGS,
+    SHOP_SCRIPTS,
+    mini_stars,
+    museum_exhibits,
+    shop_conversation,
+    stages,
+)
 from randomizer.integrations.rom.kdm import KdmDocument
 from randomizer.integrations.rom.ksm import KsmDocument
 from randomizer.integrations.rom.project import RomProject
@@ -50,10 +57,18 @@ def main() -> None:
                 shops.append({"id": shop.id, **asdict(shop)})
             if filename in KAMEK_FLAGS:
                 import re
+
                 flag = KAMEK_FLAGS[filename]
                 if len(re.findall(r"\b" + flag + r" \*?= true;", source)) != 1:
                     raise ValueError("Kamek completion flag is missing or ambiguous")
-                kamek.append({"id": f"kamek/{flag}", "source_flag": flag, "script_file": filename, "source_sha256": hashlib.sha256(binary).hexdigest()})
+                kamek.append(
+                    {
+                        "id": f"kamek/{flag}",
+                        "source_flag": flag,
+                        "script_file": filename,
+                        "source_sha256": hashlib.sha256(binary).hexdigest(),
+                    }
+                )
         for entry in project.inspection.romfs:
             if not entry.name.startswith("Script/Map/") or not entry.name.endswith(".bin"):
                 continue
@@ -70,20 +85,34 @@ def main() -> None:
     disposition = KdmDocument(project.read_file("Data/kdm_dispos_data.bin"))
     pickups = item_pickups(disposition)
     containers = container_sources(disposition)
-    data = {"format_version": 1, "title_id": project.inspection.title_id,
-            "verified_access_rules": False,
-            "shops": shops, "kamek": kamek,
-            "enemy_types": [{**asdict(enemy), "script_present": enemy.script_file in script_files, "has_death_hook": bool(enemy.death_function)} for enemy in enemy_types(project.read_file("Data/kdm_battle.bin"))],
-            "pickups": [asdict(source) for source in pickups if source.group_name != "TST"],
-            "scripted_things": things,
-            "excluded_debug_pickups": [asdict(source) for source in pickups if source.group_name == "TST"],
-            "container_sources": [asdict(source) for source in containers if source.group_name != "TST"],
-            "excluded_debug_containers": [asdict(source) for source in containers if source.group_name == "TST"],
-            "peeled_scraps": [asdict(source) for source in peel_sources(KdmDocument(project.read_file("Data/kdm_pepalyze.bin")))],
-            "door_places": [asdict(place) for place in door_places(project.read_file("Data/kdm_pepalyze.bin"), world_stages)],
-            "museum": [{"id": exhibit.id, **asdict(exhibit)} for exhibit in museum_exhibits(KdmDocument(project.read_file("Data/kdm_pepalyze_museum.bin")), switches)],
-            "stages": [asdict(stage) for stage in world_stages],
-            "mini_stars": [{"id": check.id, **asdict(check)} for check in sorted(checks, key=lambda check: check.id)]}
+    data = {
+        "format_version": 1,
+        "title_id": project.inspection.title_id,
+        "verified_access_rules": False,
+        "shops": shops,
+        "kamek": kamek,
+        "enemy_types": [
+            {
+                **asdict(enemy),
+                "script_present": enemy.script_file in script_files,
+                "has_death_hook": bool(enemy.death_function),
+            }
+            for enemy in enemy_types(project.read_file("Data/kdm_battle.bin"))
+        ],
+        "pickups": [asdict(source) for source in pickups if source.group_name != "TST"],
+        "scripted_things": things,
+        "excluded_debug_pickups": [asdict(source) for source in pickups if source.group_name == "TST"],
+        "container_sources": [asdict(source) for source in containers if source.group_name != "TST"],
+        "excluded_debug_containers": [asdict(source) for source in containers if source.group_name == "TST"],
+        "peeled_scraps": [asdict(source) for source in peel_sources(KdmDocument(project.read_file("Data/kdm_pepalyze.bin")))],
+        "door_places": [asdict(place) for place in door_places(project.read_file("Data/kdm_pepalyze.bin"), world_stages)],
+        "museum": [
+            {"id": exhibit.id, **asdict(exhibit)}
+            for exhibit in museum_exhibits(KdmDocument(project.read_file("Data/kdm_pepalyze_museum.bin")), switches)
+        ],
+        "stages": [asdict(stage) for stage in world_stages],
+        "mini_stars": [{"id": check.id, **asdict(check)} for check in sorted(checks, key=lambda check: check.id)],
+    }
     data["manifest_hash"] = hashlib.sha256(json.dumps(data, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     with args.output.open("x", encoding="utf-8") as output:
         output.write(json.dumps(data, indent=2) + "\n")

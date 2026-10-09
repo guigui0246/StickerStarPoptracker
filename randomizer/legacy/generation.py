@@ -14,9 +14,7 @@ def enabled_checks(catalog: JsonObject, settings: Settings) -> list[JsonObject]:
             continue
         check: JsonObject = dict(original)
         if check["kind"] == "banner":
-            check["threshold"] = max(
-                1, math.ceil(check["threshold"] / settings.banner_divisor)
-            )
+            check["threshold"] = max(1, math.ceil(check["threshold"] / settings.banner_divisor))
         result.append(check)
     return result
 
@@ -31,9 +29,7 @@ def playthrough(
     spheres: list[list[str]] = []
     while remaining:
         reachable = sorted(
-            key
-            for key, check in remaining.items()
-            if requirement_met(check.get("requires", {"all": []}), inventory)
+            key for key, check in remaining.items() if requirement_met(check.get("requires", {"all": []}), inventory)
         )
         if not reachable:
             break
@@ -70,11 +66,7 @@ def generate(
         rng.shuffle(rewards)
         placements: dict[str, str] = {}
         for item_id in rewards:
-            reachable = [
-                c
-                for c in remaining
-                if requirement_met(c.get("requires", {"all": []}), inventory)
-            ]
+            reachable = [c for c in remaining if requirement_met(c.get("requires", {"all": []}), inventory)]
             if not reachable:
                 break
             check = rng.choice(reachable)
@@ -89,9 +81,7 @@ def generate(
                 return {
                     "format_version": 1,
                     "seed": str(seed),
-                    "catalog_sha256": hashlib.sha256(
-                        json.dumps(catalog, sort_keys=True).encode()
-                    ).hexdigest(),
+                    "catalog_sha256": hashlib.sha256(json.dumps(catalog, sort_keys=True).encode()).hexdigest(),
                     "settings": {
                         "banners": settings.banners,
                         "banner_divisor": settings.banner_divisor,
@@ -100,6 +90,4 @@ def generate(
                     "placements": placements,
                     "spheres": spheres,
                 }
-    raise ValueError(
-        "Could not generate a reachable seed; check the catalog and starting inventory"
-    )
+    raise ValueError("Could not generate a reachable seed; check the catalog and starting inventory")

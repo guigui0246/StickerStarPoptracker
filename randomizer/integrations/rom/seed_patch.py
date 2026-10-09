@@ -17,7 +17,6 @@ from .project import RomProject, publish_directory
 from .sticker_patch import build_sticker_patch
 from .tutorial_skip import write_tutorial_skip
 
-
 TITLE_ID = "00040000000A5F00"
 PLACEMENTS = "Data/kdm_dispos_data.bin"
 TUTORIAL_FILES = ("Script/Map/MAC/mac_1_31.bin", "Data/kdm_link_data.bin")
@@ -88,11 +87,21 @@ def decode_recipe(data: bytes) -> PatchRecipe:
         payload = obj(json.loads(data, object_pairs_hook=unique_object))
     except (UnicodeError, json.JSONDecodeError, RecursionError) as exc:
         raise ValueError("Invalid stickerpatch JSON") from exc
-    keys(payload, {
-        "format_version", "algorithm", "mode", "title_id", "seed",
-        "tutorial_skip_revision", "source_hashes", "placements_sha256",
-        "pickup_count", "recipe_sha256",
-    })
+    keys(
+        payload,
+        {
+            "format_version",
+            "algorithm",
+            "mode",
+            "title_id",
+            "seed",
+            "tutorial_skip_revision",
+            "source_hashes",
+            "placements_sha256",
+            "pickup_count",
+            "recipe_sha256",
+        },
+    )
     checksum = sha256(payload.pop("recipe_sha256"))
     if checksum != digest(canonical(payload)):
         raise ValueError("Stickerpatch checksum mismatch")
@@ -116,8 +125,11 @@ def decode_recipe(data: bytes) -> PatchRecipe:
     sources = obj(payload["source_hashes"])
     keys(sources, {PLACEMENTS, *(TUTORIAL_FILES if revision else ())})
     return PatchRecipe(
-        seed, bool(revision), {name: sha256(value) for name, value in sources.items()},
-        sha256(payload["placements_sha256"]), count,
+        seed,
+        bool(revision),
+        {name: sha256(value) for name, value in sources.items()},
+        sha256(payload["placements_sha256"]),
+        count,
     )
 
 
@@ -138,7 +150,10 @@ def write_recipe(recipe: PatchRecipe, target: Path) -> None:
 
 
 def apply_recipe(
-    project: RomProject, recipe: PatchRecipe, output: Path, compiler: Path | None = None,
+    project: RomProject,
+    recipe: PatchRecipe,
+    output: Path,
+    compiler: Path | None = None,
 ) -> Path:
     """Validate completely, build in isolation, publish only a complete folder."""
     recipe = decode_recipe(recipe.encode())
@@ -170,10 +185,7 @@ def apply_recipe(
             "recipe": json.loads(recipe.encode()),
             "changed_pickups": sum(change.pickup.item_name != change.reward for change in patch.changes),
             "changes": [asdict(change) for change in patch.changes],
-            "overrides": {
-                path.relative_to(staging / "romfs").as_posix(): digest(path.read_bytes())
-                for path in overrides
-            },
+            "overrides": {path.relative_to(staging / "romfs").as_posix(): digest(path.read_bytes()) for path in overrides},
         }
         (staging / "patch-report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
         (staging / "README.txt").write_text(
@@ -182,9 +194,12 @@ def apply_recipe(
             "Close your emulator, back up existing mods, and install the romfs folder\n"
             "under this title's Open Mods Location. Use this generated folder alone.\n"
             "The original ROM and your saves have not been modified.\n"
-            + ("Tutorial skip enabled: start a NEW save slot. Opening movie remains.\n"
-               "Starts with Hammer, 4 Jump, 4 Hammer and 2 Mushroom stickers.\n"
-               if recipe.tutorial_skip else "Tutorial and starting inventory are vanilla.\n"),
+            + (
+                "Tutorial skip enabled: start a NEW save slot. Opening movie remains.\n"
+                "Starts with Hammer, 4 Jump, 4 Hammer and 2 Mushroom stickers.\n"
+                if recipe.tutorial_skip
+                else "Tutorial and starting inventory are vanilla.\n"
+            ),
             encoding="utf-8",
         )
         # Path.rename fails if a destination directory already exists on Windows;

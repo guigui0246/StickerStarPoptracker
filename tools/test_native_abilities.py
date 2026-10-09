@@ -14,8 +14,22 @@ def main() -> None:
     parser.add_argument("--arm-runtime", type=Path, required=True)
     args = parser.parse_args()
     sys.path.insert(0, str(args.arm_runtime.resolve()))
-    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_MEM_WRITE
-    from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R4, UC_ARM_REG_R5, UC_ARM_REG_R6, UC_ARM_REG_R7, UC_ARM_REG_R8, UC_ARM_REG_R9, UC_ARM_REG_R10, UC_ARM_REG_R11, UC_ARM_REG_SP, UC_ARM_REG_LR
+    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_MEM_WRITE  # pyright: ignore[reportMissingImports]
+    from unicorn.arm_const import (  # pyright: ignore[reportMissingImports]
+        UC_ARM_REG_R0,
+        UC_ARM_REG_R1,
+        UC_ARM_REG_R4,
+        UC_ARM_REG_R5,
+        UC_ARM_REG_R6,
+        UC_ARM_REG_R7,
+        UC_ARM_REG_R8,
+        UC_ARM_REG_R9,
+        UC_ARM_REG_R10,
+        UC_ARM_REG_R11,
+        UC_ARM_REG_SP,
+        UC_ARM_REG_LR,
+    )
+
     count = 0
     for start in (1447, 1456, 1472):
         code, flags = fixture(start)
@@ -52,17 +66,36 @@ def main() -> None:
                     emulator.mem_write(pouch + 0x13C, (0x80).to_bytes(4, "little"))
                     emulator.reg_write(UC_ARM_REG_R0, pouch)
                     emulator.reg_write(UC_ARM_REG_R1, request)
-                    preserved = (UC_ARM_REG_R4, UC_ARM_REG_R5, UC_ARM_REG_R6, UC_ARM_REG_R7, UC_ARM_REG_R8, UC_ARM_REG_R9, UC_ARM_REG_R10, UC_ARM_REG_R11, UC_ARM_REG_SP, UC_ARM_REG_LR)
+                    preserved = (
+                        UC_ARM_REG_R4,
+                        UC_ARM_REG_R5,
+                        UC_ARM_REG_R6,
+                        UC_ARM_REG_R7,
+                        UC_ARM_REG_R8,
+                        UC_ARM_REG_R9,
+                        UC_ARM_REG_R10,
+                        UC_ARM_REG_R11,
+                        UC_ARM_REG_SP,
+                        UC_ARM_REG_LR,
+                    )
                     for index, register in enumerate(preserved):
                         emulator.reg_write(register, 0xABCD0000 + index)
                     stop = 0x100100
                     emulator.reg_write(UC_ARM_REG_LR, stop)
                     writes = []
-                    emulator.hook_add(UC_HOOK_MEM_WRITE, lambda _uc, _access, address, size, value, _user: writes.append((address, size, value)))
+                    emulator.hook_add(
+                        UC_HOOK_MEM_WRITE,
+                        lambda _uc, _access, address, size, value, _user: writes.append((address, size, value)),
+                    )
                     emulator.emu_start(ATTACH_FUNCTION, stop, count=200)
                     permitted = (1 if owned & 1 else 0) | (4 if owned & 2 else 0) if valid == "valid" else 0
                     expected = 0x80 | request & (0xFFFFFFFA | permitted)
-                    assert int.from_bytes(emulator.mem_read(pouch + 0x13C, 4), "little") == expected, (start, valid, owned, request)
+                    assert int.from_bytes(emulator.mem_read(pouch + 0x13C, 4), "little") == expected, (
+                        start,
+                        valid,
+                        owned,
+                        request,
+                    )
                     assert writes == [(pouch + 0x13C, 4, expected)], writes
                     assert bytes(emulator.mem_read(gf_owner + 0x144, 384)) == bytes(buffer)
                     assert emulator.reg_read(UC_ARM_REG_R0) == pouch

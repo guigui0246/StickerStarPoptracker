@@ -17,12 +17,8 @@ def main() -> None:
     args = parser.parse_args()
     result = inspect_rom(args.rom)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(
-        json.dumps(asdict(result), indent=2) + "\n", encoding="utf-8"
-    )
-    print(
-        f"{result.product_code}: decrypted={result.decrypted}, {len(result.romfs)} RomFS files"
-    )
+    args.output.write_text(json.dumps(asdict(result), indent=2) + "\n", encoding="utf-8")
+    print(f"{result.product_code}: decrypted={result.decrypted}, {len(result.romfs)} RomFS files")
 
 
 if __name__ == "__main__":

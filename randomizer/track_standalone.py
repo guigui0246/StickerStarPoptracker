@@ -31,6 +31,7 @@ async def run(args: argparse.Namespace) -> None:
             raise ValueError("Tracking configuration exceeds the supported size")
         result: Json = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
         return result
+
     config = obj(load(args.config))
     profile = NativeProfile.load(args.patch_report, standalone_catalog_hash=string(config.get("catalog_hash")))
     locations = {key: integer(value) for key, value in obj(config.get("locations")).items()}
@@ -40,7 +41,10 @@ async def run(args: argparse.Namespace) -> None:
         session = Session(profile.session.seed, 0, 1, profile.session.catalog_hash, profile.fingerprint.hex())
         snapshot = TrackingSnapshot()
         stop = asyncio.Event()
-        server = TrackerServer(session, args.name, "Paper Mario: Sticker Star (Native Catalog)", load(args.tracker_data), lambda: snapshot)
+        server = TrackerServer(
+            session, args.name, "Paper Mario: Sticker Star (Native Catalog)", load(args.tracker_data), lambda: snapshot
+        )
+
         async def poll() -> None:
             nonlocal snapshot
             while not stop.is_set():
@@ -51,6 +55,7 @@ async def run(args: argparse.Namespace) -> None:
                     # Clearing the view triggers the normal tracker replay.
                     snapshot = TrackingSnapshot()
                 await asyncio.sleep(0.5)
+
         tasks = [asyncio.create_task(poll()), asyncio.create_task(server.run(args.tracker_port, stop))]
         try:
             await asyncio.gather(*tasks)

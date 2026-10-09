@@ -49,20 +49,33 @@ def main() -> None:
                 if unit not in native:
                     raise ValueError(f"Formation {identity} references an unknown enemy unit")
                 occurrences.setdefault(unit, []).append(identity)
-    missing_types = sorted({native[unit].name_label for unit in occurrences}
-                           - represented - {"enemy_name_DOOR"})
-    missing_hooks = sorted(unit for unit in occurrences if unit not in hooks
-                           and native[unit].script_file in files and native[unit].death_function
-                           and native[unit].name_label != "enemy_name_DOOR")
-    result = {"format_version": 1, "source_hashes": hashes,
-              "encounter_access_verified": False, "formations": formations,
-              "unrepresented_formation_types": missing_types,
-              "unhooked_available_formation_variants": missing_hooks,
-              "units": [{**asdict(enemy), "formations": occurrences.get(unit, []),
-                         "selected_hook": unit in hooks,
-                         "script_available": enemy.script_file in files,
-                         "type_represented": enemy.name_label in represented}
-                        for unit, enemy in sorted(native.items())]}
+    missing_types = sorted({native[unit].name_label for unit in occurrences} - represented - {"enemy_name_DOOR"})
+    missing_hooks = sorted(
+        unit
+        for unit in occurrences
+        if unit not in hooks
+        and native[unit].script_file in files
+        and native[unit].death_function
+        and native[unit].name_label != "enemy_name_DOOR"
+    )
+    result = {
+        "format_version": 1,
+        "source_hashes": hashes,
+        "encounter_access_verified": False,
+        "formations": formations,
+        "unrepresented_formation_types": missing_types,
+        "unhooked_available_formation_variants": missing_hooks,
+        "units": [
+            {
+                **asdict(enemy),
+                "formations": occurrences.get(unit, []),
+                "selected_hook": unit in hooks,
+                "script_available": enemy.script_file in files,
+                "type_represented": enemy.name_label in represented,
+            }
+            for unit, enemy in sorted(native.items())
+        ],
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Audited {len(formations)} formations, {len(occurrences)} referenced units and {len(represented)} selected types.")

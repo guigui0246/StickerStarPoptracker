@@ -2,8 +2,13 @@ import struct
 import unittest
 
 from ..integrations.rom.native_delivery import (
-    BannerReward, DeliveryPlan, FlagReward, GoalBlockReward,
-    NativeReward, NativeRewardKind, ScriptReward,
+    BannerReward,
+    DeliveryPlan,
+    FlagReward,
+    GoalBlockReward,
+    NativeReward,
+    NativeRewardKind,
+    ScriptReward,
 )
 from ..integrations.rom.royal_patch import disable_book_restoration, suppress_royal_grant, FINAL_BOSS, INTERMISSIONS
 from ..settings import Banners
@@ -13,7 +18,7 @@ def restoration_fixture() -> tuple[bytes, int, int]:
     name = b"royalseal_book_reset\0"
     name += bytes((-len(name)) % 4)
     function = struct.pack("<10I", 1, 0xFFFFFFFF, 0x1234, 0, 0, 0, 9, 0x20000000, 0, len(name) // 4) + name + bytes(12)
-    instructions = struct.pack("<11I", 10, 5, 0x1234, 8, 0x10c, 0x5678, 0x11, 3, 0x40, 9, 1)
+    instructions = struct.pack("<11I", 10, 5, 0x1234, 8, 0x10C, 0x5678, 0x11, 3, 0x40, 9, 1)
     sections = [bytes(4), function, bytes(4), bytes(4), bytes(4), bytes(4), bytes(4), instructions]
     offsets = []
     cursor = 44
@@ -35,7 +40,9 @@ class EventRewardTests(unittest.TestCase):
 
     def test_reduced_banner_uses_exact_integer_comparison_and_native_max(self) -> None:
         filler = NativeReward(NativeRewardKind.COINS, 10)
-        plan = DeliveryPlan((FlagReward("museum", "gf_museum_btl_seal_001", filler), BannerReward("million_coin", Banners.REDUCED, filler)))
+        plan = DeliveryPlan(
+            (FlagReward("museum", "gf_museum_btl_seal_001", filler), BannerReward("million_coin", Banners.REDUCED, filler))
+        )
         body = plan.delivery_body()
         self.assertIn("temp tempVar1;", body)
         self.assertIn("tempVar0 * 10 >= tempVar1", body)
@@ -59,7 +66,9 @@ class EventRewardTests(unittest.TestCase):
             DeliveryPlan((source,), shuffle_royals=True)
 
     def test_vanilla_grant_suppression_preserves_story_and_surrounding_calls(self) -> None:
-        source = 'private finish_itm(local localVar0) {\ngf_story = true;\npouch_set_royal_seal(localVar0);\nmap_exit("royal");\n}'
+        source = (
+            'private finish_itm(local localVar0) {\ngf_story = true;\npouch_set_royal_seal(localVar0);\nmap_exit("royal");\n}'
+        )
         patched = suppress_royal_grant(INTERMISSIONS[0], source)
         self.assertIn("gf_story = true", patched)
         self.assertIn('map_exit("royal")', patched)

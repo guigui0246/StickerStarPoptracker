@@ -69,10 +69,7 @@ def inspect_rom(path: Path) -> RomInspection:
             raise ValueError("Unsupported IVFC block size")
         block_size = 1 << exponent
         master_size = int.from_bytes(ivfc[8:12], "little")
-        level3 = (
-            romfs_base
-            + ((96 + master_size + block_size - 1) // block_size) * block_size
-        )
+        level3 = romfs_base + ((96 + master_size + block_size - 1) // block_size) * block_size
         layout = struct.unpack("<10I", read_at(stream, level3, 40, size))
         if layout[0] != 40:
             raise ValueError("Unsupported RomFS level-3 header")
@@ -88,33 +85,23 @@ def inspect_rom(path: Path) -> RomInspection:
             if offset in seen_dirs or offset + 24 > len(directories):
                 raise ValueError("Invalid or cyclic RomFS directory table")
             seen_dirs.add(offset)
-            _, _, child, file_offset, _, name_size = struct.unpack_from(
-                "<6I", directories, offset
-            )
+            _, _, child, file_offset, _, name_size = struct.unpack_from("<6I", directories, offset)
             if offset + 24 + name_size > len(directories):
                 raise ValueError("Truncated directory name")
-            name = directories[offset + 24 : offset + 24 + name_size].decode(
-                "utf-16-le"
-            )
+            name = directories[offset + 24 : offset + 24 + name_size].decode("utf-16-le")
             current = f"{parent}/{name}".strip("/")
             while file_offset != absent:
                 if file_offset in seen_files or file_offset + 32 > len(files):
                     raise ValueError("Invalid or cyclic RomFS file table")
                 seen_files.add(file_offset)
-                _, sibling, relative, length, _, name_size = struct.unpack_from(
-                    "<IIQQII", files, file_offset
-                )
+                _, sibling, relative, length, _, name_size = struct.unpack_from("<IIQQII", files, file_offset)
                 if file_offset + 32 + name_size > len(files):
                     raise ValueError("Truncated file name")
-                name = files[file_offset + 32 : file_offset + 32 + name_size].decode(
-                    "utf-16-le"
-                )
+                name = files[file_offset + 32 : file_offset + 32 + name_size].decode("utf-16-le")
                 absolute = data_base + relative
                 if absolute + length > size:
                     raise ValueError("Invalid RomFS data range")
-                result.append(
-                    RomFile(f"{current}/{name}".lstrip("/"), absolute, length)
-                )
+                result.append(RomFile(f"{current}/{name}".lstrip("/"), absolute, length))
                 file_offset = sibling
             while child != absent:
                 if child + 24 > len(directories):

@@ -38,27 +38,34 @@ def main() -> None:
             records = []
             cursor = 5
             rebuilt = bytearray(original)
-            while raw[cursor:cursor + 3] != b"EOF":
-                offset = int.from_bytes(raw[cursor:cursor + 3], "big")
-                size = int.from_bytes(raw[cursor + 3:cursor + 5], "big")
+            while raw[cursor : cursor + 3] != b"EOF":
+                offset = int.from_bytes(raw[cursor : cursor + 3], "big")
+                size = int.from_bytes(raw[cursor + 3 : cursor + 5], "big")
                 if not size or cursor + 5 + size > len(raw):
                     raise ValueError("Malformed fixture patch record")
-                data = raw[cursor + 5:cursor + 5 + size]
+                data = raw[cursor + 5 : cursor + 5 + size]
                 records.append((offset, data))
-                rebuilt[offset:offset + size] = data
+                rebuilt[offset : offset + size] = data
                 cursor += 5 + size
             if hashlib.sha256(rebuilt).hexdigest() != patch_data["patched_sha256"]:
                 raise ValueError("Fixture executable patch does not match its report")
-            previous = CodePatch(tuple(records), patch_data["source_sha256"], patch_data["patched_sha256"],
-                                 (mod / "exefs/code.S").read_text(encoding="utf-8"))
+            previous = CodePatch(
+                tuple(records),
+                patch_data["source_sha256"],
+                patch_data["patched_sha256"],
+                (mod / "exefs/code.S").read_text(encoding="utf-8"),
+            )
         patch = expand_variable_pool(original, previous)
         (mod / "exefs").mkdir(exist_ok=True)
         (mod / "exefs/code.ips").write_bytes(patch.ips())
         (mod / "exefs/code.S").write_text(patch.assembly, encoding="utf-8")
         if (mod / "exefs/abilities.S").exists():
             (mod / "exefs/abilities.S").write_text(patch.assembly, encoding="utf-8")
-        report["code_patch"] = {"source_sha256": patch.source_sha256, "patched_sha256": patch.patched_sha256,
-                                "signatures": patch.signatures}
+        report["code_patch"] = {
+            "source_sha256": patch.source_sha256,
+            "patched_sha256": patch.patched_sha256,
+            "signatures": patch.signatures,
+        }
         report["script_variable_pool_limit"] = EXPANDED_LIMIT
         (mod / "patch-report.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
         publish_directory(mod, args.output.absolute())

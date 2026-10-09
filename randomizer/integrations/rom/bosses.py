@@ -29,13 +29,17 @@ BOSS_GATES = {
 
 def gate_boss(source: str, gate: BossGate, require_royals: bool = False) -> str:
     owned = f"gf_rando_boss_{gate.code}"
-    guard = f"\ttemp tempVar90 = rando_seed_valid*();\n\tif ( tempVar90 == false || {owned} == false ) {{\n\t\treturn*;\n\t}}\n"
+    guard = (
+        f"\ttemp tempVar90 = rando_seed_valid*();\n\tif ( tempVar90 == false || {owned} == false ) {{\n\t\treturn*;\n\t}}\n"
+    )
     if require_royals and gate.code == "w6":
         guard += "\ttemp tempVar91 = rando_royal_gate_count*();\n\tif ( tempVar91 < 5 ) {\n\t\treturn*;\n\t}\n"
     source = prepend_body(source, gate.callback, guard)
     if not gate.case_name:
         return source
-    pattern = r'\bcase_entry_detail\*?\("' + re.escape(gate.case_name) + r'", "' + re.escape(gate.case_callback) + r'", [^\n]*\);'
+    pattern = (
+        r'\bcase_entry_detail\*?\("' + re.escape(gate.case_name) + r'", "' + re.escape(gate.case_callback) + r'", [^\n]*\);'
+    )
     source, count = re.subn(pattern, lambda match: match.group() + "\n\trando_boss_admission*();", source)
     if count != gate.registrations:
         raise ValueError("Boss trigger registration no longer matches the inspected revision")
@@ -54,7 +58,7 @@ def gate_boss(source: str, gate: BossGate, require_royals: bool = False) -> str:
     pending = f"gf_rando_boss_pending_{gate.code}"
     royal_query = "\ttemp tempVar1 = rando_royal_gate_count*();\n" if require_royals and gate.code == "w6" else ""
     royal_condition = " || tempVar1 < 5" if royal_query else ""
-    source += f'''
+    source += f"""
 private rando_boss_admission()  {{
 \ttemp tempVar0 = rando_seed_valid*();
 \tif ( tempVar0 == false ) {{
@@ -77,5 +81,5 @@ private rando_boss_poll()  {{
 \t\tsleep_frames* 30;
 \t}}
 }}
-'''
+"""
     return source

@@ -8,12 +8,14 @@ from ..integrations.rom.plan_io import decode_plan, encode_plan
 class EnemyTests(unittest.TestCase):
     def setUp(self):
         reward = NativeReward(NativeRewardKind.COINS, 20)
-        self.checks = (EnemyReward("クリボー", "Script/Battle/Enemy/btl_kuriboo.bin", "kuriboo_dead", reward),
-                       EnemyReward("別のクリボー", "Script/Battle/Enemy/btl_kuriboo.bin", "kuriboo_dead", reward))
+        self.checks = (
+            EnemyReward("クリボー", "Script/Battle/Enemy/btl_kuriboo.bin", "kuriboo_dead", reward),
+            EnemyReward("別のクリボー", "Script/Battle/Enemy/btl_kuriboo.bin", "kuriboo_dead", reward),
+        )
         self.plan = DeliveryPlan(self.checks)
 
     def test_death_records_exact_type_and_leaves_reward_until_victory(self):
-        source = 'private kuriboo_dead()  {\n\tbattle_enemy_default_dead_func*(0);\n}\n'
+        source = "private kuriboo_dead()  {\n\tbattle_enemy_default_dead_func*(0);\n}\n"
         result = death_hook(source, "kuriboo_dead", list(enumerate(self.checks)), self.plan)
         self.assertIn("battle_unit_get_hp*(self)", result)
         self.assertIn("tempVar91 <= 0", result)
@@ -25,8 +27,8 @@ class EnemyTests(unittest.TestCase):
         self.assertIn("battle_enemy_default_dead_func*(0)", result)
 
     def test_new_battle_clears_pending_and_only_win_collects_outside_museum(self):
-        reset = reset_hook('private init()  {\n\toriginal*();\n}\n', self.plan)
-        win = victory_hook('public battle_win_event()  {\n\toriginal*();\n}\n', self.plan)
+        reset = reset_hook("private init()  {\n\toriginal*();\n}\n", self.plan)
+        win = victory_hook("public battle_win_event()  {\n\toriginal*();\n}\n", self.plan)
         self.assertIn("rando_enemy_reset*()", reset)
         self.assertNotIn("gf_rando_check_0000 *= false", reset)
         self.assertIn("battle_is_museum*()", win)
@@ -55,20 +57,23 @@ class EnemyTests(unittest.TestCase):
         plan = DeliveryPlan(grouped)
         self.assertEqual(decode_plan(encode_plan(plan)), plan)
         self.assertEqual(len(plan.enemy_pending_flags), 1)
-        source = 'private kuriboo_dead()  {\n\toriginal*();\n}\n'
+        source = "private kuriboo_dead()  {\n\toriginal*();\n}\n"
         death = death_hook(source, "kuriboo_dead", [(0, grouped[0])], plan)
         self.assertEqual(death.count("rando_enemy_mark*(0)"), 2)
         self.assertFalse(any("enemy_pending" in flag for flag in plan.flags))
         self.assertNotIn("pending_0001", death)
-        win = victory_hook('public battle_win_event()  {\n\toriginal*();\n}\n', plan)
+        win = victory_hook("public battle_win_event()  {\n\toriginal*();\n}\n", plan)
         self.assertEqual(win.count("gf_rando_check_0000 *= true"), 1)
         self.assertEqual(plan.delivery_body().count("pouch_add_coin*(20)"), 1)
 
     def test_grouping_rejects_props_conflicting_rewards_and_duplicate_unit_aliases(self):
         from dataclasses import replace
+
         native = tuple(EnemyType(check.unit_id, "enemy_name_KUR", check.script_file, check.function) for check in self.checks)
         with self.assertRaises(ValueError):
-            group_enemy_checks(native, (self.checks[0], replace(self.checks[1], reward=NativeReward(NativeRewardKind.COINS, 30))))
+            group_enemy_checks(
+                native, (self.checks[0], replace(self.checks[1], reward=NativeReward(NativeRewardKind.COINS, 30)))
+            )
         with self.assertRaises(ValueError):
             group_enemy_checks(tuple(replace(enemy, name_label="enemy_name_DOOR") for enemy in native), self.checks)
         grouped = group_enemy_checks(native, self.checks)[0]

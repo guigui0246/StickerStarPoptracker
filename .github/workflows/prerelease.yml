@@ -1,0 +1,99 @@
+﻿name: Build prerelease
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: ${{ matrix.target }} (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-latest]
+        target: [cli_randomizer, apworld, tracker]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install build dependencies
+        if: matrix.target == 'cli_randomizer'
+        run: python -m pip install -r requirements-build.txt
+      - name: Build
+        run: python build.py ${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ matrix.os }}-${{ matrix.target }}
+          path: generated/*
+          if-no-files-found: error
+
+  randomizer:
+    name: randomizer (${{ matrix.os }})
+    needs: build
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-build.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-${{ matrix.os }}-cli_randomizer
+          path: dependencies
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-${{ matrix.os }}-apworld
+          path: dependencies
+      - name: Restore executable permission
+        if: runner.os == 'Linux'
+        run: chmod +x dependencies/cli_randomizer
+      - run: python build.py randomizer --dependencies dependencies
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-${{ matrix.os }}-randomizer
+          path: generated/*
+          if-no-files-found: error
+
+  release:
+    name: Publish eight prerelease assets
+    if: github.event_name != 'pull_request'
+    needs: [build, randomizer]
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: prerelease-${{ github.run_id }}-${{ github.run_attempt }}
+      COMMIT: ${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: build-*
+          path: artifacts
+      - name: Prepare and validate eight assets
+        run: python tools/prepare_release.py artifacts release
+      - name: Publish prerelease
+        shell: bash
+        run: >-
+          gh release create "$RELEASE_TAG" release/*
+          --target "$COMMIT" --prerelease
+          --title "Sticker Star prerelease $RELEASE_TAG"
+          --notes "Automated Linux and Windows builds. The bundled APWorld is the Logic Demo; native progression remains experimental."
+

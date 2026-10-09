@@ -60,6 +60,7 @@ class ReceivedItem:
 class GameDelivery(Protocol):
     def identity(self) -> Session: ...
     def received(self, receipt: str) -> bool: ...
+
     def deliver(self, receipt: str, item: ReceivedItem) -> bool:
         """Atomically grant and persist receipt, or return False to retry."""
         ...
@@ -78,10 +79,15 @@ class Ledger:
             self.db.close()
             raise ValueError("Ledger belongs to a different seed, player, catalog or save")
         with self.db:
-            self.db.execute("CREATE TABLE IF NOT EXISTS items (idx INTEGER PRIMARY KEY, item INTEGER, location INTEGER, player INTEGER, flags INTEGER)")
+            self.db.execute(
+                "CREATE TABLE IF NOT EXISTS items (idx INTEGER PRIMARY KEY, item I"
+                "NTEGER, location INTEGER, player INTEGER, flags INTEGER)"
+            )
             self.db.execute("CREATE TABLE IF NOT EXISTS checks (location INTEGER PRIMARY KEY)")
             self.db.execute("CREATE TABLE IF NOT EXISTS status (won INTEGER NOT NULL)")
-            self.db.execute("CREATE TABLE IF NOT EXISTS local_rewards (location INTEGER PRIMARY KEY, item INTEGER, flags INTEGER)")
+            self.db.execute(
+                "CREATE TABLE IF NOT EXISTS local_rewards (location INTEGER PRIMARY KEY, item INTEGER, flags INTEGER)"
+            )
             self.db.execute("CREATE TABLE IF NOT EXISTS local_binding (value TEXT NOT NULL)")
             if not stored:
                 self.db.execute("INSERT INTO identity VALUES (?)", (expected,))
@@ -122,7 +128,10 @@ class Ledger:
             if item.player != self.session.slot or item.location != location:
                 raise ValueError("Local reward table contains a remote or mismatched reward")
         with self.db:
-            existing = {int(row[0]): (int(row[1]), int(row[2])) for row in self.db.execute("SELECT location,item,flags FROM local_rewards")}
+            existing = {
+                int(row[0]): (int(row[1]), int(row[2]))
+                for row in self.db.execute("SELECT location,item,flags FROM local_rewards")
+            }
             expected = {location: (item.item, item.flags) for location, item in rewards.items()}
             binding = json.dumps(sorted((location, *values) for location, values in expected.items()))
             stored = self.db.execute("SELECT value FROM local_binding").fetchall()
@@ -130,7 +139,10 @@ class Ledger:
                 raise ValueError("Local placement table changed for this seed")
             if not stored:
                 self.db.execute("INSERT INTO local_binding VALUES (?)", (binding,))
-            self.db.executemany("INSERT OR IGNORE INTO local_rewards VALUES (?,?,?)", [(location, *values) for location, values in expected.items()])
+            self.db.executemany(
+                "INSERT OR IGNORE INTO local_rewards VALUES (?,?,?)",
+                [(location, *values) for location, values in expected.items()],
+            )
 
     @property
     def checks(self) -> list[int]:
@@ -148,9 +160,13 @@ class Ledger:
         if game.identity() != self.session:
             raise ValueError("Connected game has the wrong save or seed")
         delivered = 0
-        local = {int(row[0]): (int(row[1]), int(row[2])) for row in self.db.execute("SELECT location,item,flags FROM local_rewards")}
-        rows = [(int(row[0]), ReceivedItem(*(int(value) for value in row[1:])))
-                for row in self.db.execute("SELECT idx,item,location,player,flags FROM items ORDER BY idx")]
+        local = {
+            int(row[0]): (int(row[1]), int(row[2])) for row in self.db.execute("SELECT location,item,flags FROM local_rewards")
+        }
+        rows = [
+            (int(row[0]), ReceivedItem(*(int(value) for value in row[1:])))
+            for row in self.db.execute("SELECT idx,item,location,player,flags FROM items ORDER BY idx")
+        ]
         incoming = [(index, item) for index, item in rows if not (item.player == self.session.slot and item.location in local)]
         prepare_pages = getattr(game, "prepare_pages", None)
         if prepare_pages is not None:
@@ -171,7 +187,12 @@ class Ledger:
                 raise RuntimeError("Game adapter did not persist its delivery receipt")
             delivered += 1
         for index, received_item in rows:
-            item, location, player, flags = received_item.item, received_item.location, received_item.player, received_item.flags
+            item, location, player, flags = (
+                received_item.item,
+                received_item.location,
+                received_item.player,
+                received_item.flags,
+            )
             receipt = f"ap/{index}"
             local_echo = False
             if player == self.session.slot and location in local:
@@ -230,16 +251,28 @@ class ProtocolClient:
             if string(packet.get("seed_name")) != self.ledger.session.seed:
                 raise ValueError("Server seed does not match the installed patch")
             self.room_validated = True
-            return [{"cmd": "Connect", "password": self.password, "name": self.name,
-                     "game": self.game, "uuid": self.uuid, "tags": ["AP"],
-                     "version": {"major": 0, "minor": 6, "build": 8, "class": "Version"},
-                     "items_handling": 7, "slot_data": True}]
+            return [
+                {
+                    "cmd": "Connect",
+                    "password": self.password,
+                    "name": self.name,
+                    "game": self.game,
+                    "uuid": self.uuid,
+                    "tags": ["AP"],
+                    "version": {"major": 0, "minor": 6, "build": 8, "class": "Version"},
+                    "items_handling": 7,
+                    "slot_data": True,
+                }
+            ]
         if command == "ConnectionRefused":
             self.connected = False
             raise ValueError(f"Archipelago refused connection: {packet.get('errors')}")
         if command == "Connected":
             session = self.ledger.session
-            if not self.room_validated or (integer(packet.get("team")), integer(packet.get("slot"))) != (session.team, session.slot):
+            if not self.room_validated or (integer(packet.get("team")), integer(packet.get("slot"))) != (
+                session.team,
+                session.slot,
+            ):
                 raise ValueError("Server assigned a different team or slot")
             slot_data = obj(packet.get("slot_data"))
             if slot_data.get("catalog_hash") != session.catalog_hash or slot_data.get("format_version") != 1:

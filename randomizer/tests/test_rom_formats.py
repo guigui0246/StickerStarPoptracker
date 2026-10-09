@@ -1,3 +1,4 @@
+from typing import Any, cast
 import struct
 import unittest
 from unittest.mock import Mock, patch
@@ -9,9 +10,7 @@ from ..integrations.rom.ksm import KsmDocument
 
 
 def small_kdm() -> bytes:
-    header = b"KDMR\x00\x01\x01\x00" + struct.pack(
-        "<8I", 10, 15, 16, 17, 18, 25, 31, 37
-    )
+    header = b"KDMR\x00\x01\x01\x00" + struct.pack("<8I", 10, 15, 16, 17, 18, 25, 31, 37)
     strings = struct.pack("<I", 3) + b"A\0\0\0B\0\0\0Table\0\0\0"
     empty_sections = bytes(12)
     definition = struct.pack("<IHH5I", 1, 21, 3, 0, 0, 3, 8, 3)
@@ -26,15 +25,15 @@ class KdmTests(unittest.TestCase):
         document = KdmDocument(source)
         reference = document.tables["Table"].values[0].value
         self.assertIsInstance(reference, KdmPointer)
-        row = document.pointed_array(reference).values[0]
-        self.assertEqual(tuple(field.value for field in row.value), ("A", 7, "B"))
-        self.assertEqual(tuple(field.offset for field in row.value), (112, 116, 120))
+        row = document.pointed_array(cast(Any, reference)).values[0]
+        self.assertEqual(tuple(field.value for field in cast(Any, row).value), ("A", 7, "B"))
+        self.assertEqual(tuple(field.offset for field in cast(Any, row).value), (112, 116, 120))
         self.assertEqual(document.edit_strings({}), source)
         changed = document.edit_strings({112: "B"})
         self.assertEqual(len(changed), len(source))
         self.assertEqual(changed[:112], source[:112])
         self.assertEqual(changed[116:], source[116:])
-        self.assertEqual(KdmDocument(changed).arrays[112].values[0].value[0].value, "B")
+        self.assertEqual(cast(Any, KdmDocument(changed).arrays[112].values[0]).value[0].value, "B")
 
     def test_edits_reject_unregistered_fields_and_strings(self) -> None:
         document = KdmDocument(small_kdm())
@@ -53,23 +52,11 @@ class KdmTests(unittest.TestCase):
 
 class KsmTests(unittest.TestCase):
     def test_lossless_constants_and_native_imports(self) -> None:
-        header = b"KSMR" + struct.pack(
-            "<I8II", 0x10300, 11, 14, 15, 16, 17, 25, 35, 36, 0
-        )
+        header = b"KSMR" + struct.pack("<I8II", 0x10300, 11, 14, 15, 16, 17, 25, 35, 36, 0)
         metadata_and_empty_sections = bytes(24)
         constant = struct.pack("<6I", 1, 0, 0x40000001, 3, 0, 2) + b"SL_JUMP\0"
-        imports = (
-            struct.pack("<9I", 1, 0xFFFFFFFF, 0x880003, 7, 0, 0xA1, 0, 0, 1)
-            + b"f\0\0\0"
-        )
-        source = (
-            header
-            + metadata_and_empty_sections
-            + constant
-            + imports
-            + bytes(4)
-            + struct.pack("<2I", 1, 0)
-        )
+        imports = struct.pack("<9I", 1, 0xFFFFFFFF, 0x880003, 7, 0, 0xA1, 0, 0, 1) + b"f\0\0\0"
+        source = header + metadata_and_empty_sections + constant + imports + bytes(4) + struct.pack("<2I", 1, 0)
         document = KsmDocument(source)
         self.assertEqual(document.constants[0].value, "SL_JUMP")
         self.assertEqual(document.imports[0].name, "f")

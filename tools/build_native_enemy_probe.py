@@ -42,12 +42,25 @@ def main() -> None:
         binary = root / "ksm_item.bin"
         binary.write_bytes((mod / "romfs" / RUNTIME_SCRIPT).read_bytes())
         compile_script(args.compiler, binary)
-        script = ScriptSource(binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(binary.read_bytes()).hexdigest())
+        script = ScriptSource(
+            binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(binary.read_bytes()).hexdigest()
+        )
         script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), flags, {}), encoding="utf-8")
         source = prepend_body(script.source.read_text(encoding="utf-8"), "rando_deliver", "\trando_enemy_probe*();\n")
-        source += "\nprivate rando_enemy_probe()  {\n\ttemp tempVar0 = rando_seed_valid*();\n\tif ( tempVar0 == false || gf_rando_probe_enemy_done ) {\n\t\treturn*;\n\t}\n\tgf_rando_probe_enemy_done *= true;\n\trando_enemy_reset*();\n"
+        source += (
+            "\nprivate rando_enemy_probe()  {\n\ttemp tempVar0 = rando_seed_valid"
+            "*();\n\tif ( tempVar0 == false || gf_rando_probe_enemy_done ) {\n\t\tr"
+            "eturn*;\n\t}\n\tgf_rando_probe_enemy_done *= true;\n\trando_enemy_reset"
+            "*();\n"
+        )
         for index in indices:
-            source += f"\ttempVar0 = rando_enemy_get*({index});\n\tif ( tempVar0 ) {{\n\t\treturn*;\n\t}}\n\trando_enemy_mark*({index});\n"
+            source += (
+                "\ttempVar0 = rando_enemy_get*("
+                f"{index}"
+                ");\n\tif ( tempVar0 ) {\n\t\treturn*;\n\t}\n\trando_enemy_mark*("
+                f"{index}"
+                ");\n"
+            )
         for index in indices:
             source += f"\ttempVar0 = rando_enemy_get*({index});\n\tif ( tempVar0 == false ) {{\n\t\treturn*;\n\t}}\n"
         source += "\trando_enemy_reset*();\n"

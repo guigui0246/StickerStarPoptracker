@@ -5,8 +5,15 @@ import unittest
 from unittest.mock import Mock, patch
 
 from ..integrations.rom.seed_patch import (
-    PLACEMENTS, TUTORIAL_FILES, PatchRecipe, apply_recipe, canonical,
-    create_recipe, decode_recipe, digest, write_recipe,
+    PLACEMENTS,
+    TUTORIAL_FILES,
+    PatchRecipe,
+    apply_recipe,
+    canonical,
+    create_recipe,
+    decode_recipe,
+    digest,
+    write_recipe,
 )
 from ..integrations.rom.sticker_patch import StickerPatch, PickupChange
 from ..integrations.rom.pickups import GamePickup
@@ -18,7 +25,9 @@ class SeedPatchTests(unittest.TestCase):
         self.patched = b"synthetic patched data"
         self.recipe = PatchRecipe("42", False, {PLACEMENTS: digest(self.source)}, digest(self.patched), 1)
         pickup = GamePickup("test_map", "test_object", "SL_JUMP", 100, 17, 0.0, 0.0, 0.0)
-        self.patch = StickerPatch("42", digest(self.source), digest(self.patched), (PickupChange(pickup, "SL_HAMMER"),), self.patched)
+        self.patch = StickerPatch(
+            "42", digest(self.source), digest(self.patched), (PickupChange(pickup, "SL_HAMMER"),), self.patched
+        )
 
     def altered(self, **changes: object) -> bytes:
         payload = json.loads(self.recipe.encode())
@@ -36,12 +45,19 @@ class SeedPatchTests(unittest.TestCase):
 
     def test_strict_versions_settings_checksums_and_paths(self) -> None:
         for changes in (
-            {"format_version": True}, {"format_version": 2},
-            {"algorithm": "unknown"}, {"mode": "full_progression"},
-            {"title_id": "other"}, {"tutorial_skip_revision": True},
-            {"tutorial_skip_revision": 1}, {"pickup_count": True},
-            {"pickup_count": 0}, {"seed": ""}, {"seed": "x" * 1025},
-            {"placements_sha256": "invalid"}, {"unknown": 1},
+            {"format_version": True},
+            {"format_version": 2},
+            {"algorithm": "unknown"},
+            {"mode": "full_progression"},
+            {"title_id": "other"},
+            {"tutorial_skip_revision": True},
+            {"tutorial_skip_revision": 1},
+            {"pickup_count": True},
+            {"pickup_count": 0},
+            {"seed": ""},
+            {"seed": "x" * 1025},
+            {"placements_sha256": "invalid"},
+            {"unknown": 1},
             {"source_hashes": {"../../escape": digest(self.source)}},
             {"tutorial_skip_revision": 2},
         ):
@@ -105,7 +121,13 @@ class SeedPatchTests(unittest.TestCase):
     def test_missing_compiler_and_changed_algorithm_fail_before_writing(self) -> None:
         project = Mock()
         project.read_file.return_value = self.source
-        tutorial = PatchRecipe("42", True, {PLACEMENTS: digest(self.source), **{name: digest(self.source) for name in TUTORIAL_FILES}}, digest(self.patched), 1)
+        tutorial = PatchRecipe(
+            "42",
+            True,
+            {PLACEMENTS: digest(self.source), **{name: digest(self.source) for name in TUTORIAL_FILES}},
+            digest(self.patched),
+            1,
+        )
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "mod"
             with self.assertRaises(ValueError):

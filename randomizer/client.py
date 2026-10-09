@@ -24,12 +24,16 @@ async def run(args: argparse.Namespace) -> None:
         client_config.validate(profile)
         locations = client_config.locations
         configured_rewards = client_config.local_rewards
-        remote_notices = {client_config.locations[identifier]: entry for identifier, entry in client_config.remote_placements.items()}
+        remote_notices = {
+            client_config.locations[identifier]: entry for identifier, entry in client_config.remote_placements.items()
+        }
         args.name = args.name or client_config.name
         args.game = args.game or client_config.game
     else:
         locations = {key: integer(value) for key, value in obj(json.loads(args.locations.read_text(encoding="utf-8"))).items()}
-        configured_rewards = tuple(ReceivedItem.parse(raw) for raw in array(json.loads(args.local_rewards.read_text(encoding="utf-8"))))
+        configured_rewards = tuple(
+            ReceivedItem.parse(raw) for raw in array(json.loads(args.local_rewards.read_text(encoding="utf-8")))
+        )
         args.game = args.game or "Paper Mario: Sticker Star"
     with CitraMemory(args.emulator_host, args.emulator_port, timeout=2) as memory:
         config = profile.session
@@ -38,7 +42,11 @@ async def run(args: argparse.Namespace) -> None:
         local_rewards = {}
         native_ids = {location: key for key, location in locations.items()}
         for item in configured_rewards:
-            if item.location not in native_ids or item.item not in profile.selector_rewards or profile.check_rewards[native_ids[item.location]] != profile.selector_rewards[item.item]:
+            if (
+                item.location not in native_ids
+                or item.item not in profile.selector_rewards
+                or profile.check_rewards[native_ids[item.location]] != profile.selector_rewards[item.item]
+            ):
                 raise ValueError("Local reward table does not match installed native placements")
             if item.location in local_rewards:
                 raise ValueError("Duplicate local reward location")
@@ -48,7 +56,9 @@ async def run(args: argparse.Namespace) -> None:
         if args.tracker_data:
             if args.server:
                 raise ValueError("The standalone tracker endpoint requires offline mode")
-            tracker = TrackerServer(session, args.name, args.game, json.loads(args.tracker_data.read_text(encoding="utf-8")), lambda: snapshot)
+            tracker = TrackerServer(
+                session, args.name, args.game, json.loads(args.tracker_data.read_text(encoding="utf-8")), lambda: snapshot
+            )
         ledger = Ledger(args.state, session)
         try:
             ledger.bind_local_rewards(local_rewards)
@@ -108,7 +118,11 @@ def main() -> None:
     parser.add_argument("--patch-report", type=Path, required=True)
     parser.add_argument("--config", type=Path, help="The .client.json generated alongside your native AP patch")
     parser.add_argument("--locations", type=Path, help="Native check ID to AP location ID JSON mapping")
-    parser.add_argument("--local-rewards", type=Path, help="NetworkItem array of locally owned placements, for offline delivery and echo deduplication")
+    parser.add_argument(
+        "--local-rewards",
+        type=Path,
+        help="NetworkItem array of locally owned placements, for offline delivery and echo deduplication",
+    )
     parser.add_argument("--server", help="AP server URL; omit for standalone offline delivery")
     parser.add_argument("--name")
     parser.add_argument("--game")

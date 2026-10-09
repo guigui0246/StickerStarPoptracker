@@ -27,7 +27,12 @@ def main() -> None:
     args = parser.parse_args()
     try:
         mode = AlbumPages(args.album_pages) if args.album_pages else None
-        result = build_reward_mod(RomProject(args.rom), load_plan(args.placements, mode, args.shuffle_royals, args.remote_rewards, args.ap_session), args.compiler, args.output)
+        result = build_reward_mod(
+            RomProject(args.rom),
+            load_plan(args.placements, mode, args.shuffle_royals, args.remote_rewards, args.ap_session),
+            args.compiler,
+            args.output,
+        )
         print(f"Built native reward hooks in {result}")
         print("Emulator validation and full-game integration remain pending.")
     except (OSError, ValueError, subprocess.CalledProcessError) as exc:

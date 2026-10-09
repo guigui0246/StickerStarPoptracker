@@ -5,7 +5,7 @@ from ..integrations.rom.script_build import lower_temporary_registers
 
 class ScriptRegisterTests(unittest.TestCase):
     def test_injected_scratch_uses_free_locals_and_preserves_literals(self) -> None:
-        source = '''public actor(temp tempVar0)  {
+        source = """public actor(temp tempVar0)  {
 \tlocal localVar0 = 1;
 \ttemp tempVar90 = helper*();
 \ttemp tempVar91 = tempVar90;
@@ -13,7 +13,7 @@ class ScriptRegisterTests(unittest.TestCase):
 \tif ( tempVar91 ) { tempVar0 = localVar0; }
 }
 private other()  { temp tempVar95 = helper*(); }
-'''
+"""
         result = lower_temporary_registers(source)
         self.assertIn("local localVar255 = helper*()", result)
         self.assertIn("local localVar254 = localVar255", result)

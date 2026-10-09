@@ -54,11 +54,7 @@ def parse_rules(value: Json) -> Rules:
     for operator in ("all", "any"):
         if operator in data:
             children = tuple(parse_rules(child) for child in array(data[operator]))
-            return (
-                Rules.all_of(*children)
-                if operator == "all"
-                else Rules.any_of(*children)
-            )
+            return Rules.all_of(*children) if operator == "all" else Rules.any_of(*children)
     raise ValueError("Unknown rule predicate")
 
 
@@ -77,11 +73,7 @@ def parse_catalog(value: Json) -> GameDefinition:
         if type(progression) is not bool:
             raise ValueError("progression must be boolean")
         item_args = (string(item["id"]), string(item["name"]), progression)
-        items.append(
-            Event(*item_args, location_id=string(item["location"]))
-            if "location" in item
-            else Item(*item_args)
-        )
+        items.append(Event(*item_args, location_id=string(item["location"])) if "location" in item else Item(*item_args))
     by_id = {item.id: item for item in items}
     regions: list[Region] = []
     for raw in array(data["regions"]):

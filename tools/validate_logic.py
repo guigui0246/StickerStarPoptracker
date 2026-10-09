@@ -52,9 +52,7 @@ def validate() -> None:
                 for row in node["rows"]:
                     for code in row:
                         if code not in codes:
-                            errors.append(
-                                f"{name}: undefined grid item {code}"
-                            )
+                            errors.append(f"{name}: undefined grid item {code}")
             if node.get("type") == "map":
                 for name_ in node.get("maps", []):
                     if name_ not in maps:
@@ -64,22 +62,16 @@ def validate() -> None:
         for node in walk(read(file)):
             for marker in node.get("map_locations", []):
                 if marker["map"] not in maps:
-                    errors.append(
-                        f"{file.name}: undefined map {marker['map']}"
-                    )
+                    errors.append(f"{file.name}: undefined map {marker['map']}")
             if "access_rules" in node:
                 sections += 1
                 for rule in node["access_rules"]:
                     for token in rule.split(","):
                         token = token.strip()
                         known = functions if token.startswith("$") else codes
-                        identifier = (
-                            token[1:] if token.startswith("$") else token
-                        )
+                        identifier = token[1:] if token.startswith("$") else token
                         if identifier not in known:
-                            errors.append(
-                                f"{file.name}: undefined rule {token}"
-                            )
+                            errors.append(f"{file.name}: undefined rule {token}")
     if errors:
         raise AssertionError("\n".join(errors))
     print(

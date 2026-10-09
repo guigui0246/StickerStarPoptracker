@@ -1,3 +1,4 @@
+from typing import Any, cast
 import unittest
 
 from ..data.catalog import parse_catalog
@@ -12,8 +13,8 @@ class TrackerCatalogTests(unittest.TestCase):
         game = parse_catalog(data)
         tracker = TrackerCatalog(game, allocate_registry(game), "a" * 64)
         definitions = tracker.definitions()
-        self.assertEqual(len(definitions["locations"]), len(game.locations) - len(game.fixed_rewards))
-        self.assertEqual(len(tracker.mappings()["items"]), len(game.items) - len(set(game.fixed_rewards.values())))
+        self.assertEqual(len(cast(Any, definitions)["locations"]), len(game.locations) - len(game.fixed_rewards))
+        self.assertEqual(len(cast(Any, tracker.mappings())["items"]), len(game.items) - len(set(game.fixed_rewards.values())))
         for location in game.locations:
             if location.id not in game.fixed_rewards:
                 self.assertIn("function " + tracker.access_function(location.id) + "()", tracker.lua())

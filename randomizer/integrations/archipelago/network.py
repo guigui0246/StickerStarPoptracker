@@ -34,24 +34,29 @@ async def connect_websocket(url: str) -> Socket:
     except ImportError as error:
         raise RuntimeError("Install websockets>=13 to use the Archipelago connection") from error
     connection = await module.connect(url, max_size=4 * 1024 * 1024, open_timeout=15, ping_interval=20, ping_timeout=20)
+
     class WebSocket:
         async def recv(self) -> str | bytes:
             try:
                 return cast(str | bytes, await connection.recv())
             except exceptions.ConnectionClosed as error:
                 raise ConnectionError(str(error)) from error
+
         async def send(self, message: str) -> None:
             try:
                 await connection.send(message)
             except exceptions.ConnectionClosed as error:
                 raise ConnectionError(str(error)) from error
+
         async def close(self) -> None:
             await connection.close()
+
     return WebSocket()
 
 
-async def run_client(client: ProtocolClient, url: str, game: GameDelivery,
-                     stop: asyncio.Event, connector: Connector = connect_websocket) -> None:
+async def run_client(
+    client: ProtocolClient, url: str, game: GameDelivery, stop: asyncio.Event, connector: Connector = connect_websocket
+) -> None:
     parsed = urlparse(url)
     if parsed.scheme not in {"ws", "wss"} or not parsed.hostname or parsed.username or parsed.password:
         raise ValueError("Use a ws:// or wss:// server URL without embedded credentials")

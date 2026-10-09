@@ -30,7 +30,7 @@ class RuntimePoolTests(unittest.TestCase):
             word = struct.unpack("<I", data)[0]
             self.assertEqual(arm_immediate(word), value)
             self.assertEqual(word & ~0xFFF, original & ~0xFFF)
-            rebuilt[offset:offset + 4] = data
+            rebuilt[offset : offset + 4] = data
         self.assertEqual(EXPANDED_LIMIT * CELL_SIZE, 0x90000)
         self.assertEqual((EXPANDED_LIMIT - ORIGINAL_LIMIT) * CELL_SIZE, 288 * 1024)
         self.assertEqual(hashlib.sha256(rebuilt).hexdigest(), patch.patched_sha256)

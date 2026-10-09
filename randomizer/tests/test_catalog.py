@@ -1,3 +1,4 @@
+from typing import Any, cast
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -48,7 +49,7 @@ class CatalogTests(unittest.TestCase):
             {"unknown": []},
         ):
             with self.subTest(rule=rule), self.assertRaises(ValueError):
-                parse_rules(rule)
+                parse_rules(cast(Any, rule))
 
 
 if __name__ == "__main__":

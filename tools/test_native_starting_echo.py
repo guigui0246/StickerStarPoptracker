@@ -59,8 +59,11 @@ def main() -> None:
             assert inventory() == before, "Starting-item echo changed native inventory"
             assert game.deliver(f"ap/{index}", item), "Starting-item replay lost its receipt"
             assert inventory() == before, "Starting-item replay changed native inventory"
-        print(json.dumps({"starting_echo_passed": True, "precollected_receipts": len(starting),
-                          "host_inventory_writes": 0}, indent=2))
+        print(
+            json.dumps(
+                {"starting_echo_passed": True, "precollected_receipts": len(starting), "host_inventory_writes": 0}, indent=2
+            )
+        )
 
 
 if __name__ == "__main__":

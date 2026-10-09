@@ -23,7 +23,7 @@ class SettingsTests(unittest.TestCase):
     def test_page_rewards_require_exact_pool_and_selected_mode(self) -> None:
         checks = tuple(GoalBlockReward(f"map_{i}", "GF_WM_A01_A02", NativeReward(NativeRewardKind.PAGE, 1)) for i in range(6))
         plan = DeliveryPlan(checks, AlbumPages.RANDOMIZED)
-        self.assertEqual(plan.delivery_body().count('rando_page_grant*()'), 6)
+        self.assertEqual(plan.delivery_body().count("rando_page_grant*()"), 6)
         self.assertEqual(plan.page_function().count('item_try_addpouch*("SL_PAGE", true)'), 6)
         self.assertEqual(len(plan.page_flags), 6)
         for flag in plan.page_flags:

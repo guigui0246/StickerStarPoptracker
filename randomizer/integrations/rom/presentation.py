@@ -18,4 +18,6 @@ def skip_opening(source: str) -> str:
 
 def skip_dialogue(source: str) -> str:
     source = replace_body(source, "msg_skip_start", "\tmsg_skip_setting*(true);")
-    return replace_body(source, "msg_skip_end", "\tif ( localVar0 != -1 ) {\n\t\tlocalVar0 = true;\n\t}\n\tmsg_skip_setting*(true);")
+    return replace_body(
+        source, "msg_skip_end", "\tif ( localVar0 != -1 ) {\n\t\tlocalVar0 = true;\n\t}\n\tmsg_skip_setting*(true);"
+    )

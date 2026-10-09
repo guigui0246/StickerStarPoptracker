@@ -24,9 +24,7 @@ class ScriptSurvey:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(
-        description="Export observed game metadata; access rules are not inferred."
-    )
+    parser = argparse.ArgumentParser(description="Export observed game metadata; access rules are not inferred.")
     parser.add_argument("rom", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
@@ -47,14 +45,12 @@ def main() -> None:
                     tuple(
                         variable.value
                         for variable in script.constants
-                        if isinstance(variable.value, str)
-                        and variable.value.startswith(("SL_", "REAL_", "PK_", "IC_"))
+                        if isinstance(variable.value, str) and variable.value.startswith(("SL_", "REAL_", "PK_", "IC_"))
                     ),
                     tuple(
                         variable.name
                         for variable in script.statics
-                        if variable.type == KsmValueType.SAVE_VARIABLE
-                        and variable.name is not None
+                        if variable.type == KsmValueType.SAVE_VARIABLE and variable.name is not None
                     ),
                     tuple(
                         imported.name

@@ -19,9 +19,7 @@ class RewardState:
         self.sticker_inventory[delivered] += 1
         return delivered
 
-    def deliver(
-        self, check_id: str, reward_id: str, items: Mapping[str, JsonObject]
-    ) -> bool:
+    def deliver(self, check_id: str, reward_id: str, items: Mapping[str, JsonObject]) -> bool:
         if check_id in self.completed_checks:
             return False
         reward = items[reward_id]

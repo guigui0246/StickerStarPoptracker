@@ -33,7 +33,10 @@ class TrackerServer:
     def __init__(self, session: Session, name: str, game: str, data: Json, snapshot: Callable[[], TrackingSnapshot]) -> None:
         self.session, self.name, self.game, self.snapshot = session, name, game, snapshot
         self.data = obj(data)
-        if set(self.data) != {"catalog_hash", "items", "locations", "tracker"} or self.data["catalog_hash"] != session.catalog_hash:
+        if (
+            set(self.data) != {"catalog_hash", "items", "locations", "tracker"}
+            or self.data["catalog_hash"] != session.catalog_hash
+        ):
             raise ValueError("Standalone tracker configuration does not match the catalog")
         items, locations = obj(self.data["items"]), obj(self.data["locations"])
         for names in (items, locations):
@@ -43,9 +46,16 @@ class TrackerServer:
         tracker = obj(self.data["tracker"])
         if tracker.get("format_version") != 1 or tracker.get("catalog_hash") != session.catalog_hash:
             raise ValueError("Tracker mapping requires the bound catalog identity")
-        if set(obj(tracker.get("items"))) != {str(value) for value in items.values()} or set(obj(tracker.get("locations"))) != {str(value) for value in locations.values()}:
+        if set(obj(tracker.get("items"))) != {str(value) for value in items.values()} or set(
+            obj(tracker.get("locations"))
+        ) != {str(value) for value in locations.values()}:
             raise ValueError("Tracker mappings and AP data package disagree")
-        package: dict[str, Json] = {"item_name_groups": {}, "item_name_to_id": items, "location_name_groups": {}, "location_name_to_id": locations}
+        package: dict[str, Json] = {
+            "item_name_groups": {},
+            "item_name_to_id": items,
+            "location_name_groups": {},
+            "location_name_to_id": locations,
+        }
         package["checksum"] = hashlib.sha1(json.dumps(package, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
         self.package = package
         self.location_ids = frozenset(integer(value) for value in locations.values())
@@ -57,28 +67,72 @@ class TrackerServer:
 
     def current(self) -> TrackingSnapshot:
         value = self.snapshot()
-        if set(value.checks) - self.location_ids or any(item.item not in self.item_ids or (item.location != -2 and item.location not in self.location_ids) or item.player != self.session.slot for item in value.items):
+        if set(value.checks) - self.location_ids or any(
+            item.item not in self.item_ids
+            or (item.location != -2 and item.location not in self.location_ids)
+            or item.player != self.session.slot
+            for item in value.items
+        ):
             raise ValueError("Native snapshot contains unknown tracker IDs")
         return value
 
     def connected(self, state: TrackingSnapshot) -> dict[str, Json]:
-        player: dict[str, Json] = {"class": "NetworkPlayer", "team": self.session.team, "slot": self.session.slot, "alias": self.name, "name": self.name}
+        player: dict[str, Json] = {
+            "class": "NetworkPlayer",
+            "team": self.session.team,
+            "slot": self.session.slot,
+            "alias": self.name,
+            "name": self.name,
+        }
         slot: dict[str, Json] = {"class": "NetworkSlot", "name": self.name, "game": self.game, "type": 1, "group_members": []}
-        return {"cmd": "Connected", "team": self.session.team, "slot": self.session.slot, "players": [player],
-                "missing_locations": [location for location in sorted(self.location_ids - set(state.checks))], "checked_locations": list(state.checks),
-                "slot_data": {"format_version": 1, "catalog_hash": self.session.catalog_hash, "tracker": self.data["tracker"]},
-                "slot_info": {str(self.session.slot): slot}, "hint_points": 0}
+        return {
+            "cmd": "Connected",
+            "team": self.session.team,
+            "slot": self.session.slot,
+            "players": [player],
+            "missing_locations": [location for location in sorted(self.location_ids - set(state.checks))],
+            "checked_locations": list(state.checks),
+            "slot_data": {"format_version": 1, "catalog_hash": self.session.catalog_hash, "tracker": self.data["tracker"]},
+            "slot_info": {str(self.session.slot): slot},
+            "hint_points": 0,
+        }
 
     @staticmethod
     def received(state: TrackingSnapshot, index: int = 0) -> dict[str, Json]:
-        return {"cmd": "ReceivedItems", "index": index,
-                "items": [{"class": "NetworkItem", "item": item.item, "location": item.location, "player": item.player, "flags": item.flags} for item in state.items[index:]]}
+        return {
+            "cmd": "ReceivedItems",
+            "index": index,
+            "items": [
+                {
+                    "class": "NetworkItem",
+                    "item": item.item,
+                    "location": item.location,
+                    "player": item.player,
+                    "flags": item.flags,
+                }
+                for item in state.items[index:]
+            ],
+        }
 
     async def handle(self, socket: Socket) -> None:
-        await self.send(socket, [{"cmd": "RoomInfo", "seed_name": self.session.seed, "password": False, "games": [self.game],
-                                 "version": {"class": "Version", "major": 0, "minor": 6, "build": 8},
-                                 "tags": ["AP", "Tracker"], "permissions": {"release": 0, "collect": 0, "remaining": 0},
-                                 "hint_cost": 0, "location_check_points": 0, "datapackage_checksums": {self.game: self.package["checksum"]}, "players": []}])
+        await self.send(
+            socket,
+            [
+                {
+                    "cmd": "RoomInfo",
+                    "seed_name": self.session.seed,
+                    "password": False,
+                    "games": [self.game],
+                    "version": {"class": "Version", "major": 0, "minor": 6, "build": 8},
+                    "tags": ["AP", "Tracker"],
+                    "permissions": {"release": 0, "collect": 0, "remaining": 0},
+                    "hint_cost": 0,
+                    "location_check_points": 0,
+                    "datapackage_checksums": {self.game: self.package["checksum"]},
+                    "players": [],
+                }
+            ],
+        )
         authenticated = False
         previous = TrackingSnapshot()
         receive = asyncio.create_task(socket.recv())
@@ -107,7 +161,11 @@ class TrackerServer:
                     receive = asyncio.create_task(socket.recv())
                 if authenticated:
                     current = self.current()
-                    if current.items[:len(previous.items)] != previous.items or not set(previous.checks) <= set(current.checks) or (previous.won and not current.won):
+                    if (
+                        current.items[: len(previous.items)] != previous.items
+                        or not set(previous.checks) <= set(current.checks)
+                        or (previous.won and not current.won)
+                    ):
                         # A rollback requires a clear/replay. Disconnecting lets
                         # the standard AP client perform its normal reconnect.
                         await socket.close()
@@ -132,10 +190,12 @@ class TrackerServer:
             errors = importlib.import_module("websockets.exceptions")
         except ImportError as error:
             raise RuntimeError("Install websockets>=13 for the optional standalone tracker") from error
+
         async def handler(socket: Socket) -> None:
             try:
                 await self.handle(socket)
             except errors.ConnectionClosed:
                 pass
+
         async with server.serve(handler, "127.0.0.1", port, max_size=4 * 1024 * 1024):
             await stop.wait()

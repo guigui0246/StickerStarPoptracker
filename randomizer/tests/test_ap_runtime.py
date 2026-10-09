@@ -7,7 +7,6 @@ import unittest
 from ..integrations.archipelago.runtime import Ledger, ProtocolClient, ReceivedItem, Session
 from ..integrations.archipelago.network import run_client
 
-
 SESSION = Session("test-seed", 0, 1, "a" * 64, "save-one")
 ITEM = ReceivedItem(100, 200, 2, 1)
 
@@ -48,8 +47,14 @@ class RuntimeTests(unittest.TestCase):
     def authenticate(self) -> None:
         packets = self.client.handle({"cmd": "RoomInfo", "seed_name": SESSION.seed})
         self.assertEqual(packets[0]["items_handling"], 7)
-        self.client.handle({"cmd": "Connected", "team": 0, "slot": 1,
-                            "slot_data": {"format_version": 1, "catalog_hash": SESSION.catalog_hash}})
+        self.client.handle(
+            {
+                "cmd": "Connected",
+                "team": 0,
+                "slot": 1,
+                "slot_data": {"format_version": 1, "catalog_hash": SESSION.catalog_hash},
+            }
+        )
 
     def test_overlap_and_conflicting_replay_are_atomic(self) -> None:
         self.assertTrue(self.ledger.receive(0, (ITEM,)))
@@ -129,10 +134,14 @@ class RuntimeTests(unittest.TestCase):
         self.ledger.record_check(200)
         self.ledger.victory()
         self.authenticate()
-        self.assertEqual(self.client.reconnect_packets(), [
-            {"cmd": "Sync"}, {"cmd": "LocationChecks", "locations": [200]},
-            {"cmd": "StatusUpdate", "status": 30}])
-        self.assertEqual(self.client.decode(json.dumps([{"cmd": "ReceivedItems", "index": 3, "items": [[100, 200, 2, 1]]}])), [{"cmd": "Sync"}])
+        self.assertEqual(
+            self.client.reconnect_packets(),
+            [{"cmd": "Sync"}, {"cmd": "LocationChecks", "locations": [200]}, {"cmd": "StatusUpdate", "status": 30}],
+        )
+        self.assertEqual(
+            self.client.decode(json.dumps([{"cmd": "ReceivedItems", "index": 3, "items": [[100, 200, 2, 1]]}])),
+            [{"cmd": "Sync"}],
+        )
 
     def test_wrong_seed_catalog_and_unauthenticated_items(self) -> None:
         with self.assertRaises(ValueError):
@@ -141,19 +150,31 @@ class RuntimeTests(unittest.TestCase):
             self.client.handle({"cmd": "ReceivedItems", "index": 0, "items": []})
         self.client.handle({"cmd": "RoomInfo", "seed_name": SESSION.seed})
         with self.assertRaises(ValueError):
-            self.client.handle({"cmd": "Connected", "team": 0, "slot": 1,
-                                "slot_data": {"format_version": 1, "catalog_hash": "b" * 64}})
+            self.client.handle(
+                {"cmd": "Connected", "team": 0, "slot": 1, "slot_data": {"format_version": 1, "catalog_hash": "b" * 64}}
+            )
 
     def test_invalid_packet_does_not_mutate_items(self) -> None:
         self.authenticate()
         with self.assertRaises(ValueError):
-            self.client.decode(json.dumps([{"cmd": "ReceivedItems", "index": 0, "items": [[100, 200, 2, 1], [True, 200, 2, 1]]}]))
+            self.client.decode(
+                json.dumps([{"cmd": "ReceivedItems", "index": 0, "items": [[100, 200, 2, 1], [True, 200, 2, 1]]}])
+            )
         self.assertEqual(self.ledger.count, 0)
 
     def test_actual_ap_named_tuple_wire_shape(self) -> None:
         self.authenticate()
-        self.client.decode(json.dumps([{"cmd": "ReceivedItems", "index": 0,
-            "items": [{"class": "NetworkItem", "item": 100, "location": 200, "player": 2, "flags": 1}]}]))
+        self.client.decode(
+            json.dumps(
+                [
+                    {
+                        "cmd": "ReceivedItems",
+                        "index": 0,
+                        "items": [{"class": "NetworkItem", "item": 100, "location": 200, "player": 2, "flags": 1}],
+                    }
+                ]
+            )
+        )
         self.assertEqual(self.ledger.count, 1)
 
     def test_network_runner_handshake_and_delivery(self) -> None:
@@ -161,35 +182,51 @@ class RuntimeTests(unittest.TestCase):
             stop = asyncio.Event()
             messages = [
                 [{"cmd": "RoomInfo", "seed_name": SESSION.seed}],
-                [{"cmd": "Connected", "team": 0, "slot": 1, "slot_data": {"format_version": 1, "catalog_hash": SESSION.catalog_hash}}],
+                [
+                    {
+                        "cmd": "Connected",
+                        "team": 0,
+                        "slot": 1,
+                        "slot_data": {"format_version": 1, "catalog_hash": SESSION.catalog_hash},
+                    }
+                ],
                 [{"cmd": "ReceivedItems", "index": 0, "items": [[100, 200, 2, 1]]}],
             ]
+
             class FakeSocket:
                 closed = False
                 sent: list[str] = []
+
                 async def recv(self) -> str:
                     if messages:
                         return json.dumps(messages.pop(0))
                     stop.set()
                     return "[]"
+
                 async def send(self, message: str) -> None:
                     self.sent.append(message)
+
                 async def close(self) -> None:
                     self.closed = True
+
             socket = FakeSocket()
+
             async def connect(url: str) -> FakeSocket:
                 return socket
+
             game = FakeGame()
             await run_client(self.client, "ws://localhost:38281", game, stop, connect)
             self.assertEqual(game.grants, [100])
             self.assertTrue(socket.closed)
             self.assertEqual(json.loads(socket.sent[0])[0]["cmd"], "Connect")
+
         asyncio.run(scenario())
 
     def test_later_remote_page_can_unblock_an_earlier_remote_sticker(self) -> None:
         class PriorityGame(FakeGame):
             def prepare_pages(self, items):
                 self.pages = {index for index, item in items if item.item == 101}
+
             def deliver_priority(self, receipt, item):
                 if item.item != 101:
                     return False
@@ -197,6 +234,7 @@ class RuntimeTests(unittest.TestCase):
                 self.receipts.add(receipt)
                 self.grants.append(item.item)
                 return True
+
         game = PriorityGame()
         game.full = True
         self.ledger.receive(0, (ITEM, ReceivedItem(101, 201, 2, 1)))

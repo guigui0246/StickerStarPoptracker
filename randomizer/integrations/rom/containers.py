@@ -23,12 +23,20 @@ class ContainerSource:
 
 
 def container_sources(document: KdmDocument) -> tuple[ContainerSource, ...]:
-    expected = {21: (3, 3), 22: (3, 15, 1), 23: (1, 15), 24: (15, 15, 1, 1),
-                29: (3, 1, 1, 1, 15, 15),
-                36: (3, 3, 3, 0, 0, 0, 0, 4, 1, 1, 15, 15),
-                38: (3, 15, 1), 42: (3, 20, 1, 20, 1, 20, 1, 20, 1, 15)}
-    if any(identifier not in document.structures or document.structures[identifier].fields != fields
-           for identifier, fields in expected.items()):
+    expected = {
+        21: (3, 3),
+        22: (3, 15, 1),
+        23: (1, 15),
+        24: (15, 15, 1, 1),
+        29: (3, 1, 1, 1, 15, 15),
+        36: (3, 3, 3, 0, 0, 0, 0, 4, 1, 1, 15, 15),
+        38: (3, 15, 1),
+        42: (3, 20, 1, 20, 1, 20, 1, 20, 1, 15),
+    }
+    if any(
+        identifier not in document.structures or document.structures[identifier].fields != fields
+        for identifier, fields in expected.items()
+    ):
         raise ValueError("Unsupported native container disposition schema")
     result: dict[tuple[str, str], ContainerSource] = {}
     for reference in document.tables["all_disposDataTbl"].values:
@@ -79,7 +87,10 @@ def container_sources(document: KdmDocument) -> tuple[ContainerSource, ...]:
                                 if fallback_list.type_id != 22 or len(fallback_list.values) != 1:
                                     raise ValueError("Unsupported treasure fallback reward")
                                 fallback_contents = document.pointed_array(pointer(record(fallback_list.values[0], 3)[1]))
-                                if fallback_contents.type_id != 21 or any(text(record(entry, 2)[0]).startswith(("PK_", "REAL_")) for entry in fallback_contents.values):
+                                if fallback_contents.type_id != 21 or any(
+                                    text(record(entry, 2)[0]).startswith(("PK_", "REAL_"))
+                                    for entry in fallback_contents.values
+                                ):
                                     raise ValueError("Treasure fallback contains another progression source")
                         list_pointer = pointer(loot[0])
                         if not list_pointer.address:
@@ -92,8 +103,15 @@ def container_sources(document: KdmDocument) -> tuple[ContainerSource, ...]:
                         if contents.type_id != 21 or len(contents.values) != 1 or integer(list_fields[2]) != 1:
                             raise ValueError("Treasure file must have one deterministic native reward")
                         item = record(contents.values[0], 2)[0]
-                        source = ContainerSource(text(group_fields[0]), text(map_fields[0]), text(fields[0]),
-                                                 text(fields[1]), text(item), integer(fields[8]), item.offset)
+                        source = ContainerSource(
+                            text(group_fields[0]),
+                            text(map_fields[0]),
+                            text(fields[0]),
+                            text(fields[1]),
+                            text(item),
+                            integer(fields[8]),
+                            item.offset,
+                        )
                         identity = source.map_name, source.object_name
                         if identity in result:
                             raise ValueError("Duplicate native container identity")
@@ -105,27 +123,47 @@ def container_runtime(plan: DeliveryPlan) -> str:
     checks = [(index, check) for index, check in enumerate(plan.checks) if isinstance(check, ContainerReward)]
     if not checks:
         return ""
-    lines = ["public rando_container_collect(temp tempVar0, temp tempVar1) {",
-             "\tlocal localVar0 = tempVar0;", "\tlocal localVar1 = tempVar1;",
-             "\tlocal localVar2 = pouch_get_map_name*();", "\tlocal localVar3;"]
+    lines = [
+        "public rando_container_collect(temp tempVar0, temp tempVar1) {",
+        "\tlocal localVar0 = tempVar0;",
+        "\tlocal localVar1 = tempVar1;",
+        "\tlocal localVar2 = pouch_get_map_name*();",
+        "\tlocal localVar3;",
+    ]
     for index, check in checks:
         checked, _ = plan.receipt(index)
-        lines.extend([f'\tif ( localVar2 == "{check.map_name}" && localVar0 == "{check.object_name}" && localVar1 == "{check.source_item}" ) {{',
-                      "\t\tlocalVar3 = rando_seed_valid*();",
-                      "\t\tif ( localVar3 == false ) {\n\t\t\treturn* -1;\n\t\t}",
-                      f"\t\t{checked} *= true;", "\t\trando_deliver*();", "\t\treturn* true;\n\t}"])
+        lines.extend(
+            [
+                '\tif ( localVar2 == "'
+                f"{check.map_name}"
+                '" && localVar0 == "'
+                f"{check.object_name}"
+                '" && localVar1 == "'
+                f"{check.source_item}"
+                '" ) {',
+                "\t\tlocalVar3 = rando_seed_valid*();",
+                "\t\tif ( localVar3 == false ) {\n\t\t\treturn* -1;\n\t\t}",
+                f"\t\t{checked} *= true;",
+                "\t\trando_deliver*();",
+                "\t\treturn* true;\n\t}",
+            ]
+        )
     return "\n".join(lines + ["\treturn* false;", "}"]) + "\n"
 
 
 def hook_treasure_acquisition(source: str) -> str:
-    body = ('\tlocal localVar90 = character_get_name*();\n'
-            '\tlocal localVar91 = mobj_get_item_name*(self);\n'
-            '\tlocal localVar92 = rando_container_collect*(localVar90, localVar91);\n'
-            '\tif ( localVar92 == -1 ) {\n\t\treturn*;\n\t}\n')
+    body = (
+        "\tlocal localVar90 = character_get_name*();\n"
+        "\tlocal localVar91 = mobj_get_item_name*(self);\n"
+        "\tlocal localVar92 = rando_container_collect*(localVar90, localVar91);\n"
+        "\tif ( localVar92 == -1 ) {\n\t\treturn*;\n\t}\n"
+    )
     source = prepend_body(source, "action", body)
-    for name, arguments in (("item_try_addpouch", "tempVar8"),
-                            ("item_try_addpouch", "tempVar8, true"),
-                            ("item_disp_get_ui", "tempVar8, true, true, 60")):
+    for name, arguments in (
+        ("item_try_addpouch", "tempVar8"),
+        ("item_try_addpouch", "tempVar8, true"),
+        ("item_disp_get_ui", "tempVar8, true, true, 60"),
+    ):
         pattern = r"\t" + name + r"\*?\(" + re.escape(arguments) + r"\);"
         if len(re.findall(pattern, source)) != 1:
             raise ValueError("Treasure acquisition no longer matches the inspected native callback")

@@ -4,6 +4,7 @@ import argparse
 from pathlib import Path
 import sys
 import unittest
+from typing import Any, cast
 
 
 def main() -> None:
@@ -11,12 +12,12 @@ def main() -> None:
     parser.add_argument("--lua-runtime", required=True, type=Path)
     args = parser.parse_args()
     sys.path.insert(0, str(args.lua_runtime.resolve()))
-    from lupa import LuaRuntime
+    from lupa import LuaRuntime  # pyright: ignore[reportMissingModuleSource]
 
     class TrackingTests(unittest.TestCase):
         def setUp(self) -> None:
-            self.lua = LuaRuntime(unpack_returned_tuples=True)
-            self.lua.execute('''
+            self.lua = cast(Any, LuaRuntime(unpack_returned_tuples=True))
+            self.lua.execute("""
                 objects = {
                     hammer = {Type="toggle", Active=true},
                     pages = {Type="consumable", AcquiredCount=4, MaxCount=6},
@@ -36,28 +37,45 @@ def main() -> None:
                         locations={["200"]="@Stage/Check"}
                     }})
                 end
-            ''')
-            self.lua.execute((Path(__file__).resolve().parents[1] / "scripts/autotracking.lua").read_text(encoding="utf-8"))
+            """)
+            self.lua.execute(
+                (Path(__file__).resolve().parents[1] / "tracker/scripts/autotracking.lua").read_text(encoding="utf-8")
+            )
             self.lua.globals().clear_seed("a" * 64)
 
         def test_check_does_not_grant_its_item(self) -> None:
-            self.lua.execute('callbacks.location(200); assert(objects["@Stage/Check"].AvailableChestCount == 0); assert(not objects.hammer.Active)')
+            self.lua.execute(
+                'callbacks.location(200); assert(objects["@Stage/Check"].Available'
+                "ChestCount == 0); assert(not objects.hammer.Active)"
+            )
 
         def test_duplicate_packet_and_counter_limits(self) -> None:
-            self.lua.execute('callbacks.item(0,101); callbacks.item(0,101); assert(objects.pages.AcquiredCount == 1); for i=1,10 do callbacks.item(i,101) end; assert(objects.pages.AcquiredCount == 6)')
+            self.lua.execute(
+                "callbacks.item(0,101); callbacks.item(0,101); assert(objects.page"
+                "s.AcquiredCount == 1); for i=1,10 do callbacks.item(i,101) end; a"
+                "ssert(objects.pages.AcquiredCount == 6)"
+            )
 
         def test_reconnect_resets_then_replays_inventory_and_checks(self) -> None:
-            self.lua.execute('callbacks.item(0,100); callbacks.location(200); assert(objects.hammer.Active)')
+            self.lua.execute("callbacks.item(0,100); callbacks.location(200); assert(objects.hammer.Active)")
             self.lua.globals().clear_seed("a" * 64)
-            self.lua.execute('assert(not objects.hammer.Active); assert(objects["@Stage/Check"].AvailableChestCount == 1); callbacks.item(0,100); assert(objects.hammer.Active); assert(not Tracker.BulkUpdate)')
+            self.lua.execute(
+                'assert(not objects.hammer.Active); assert(objects["@Stage/Check"]'
+                ".AvailableChestCount == 1); callbacks.item(0,100); assert(objects"
+                ".hammer.Active); assert(not Tracker.BulkUpdate)"
+            )
 
         def test_wrong_catalog_and_unknown_ids_are_ignored(self) -> None:
             self.lua.execute('TRACKER_CATALOG_HASH = string.rep("b",64)')
             self.lua.globals().clear_seed("a" * 64)
-            self.lua.execute('callbacks.item(0,100); callbacks.location(200); assert(not objects.hammer.Active); assert(objects["@Stage/Check"].AvailableChestCount == 1)')
+            self.lua.execute(
+                "callbacks.item(0,100); callbacks.location(200); assert(not object"
+                's.hammer.Active); assert(objects["@Stage/Check"].AvailableChestCo'
+                "unt == 1)"
+            )
 
         def test_cached_checks_are_restored_separately(self) -> None:
-            self.lua.execute('Archipelago.CheckedLocations = {200}')
+            self.lua.execute("Archipelago.CheckedLocations = {200}")
             self.lua.globals().clear_seed("a" * 64)
             self.lua.execute('assert(objects["@Stage/Check"].AvailableChestCount == 0); assert(not objects.hammer.Active)')
 

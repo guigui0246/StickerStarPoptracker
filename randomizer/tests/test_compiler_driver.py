@@ -8,7 +8,7 @@ from ..integrations.rom.script_build import validate_function_contracts, validat
 
 class CompilerDriverTests(unittest.TestCase):
     def test_compiler_cannot_keep_a_helper_definition_but_drop_its_calls(self):
-        source = 'private rando_query() {\n}\nprivate init() {\nlocal localVar0 = rando_query*();\n}\n'
+        source = "private rando_query() {\n}\nprivate init() {\nlocal localVar0 = rando_query*();\n}\n"
         validate_runtime_calls(source, source.replace("rando_query*()", "rando_query()"))
         with self.assertRaises(ValueError):
             validate_runtime_calls(source, source.replace("local localVar0 = rando_query*();", "local localVar0 = false;"))
@@ -23,31 +23,33 @@ class CompilerDriverTests(unittest.TestCase):
         self.assertEqual((struct.pack("<f", value), kind), (bytes.fromhex("000080ff"), "float"))
         reader.getNextTerm.assert_called_once_with()
         original.assert_not_called()
-        source = 'private init() { use*(curve); }\nvar_array curve = {inf, -inf, 0.0};\n'
+        source = "private init() { use*(curve); }\nvar_array curve = {inf, -inf, 0.0};\n"
         self.assertTrue(hoist_literal_arrays(source).startswith("var_array curve"))
 
     def test_forward_literal_arrays_keep_values_and_function_source(self):
-        source = 'private init()  {\n\tarray_copy_1(table, 0, tempVar0);\n}\nvar_array table = {0, -2, 1.25, true, "a,b", 0xAB};\n'
+        source = (
+            'private init()  {\n\tarray_copy_1(table, 0, tempVar0);\n}\nvar_array table = {0, -2, 1.25, true, "a,b", 0xAB};\n'
+        )
         result = hoist_literal_arrays(source)
         self.assertTrue(result.startswith('var_array table = {0, -2, 1.25, true, "a,b", 0xAB};'))
         self.assertEqual(result.count("var_array table"), 1)
         self.assertIn(source.split("var_array", 1)[0], result)
 
     def test_computed_and_local_arrays_are_not_moved(self):
-        source = 'var_array table = {variable, 2};\nprivate init()  {\n\tvar_array local_table = {1, 2};\n}\n'
+        source = "var_array table = {variable, 2};\nprivate init()  {\n\tvar_array local_table = {1, 2};\n}\n"
         self.assertEqual(hoist_literal_arrays(source), source)
 
     def test_header_slot_arrays_keep_references(self):
-        source = 'private init()  {\n\tarray_assign_1(table, 0, 2);\n}\nvar_array table = {var_0x30012345, 0};\n'
-        self.assertTrue(hoist_literal_arrays(source).startswith('var_array table = {var_0x30012345, 0};'))
+        source = "private init()  {\n\tarray_assign_1(table, 0, 2);\n}\nvar_array table = {var_0x30012345, 0};\n"
+        self.assertTrue(hoist_literal_arrays(source).startswith("var_array table = {var_0x30012345, 0};"))
 
     def test_compilation_cannot_drop_callbacks_or_change_public_scope(self):
-        source = 'public entry()  {\n}\nprivate callback()  {\n}\n'
+        source = "public entry()  {\n}\nprivate callback()  {\n}\n"
         validate_function_contracts(source, source)
         with self.assertRaises(ValueError):
-            validate_function_contracts(source, 'public entry()  {\n}\n')
+            validate_function_contracts(source, "public entry()  {\n}\n")
         with self.assertRaises(ValueError):
-            validate_function_contracts(source, source.replace('public entry', 'private entry'))
+            validate_function_contracts(source, source.replace("public entry", "private entry"))
 
     def test_digit_prefixed_native_identifiers_are_not_rewritten_as_numbers(self):
         for token in ("16mai_kuriboo_parts_damage", "2mai_kuriboo", "10mai_heihoo"):

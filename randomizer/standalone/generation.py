@@ -38,12 +38,8 @@ def reachable_regions(game: GameDefinition, inventory: InventoryState) -> set[st
 def playthrough(game: GameDefinition, placements: Mapping[str, str]) -> Seed:
     fixed = game.fixed_rewards
     randomized = {loc.id for loc in game.locations} - fixed.keys()
-    if set(placements) != randomized or Counter(placements.values()) != Counter(
-        game.pool
-    ):
-        raise ValueError(
-            "Placements must match the randomized locations and exact pool"
-        )
+    if set(placements) != randomized or Counter(placements.values()) != Counter(game.pool):
+        raise ValueError("Placements must match the randomized locations and exact pool")
     inventory = InventoryState(Counter(game.starting_items))
     remaining = {loc.id: loc for loc in game.locations}
     rewards = dict(placements) | fixed
@@ -52,11 +48,7 @@ def playthrough(game: GameDefinition, placements: Mapping[str, str]) -> Seed:
     while remaining:
         regions = reachable_regions(game, inventory)
         sphere = tuple(
-            sorted(
-                key
-                for key, loc in remaining.items()
-                if loc.region_id in regions and loc.rules.allows(inventory)
-            )
+            sorted(key for key, loc in remaining.items() if loc.region_id in regions and loc.rules.allows(inventory))
         )
         if not sphere:
             break
@@ -86,9 +78,7 @@ def generate_seed(game: GameDefinition, seed: str | int, attempts: int = 200) ->
                 events = [
                     key
                     for key, loc in remaining.items()
-                    if key in fixed
-                    and loc.region_id in regions
-                    and loc.rules.allows(inventory)
+                    if key in fixed and loc.region_id in regions and loc.rules.allows(inventory)
                 ]
                 if not events:
                     break
@@ -99,9 +89,7 @@ def generate_seed(game: GameDefinition, seed: str | int, attempts: int = 200) ->
             checks = [
                 key
                 for key, loc in remaining.items()
-                if key not in fixed
-                and loc.region_id in regions
-                and loc.rules.allows(inventory)
+                if key not in fixed and loc.region_id in regions and loc.rules.allows(inventory)
             ]
             if not checks:
                 break
@@ -111,9 +99,7 @@ def generate_seed(game: GameDefinition, seed: str | int, attempts: int = 200) ->
             inventory.items[reward] += 1
         else:
             rng.shuffle(filler)
-            for key, reward in zip(
-                (key for key in remaining if key not in fixed), filler, strict=True
-            ):
+            for key, reward in zip((key for key in remaining if key not in fixed), filler, strict=True):
                 placements[key] = reward
             result = playthrough(game, placements)
             if result.won and sum(map(len, result.spheres)) == len(game.locations):

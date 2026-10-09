@@ -9,7 +9,6 @@ from .native_delivery import GoalBlockReward, NativeReward, NativeRewardKind
 from .pickups import integer, record, text
 from .switches import global_flags
 
-
 SHOP_SCRIPTS = {
     "Script/Map/MAC/mac_1_00.bin": ("SHOP_TOWN", "talk_kinopio_shop"),
     "Script/Map/IWA/iwa_4_02.bin": ("SHOP_IWA", "talk_kinopio1"),
@@ -61,8 +60,9 @@ class MiniStarCheck:
         return f"mini_star/{self.map_name}/{self.source_flag.lower()}"
 
     def placement(self, reward: NativeReward | None = None) -> GoalBlockReward:
-        return GoalBlockReward(self.map_name, self.source_flag,
-                               reward or NativeReward(NativeRewardKind.MINI_STAR, self.source_flag))
+        return GoalBlockReward(
+            self.map_name, self.source_flag, reward or NativeReward(NativeRewardKind.MINI_STAR, self.source_flag)
+        )
 
 
 @dataclass(frozen=True)
@@ -104,8 +104,9 @@ def museum_exhibits(document: KdmDocument, switches: KdmDocument) -> tuple[Museu
             flag = text(values[44]).lower()
             if not re.fullmatch(r"gf_museum_(?:btl|robj)_seal_[0-9]{3}", flag) or flag not in known:
                 raise ValueError("Museum record lacks a registered donation flag")
-            exhibit = MuseumExhibit(lock_id, text(values[11]), text(values[46]), flag,
-                                    tuple(text(value) for value in values[60:] if text(value)))
+            exhibit = MuseumExhibit(
+                lock_id, text(values[11]), text(values[46]), flag, tuple(text(value) for value in values[60:] if text(value))
+            )
             if not exhibit.accepted_stickers:
                 raise ValueError("Museum exhibit has no accepted sticker")
             if flag in result and result[flag] != exhibit:
@@ -127,6 +128,7 @@ def stages(document: KdmDocument) -> tuple[Stage, ...]:
             values = record(row, 3)
             code = text(values[0])
             from .pickups import pointer
+
             target = pointer(values[1])
             if not target.address:
                 continue
@@ -139,8 +141,7 @@ def stages(document: KdmDocument) -> tuple[Stage, ...]:
     return tuple(result[code] for code in sorted(result))
 
 
-def mini_stars(script_file: str, source: str, binary: bytes,
-               switches: KdmDocument) -> tuple[MiniStarCheck, ...]:
+def mini_stars(script_file: str, source: str, binary: bytes, switches: KdmDocument) -> tuple[MiniStarCheck, ...]:
     if not re.fullmatch(r"Script/Map/[A-Za-z0-9_]+/[a-z0-9_]+\.bin", script_file):
         raise ValueError("Expected an original map script path")
     map_name = script_file.rsplit("/", 1)[1][:-4]

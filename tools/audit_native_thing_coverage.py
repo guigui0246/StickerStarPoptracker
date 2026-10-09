@@ -50,17 +50,31 @@ def main() -> None:
     missing = sorted(sources - hooked)
     incorrectly_included = sorted(debug_sources & hooked)
     missing_types = sorted({real for _, real in policy.things} - {item for _, _, item in sources})
-    data = {"title_id": project.inspection.title_id, "source_hashes": source_hashes,
-            "production_disposition_sources": [asdict(entry) for entry in ordinary],
-            "scripted_sources": [asdict(entry) for entry in scripted],
-            "excluded_debug_sources": [asdict(entry) for entry in debug],
-            "unhooked_production_sources": missing, "included_debug_sources": incorrectly_included,
-            "unrepresented_thing_types": missing_types,
-            "physical_sources_verified": False, "progression_verified": False}
+    data = {
+        "title_id": project.inspection.title_id,
+        "source_hashes": source_hashes,
+        "production_disposition_sources": [asdict(entry) for entry in ordinary],
+        "scripted_sources": [asdict(entry) for entry in scripted],
+        "excluded_debug_sources": [asdict(entry) for entry in debug],
+        "unhooked_production_sources": missing,
+        "included_debug_sources": incorrectly_included,
+        "unrepresented_thing_types": missing_types,
+        "physical_sources_verified": False,
+        "progression_verified": False,
+    }
     args.output.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({"production_sources": len(sources), "production_types": len({item for _, _, item in sources}),
-                      "excluded_debug_sources": len(debug), "unhooked_sources": len(missing),
-                      "included_debug_sources": len(incorrectly_included), "unrepresented_types": len(missing_types)}))
+    print(
+        json.dumps(
+            {
+                "production_sources": len(sources),
+                "production_types": len({item for _, _, item in sources}),
+                "excluded_debug_sources": len(debug),
+                "unhooked_sources": len(missing),
+                "included_debug_sources": len(incorrectly_included),
+                "unrepresented_types": len(missing_types),
+            }
+        )
+    )
     if missing or incorrectly_included or missing_types:
         raise SystemExit(1)
 

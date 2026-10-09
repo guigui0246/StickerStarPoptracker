@@ -23,9 +23,7 @@ class CitraProtocolError(RuntimeError):
 
 
 class CitraMemory:
-    def __init__(
-        self, host: str = "127.0.0.1", port: int = 45987, timeout: float = 2.0
-    ) -> None:
+    def __init__(self, host: str = "127.0.0.1", port: int = 45987, timeout: float = 2.0) -> None:
         if timeout <= 0 or not 1 <= port <= 65535:
             raise ValueError("Invalid RPC endpoint or timeout")
         self.endpoint = (socket.gethostbyname(host), port)
@@ -49,13 +47,7 @@ class CitraMemory:
 
     @staticmethod
     def validate_range(address: int, size: int) -> None:
-        if (
-            type(address) is not int
-            or type(size) is not int
-            or address < 0
-            or size < 0
-            or address + size > 0x100000000
-        ):
+        if type(address) is not int or type(size) is not int or address < 0 or size < 0 or address + size > 0x100000000:
             raise ValueError("Memory range must fit within the 32-bit address space")
 
     def request(self, kind: RequestType, payload: bytes, expected_size: int) -> bytes:
@@ -76,12 +68,7 @@ class CitraMemory:
             version, reply_id, reply_kind, length = struct.unpack_from("<4I", packet)
             if reply_id != identifier:
                 continue
-            if (
-                version != 1
-                or reply_kind != kind
-                or length != len(packet) - 16
-                or length != expected_size
-            ):
+            if version != 1 or reply_kind != kind or length != len(packet) - 16 or length != expected_size:
                 raise CitraProtocolError("Invalid Citra RPC response")
             return packet[16:]
 

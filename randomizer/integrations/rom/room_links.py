@@ -36,8 +36,12 @@ def room_links(document: KdmDocument) -> tuple[RoomLink, ...]:
     """Read the named production link table rather than unrelated array shapes."""
     schema = document.structures.get(21)
     group_schema = document.structures.get(22)
-    if (schema is None or schema.fields != (1, 1, 1, 3, 3, 3, 3, 3, 3)
-            or group_schema is None or group_schema.fields != (3, 20, 1)):
+    if (
+        schema is None
+        or schema.fields != (1, 1, 1, 3, 3, 3, 3, 3, 3)
+        or group_schema is None
+        or group_schema.fields != (3, 20, 1)
+    ):
         raise ValueError("Unsupported native room-link schema")
     table = document.tables.get("link_data_all")
     if table is None or table.type_id != 15:
@@ -60,9 +64,18 @@ def room_links(document: KdmDocument) -> tuple[RoomLink, ...]:
             if row[0].offset in seen:
                 raise ValueError("Duplicate native room-link reference")
             seen.add(row[0].offset)
-            link = RoomLink(row[0].offset, integer(row[0]), integer(row[1]), integer(row[2]),
-                            text(row[3]), text(row[4]), text(row[5]), text(row[6]),
-                            text(row[7]), text(row[8]))
+            link = RoomLink(
+                row[0].offset,
+                integer(row[0]),
+                integer(row[1]),
+                integer(row[2]),
+                text(row[3]),
+                text(row[4]),
+                text(row[5]),
+                text(row[6]),
+                text(row[7]),
+                text(row[8]),
+            )
             if link.source_room != text(group[0]) or not link.source_entrance:
                 raise ValueError("Room link lacks a matching source identity")
             result.append(link)

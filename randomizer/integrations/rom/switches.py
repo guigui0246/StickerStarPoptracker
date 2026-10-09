@@ -85,7 +85,11 @@ def register_saved_bytes(source: bytes, names: tuple[str, ...]) -> tuple[bytes, 
     original = KdmDocument(source)
     table = original.tables["gsSwitchTable"]
     rows = tuple((text(record(row, 2)[0]), integer(record(row, 2)[1])) for row in table.values)
-    if table.type_id != 21 or rows[-1] != ("", 0) or any(not name.startswith("gs_") or not 0 <= index < 256 for name, index in rows[:-1]):
+    if (
+        table.type_id != 21
+        or rows[-1] != ("", 0)
+        or any(not name.startswith("gs_") or not 0 <= index < 256 for name, index in rows[:-1])
+    ):
         raise ValueError("Unsupported native saved-byte registry")
     if any(name in {row[0] for row in rows} for name in names):
         raise ValueError("Saved byte is already registered")
@@ -109,6 +113,8 @@ def register_saved_bytes(source: bytes, names: tuple[str, ...]) -> tuple[bytes, 
     struct.pack_into("<I", result, 8 + 7 * 4, (document.sections[7] + len(inserted)) // 4)
     checked = KdmDocument(bytes(result))
     actual = tuple((text(record(row, 2)[0]), integer(record(row, 2)[1])) for row in checked.tables["gsSwitchTable"].values)
-    if actual != rows[:-1] + tuple((entry.name, entry.index) for entry in additions) + rows[-1:] or global_flags(checked) != global_flags(original):
+    if actual != rows[:-1] + tuple((entry.name, entry.index) for entry in additions) + rows[-1:] or global_flags(
+        checked
+    ) != global_flags(original):
         raise ValueError("Saved-byte registry verification failed")
     return bytes(result), additions

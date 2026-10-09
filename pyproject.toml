@@ -1,0 +1,9 @@
+[tool.black]
+line-length = 127
+target-version = ["py312"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+typeCheckingMode = "basic"
+include = ["build.py", "randomizer", "tools"]
+exclude = ["build", "dist", "generated", ".validation", ".lint-tools"]

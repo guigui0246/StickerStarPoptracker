@@ -1,0 +1,2 @@
+﻿PyInstaller>=6.11,<7
+websockets>=13,<16

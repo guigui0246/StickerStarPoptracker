@@ -81,16 +81,10 @@ def write_tutorial_skip(project: RomProject, output: Path, compiler: Path) -> No
         'item_try_addpouch*("IC_HAMMER", true);',
         'player_set_ignore_key*("mario", player_hammer_button, false);',
         "ui_enable_open_status_all*();",
-        *[
-            f'item_try_addpouch*("{item}", true);'
-            for item in ("SL_JUMP",) * 4 + ("SL_HAMMER",) * 4 + ("SL_KINOKO",) * 2
-        ],
+        *[f'item_try_addpouch*("{item}", true);' for item in ("SL_JUMP",) * 4 + ("SL_HAMMER",) * 4 + ("SL_KINOKO",) * 2],
         'map_exit_event*("af_sw_bero", 0);',
     ]
-    body = (
-        '\tif ( gf_evt_mac_mario_wakeup ) {\n\t\tsw_bero_enter*("af_sw_bero");\n\t\treturn*;\n\t}\n\t'
-        + "\n\t".join(setup)
-    )
+    body = '\tif ( gf_evt_mac_mario_wakeup ) {\n\t\tsw_bero_enter*("af_sw_bero");\n\t\treturn*;\n\t}\n\t' + "\n\t".join(setup)
     edits = {"Script/Map/MAC/mac_1_31.bin": ("sw_bero_enter_evt", body)}
     report: dict[str, object] = {
         "status": "experimental; in-game validation required",
@@ -110,8 +104,7 @@ def write_tutorial_skip(project: RomProject, output: Path, compiler: Path) -> No
         if "map_exit_event*" in body:
             header = binary.with_suffix(".hksm")
             header.write_text(
-                header.read_text(encoding="utf-8")
-                + "\n#import function map_exit_event from 0xf5 {0x44e};\n"
+                header.read_text(encoding="utf-8") + "\n#import function map_exit_event from 0xf5 {0x44e};\n"
                 "#import function mobj_set_flag_ex from 0x135 {0x184};\n"
                 "#import function item_try_addpouch from 0x1a7 {0x82a};\n"
                 "static user gf_evt_mac_hiroba_1st;\n",
@@ -124,9 +117,7 @@ def write_tutorial_skip(project: RomProject, output: Path, compiler: Path) -> No
         compile_script(compiler, rebuilt)
         canonical = rebuilt.with_suffix(".cksm").read_text(encoding="utf-8")
         if body not in canonical:
-            raise ValueError(
-                f"Compiled replacement did not survive decompilation: {name}"
-            )
+            raise ValueError(f"Compiled replacement did not survive decompilation: {name}")
         project.write_override(output, name, patch)
         files.append(
             {
@@ -150,9 +141,7 @@ def write_tutorial_skip(project: RomProject, output: Path, compiler: Path) -> No
     report["revision"] = 2
     report["arrival"] = "east entrance; vanilla unrolling event starts automatically"
     report["starting_stickers"] = {"SL_JUMP": 4, "SL_HAMMER": 4, "SL_KINOKO": 2}
-    (output / "patch-report.json").write_text(
-        json.dumps(report, indent=2), encoding="utf-8"
-    )
+    (output / "patch-report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
     (output / "README.txt").write_text(
         "Experimental tutorial skip, European Sticker Star 00040000000A5F00.\n"
         "Close Citra. Back up your existing mod folder. Use this romfs folder alone\n"
@@ -166,5 +155,3 @@ def write_tutorial_skip(project: RomProject, output: Path, compiler: Path) -> No
         "Script compilation verified; playable transition not yet verified.\n",
         encoding="utf-8",
     )
-
-

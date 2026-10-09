@@ -1,3 +1,4 @@
+from typing import Any, cast
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
@@ -11,8 +12,12 @@ from ..integrations.rom.seed_patch import canonical, digest
 
 
 class NativeRecipeTests(unittest.TestCase):
-    plan = DeliveryPlan((GoalBlockReward("map", "GF_WM_A01_A02", NativeReward(NativeRewardKind.COINS, 20)),
-                         FlagReward("museum", "gf_donation", NativeReward(NativeRewardKind.ITEM, "SL_FAN"))))
+    plan = DeliveryPlan(
+        (
+            GoalBlockReward("map", "GF_WM_A01_A02", NativeReward(NativeRewardKind.COINS, 20)),
+            FlagReward("museum", "gf_donation", NativeReward(NativeRewardKind.ITEM, "SL_FAN")),
+        )
+    )
 
     def test_roundtrip_contains_only_recipe_not_rom_assets(self) -> None:
         recipe = NativeRecipe("seed-one", "a" * 64, self.plan)
@@ -33,7 +38,13 @@ class NativeRecipeTests(unittest.TestCase):
 
     def test_strict_fields_types_versions_and_save_fingerprint(self) -> None:
         original = json.loads(NativeRecipe("seed", "a" * 64, self.plan).encode())
-        changes = [("format_version", True), ("algorithm", "unknown"), ("rom_sha256", "BAD"), ("save_seed_fingerprint", "0" * 32), ("extra", "field")]
+        changes = [
+            ("format_version", True),
+            ("algorithm", "unknown"),
+            ("rom_sha256", "BAD"),
+            ("save_seed_fingerprint", "0" * 32),
+            ("extra", "field"),
+        ]
         for key, value in changes:
             payload = dict(original)
             payload[key] = value
@@ -42,7 +53,7 @@ class NativeRecipeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 decode_native_recipe(canonical(payload))
         malformed = encode_plan(self.plan)
-        malformed["checks"][0]["reward"]["value"] = True
+        cast(Any, malformed)["checks"][0]["reward"]["value"] = True
         with self.assertRaises(ValueError):
             decode_plan(malformed)
         with self.assertRaises(ValueError):

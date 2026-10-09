@@ -19,8 +19,12 @@ def main() -> None:
     args = parser.parse_args()
     raw = args.lock_table.read_bytes()
     locks = paperization_locks(KdmDocument(raw))
-    result = {"format_version": 1, "source_sha256": hashlib.sha256(raw).hexdigest(),
-              "traversal_effects_verified": False, "locks": [asdict(lock) for lock in locks]}
+    result = {
+        "format_version": 1,
+        "source_sha256": hashlib.sha256(raw).hexdigest(),
+        "traversal_effects_verified": False,
+        "locks": [asdict(lock) for lock in locks],
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(f"Extracted {len(locks)} locks with exact accepted item alternatives.")

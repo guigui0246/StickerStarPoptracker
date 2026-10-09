@@ -25,8 +25,13 @@ class PeelSource:
 
 def peel_sources(document: KdmDocument) -> tuple[PeelSource, ...]:
     locks = paperization_locks(document)
-    pickup_ids = {text(record(row, 72)[0]) for array in document.arrays.values()
-                  if array.type_id == 21 for row in array.values if record(row, 72)[2].value is True}
+    pickup_ids = {
+        text(record(row, 72)[0])
+        for array in document.arrays.values()
+        if array.type_id == 21
+        for row in array.values
+        if record(row, 72)[2].value is True
+    }
     groups: dict[tuple[str, str, str], list[PaperizationLock]] = defaultdict(list)
     for lock in locks:
         if not lock.key_item.startswith("PK_"):
@@ -62,8 +67,13 @@ def resolve_peels(document: KdmDocument, plan: DeliveryPlan) -> tuple[tuple[int,
 def suppress_peel_grants(document: KdmDocument, plan: DeliveryPlan) -> bytes:
     sources = resolve_peels(document, plan)
     targets = {variant.lock_id for _, check, _ in sources for variant in check.hooks}
-    edits = {record(row, 72)[57].offset: "" for array in document.arrays.values()
-             if array.type_id == 21 for row in array.values if text(record(row, 72)[0]) in targets}
+    edits = {
+        record(row, 72)[57].offset: ""
+        for array in document.arrays.values()
+        if array.type_id == 21
+        for row in array.values
+        if text(record(row, 72)[0]) in targets
+    }
     if len(edits) != len(targets):
         raise ValueError("Peel grant fields are missing or duplicated")
     # Native pickup locks already use null reward pointers (the Luigi records).
@@ -93,24 +103,32 @@ def peel_variants(plan: DeliveryPlan) -> tuple[tuple[int, int, PeelReward, PeelV
 
 def gate_peel_selection(source: str, plan: DeliveryPlan, document: KdmDocument | None = None) -> str:
     import re
+
     entries = peel_variants(plan)
     pattern = r"\bdecal_dokodemo_mario_control_main\*?\(\)"
     if len(re.findall(pattern, source)) not in (1, 3):
         raise ValueError("Paperization selection no longer matches the inspected revision")
     source = re.sub(pattern, "rando_peel_control*()", source)
-    lines = ["private rando_peel_control() {",
-             "\tlocal localVar0 = decal_dokodemo_mario_control_main*();",
-             "\tlocal localVar1 = pepalyze_get_mode*();",
-             "\tif ( localVar0 != pepalyze_pickup || localVar1 != pepalyze_mode_pickup ) {\n\t\treturn* localVar0;\n\t}",
-             "\tlocal localVar2 = pepalyze_get_now_play_unlock_num*();",
-             "\tlocal localVar3 = pouch_get_map_name*();", "\tlocal localVar4;"]
+    lines = [
+        "private rando_peel_control() {",
+        "\tlocal localVar0 = decal_dokodemo_mario_control_main*();",
+        "\tlocal localVar1 = pepalyze_get_mode*();",
+        "\tif ( localVar0 != pepalyze_pickup || localVar1 != pepalyze_mode_pickup ) {\n\t\treturn* localVar0;\n\t}",
+        "\tlocal localVar2 = pepalyze_get_now_play_unlock_num*();",
+        "\tlocal localVar3 = pouch_get_map_name*();",
+        "\tlocal localVar4;",
+    ]
     for selector, _, check, variant in entries:
-        lines.extend([f'\tif ( localVar3 == "{check.map_name}" ) {{',
-                      f'\t\tlocalVar4 = pepalyze_get_access_number*("{variant.lock_id}");',
-                      "\t\tif ( localVar2 == localVar4 ) {",
-                      f"\t\t\tlocalVar4 = rando_peel_can_return*({selector});",
-                      "\t\t\tif ( localVar4 == false ) {\n\t\t\t\treturn* pepalyze_pickup_miss;\n\t\t\t}",
-                      "\t\t\treturn* localVar0;\n\t\t}\n\t}"])
+        lines.extend(
+            [
+                f'\tif ( localVar3 == "{check.map_name}" ) {{',
+                f'\t\tlocalVar4 = pepalyze_get_access_number*("{variant.lock_id}");',
+                "\t\tif ( localVar2 == localVar4 ) {",
+                f"\t\t\tlocalVar4 = rando_peel_can_return*({selector});",
+                "\t\t\tif ( localVar4 == false ) {\n\t\t\t\treturn* pepalyze_pickup_miss;\n\t\t\t}",
+                "\t\t\treturn* localVar0;\n\t\t}\n\t}",
+            ]
+        )
     configured = {variant.lock_id for _, _, _, variant in entries}
     configured_rooms = {check.map_name for _, _, check, _ in entries}
     # Luigi and omitted native sources can share a room with randomized scraps.
@@ -120,9 +138,13 @@ def gate_peel_selection(source: str, plan: DeliveryPlan, document: KdmDocument |
         for lock in paperization_locks(document):
             if lock.id in configured or lock.map_name not in configured_rooms:
                 continue
-            lines.extend([f'\tif ( localVar3 == "{lock.map_name}" ) {{',
-                          f'\t\tlocalVar4 = pepalyze_get_access_number*("{lock.id}");',
-                          "\t\tif ( localVar2 == localVar4 ) {\n\t\t\treturn* localVar0;\n\t\t}\n\t}"])
+            lines.extend(
+                [
+                    f'\tif ( localVar3 == "{lock.map_name}" ) {{',
+                    f'\t\tlocalVar4 = pepalyze_get_access_number*("{lock.id}");',
+                    "\t\tif ( localVar2 == localVar4 ) {\n\t\t\treturn* localVar0;\n\t\t}\n\t}",
+                ]
+            )
     rooms = " || ".join(f'localVar3 == "{name}"' for name in sorted(configured_rooms))
     lines.extend([f"\tif ( {rooms} ) {{\n\t\treturn* pepalyze_pickup_miss;\n\t}}", "\treturn* localVar0;", "}"])
     return source + "\n" + "\n".join(lines) + "\n"
@@ -132,41 +154,93 @@ def peel_runtime(plan: DeliveryPlan) -> str:
     entries = peel_variants(plan)
     if not entries:
         return ""
-    lines = ["public rando_peel_can_return(temp tempVar0) {", "\tlocal localVar0 = tempVar0;",
-             "\tlocal localVar1 = rando_seed_valid*();",
-             "\tif ( localVar1 == false || rando_peel_reserve != 0 ) {\n\t\treturn* false;\n\t}"]
+    lines = [
+        "public rando_peel_can_return(temp tempVar0) {",
+        "\tlocal localVar0 = tempVar0;",
+        "\tlocal localVar1 = rando_seed_valid*();",
+        "\tif ( localVar1 == false || rando_peel_reserve != 0 ) {\n\t\treturn* false;\n\t}",
+    ]
     for selector, index, _, variant in entries:
         checked, _ = plan.receipt(index)
-        lines.extend([f"\tif ( localVar0 == {selector} ) {{",
-                      f"\t\tif ( {checked} == false ) {{\n\t\t\trando_peel_reserve = - {selector};\n\t\t\treturn* true;\n\t\t}}",
-                      "\t\tif ( gs_rando_peel_pending != 0 ) {\n\t\t\treturn* false;\n\t\t}",
-                      f'\t\tlocalVar1 = item_try_addpouch*("{variant.source_item}", false);',
-                      f"\t\tif ( localVar1 ) {{\n\t\t\trando_peel_reserve = {selector};\n\t\t}}",
-                      "\t\treturn* localVar1;\n\t}"])
-    lines.extend(["\treturn* false;", "}", "public rando_peel_return_pending() {",
-                  "\tif ( rando_peel_reserve != 0 ) {\n\t\treturn* false;\n\t}",
-                  "\tif ( gs_rando_peel_pending == 0 ) {\n\t\treturn* true;\n\t}", "\tlocal localVar0;"])
+        lines.extend(
+            [
+                f"\tif ( localVar0 == {selector} ) {{",
+                f"\t\tif ( {checked} == false ) {{\n\t\t\trando_peel_reserve = - {selector};\n\t\t\treturn* true;\n\t\t}}",
+                "\t\tif ( gs_rando_peel_pending != 0 ) {\n\t\t\treturn* false;\n\t\t}",
+                f'\t\tlocalVar1 = item_try_addpouch*("{variant.source_item}", false);',
+                f"\t\tif ( localVar1 ) {{\n\t\t\trando_peel_reserve = {selector};\n\t\t}}",
+                "\t\treturn* localVar1;\n\t}",
+            ]
+        )
+    lines.extend(
+        [
+            "\treturn* false;",
+            "}",
+            "public rando_peel_return_pending() {",
+            "\tif ( rando_peel_reserve != 0 ) {\n\t\treturn* false;\n\t}",
+            "\tif ( gs_rando_peel_pending == 0 ) {\n\t\treturn* true;\n\t}",
+            "\tlocal localVar0;",
+        ]
+    )
     for selector, _, _, variant in entries:
-        lines.extend([f"\tif ( gs_rando_peel_pending == {selector} ) {{",
-                      f'\t\tlocalVar0 = rando_item_grant*("{variant.source_item}");',
-                      "\t\tif ( localVar0 ) {\n\t\t\tgs_rando_peel_pending *= 0;\n\t\t}", "\t\treturn* true;\n\t}"])
+        lines.extend(
+            [
+                f"\tif ( gs_rando_peel_pending == {selector} ) {{",
+                f'\t\tlocalVar0 = rando_item_grant*("{variant.source_item}");',
+                "\t\tif ( localVar0 ) {\n\t\t\tgs_rando_peel_pending *= 0;\n\t\t}",
+                "\t\treturn* true;\n\t}",
+            ]
+        )
     lines.extend(["\treturn* false;", "}", "public rando_peel_cancel(temp tempVar0) {", "\tlocal localVar0 = tempVar0;"])
     for selector, index, _, _ in entries:
-        lines.append(f"\tif ( localVar0 == {index} && ( rando_peel_reserve == {selector} || rando_peel_reserve == - {selector} ) ) {{\n\t\trando_peel_reserve = 0;\n\t}}")
-    lines.extend(["}", "public rando_peel_collect(temp tempVar0, temp tempVar1) {",
-                  "\tlocal localVar0 = tempVar0;", "\tlocal localVar1 = tempVar1;",
-                  "\tlocal localVar2 = rando_seed_valid*();", "\tif ( localVar2 == false ) {\n\t\treturn*;\n\t}"])
+        lines.append(
+            "\tif ( localVar0 == "
+            f"{index}"
+            " && ( rando_peel_reserve == "
+            f"{selector}"
+            " || rando_peel_reserve == - "
+            f"{selector}"
+            " ) ) {\n\t\trando_peel_reserve = 0;\n\t}"
+        )
+    lines.extend(
+        [
+            "}",
+            "public rando_peel_collect(temp tempVar0, temp tempVar1) {",
+            "\tlocal localVar0 = tempVar0;",
+            "\tlocal localVar1 = tempVar1;",
+            "\tlocal localVar2 = rando_seed_valid*();",
+            "\tif ( localVar2 == false ) {\n\t\treturn*;\n\t}",
+        ]
+    )
     for selector, index, _, variant in entries:
         checked, _ = plan.receipt(index)
-        lines.extend([f'\tif ( localVar0 == {index} && localVar1 == "{variant.source_item}" ) {{',
-                      f"\t\tif ( {checked} == false && rando_peel_reserve == - {selector} ) {{",
-                      f"\t\t\t{checked} *= true;\n\t\t\trando_peel_reserve = 0;\n\t\t\trando_deliver*();",
-                      f"\t\t}} else if ( {checked} && rando_peel_reserve == {selector} ) {{",
-                      f"\t\t\tgs_rando_peel_pending *= {selector};\n\t\t\trando_peel_reserve = 0;\n\t\t\trando_peel_return_pending*();",
-                      "\t\t}\n\t\treturn*;\n\t}"])
+        lines.extend(
+            [
+                f'\tif ( localVar0 == {index} && localVar1 == "{variant.source_item}" ) {{',
+                f"\t\tif ( {checked} == false && rando_peel_reserve == - {selector} ) {{",
+                f"\t\t\t{checked} *= true;\n\t\t\trando_peel_reserve = 0;\n\t\t\trando_deliver*();",
+                f"\t\t}} else if ( {checked} && rando_peel_reserve == {selector} ) {{",
+                "\t\t\tgs_rando_peel_pending *= "
+                f"{selector}"
+                ";\n\t\t\trando_peel_reserve = 0;\n\t\t\trando_peel_return_pendi"
+                "ng*();",
+                "\t\t}\n\t\treturn*;\n\t}",
+            ]
+        )
     lines.extend(["}", "public rando_peel_collect_selected(temp tempVar0) {", "\tlocal localVar0 = tempVar0;"])
     for selector, index, _, variant in entries:
-        lines.extend([f"\tif ( localVar0 == {index} && ( rando_peel_reserve == {selector} || rando_peel_reserve == - {selector} ) ) {{",
-                      f'\t\trando_peel_collect*({index}, "{variant.source_item}");', "\t\treturn*;\n\t}"])
+        lines.extend(
+            [
+                "\tif ( localVar0 == "
+                f"{index}"
+                " && ( rando_peel_reserve == "
+                f"{selector}"
+                " || rando_peel_reserve == - "
+                f"{selector}"
+                " ) ) {",
+                f'\t\trando_peel_collect*({index}, "{variant.source_item}");',
+                "\t\treturn*;\n\t}",
+            ]
+        )
     lines.append("}")
     return "\n".join(lines) + "\n"

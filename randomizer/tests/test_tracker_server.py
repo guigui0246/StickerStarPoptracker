@@ -1,3 +1,4 @@
+from typing import Any, cast
 import asyncio
 import json
 import unittest
@@ -32,9 +33,17 @@ class FakeSocket:
 class TrackerServerTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
         self.session = Session("standalone", 0, 1, "a" * 64, "save")
-        self.data = {"catalog_hash": self.session.catalog_hash, "items": {"Hammer": 100}, "locations": {"Check": 200},
-                     "tracker": {"format_version": 1, "catalog_hash": self.session.catalog_hash,
-                                 "items": {"100": {"code": "hammer", "type": "toggle"}}, "locations": {"200": "@Stage/Check"}}}
+        self.data = {
+            "catalog_hash": self.session.catalog_hash,
+            "items": {"Hammer": 100},
+            "locations": {"Check": 200},
+            "tracker": {
+                "format_version": 1,
+                "catalog_hash": self.session.catalog_hash,
+                "items": {"100": {"code": "hammer", "type": "toggle"}},
+                "locations": {"200": "@Stage/Check"},
+            },
+        }
         self.snapshot = TrackingSnapshot()
         self.server = TrackerServer(self.session, "Player", "Sticker Star", self.data, lambda: self.snapshot)
 
@@ -70,7 +79,7 @@ class TrackerServerTests(unittest.IsolatedAsyncioTestCase):
     def test_wrong_catalog_and_unknown_native_ids_are_rejected(self):
         data = dict(self.data, catalog_hash="b" * 64)
         with self.assertRaises(ValueError):
-            TrackerServer(self.session, "Player", "Sticker Star", data, lambda: self.snapshot)
+            TrackerServer(self.session, "Player", "Sticker Star", cast(Any, data), lambda: self.snapshot)
         self.snapshot = TrackingSnapshot((999,), ())
         with self.assertRaises(ValueError):
             self.server.current()
@@ -78,7 +87,7 @@ class TrackerServerTests(unittest.IsolatedAsyncioTestCase):
     def test_starting_receipt_uses_precollected_location_without_collecting_a_check(self):
         self.snapshot = TrackingSnapshot((), (ReceivedItem(100, -2, 1, 0),))
         self.assertEqual(self.server.current().checks, ())
-        self.assertEqual(self.server.received(self.server.current())["items"][0]["location"], -2)
+        self.assertEqual(cast(Any, self.server.received(self.server.current()))["items"][0]["location"], -2)
         self.snapshot = TrackingSnapshot((), (ReceivedItem(100, -3, 1, 0),))
         with self.assertRaises(ValueError):
             self.server.current()

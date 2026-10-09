@@ -18,7 +18,9 @@ class StickerPolicy:
         ids = self.generic + tuple(sticker for sticker, _ in self.things)
         if not ids or len(set(ids)) != len(ids) or self.replacement not in self.generic:
             raise ValueError("Sticker policy requires distinct ROM-derived items and flip-flops")
-        if any(not isinstance(item, str) or not re.fullmatch(r"SL_[A-Z0-9_]+", item) for item in ids) or any(real != "REAL_" + item[3:] for item, real in self.things):
+        if any(not isinstance(item, str) or not re.fullmatch(r"SL_[A-Z0-9_]+", item) for item in ids) or any(
+            real != "REAL_" + item[3:] for item, real in self.things
+        ):
             raise ValueError("Invalid sticker and Thing identities")
 
     @property
@@ -37,8 +39,13 @@ class StickerPolicy:
                 # Ownership authorizes the global native insertion guard. The
                 # copy receipt still waits for space and retries after failure.
                 return [f"{flag} *= true;", f'{result} = rando_item_grant*("{item}");']
-            return [f"if ( {flag} ) {{", f'\t{result} = rando_item_grant*("{item}");',
-                    "} else {", f'\t{result} = rando_item_grant*("{self.replacement}");', "}"]
+            return [
+                f"if ( {flag} ) {{",
+                f'\t{result} = rando_item_grant*("{item}");',
+                "} else {",
+                f'\t{result} = rando_item_grant*("{self.replacement}");',
+                "}",
+            ]
         thing = dict(self.things).get(item)
         if thing is None:
             raise ValueError("Reward is not a recognized sticker")
@@ -48,12 +55,17 @@ class StickerPolicy:
         return lines
 
     def pickup_functions(self) -> str:
-        lines = ["public rando_sticker_init()  {",
-                 "\titem_set_flg*(self, item_flg_add_pouch, false);",
-                 '\titem_set_itemget_event*(self, "rando_sticker_get");', "}",
-                 "public rando_sticker_get()  {", "\ttemp tempVar0 = rando_seed_valid*();",
-                 "\tif ( tempVar0 == false ) {\n\t\treturn*;\n\t}",
-                 "\ttemp tempVar1 = item_get_item_id*(self);", "\ttempVar0 = false;"]
+        lines = [
+            "public rando_sticker_init()  {",
+            "\titem_set_flg*(self, item_flg_add_pouch, false);",
+            '\titem_set_itemget_event*(self, "rando_sticker_get");',
+            "}",
+            "public rando_sticker_get()  {",
+            "\ttemp tempVar0 = rando_seed_valid*();",
+            "\tif ( tempVar0 == false ) {\n\t\treturn*;\n\t}",
+            "\ttemp tempVar1 = item_get_item_id*(self);",
+            "\ttempVar0 = false;",
+        ]
         for item in self.generic:
             lines.append(f'\tif ( tempVar1 == "{item}" ) {{')
             lines.extend("\t\t" + line.replace("\n", "\n\t\t") for line in self.grant(item, unlock=False, result="tempVar0"))
@@ -103,7 +115,11 @@ def patch_shops(data: bytes, policy: StickerPolicy) -> bytes:
         raise ValueError("Missing generic shop tables")
     # This revision stores shop records solely in the data section, and named
     # tables contain pointers to those records. Reject more complex layouts.
-    if any(array.type_id != 21 or len(array.values) != 1 for array in document.arrays.values() if array.address < document.sections[6]):
+    if any(
+        array.type_id != 21 or len(array.values) != 1
+        for array in document.arrays.values()
+        if array.address < document.sections[6]
+    ):
         raise ValueError("Unexpected shop data layout")
     if any(table.type_id != 15 for table in document.tables.values()):
         raise ValueError("Expected shop pointer tables")
@@ -121,16 +137,22 @@ def patch_shops(data: bytes, policy: StickerPolicy) -> bytes:
         records.extend(struct.pack("<IIH2xII", strings[item], strings[policy.flag(item)], 0, 0, 0))
         next_id += 1
     # Keep the original sentinel (null pointer) as the final entry.
-    tables = bytearray(document.data[document.sections[6]:document.sections[6] + 4 + 4 * len(document.tables)])
+    tables = bytearray(document.data[document.sections[6] : document.sections[6] + 4 + 4 * len(document.tables)])
     for name, table in document.tables.items():
-        values = addresses + [0] if name in shops else [field.value.address for field in table.values if isinstance(field.value, KdmPointer)]
+        values = (
+            addresses + [0]
+            if name in shops
+            else [field.value.address for field in table.values if isinstance(field.value, KdmPointer)]
+        )
         if len(values) != len(table.values) and name not in shops:
             raise ValueError("Unexpected non-pointer shop entry")
-        if name in shops and (not table.values or not isinstance(table.values[-1].value, KdmPointer) or table.values[-1].value.address):
+        if name in shops and (
+            not table.values or not isinstance(table.values[-1].value, KdmPointer) or table.values[-1].value.address
+        ):
             raise ValueError("Expected null shop sentinel")
         tables.extend(struct.pack("<4H", table.id, len(values), 15, len(values)))
         tables.extend(struct.pack(f"<{len(values)}I", *values))
-    result = bytearray(document.data[:document.sections[6]] + records + tables + document.data[document.sections[7]:])
+    result = bytearray(document.data[: document.sections[6]] + records + tables + document.data[document.sections[7] :])
     struct.pack_into("<I", result, document.sections[5], document.u32(document.sections[5]) + len(addresses))
     struct.pack_into("<I", result, 8 + 6 * 4, (document.sections[6] + len(records)) // 4)
     struct.pack_into("<I", result, 8 + 7 * 4, (document.sections[6] + len(records) + len(tables)) // 4)

@@ -7,7 +7,15 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from randomizer.integrations.rom.abilities import CODE_BASE, ability_patch
-from randomizer.integrations.rom.sticker_guard import ALBUM_ADD, COMMIT_ADD, FORCED_ADD, ITEM_LOOKUP, NORMAL_ADD, generic_save_indices, sticker_guard_patch
+from randomizer.integrations.rom.sticker_guard import (
+    ALBUM_ADD,
+    COMMIT_ADD,
+    FORCED_ADD,
+    ITEM_LOOKUP,
+    NORMAL_ADD,
+    generic_save_indices,
+    sticker_guard_patch,
+)
 from randomizer.integrations.rom.stickers import sticker_policy
 from randomizer.integrations.rom.kdm import KdmDocument
 from randomizer.integrations.rom.pickups import record, text, integer
@@ -21,13 +29,35 @@ def main() -> None:
     parser.add_argument("--item-data", type=Path, required=True)
     args = parser.parse_args()
     sys.path.insert(0, str(args.arm_runtime.resolve()))
-    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE, UC_HOOK_MEM_WRITE
-    from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_ARM_REG_R3, UC_ARM_REG_R4, UC_ARM_REG_R5, UC_ARM_REG_R6, UC_ARM_REG_R7, UC_ARM_REG_R8, UC_ARM_REG_R9, UC_ARM_REG_R10, UC_ARM_REG_R11, UC_ARM_REG_SP, UC_ARM_REG_LR, UC_ARM_REG_PC
+    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE, UC_HOOK_MEM_WRITE  # pyright: ignore[reportMissingImports]
+    from unicorn.arm_const import (  # pyright: ignore[reportMissingImports]
+        UC_ARM_REG_R0,
+        UC_ARM_REG_R1,
+        UC_ARM_REG_R2,
+        UC_ARM_REG_R3,
+        UC_ARM_REG_R4,
+        UC_ARM_REG_R5,
+        UC_ARM_REG_R6,
+        UC_ARM_REG_R7,
+        UC_ARM_REG_R8,
+        UC_ARM_REG_R9,
+        UC_ARM_REG_R10,
+        UC_ARM_REG_R11,
+        UC_ARM_REG_SP,
+        UC_ARM_REG_LR,
+        UC_ARM_REG_PC,
+    )
+
     code = args.code.read_bytes()
     policy = sticker_policy(args.item_data.read_bytes())
     indices = generic_save_indices(args.item_data.read_bytes(), policy)
-    native_rows = {text(fields[0]): fields for array in KdmDocument(args.item_data.read_bytes()).arrays.values() if array.type_id == 30
-                   for row in array.values for fields in [record(row, 19)]}
+    native_rows = {
+        text(fields[0]): fields
+        for array in KdmDocument(args.item_data.read_bytes()).arrays.values()
+        if array.type_id == 30
+        for row in array.values
+        for fields in [record(row, 19)]
+    }
     names = list(policy.generic) + [sticker for sticker, _ in policy.things] + ["SL_PAGE", "REAL_FAN"]
     descriptors = {name: 0x08001000 + index * 80 for index, name in enumerate(names)}
     name_pointers = {name: 0x08008000 + index * 80 for index, name in enumerate(names)}
@@ -70,7 +100,16 @@ def main() -> None:
 
         emulator.hook_add(UC_HOOK_CODE, on_code)
         emulator.hook_add(UC_HOOK_MEM_WRITE, on_write)
-        preserved = (UC_ARM_REG_R4, UC_ARM_REG_R5, UC_ARM_REG_R6, UC_ARM_REG_R7, UC_ARM_REG_R8, UC_ARM_REG_R9, UC_ARM_REG_R10, UC_ARM_REG_R11)
+        preserved = (
+            UC_ARM_REG_R4,
+            UC_ARM_REG_R5,
+            UC_ARM_REG_R6,
+            UC_ARM_REG_R7,
+            UC_ARM_REG_R8,
+            UC_ARM_REG_R9,
+            UC_ARM_REG_R10,
+            UC_ARM_REG_R11,
+        )
         for name in names:
             generic = name in policy.generic
             for valid in ("valid", "wrong_seed", "uninitialized", "null_owner"):
@@ -93,8 +132,14 @@ def main() -> None:
                             set_bit(flags[policy.flag(name)])
                         emulator.mem_write(0x08000144, bytes(buffer))
                         emulator.mem_write(0x43C190, struct.pack("<I", 0 if valid == "null_owner" else 0x08000000))
-                        registers = (0x08019000, 2, name_pointers[name], 0x0801A000) if entry != FORCED_ADD else (0x08019000, descriptors[name], 0x0801A000, 99)
-                        for register, value in zip((UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_ARM_REG_R3), registers, strict=True):
+                        registers = (
+                            (0x08019000, 2, name_pointers[name], 0x0801A000)
+                            if entry != FORCED_ADD
+                            else (0x08019000, descriptors[name], 0x0801A000, 99)
+                        )
+                        for register, value in zip(
+                            (UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_R2, UC_ARM_REG_R3), registers, strict=True
+                        ):
                             emulator.reg_write(register, value)
                         for index, register in enumerate(preserved):
                             emulator.reg_write(register, 0xCAFE0000 + index)
@@ -117,9 +162,13 @@ def main() -> None:
                         assert emulator.reg_read(UC_ARM_REG_R3) == registers[3]
                         assert emulator.reg_read(UC_ARM_REG_LR) == CODE_BASE
                         assert emulator.reg_read(UC_ARM_REG_SP) == expected_sp
-                        assert all(emulator.reg_read(register) == 0xCAFE0000 + index for index, register in enumerate(preserved))
+                        assert all(
+                            emulator.reg_read(register) == 0xCAFE0000 + index for index, register in enumerate(preserved)
+                        )
                         assert bytes(emulator.mem_read(0x08000144, 384)) == bytes(buffer), "Guard wrote save flags"
-                        assert all(stack - 256 <= address < address + size <= stack for address, size in state["writes"]), "Guard wrote outside its stack"
+                        assert all(stack - 256 <= address < address + size <= stack for address, size in state["writes"]), (
+                            "Guard wrote outside its stack"
+                        )
                         count += 1
         print(f"Native sticker guard executions passed: {count}", flush=True)
 

@@ -14,7 +14,7 @@ class BossTests(unittest.TestCase):
         self.assertLess(result.index("tempVar91 < 5"), result.index("player_stop*"))
 
     def test_cancelled_once_trigger_is_restored_only_when_gate_owned_it(self) -> None:
-        source = '''private init()  {
+        source = """private init()  {
 \tcase_entry_detail*("zone", "boss_main", hit_place_foot, case_type_trigger, case_flg_once, 0);
 }
 private boss_main()  {
@@ -22,13 +22,13 @@ private boss_main()  {
 \tcase_cancel*("zone", "boss_main");
 \toriginal_battle*();
 }
-'''
+"""
         result = gate_boss(source, BossGate("w1", "Script/Map/test.bin", "boss_main", "zone", "boss_main", 1))
         self.assertIn("case_flg_once, 0", result)
         self.assertIn('case_cancel*("zone", "boss_main");\n\toriginal_battle*();', result)
         self.assertLess(result.index("gf_rando_boss_w1 == false"), result.index("player_stop_wait"))
         self.assertIn("gf_rando_boss_pending_w1 *= true", result)
-        self.assertIn('if ( gf_rando_boss_pending_w1 ) {\n\t\t\tcase_uncancel*', result)
+        self.assertIn("if ( gf_rando_boss_pending_w1 ) {\n\t\t\tcase_uncancel*", result)
         self.assertIn("gf_rando_boss_pending_w1 *= false", result)
         with self.assertRaises(ValueError):
             gate_boss(source, BossGate("w1", "Script/Map/test.bin", "boss_main", "zone", "boss_main", 2))

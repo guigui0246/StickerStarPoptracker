@@ -27,14 +27,25 @@ def main() -> None:
     parser.add_argument("mod", type=Path)
     parser.add_argument("--compiler", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--normal-only", action="store_true", help="Isolate direct insertion from the forced placement interface")
-    parser.add_argument("--exercise-retry", action="store_true", help="Fill the disposable album, reject a grant, remove one copy natively and retry")
+    parser.add_argument(
+        "--normal-only", action="store_true", help="Isolate direct insertion from the forced placement interface"
+    )
+    parser.add_argument(
+        "--exercise-retry",
+        action="store_true",
+        help="Fill the disposable album, reject a grant, remove one copy natively and retry",
+    )
     parser.add_argument("--removal-header", type=Path, help="Your extracted btl_cyucyu.hksm, required for the retry fixture")
-    parser.add_argument("--save-probe", action="store_true", help="Save the disposable world-map fixture through the original game script")
+    parser.add_argument(
+        "--save-probe", action="store_true", help="Save the disposable world-map fixture through the original game script"
+    )
     args = parser.parse_args()
     report = json.loads((args.mod / "patch-report.json").read_text())
     signatures = report.get("code_patch", {}).get("signatures", [])
-    if not {NORMAL_ADD, FORCED_ADD} <= {row["address"] for row in signatures} or report.get("complete_randomizer") is not False:
+    if (
+        not {NORMAL_ADD, FORCED_ADD} <= {row["address"] for row in signatures}
+        or report.get("complete_randomizer") is not False
+    ):
         parser.error("Input must be an experimental mod with both native sticker guards")
     if args.output.exists():
         parser.error("Use a new output directory")
@@ -61,7 +72,9 @@ def main() -> None:
         original = (mod / "romfs" / RUNTIME_SCRIPT).read_bytes()
         binary.write_bytes(original)
         compile_script(args.compiler, binary)
-        script = ScriptSource(binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(original).hexdigest())
+        script = ScriptSource(
+            binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(original).hexdigest()
+        )
         header = script.header.read_text(encoding="utf-8")
         if "#import function item_try_addpouch " not in header:
             raise ValueError("Probe input lacks the native item delivery import")
@@ -69,15 +82,19 @@ def main() -> None:
         if args.exercise_retry:
             assert args.removal_header is not None
             name = "pouch_current_page_low_price_delete_seal"
-            declarations = [line for line in args.removal_header.read_text(encoding="utf-8").splitlines() if line.startswith(f"#import function {name} ")]
+            declarations = [
+                line
+                for line in args.removal_header.read_text(encoding="utf-8").splitlines()
+                if line.startswith(f"#import function {name} ")
+            ]
             if len(declarations) != 1:
                 raise ValueError("Missing original native sticker removal import")
             imports[name] = declarations[0]
         if args.save_probe:
             name = "e_wm_save_execute"
-            imports[name] = f"#import function {name} from 0x{sum(map(ord, name[len(name) // 2:])) & 511:x} {{0x0}};"
+            imports[name] = f"#import function {name} from 0x{sum(map(ord, name[len(name) // 2 :])) & 511:x} {{0x0}};"
         script.header.write_text(add_declarations(header, flags, imports), encoding="utf-8")
-        body = '''\ttemp tempVar95 = rando_seed_valid*();
+        body = """\ttemp tempVar95 = rando_seed_valid*();
 \tif ( tempVar95 && gf_rando_album_initialized && gf_rando_probe_started == false ) {
 \t\tgf_rando_probe_started *= true;
 \t\ttempVar95 = rando_item_grant*("SL_JUMP");
@@ -89,11 +106,13 @@ def main() -> None:
 \t\tgf_rando_probe_unlock *= tempVar95;
 \t\tgf_rando_probe_done *= true;
 \t}
-'''
+"""
         if args.normal_only:
-            body = body.replace('\t\ttempVar95 = item_try_addpouch*("SL_JUMP", true);\n\t\tgf_rando_probe_forced *= tempVar95;\n', "")
+            body = body.replace(
+                '\t\ttempVar95 = item_try_addpouch*("SL_JUMP", true);\n\t\tgf_rando_probe_forced *= tempVar95;\n', ""
+            )
         if args.exercise_retry:
-            retry = '''\t\ttemp tempVar93 = true;
+            retry = """\t\ttemp tempVar93 = true;
 \t\ttemp tempVar94 = 0;
 \t\twhile* tempVar93 {
 \t\t\ttempVar95 = rando_item_grant*("SL_W6_SANDAL_S");
@@ -109,18 +128,21 @@ def main() -> None:
 \t\t\t\tgf_rando_probe_retry_delivered *= true;
 \t\t\t}
 \t\t}
-'''
+"""
             body = body.replace("\t\tgf_rando_probe_done *= true;", retry + "\t\tgf_rando_probe_done *= true;")
         if args.save_probe:
-            body = body.replace("\t\tgf_rando_probe_done *= true;", "\t\tgf_rando_probe_done *= true;\n\t\tgf_rando_probe_saved *= true;\n\t\te_wm_save_execute*();")
+            body = body.replace(
+                "\t\tgf_rando_probe_done *= true;",
+                "\t\tgf_rando_probe_done *= true;\n\t\tgf_rando_probe_saved *= true;\n\t\te_wm_save_execute*();",
+            )
         # Startup calls run before the vanilla pouch reset. Run the fixture in
         # its own thread after startup, rather than blocking the calling init.
-        launch = '''\ttemp tempVar95 = rando_seed_valid*();
+        launch = """\ttemp tempVar95 = rando_seed_valid*();
 \tif ( tempVar95 && gf_rando_album_initialized && gf_rando_probe_started == false ) {
 \t\tgf_rando_probe_started *= true;
 \t\tthread rando_sticker_probe*();
 \t}
-'''
+"""
         body = body.replace("gf_rando_probe_started == false", "gf_rando_probe_done == false")
         source = prepend_body(script.source.read_text(encoding="utf-8"), "rando_deliver", launch)
         if "private rando_item_grant(" not in source:
@@ -131,11 +153,18 @@ def main() -> None:
         (mod / "romfs" / RUNTIME_SCRIPT).write_bytes(result)
         report["allocated_flags"] += [asdict(flag) for flag in allocated]
         report["script_hashes"][RUNTIME_SCRIPT] = hashlib.sha256(result).hexdigest()
-        report["native_sticker_probe"] = {"normal_item": "SL_JUMP", "forced_item": None if args.normal_only else "SL_JUMP", "unlock_item": "SL_HAMMER"}
+        report["native_sticker_probe"] = {
+            "normal_item": "SL_JUMP",
+            "forced_item": None if args.normal_only else "SL_JUMP",
+            "unlock_item": "SL_HAMMER",
+        }
         report["native_probe_retry"] = args.exercise_retry
         report["native_probe_save"] = args.save_probe
         (mod / "patch-report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
-        (mod / "README.txt").write_text("ONE-SHOT NATIVE STICKER TEST FIXTURE. Use a new isolated emulator profile. Not a playable seed.\n", encoding="utf-8")
+        (mod / "README.txt").write_text(
+            "ONE-SHOT NATIVE STICKER TEST FIXTURE. Use a new isolated emulator profile. Not a playable seed.\n",
+            encoding="utf-8",
+        )
         publish_directory(mod, args.output.absolute())
     print(args.output)
 

@@ -41,10 +41,14 @@ def main() -> None:
         binary = root / "ksm_item.bin"
         binary.write_bytes((mod / "romfs" / RUNTIME_SCRIPT).read_bytes())
         compile_script(args.compiler, binary)
-        script = ScriptSource(binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(binary.read_bytes()).hexdigest())
-        script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), flags + names, {}), encoding="utf-8")
+        script = ScriptSource(
+            binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(binary.read_bytes()).hexdigest()
+        )
+        script.header.write_text(
+            add_declarations(script.header.read_text(encoding="utf-8"), flags + names, {}), encoding="utf-8"
+        )
         source = prepend_body(script.source.read_text(encoding="utf-8"), "rando_deliver", "\trando_saved_byte_probe*();\n")
-        source += '''
+        source += """
 private rando_saved_byte_probe()  {
     temp tempVar0 = rando_seed_valid*();
     if ( tempVar0 == false ) {
@@ -58,7 +62,7 @@ private rando_saved_byte_probe()  {
     tempVar0 = gs_rando_probe_a == 17 && gs_rando_probe_b == 233;
     gf_rando_probe_gs_passed *= tempVar0;
 }
-'''
+"""
         script.source.write_text(source, encoding="utf-8")
         compiled = compile_checked(script, args.compiler, flags + names)
         (mod / "romfs" / RUNTIME_SCRIPT).write_bytes(compiled)

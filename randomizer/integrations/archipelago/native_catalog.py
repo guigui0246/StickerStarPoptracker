@@ -26,7 +26,10 @@ class NativeAPRegistry:
 
     def __post_init__(self) -> None:
         for values, lower, upper in ((self.items, ITEM_BASE, LOCATION_BASE), (self.locations, LOCATION_BASE, REGISTRY_END)):
-            if any(not isinstance(key, str) or not key or type(value) is not int or not lower <= value < upper for key, value in values.items()):
+            if any(
+                not isinstance(key, str) or not key or type(value) is not int or not lower <= value < upper
+                for key, value in values.items()
+            ):
                 raise ValueError("Invalid native AP identifier namespace")
             if len(set(values.values())) != len(values):
                 raise ValueError("Native AP identifiers cannot be reused")
@@ -41,10 +44,16 @@ class NativeAPRegistry:
     @classmethod
     def parse(cls, value: Json) -> "NativeAPRegistry":
         data = obj(value)
-        if set(data) != {"format_version", "items", "locations"} or type(data["format_version"]) is not int or data["format_version"] != 1:
+        if (
+            set(data) != {"format_version", "items", "locations"}
+            or type(data["format_version"]) is not int
+            or data["format_version"] != 1
+        ):
             raise ValueError("Unsupported native AP registry")
-        return cls({key: integer(value) for key, value in obj(data["items"]).items()},
-                   {key: integer(value) for key, value in obj(data["locations"]).items()})
+        return cls(
+            {key: integer(value) for key, value in obj(data["items"]).items()},
+            {key: integer(value) for key, value in obj(data["locations"]).items()},
+        )
 
     def encode(self) -> Json:
         return {"format_version": 1, "items": dict(self.items), "locations": dict(self.locations)}
@@ -80,7 +89,11 @@ class NativeAPCatalog:
     @classmethod
     def parse(cls, value: Json) -> "NativeAPCatalog":
         data = obj(value)
-        if set(data) != {"format_version", "catalog", "bindings", "registry", "rom_sha256", "sticker_policy"} or type(data["format_version"]) is not int or data["format_version"] != 1:
+        if (
+            set(data) != {"format_version", "catalog", "bindings", "registry", "rom_sha256", "sticker_policy"}
+            or type(data["format_version"]) is not int
+            or data["format_version"] != 1
+        ):
             raise ValueError("Unsupported native AP catalog bundle")
         game = parse_catalog(data["catalog"])
         bindings = NativeBindings.parse(data["bindings"], data["catalog"])
@@ -91,7 +104,11 @@ class NativeAPCatalog:
         if len(source_hash) != 64 or any(character not in "0123456789abcdef" for character in source_hash):
             raise ValueError("The native AP bundle requires the target ROM SHA-256")
         policy = decode_sticker_policy(data["sticker_policy"])
-        sticker_rewards = [reward for reward in bindings.items.values() if reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}]
+        sticker_rewards = [
+            reward
+            for reward in bindings.items.values()
+            if reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}
+        ]
         if sticker_rewards and policy is None:
             raise ValueError("Native sticker catalogs require their ROM-derived sticker policy")
         if policy is not None:

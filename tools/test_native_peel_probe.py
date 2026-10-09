@@ -31,8 +31,15 @@ def main() -> None:
     profile = NativeProfile.load(args.patch_report)
     locations = {identifier: 95000 + index for index, identifier in enumerate(profile.checks)}
     with CitraMemory(timeout=1) as memory:
-        game = NativeGame(memory, profile, profile.session.seed, profile.session.team, profile.session.slot,
-                          profile.session.catalog_hash, locations)
+        game = NativeGame(
+            memory,
+            profile,
+            profile.session.seed,
+            profile.session.team,
+            profile.session.slot,
+            profile.session.catalog_hash,
+            locations,
+        )
         identity = None
         deadline = time.monotonic() + args.wait_seconds
         while time.monotonic() < deadline:
@@ -52,7 +59,11 @@ def main() -> None:
         _, data = game.snapshot()
         assert identity is not None
         assert game.bit(data, profile.flags["gf_rando_peel_probe_first"])
-        failed = [name for flag, name in report["native_peel_probe"].get("queries", {}).items() if not game.bit(data, profile.flags[flag])]
+        failed = [
+            name
+            for flag, name in report["native_peel_probe"].get("queries", {}).items()
+            if not game.bit(data, profile.flags[flag])
+        ]
         assert game.bit(data, profile.flags["gf_rando_peel_probe_return"]), failed
         if args.expect_pending:
             assert game.bit(data, profile.flags["gf_rando_peel_probe_pending_held"])
@@ -71,7 +82,10 @@ def main() -> None:
         if args.identity_output:
             args.identity_output.write_text(json.dumps({"save_id": identity.save_id}), encoding="utf-8")
         if report["native_peel_probe"].get("pending_return"):
-            print("Native first-peel receipts, full-album deferred return and saved identity passed; inventory remains untouched during reload")
+            print(
+                "Native first-peel receipts, full-album deferred return and saved "
+                "identity passed; inventory remains untouched during reload"
+            )
         else:
             print("Native first-peel rewards, all returned variants, bounded native returns and replay rejection passed")
 

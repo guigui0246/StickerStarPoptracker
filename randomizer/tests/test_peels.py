@@ -1,10 +1,19 @@
+from typing import Any, cast
 from dataclasses import replace
+from ..integrations.rom.kdm import Scalar
 import struct
 import unittest
 
 from ..integrations.rom.kdm import KdmArray, KdmDocument, KdmField, KdmPointer, KdmStructure
 from ..integrations.rom.native_delivery import DeliveryPlan, NativeReward, NativeRewardKind, PeelReward
-from ..integrations.rom.peels import gate_peel_selection, hook_peel_callback, peel_runtime, peel_sources, resolve_peels, suppress_peel_grants
+from ..integrations.rom.peels import (
+    gate_peel_selection,
+    hook_peel_callback,
+    peel_runtime,
+    peel_sources,
+    resolve_peels,
+    suppress_peel_grants,
+)
 from ..integrations.rom.plan_io import decode_plan, encode_plan
 
 
@@ -19,12 +28,12 @@ def fixture(variants: bool = False) -> KdmDocument:
     raw = bytearray(1024)
     for index in range(2 if variants else 1):
         offset = 100 + index * 300
-        values = [0] * 72
+        values: list[Scalar] = [0] * 72
         for position in (0, 11, *range(40, 48), 57, *range(60, 72)):
             values[position] = ""
         values[0], values[1], values[2] = f"key_{index}", index + 1, True
-        values[11], values[42], values[44] = "room", "after", "GF_PICKUP"
-        values[43] = "cancel"
+        cast(Any, values)[11], values[42], values[44] = "room", "after", "GF_PICKUP"
+        cast(Any, values)[43] = "cancel"
         values[57] = values[60] = f"PK_PIECE_{index}"
         row = tuple(KdmField(offset + position * 4, types[position], value) for position, value in enumerate(values))
         document.arrays[offset] = KdmArray(index, offset, 21, 72, (KdmField(offset, 21, row),))
@@ -41,7 +50,7 @@ def fixture(variants: bool = False) -> KdmDocument:
 class PeelTests(unittest.TestCase):
     def test_shared_physical_variants_are_one_persistent_check(self) -> None:
         document = fixture(True)
-        source, = peel_sources(document)
+        (source,) = peel_sources(document)
         check = source.check(NativeReward(NativeRewardKind.COINS, 25))
         self.assertEqual(len(check.hooks), 2)
         plan = DeliveryPlan((check,))
@@ -52,7 +61,7 @@ class PeelTests(unittest.TestCase):
 
     def test_only_vanilla_reward_pointers_change(self) -> None:
         document = fixture(True)
-        source, = peel_sources(document)
+        (source,) = peel_sources(document)
         patched = suppress_peel_grants(document, DeliveryPlan((source.check(NativeReward(NativeRewardKind.COINS, 25)),)))
         changed = {index for index, (old, new) in enumerate(zip(document.data, patched)) if old != new}
         expected = {100 + slot * 300 + 57 * 4 + byte for slot in range(2) for byte in range(4)}
@@ -60,10 +69,12 @@ class PeelTests(unittest.TestCase):
         for slot in range(2):
             offset = 100 + slot * 300
             self.assertEqual(struct.unpack_from("<I", patched, offset + 57 * 4)[0], 0)
-            self.assertEqual(patched[offset + 60 * 4:offset + 60 * 4 + 4], document.data[offset + 60 * 4:offset + 60 * 4 + 4])
+            self.assertEqual(
+                patched[offset + 60 * 4 : offset + 60 * 4 + 4], document.data[offset + 60 * 4 : offset + 60 * 4 + 4]
+            )
 
     def test_first_peel_delivers_reward_and_later_peels_return_the_native_piece(self) -> None:
-        source, = peel_sources(fixture())
+        (source,) = peel_sources(fixture())
         check = source.check(NativeReward(NativeRewardKind.COINS, 25))
         plan = DeliveryPlan((check,))
         runtime = peel_runtime(plan)
@@ -74,13 +85,15 @@ class PeelTests(unittest.TestCase):
         self.assertIn("rando_peel_reserve == - 1", runtime)
         self.assertNotIn("gf_rando_delivered_0000 == false", runtime)
         self.assertNotIn("GF_PICKUP", runtime)
-        result = hook_peel_callback("private after()  {\n\tkeep_original_effect*();\n}\nprivate cancel() {\n}\n", 0, check, source)
+        result = hook_peel_callback(
+            "private after()  {\n\tkeep_original_effect*();\n}\nprivate cancel() {\n}\n", 0, check, source
+        )
         self.assertIn("rando_peel_collect_selected*(0)", result)
         self.assertIn("keep_original_effect*();", result)
         self.assertNotIn("pepalyze_get_now_play_unlock_num", result)
 
     def test_pending_return_blocks_repeat_peels_but_not_a_new_first_reward(self) -> None:
-        source, = peel_sources(fixture())
+        (source,) = peel_sources(fixture())
         runtime = peel_runtime(DeliveryPlan((source.check(NativeReward(NativeRewardKind.COINS, 25)),)))
         first = runtime.index("gf_rando_check_0000 == false")
         pending = runtime.index("if ( gs_rando_peel_pending != 0 )")
@@ -90,9 +103,14 @@ class PeelTests(unittest.TestCase):
         self.assertNotIn("gs_rando_peel_pending", runtime[:first])
 
     def test_reservation_cancellation_and_pending_return_preserve_original_effects(self) -> None:
-        observed, = peel_sources(fixture())
+        (observed,) = peel_sources(fixture())
         plan = DeliveryPlan((observed.check(NativeReward(NativeRewardKind.COINS, 25)),))
-        source = hook_peel_callback("private after() {\noriginal_after*();\n}\nprivate cancel() {\noriginal_cancel*();\n}\n", 0, plan.checks[0], observed)
+        source = hook_peel_callback(
+            "private after() {\noriginal_after*();\n}\nprivate cancel() {\noriginal_cancel*();\n}\n",
+            0,
+            cast(PeelReward, plan.checks[0]),
+            observed,
+        )
         self.assertLess(source.index("rando_peel_cancel*(0)"), source.index("original_cancel*()"))
         self.assertLess(source.index("rando_peel_collect_selected*(0"), source.index("original_after*()"))
         runtime = peel_runtime(plan)
@@ -106,7 +124,7 @@ class PeelTests(unittest.TestCase):
             gate_peel_selection("private input() {}", plan)
 
     def test_wrong_piece_and_duplicate_sources_are_rejected(self) -> None:
-        source, = peel_sources(fixture())
+        (source,) = peel_sources(fixture())
         check = source.check(NativeReward(NativeRewardKind.COINS, 25))
         with self.assertRaises(ValueError):
             resolve_peels(fixture(), DeliveryPlan((replace(check, source_item="PK_WRONG"),)))
@@ -117,7 +135,7 @@ class PeelTests(unittest.TestCase):
 
     def test_omitted_native_targets_in_the_same_room_remain_selectable(self) -> None:
         document = fixture(True)
-        source, = peel_sources(document)
+        (source,) = peel_sources(document)
         full_check = source.check(NativeReward(NativeRewardKind.COINS, 25))
         plan = DeliveryPlan((replace(full_check, variants=()),))
         gated = gate_peel_selection("private input() { decal_dokodemo_mario_control_main*(); }", plan, document)

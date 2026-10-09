@@ -19,9 +19,12 @@ def main() -> None:
     args = parser.parse_args()
     raw = args.link_table.read_bytes()
     links = room_links(KdmDocument(raw))
-    result = {"format_version": 1, "source_sha256": hashlib.sha256(raw).hexdigest(),
-              "access_rules_verified": False,
-              "links": [{"id": link.id, **asdict(link)} for link in links]}
+    result = {
+        "format_version": 1,
+        "source_sha256": hashlib.sha256(raw).hexdigest(),
+        "access_rules_verified": False,
+        "links": [{"id": link.id, **asdict(link)} for link in links],
+    }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(f"Exported {len(links)} directed records across {len({link.source_room for link in links})} room groups.")

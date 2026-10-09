@@ -21,13 +21,22 @@ def main() -> None:
     args = parser.parse_args()
     report = json.loads(args.patch_report.read_text())
     probe = report.get("native_sticker_probe", {})
-    if probe not in ({"normal_item": "SL_JUMP", "forced_item": forced, "unlock_item": "SL_HAMMER"} for forced in (None, "SL_JUMP")):
+    if probe not in (
+        {"normal_item": "SL_JUMP", "forced_item": forced, "unlock_item": "SL_HAMMER"} for forced in (None, "SL_JUMP")
+    ):
         raise ValueError("Use only the dedicated one-shot sticker probe fixture")
     profile = NativeProfile.load(args.patch_report)
     locations = {identifier: index for index, identifier in enumerate(profile.checks, 1000)}
     with CitraMemory(port=args.port, timeout=1) as memory:
-        game = NativeGame(memory, profile, profile.session.seed, profile.session.team,
-                          profile.session.slot, profile.session.catalog_hash, locations)
+        game = NativeGame(
+            memory,
+            profile,
+            profile.session.seed,
+            profile.session.team,
+            profile.session.slot,
+            profile.session.catalog_hash,
+            locations,
+        )
         deadline = time.monotonic() + args.wait_seconds
         last_error = "Probe has not completed"
         while time.monotonic() < deadline:
@@ -59,13 +68,25 @@ def main() -> None:
         retry = report.get("native_probe_retry", False)
         if retry:
             assert game.bit(flags, profile.flags["gf_rando_probe_full_rejected"]), "A full album accepted an extra sticker"
-            assert game.bit(flags, profile.flags["gf_rando_probe_retry_delivered"]), "The pending copy failed to retry after space was freed"
+            assert game.bit(flags, profile.flags["gf_rando_probe_retry_delivered"]), (
+                "The pending copy failed to retry after space was freed"
+            )
         assert counts[43] == (2 if retry else 1), "Hammer copy delivery was lost or duplicated"
-        print(json.dumps({"native_probe_passed": True, "album_pages": pages,
-                          "jump_copies": counts[16], "sandal_copies": counts[81], "hammer_copies": counts[43],
-                          "forced_insertion_tested": bool(probe["forced_item"]),
-                          "full_album_retry_tested": bool(retry),
-                          "host_memory_writes": 0}, indent=2))
+        print(
+            json.dumps(
+                {
+                    "native_probe_passed": True,
+                    "album_pages": pages,
+                    "jump_copies": counts[16],
+                    "sandal_copies": counts[81],
+                    "hammer_copies": counts[43],
+                    "forced_insertion_tested": bool(probe["forced_item"]),
+                    "full_album_retry_tested": bool(retry),
+                    "host_memory_writes": 0,
+                },
+                indent=2,
+            )
+        )
 
 
 if __name__ == "__main__":

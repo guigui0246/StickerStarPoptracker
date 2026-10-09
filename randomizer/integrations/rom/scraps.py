@@ -22,8 +22,7 @@ def scrap_items(document: KdmDocument) -> tuple[ScrapItem, ...]:
     schema = document.structures.get(29)
     if schema is None or schema.fields != (3, 15, 3, 0):
         raise ValueError("Unsupported field-to-inventory item schema")
-    inventory = {text(record(row, 19)[0]) for array in document.arrays.values()
-                 if array.type_id == 30 for row in array.values}
+    inventory = {text(record(row, 19)[0]) for array in document.arrays.values() if array.type_id == 30 for row in array.values}
     result: dict[str, ScrapItem] = {}
     for array in document.arrays.values():
         if array.type_id != 29:
@@ -34,7 +33,11 @@ def scrap_items(document: KdmDocument) -> tuple[ScrapItem, ...]:
             if not field_item.startswith("PK_FIELD_"):
                 continue
             item = ScrapItem(field_item, text(fields[2]))
-            if not item.inventory_item.startswith("PK_") or item.inventory_item.startswith("PK_FIELD_") or item.inventory_item not in inventory:
+            if (
+                not item.inventory_item.startswith("PK_")
+                or item.inventory_item.startswith("PK_FIELD_")
+                or item.inventory_item not in inventory
+            ):
                 raise ValueError("Field scrap lacks an observed native inventory item")
             if field_item in result:
                 raise ValueError("Duplicate field scrap mapping")
@@ -71,19 +74,26 @@ def scripted_scraps(map_name: str, source: str) -> tuple[ScriptedScrap, ...]:
                 if not preceding:
                     continue
                 following = [function.start() for function in functions if function.start() > match.start()]
-                scope = source[preceding[-1].end():min(following, default=len(source))]
-            names = set(re.findall(r'\b' + re.escape(object_expression) + r'\s*\*?=\s*"([a-zA-Z0-9_]+)"\s*;', scope))
+                scope = source[preceding[-1].end() : min(following, default=len(source))]
+            names = set(re.findall(r"\b" + re.escape(object_expression) + r'\s*\*?=\s*"([a-zA-Z0-9_]+)"\s*;', scope))
             if len(names) != 1:
                 continue
             name = names.pop()
         # Story props such as mp_dummy are explicitly noncollectible.
-        flags = re.findall(r'\bitem_set_flg\*?\(\s*' + re.escape(object_expression)
-                           + r'\s*,\s*item_flg_no_get\s*,\s*(true|false)\s*\)', scope)
-        manual_get = re.search(r'\bitem_get_item_id\*?\(\s*' + re.escape(object_expression) + r'\s*\)', source)
-        callbacks = re.findall(r'\bitem_set_itemget_event\*?\(\s*' + re.escape(object_expression) + r'\s*,\s*"([a-zA-Z0-9_]+)"\s*\)', scope)
+        flags = re.findall(
+            r"\bitem_set_flg\*?\(\s*" + re.escape(object_expression) + r"\s*,\s*item_flg_no_get\s*,\s*(true|false)\s*\)", scope
+        )
+        manual_get = re.search(r"\bitem_get_item_id\*?\(\s*" + re.escape(object_expression) + r"\s*\)", source)
+        callbacks = re.findall(
+            r"\bitem_set_itemget_event\*?\(\s*" + re.escape(object_expression) + r'\s*,\s*"([a-zA-Z0-9_]+)"\s*\)', scope
+        )
         callback_get = False
         for callback in callbacks:
-            body = re.search(r"^(?:private|public) " + re.escape(callback) + r"\([^\n]*\)[^\n]*\{(.*?)(?=^(?:private|public) |\Z)", source, re.MULTILINE | re.DOTALL)
+            body = re.search(
+                r"^(?:private|public) " + re.escape(callback) + r"\([^\n]*\)[^\n]*\{(.*?)(?=^(?:private|public) |\Z)",
+                source,
+                re.MULTILINE | re.DOTALL,
+            )
             callback_get |= body is not None and bool(re.search(r"\bitem_get_evt_piece\*?\(", body[1]))
         if "true" in flags and "false" not in flags and not manual_get and not callback_get:
             continue
@@ -112,21 +122,39 @@ def audit_scrap_inventory(items: KdmDocument, puzzles: KdmDocument) -> ScrapInve
     from .paperization import paperization_locks
     from .peels import peel_sources
     from .pickups import integer
-    inventory = {text(record(row, 19)[0]) for array in items.arrays.values()
-                 if array.type_id == 30 for row in array.values
-                 if integer(record(row, 19)[18]) == 3 and text(record(row, 19)[0]).startswith("PK_")
-                 and not text(record(row, 19)[0]).startswith("PK_FIELD_")}
+
+    inventory = {
+        text(record(row, 19)[0])
+        for array in items.arrays.values()
+        if array.type_id == 30
+        for row in array.values
+        if integer(record(row, 19)[18]) == 3
+        and text(record(row, 19)[0]).startswith("PK_")
+        and not text(record(row, 19)[0]).startswith("PK_FIELD_")
+    }
     field = {entry.inventory_item for entry in scrap_items(items)}
     peels = {variant.source_item for source in peel_sources(puzzles) for variant in source.variants}
     if (field | peels) - inventory:
         raise ValueError("Native scrap sources reference missing inventory descriptors")
     locks = paperization_locks(puzzles)
-    transformed = {(lock.key_item, accepted) for lock in locks if lock.key_item in peels
-                   for accepted in lock.accepted_items if accepted in inventory - field - peels}
-    story = {accepted for lock in locks for accepted in lock.accepted_items
-             if re.fullmatch(r"PK_HANACHAN_BODY_[1-4]", accepted)}
+    transformed = {
+        (lock.key_item, accepted)
+        for lock in locks
+        if lock.key_item in peels
+        for accepted in lock.accepted_items
+        if accepted in inventory - field - peels
+    }
+    story = {
+        accepted for lock in locks for accepted in lock.accepted_items if re.fullmatch(r"PK_HANACHAN_BODY_[1-4]", accepted)
+    }
     if story - inventory:
         raise ValueError("Wiggler puzzles reference missing native inventory descriptors")
     classified = field | peels | {accepted for _, accepted in transformed} | story
-    return ScrapInventoryAudit(tuple(sorted(inventory)), tuple(sorted(field)), tuple(sorted(peels)),
-                               tuple(sorted(transformed)), tuple(sorted(story)), tuple(sorted(inventory - classified)))
+    return ScrapInventoryAudit(
+        tuple(sorted(inventory)),
+        tuple(sorted(field)),
+        tuple(sorted(peels)),
+        tuple(sorted(transformed)),
+        tuple(sorted(story)),
+        tuple(sorted(inventory - classified)),
+    )

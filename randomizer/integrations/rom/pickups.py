@@ -91,9 +91,7 @@ def item_pickups(document: KdmDocument) -> tuple[GamePickup, ...]:
                         )
                         previous = result.get(pickup.item_field_offset)
                         if previous and previous != pickup:
-                            raise ValueError(
-                                "One placement record belongs to conflicting maps"
-                            )
+                            raise ValueError("One placement record belongs to conflicting maps")
                         result[pickup.item_field_offset] = pickup
     return tuple(result.values())
 

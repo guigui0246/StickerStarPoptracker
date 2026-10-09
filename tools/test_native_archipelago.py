@@ -23,6 +23,7 @@ def main() -> None:
     project = Path(__file__).resolve().parents[1]
     sys.path.insert(0, str(project))
     from randomizer.tests.test_native_ap_catalog import fixture
+
     catalog, bindings = fixture()
     dist = project / "dist/native-ap-generation-test"
     dist.mkdir(parents=True, exist_ok=True)
@@ -30,8 +31,21 @@ def main() -> None:
     catalog_path.write_text(json.dumps(catalog), encoding="utf-8")
     bindings_path.write_text(json.dumps(bindings), encoding="utf-8")
     package = dist / "sticker_star.apworld"
-    subprocess.run([sys.executable, str(project / "tools/build_apworld.py"), "--output", str(package),
-                    "--catalog", str(catalog_path), "--bindings", str(bindings_path), "--rom", str(args.rom)], check=True)
+    subprocess.run(
+        [
+            sys.executable,
+            str(project / "tools/build_apworld.py"),
+            "--output",
+            str(package),
+            "--catalog",
+            str(catalog_path),
+            "--bindings",
+            str(bindings_path),
+            "--rom",
+            str(args.rom),
+        ],
+        check=True,
+    )
     root = args.ap_root.resolve()
     target = root / "custom_worlds/sticker_star.apworld"
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -40,15 +54,18 @@ def main() -> None:
     if args.dependencies:
         sys.path.insert(0, str(args.dependencies.resolve()))
     os.environ["AP_TEST_WORLDS"] = "sticker_star"
-    from Utils import version_tuple
+    from Utils import version_tuple  # pyright: ignore[reportMissingImports]
+
     if tuple(version_tuple) != (0, 6, 8):
         raise RuntimeError("Native integration tests require AP 0.6.8")
-    from BaseClasses import CollectionState
-    from Fill import distribute_items_restrictive
-    from test.general import setup_multiworld
-    from worlds.sticker_star import StickerStarWorld
-    from worlds.sticker_star.integrations.rom.native_recipe import decode_native_recipe
-    from worlds.sticker_star.integrations.rom.native_delivery import NativeRewardKind
+    from BaseClasses import CollectionState  # pyright: ignore[reportMissingImports]
+    from Fill import distribute_items_restrictive  # pyright: ignore[reportMissingImports]
+    from test.general import setup_multiworld  # pyright: ignore[reportMissingImports]
+    from worlds.sticker_star import StickerStarWorld  # pyright: ignore[reportMissingImports]
+    from worlds.sticker_star.integrations.rom.native_recipe import (  # pyright: ignore[reportMissingImports]
+        decode_native_recipe,
+    )
+    from worlds.sticker_star.integrations.rom.native_delivery import NativeRewardKind  # pyright: ignore[reportMissingImports]
 
     class NativeAPTests(unittest.TestCase):
         def verify(self, multiworld) -> None:
@@ -74,7 +91,9 @@ def main() -> None:
                 config = json.loads(Path(str(stem) + ".client.json").read_text(encoding="utf-8"))
                 tracker = json.loads(Path(str(stem) + ".tracker.json").read_text(encoding="utf-8"))
                 self.assertEqual(tracker["tracker"], world.fill_slot_data()["tracker"])
-                self.assertEqual(set(tracker["tracker"]["locations"]), {str(identifier) for identifier in config["locations"].values()})
+                self.assertEqual(
+                    set(tracker["tracker"]["locations"]), {str(identifier) for identifier in config["locations"].values()}
+                )
                 self.assertEqual(len(tracker["locations"]), len(config["locations"]))
                 self.assertIn(tracker["catalog_hash"], Path(str(stem) + ".tracker.lua").read_text(encoding="utf-8"))
                 self.assertEqual(recipe.plan.remote_session.slot, player)

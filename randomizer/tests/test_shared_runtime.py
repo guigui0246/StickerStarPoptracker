@@ -23,6 +23,6 @@ class SharedRuntimeTests(unittest.TestCase):
     def test_shared_imports_use_original_name_bucket_rule(self) -> None:
         # The known original mobj public helper uses bucket 0x24.
         name = "mobj_goal_block_exit"
-        self.assertEqual(sum(map(ord, name[len(name) // 2:])) & 511, 0x24)
+        self.assertEqual(sum(map(ord, name[len(name) // 2 :])) & 511, 0x24)
         for name, declaration in shared_imports().items():
-            self.assertIn(f"from 0x{sum(map(ord, name[len(name) // 2:])) & 511:x}", declaration)
+            self.assertIn(f"from 0x{sum(map(ord, name[len(name) // 2 :])) & 511:x}", declaration)

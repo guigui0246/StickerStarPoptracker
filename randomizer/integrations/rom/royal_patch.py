@@ -5,7 +5,6 @@ import struct
 from .ksm import KsmDocument
 from .script_build import replace_body
 
-
 FINAL_BOSS = "Script/Map/W6_BOS/w6_bos_04.bin"
 INTERMISSIONS = tuple(f"Script/Map/InterMission/w{world}_itm_00.bin" for world in range(1, 6))
 ROYAL_GATE_SCRIPT = "Script/Map/W6_GAK/w6_gak_00.bin"
@@ -30,7 +29,7 @@ def disable_book_restoration(data: bytes) -> bytes:
     if document.version != 0x00010300:
         raise ValueError("Unsupported restoration bytecode version")
     name = b"royalseal_book_reset\0"
-    matches = [match.start() for match in re.finditer(re.escape(name), data[document.sections[1]:document.sections[2]])]
+    matches = [match.start() for match in re.finditer(re.escape(name), data[document.sections[1] : document.sections[2]])]
     if len(matches) != 1:
         raise ValueError("Expected one Royal restoration function")
     name_offset = document.sections[1] + matches[0]

@@ -30,11 +30,17 @@ def main() -> None:
     if args.output.exists():
         parser.error("Use a new output directory")
     import re
+
     if not args.item or any(not re.fullmatch(r"(?:PK|REAL|SL)_[A-Z0-9_]+", item) for item in args.item):
         parser.error("Provide exact native inventory item names")
     queries = {f"gf_rando_probe_item_{index:04d}": item for index, item in enumerate(args.item)}
-    flags = (*queries, "gf_rando_probe_one_royal", "gf_rando_probe_25_coins",
-             "gf_rando_probe_royal_gate_zero", "gf_rando_probe_royal_gate_five")
+    flags = (
+        *queries,
+        "gf_rando_probe_one_royal",
+        "gf_rando_probe_25_coins",
+        "gf_rando_probe_royal_gate_zero",
+        "gf_rando_probe_royal_gate_five",
+    )
     required_imports = ("item_check_pouch", "pouch_get_royal_seal_num", "pouch_get_coin")
     if args.save_after_sequence is not None:
         if not 1 <= args.save_after_sequence <= 0x7FFFFFFE:
@@ -58,7 +64,9 @@ def main() -> None:
         if not report.get("rpc_memory_profile") or report.get("complete_randomizer") is not False:
             raise ValueError("Use only an explicitly experimental native fixture")
         if not report.get("shuffle_royals"):
-            flags = tuple(flag for flag in flags if flag not in {"gf_rando_probe_royal_gate_zero", "gf_rando_probe_royal_gate_five"})
+            flags = tuple(
+                flag for flag in flags if flag not in {"gf_rando_probe_royal_gate_zero", "gf_rando_probe_royal_gate_five"}
+            )
         registry = mod / "romfs/Data/kdm_switch.bin"
         raw, allocated = register_flags(registry.read_bytes(), flags)
         registry.write_bytes(raw)
@@ -66,22 +74,42 @@ def main() -> None:
         original = (mod / "romfs" / RUNTIME_SCRIPT).read_bytes()
         binary.write_bytes(original)
         compile_script(args.compiler, binary)
-        script = ScriptSource(binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(original).hexdigest())
+        script = ScriptSource(
+            binary, binary.with_suffix(".cksm"), binary.with_suffix(".hksm"), hashlib.sha256(original).hexdigest()
+        )
         saved_mailbox = report.get("saved_byte_mailbox", False)
         ack_fields = byte_fields("ack") if saved_mailbox else word_flags("ack")
-        script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), flags + (ack_fields if args.save_after_sequence else ()), imports), encoding="utf-8")
+        script.header.write_text(
+            add_declarations(
+                script.header.read_text(encoding="utf-8"), flags + (ack_fields if args.save_after_sequence else ()), imports
+            ),
+            encoding="utf-8",
+        )
         source = prepend_body(script.source.read_text(encoding="utf-8"), "rando_deliver", "\trando_probe_queries*();\n")
-        source += "\nprivate rando_probe_queries()  {\n\ttemp tempVar0 = rando_seed_valid*();\n\tif ( tempVar0 == false ) {\n\t\treturn*;\n\t}\n"
+        source += (
+            "\nprivate rando_probe_queries()  {\n\ttemp tempVar0 = rando_seed_val"
+            "id*();\n\tif ( tempVar0 == false ) {\n\t\treturn*;\n\t}\n"
+        )
         for flag, item in queries.items():
             source += f'\ttempVar0 = item_check_pouch*("{item}", true);\n\t{flag} *= tempVar0;\n'
-        source += "\ttempVar0 = pouch_get_royal_seal_num*();\n\ttempVar0 = tempVar0 == 1;\n\tgf_rando_probe_one_royal *= tempVar0;\n"
+        source += (
+            "\ttempVar0 = pouch_get_royal_seal_num*();\n\ttempVar0 = tempVar0 == 1;\n\tgf_rando_probe_one_royal *= tempVar0;\n"
+        )
         source += "\ttempVar0 = pouch_get_coin*();\n\ttempVar0 = tempVar0 == 25;\n\tgf_rando_probe_25_coins *= tempVar0;\n"
         if report.get("shuffle_royals"):
-            source += "\ttempVar0 = rando_royal_gate_count*();\n\ttemp tempVar1 = tempVar0 == 0;\n\tgf_rando_probe_royal_gate_zero *= tempVar1;\n"
+            source += (
+                "\ttempVar0 = rando_royal_gate_count*();\n\ttemp tempVar1 = tempVar0 "
+                "== 0;\n\tgf_rando_probe_royal_gate_zero *= tempVar1;\n"
+            )
             source += "\ttempVar1 = tempVar0 == 5;\n\tgf_rando_probe_royal_gate_five *= tempVar1;\n"
         if args.save_after_sequence:
             source += "\n".join(decode_word("ack", "tempVar0", saved_mailbox)) + "\n"
-            source += f"\tif ( gf_rando_probe_saved == false && tempVar0 >= {args.save_after_sequence} ) {{\n\t\tgf_rando_probe_saved *= true;\n\t\tbackup_task_save*();\n\t}}\n"
+            source += (
+                "\tif ( gf_rando_probe_saved == false && tempVar0 >= "
+                f"{args.save_after_sequence}"
+                " ) {\n\t\tgf_rando_probe_saved *= true;\n\t\tbackup_task_save"
+                "*();\n\t}\n"
+            )
         source += "}\n"
         script.source.write_text(source, encoding="utf-8")
         compiled = compile_checked(script, args.compiler, flags)

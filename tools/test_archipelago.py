@@ -26,15 +26,15 @@ def main() -> None:
     target = root / "custom_worlds" / "sticker_star.apworld"
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(project / "dist" / "sticker_star.apworld", target)
-    from Utils import version_tuple
+    from Utils import version_tuple  # pyright: ignore[reportMissingImports]
 
     if tuple(version_tuple) != (0, 6, 8):
         raise RuntimeError(f"Expected AP 0.6.8, got {version_tuple}")
-    from BaseClasses import CollectionState
-    from Fill import distribute_items_restrictive
-    from test.general import setup_multiworld
-    from worlds import failed_world_loads
-    from worlds.sticker_star.integrations.archipelago.world import StickerStarWorld
+    from BaseClasses import CollectionState  # pyright: ignore[reportMissingImports]
+    from Fill import distribute_items_restrictive  # pyright: ignore[reportMissingImports]
+    from test.general import setup_multiworld  # pyright: ignore[reportMissingImports]
+    from worlds import failed_world_loads  # pyright: ignore[reportMissingImports]
+    from worlds.sticker_star.integrations.archipelago.world import StickerStarWorld  # pyright: ignore[reportMissingImports]
 
     if "sticker_star" in failed_world_loads:
         raise RuntimeError(failed_world_loads["sticker_star"])
@@ -42,9 +42,7 @@ def main() -> None:
     class APTests(unittest.TestCase):
         def test_two_player_generation_and_completion(self) -> None:
             for seed in range(10):
-                multiworld = setup_multiworld(
-                    [StickerStarWorld, StickerStarWorld], seed=seed
-                )
+                multiworld = setup_multiworld([StickerStarWorld, StickerStarWorld], seed=seed)
                 distribute_items_restrictive(multiworld)
                 state = CollectionState(multiworld)
                 self.assertFalse(multiworld.has_beaten_game(state))
@@ -61,12 +59,8 @@ def main() -> None:
                 self.assertFalse(remaining)
                 self.assertTrue(multiworld.has_beaten_game(state))
                 for player in (1, 2):
-                    self.assertIsNone(
-                        multiworld.get_location("Rescue Toad", player).address
-                    )
-                    self.assertTrue(
-                        multiworld.get_location("Example Victory", player).locked
-                    )
+                    self.assertIsNone(multiworld.get_location("Rescue Toad", player).address)
+                    self.assertTrue(multiworld.get_location("Example Victory", player).locked)
                     multiworld.worlds[player].generate_output(str(project / "dist"))
 
         def test_directional_rule_and_town_gate(self) -> None:
@@ -75,19 +69,13 @@ def main() -> None:
             self.assertTrue(state.can_reach("Menu", "Region", 1))
             self.assertTrue(state.can_reach("World 1-1", "Region", 1))
             self.assertFalse(state.can_reach("Decalburg", "Region", 1))
-            self.assertFalse(
-                multiworld.get_entrance("field_path:1", 1).access_rule(state)
-            )
+            self.assertFalse(multiworld.get_entrance("field_path:1", 1).access_rule(state))
             state.collect(multiworld.worlds[1].create_item("Hammer"), True)
-            self.assertTrue(
-                multiworld.get_entrance("field_path:1", 1).access_rule(state)
-            )
+            self.assertTrue(multiworld.get_entrance("field_path:1", 1).access_rule(state))
             state.collect(multiworld.worlds[1].create_item("Decalburg Access"), True)
             self.assertTrue(state.can_reach("Decalburg", "Region", 1))
 
-    result = unittest.TextTestRunner(verbosity=2).run(
-        unittest.defaultTestLoader.loadTestsFromTestCase(APTests)
-    )
+    result = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromTestCase(APTests))
     if not result.wasSuccessful():
         raise SystemExit(1)
 

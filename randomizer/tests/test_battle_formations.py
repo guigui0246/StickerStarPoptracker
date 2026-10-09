@@ -13,18 +13,42 @@ def fixture() -> KdmDocument:
     }
     unit = ("goomba", 14, 0, 0, 0, 0, "", "", "", 0)
     slots = tuple(KdmField(100 + index * 32, 21, tuple(KdmField(100, 3, value) for value in unit)) for index in range(2))
-    row = ("formation", "label", KdmPointer(100, 15), 2, "normal", "first", "after", "NORMAL_BATTLE", "", "", "", "", "", "", False, 100, 18, False, False)
+    row = (
+        "formation",
+        "label",
+        KdmPointer(100, 15),
+        2,
+        "normal",
+        "first",
+        "after",
+        "NORMAL_BATTLE",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        False,
+        100,
+        18,
+        False,
+        False,
+    )
     document.arrays = {
         100: KdmArray(1, 100, 21, 20, slots),
         300: KdmArray(2, 300, 22, 19, (KdmField(300, 22, tuple(KdmField(300, 3, value) for value in row)),)),
     }
-    document.tables = {"enemySetDataTable": KdmArray(3, 500, 15, 2, (KdmField(500, 15, KdmPointer(300, 15)), KdmField(504, 15, KdmPointer(0, 15))))}
+    document.tables = {
+        "enemySetDataTable": KdmArray(
+            3, 500, 15, 2, (KdmField(500, 15, KdmPointer(300, 15)), KdmField(504, 15, KdmPointer(0, 15)))
+        )
+    }
     return document
 
 
 class BattleFormationTests(unittest.TestCase):
     def test_duplicate_unit_slots_and_battle_event_are_preserved(self) -> None:
-        formation, = battle_formations(fixture())
+        (formation,) = battle_formations(fixture())
         self.assertEqual(formation.units, ("goomba", "goomba"))
         self.assertEqual(formation.battle_event, "NORMAL_BATTLE")
         self.assertEqual(formation.maps, ("normal", "first", "after"))
@@ -34,7 +58,9 @@ class BattleFormationTests(unittest.TestCase):
         array = document.arrays[300]
         row = array.values[0].value
         assert isinstance(row, tuple)
-        document.arrays[300] = replace(array, values=(replace(array.values[0], value=(*row[:3], KdmField(300, 1, 1), *row[4:])),))
+        document.arrays[300] = replace(
+            array, values=(replace(array.values[0], value=(*row[:3], KdmField(300, 1, 1), *row[4:])),)
+        )
         with self.assertRaisesRegex(ValueError, "count"):
             battle_formations(document)
 

@@ -19,8 +19,10 @@ def battle_formations(document: KdmDocument) -> tuple[BattleFormation, ...]:
         21: (3, 8, 8, 8, 8, 8, 3, 3, 3, 1),
         22: (3, 3, 15, 1, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 7, 8, 4, 4),
     }
-    if any(identifier not in document.structures or document.structures[identifier].fields != fields
-           for identifier, fields in schemas.items()):
+    if any(
+        identifier not in document.structures or document.structures[identifier].fields != fields
+        for identifier, fields in schemas.items()
+    ):
         raise ValueError("Unsupported native battle formation schema")
     table = document.tables.get("enemySetDataTable")
     if table is None or table.type_id != 15:
@@ -44,10 +46,8 @@ def battle_formations(document: KdmDocument) -> tuple[BattleFormation, ...]:
         entries = document.pointed_array(pointer(row[2]))
         if entries.type_id != 21:
             raise ValueError("Battle formation must contain native unit slots")
-        units = tuple(text(record(unit, 10)[0]) for unit in entries.values
-                      if text(record(unit, 10)[0]))
+        units = tuple(text(record(unit, 10)[0]) for unit in entries.values if text(record(unit, 10)[0]))
         if integer(row[3]) != len(units):
             raise ValueError("Battle formation count does not match unit slots")
-        result.append(BattleFormation(identifier, units, text(row[7]),
-                                     (text(row[4]), text(row[5]), text(row[6]))))
+        result.append(BattleFormation(identifier, units, text(row[7]), (text(row[4]), text(row[5]), text(row[6]))))
     return tuple(result)

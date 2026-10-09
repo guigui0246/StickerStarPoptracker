@@ -29,13 +29,22 @@ def main() -> None:
     writes = []
     with CitraMemory(timeout=1) as memory:
         original_write = memory.write
+
         def write(address, data):
             writes.append((address, len(data)))
             original_write(address, data)
+
         memory.write = write
         location = 91000
-        game = NativeGame(memory, profile, profile.session.seed, profile.session.team, profile.session.slot,
-                          profile.session.catalog_hash, {source: location})
+        game = NativeGame(
+            memory,
+            profile,
+            profile.session.seed,
+            profile.session.team,
+            profile.session.slot,
+            profile.session.catalog_hash,
+            {source: location},
+        )
         deadline = time.monotonic() + args.wait_seconds
         while time.monotonic() < deadline:
             try:
@@ -55,20 +64,32 @@ def main() -> None:
         def inventory():
             pages = memory.read_u32(pouch + 0xCDC)
             raw = memory.read(pouch + 0x198, pages * 160)
-            return [struct.unpack_from("<H", raw, page * 160 + slot * 10)[0] & 0x3FFF
-                    for page in range(pages) for slot in range(15)
-                    if struct.unpack_from("<H", raw, page * 160 + slot * 10 + 4)[0] & 0x3FFF != 0x3FFF]
+            return [
+                struct.unpack_from("<H", raw, page * 160 + slot * 10)[0] & 0x3FFF
+                for page in range(pages)
+                for slot in range(15)
+                if struct.unpack_from("<H", raw, page * 160 + slot * 10 + 4)[0] & 0x3FFF != 0x3FFF
+            ]
+
         assert len(inventory()) == 30
         session = game.identity()
-        hammer = next(identifier for identifier, reward in profile.selector_rewards.items()
-                      if reward.kind == NativeRewardKind.STICKER_UNLOCK and reward.value == "SL_HAMMER")
-        page = next(identifier for identifier, reward in profile.selector_rewards.items() if reward.kind == NativeRewardKind.PAGE)
+        hammer = next(
+            identifier
+            for identifier, reward in profile.selector_rewards.items()
+            if reward.kind == NativeRewardKind.STICKER_UNLOCK and reward.value == "SL_HAMMER"
+        )
+        page = next(
+            identifier for identifier, reward in profile.selector_rewards.items() if reward.kind == NativeRewardKind.PAGE
+        )
         local = ReceivedItem(hammer, location, session.slot, 1)
         with tempfile.TemporaryDirectory(prefix=".local-page-ledger-", dir=args.patch_report.parent) as directory:
             ledger = Ledger(Path(directory) / "ledger.sqlite", session)
             try:
                 if remote:
-                    ledger.receive(0, (ReceivedItem(hammer, location, session.slot + 1, 1), ReceivedItem(page, 92000, session.slot + 1, 1)))
+                    ledger.receive(
+                        0,
+                        (ReceivedItem(hammer, location, session.slot + 1, 1), ReceivedItem(page, 92000, session.slot + 1, 1)),
+                    )
                 else:
                     ledger.bind_local_rewards({location: local})
                     ledger.record_check(location)
@@ -104,10 +125,20 @@ def main() -> None:
                 assert memory.read_u32(pouch + 0xCDC) == 3
             finally:
                 ledger.close()
-        allowed = {(base + profile.word_offset(name), profile.word_size(name))
-                   for name in (("save_a", "save_b", "save_c", "save_d", "sequence", "item", "ready", "page_rank") if profile.priority_pages else ("save_a", "save_b", "save_c", "save_d", "sequence", "item", "ready"))}
+        allowed = {
+            (base + profile.word_offset(name), profile.word_size(name))
+            for name in (
+                ("save_a", "save_b", "save_c", "save_d", "sequence", "item", "ready", "page_rank")
+                if profile.priority_pages
+                else ("save_a", "save_b", "save_c", "save_d", "sequence", "item", "ready")
+            )
+        }
         assert set(writes) <= allowed
-        print("Native remote sticker/page priority and replay passed; no host inventory writes" if remote else "Native local sticker retry, remote page delivery and echo/replay passed; no host inventory writes")
+        print(
+            "Native remote sticker/page priority and replay passed; no host inventory writes"
+            if remote
+            else "Native local sticker retry, remote page delivery and echo/replay passed; no host inventory writes"
+        )
 
 
 if __name__ == "__main__":

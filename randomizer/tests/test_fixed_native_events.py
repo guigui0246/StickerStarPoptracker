@@ -12,7 +12,9 @@ from . import test_native_ap_catalog
 class FixedNativeEventTests(unittest.TestCase):
     def test_story_events_observe_original_flags_without_inventory_or_extra_save_bits(self) -> None:
         normal = GoalBlockReward("room", "GF_WM_A01_A02", NativeReward(NativeRewardKind.COINS, 25))
-        event = FlagReward("event", "gf_native_bridge_repaired", NativeReward(NativeRewardKind.EVENT, "gf_native_bridge_repaired"))
+        event = FlagReward(
+            "event", "gf_native_bridge_repaired", NativeReward(NativeRewardKind.EVENT, "gf_native_bridge_repaired")
+        )
         base, plan = DeliveryPlan((normal,)), DeliveryPlan((normal, event))
         self.assertEqual(len(base.flags), len(plan.flags))
         self.assertEqual(decode_plan(encode_plan(plan)), plan)

@@ -34,9 +34,18 @@ class PaperizationTests(unittest.TestCase):
 
     def test_wiggler_requires_four_distinct_segments_despite_shared_slot_alternatives(self) -> None:
         bodies = tuple(f"PK_HANACHAN_BODY_{index}" for index in range(1, 5))
-        locks = tuple(PaperizationLock(f"w3_tre_02_hanachan_{index}", index, "w3_tre_02",
-                                      f"GF_W3_TRE_REV_HANACHAN_{index}", "", bodies, ("init", "before", "after", "cancel"))
-                      for index in range(1, 5))
+        locks = tuple(
+            PaperizationLock(
+                f"w3_tre_02_hanachan_{index}",
+                index,
+                "w3_tre_02",
+                f"GF_W3_TRE_REV_HANACHAN_{index}",
+                "",
+                bodies,
+                ("init", "before", "after", "cancel"),
+            )
+            for index in range(1, 5)
+        )
         mapping = {body: f"body{index}" for index, body in enumerate(bodies, 1)}
         rules = wiggler_restoration_requirements(locks, mapping, "paper")
         self.assertFalse(rules.allows(InventoryState(Counter({"paper": 1, "body1": 4}))))

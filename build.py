@@ -1,67 +1,93 @@
+"""Build release packages without starting applications."""
+
+import argparse
+from pathlib import Path
+import platform
+import subprocess
 import sys
-import os
-from typing import TypedDict
-from subprocess import Popen
+from zipfile import ZIP_DEFLATED, ZipFile
 
-if __name__ != "__main__":
-    print("This script should be run directly, not imported.", file=sys.stderr)
-    sys.exit(1)
-
-args = set(sys.argv[1:])
-
-if not args:
-    print("No arguments provided.\nAvailable options: cli_randomizer, apworld, randomizer, tracker", file=sys.stderr)
-    sys.exit(1)
+ROOT = Path(__file__).resolve().parent
+TARGETS = ("cli_randomizer", "apworld", "randomizer", "tracker")
 
 
-class Options(TypedDict):
-    cli_randomizer: bool
-    apworld: bool
-    randomizer: bool
-    tracker: bool
+def run(*arguments: str) -> None:
+    subprocess.run([sys.executable, *arguments], cwd=ROOT, check=True)
 
 
-options = Options(
-    cli_randomizer=False,
-    apworld=False,
-    randomizer=False,
-    tracker=False
-)
+def executable(target: str, output: Path, dependencies: Path) -> None:
+    entry = ROOT / "tools" / "release_cli.py"
+    arguments = [
+        "-m",
+        "PyInstaller",
+        "--noconfirm",
+        "--clean",
+        "--onefile",
+        "--name",
+        target,
+        "--distpath",
+        str(output),
+        "--workpath",
+        str(ROOT / "build" / target),
+        "--specpath",
+        str(ROOT / "build" / target),
+        "--paths",
+        str(ROOT),
+        "--hidden-import",
+        "websockets.asyncio.client",
+        "--hidden-import",
+        "websockets.exceptions",
+    ]
+    if target == "randomizer":
+        entry = ROOT / "tools" / "release_gui.py"
+        for filename in ("sticker-star.apworld", "cli_randomizer.exe" if sys.platform == "win32" else "cli_randomizer"):
+            dependency = dependencies / filename
+            if not dependency.is_file():
+                raise FileNotFoundError(f"Build cli_randomizer and apworld first: missing {dependency}")
+            arguments.extend(("--add-data", f"{dependency}:bundled"))
+        arguments.append("--windowed")
+    run(*arguments, str(entry))
 
-if 'cli_randomizer' in args:
-    options["cli_randomizer"] = True
-    args.discard('cli_randomizer')
-if 'apworld' in args:
-    options["apworld"] = True
-    args.discard('apworld')
-if 'randomizer' in args:
-    options["randomizer"] = True
-    args.discard('randomizer')
-if 'tracker' in args:
-    options["tracker"] = True
-    args.discard('tracker')
 
-if args:
-    print(f"Unknown arguments: {', '.join(args)}", file=sys.stderr)
-    sys.exit(1)
+def tracker(output: Path) -> None:
+    source = ROOT / "tracker"
+    with ZipFile(output / "sticker-star-poptracker.zip", "w", ZIP_DEFLATED) as archive:
+        for folder in ("images", "items", "layouts", "locations", "maps", "scripts"):
+            for path in sorted((source / folder).rglob("*")):
+                if path.is_file() and path.suffix != ".kra" and "__pycache__" not in path.parts:
+                    archive.write(path, "sticker-star/" + path.relative_to(source).as_posix())
+        archive.write(source / "manifest.json", "sticker-star/manifest.json")
 
-os.makedirs("generated", exist_ok=True)
 
-# Generator, patch and pseudo server for autotracking as a cli
-if options["cli_randomizer"]:
-    # TODO: generate to executable of the machine's os
-    ...
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("targets", nargs="+", choices=TARGETS)
+    parser.add_argument("--output", type=Path, default=ROOT / "generated")
+    parser.add_argument("--dependencies", type=Path, help="Directory containing previously built CLI and APWorld")
+    parser.add_argument("--release", action="store_true", help="Give outputs unique OS/architecture names")
+    args = parser.parse_args()
+    output = args.output.resolve()
+    output.mkdir(parents=True, exist_ok=True)
+    dependencies = args.dependencies.resolve() if args.dependencies else output
+    suffix = f"{platform.system().lower()}-{platform.machine().lower()}"
+    outputs: list[Path] = []
+    for target in TARGETS:
+        if target not in args.targets:
+            continue
+        if target == "apworld":
+            run(str(ROOT / "tools" / "build_apworld.py"), "--output", str(output / "sticker-star.apworld"))
+            filename = "sticker-star.apworld"
+        elif target == "tracker":
+            tracker(output)
+            filename = "sticker-star-poptracker.zip"
+        else:
+            executable(target, output, dependencies)
+            filename = target + (".exe" if sys.platform == "win32" else "")
+        outputs.append(output / filename)
+    if args.release:
+        for path in outputs:
+            path.rename(path.with_name(f"{path.stem}-{suffix}{path.suffix}"))
 
-# .apworld file that does options, rules, patch and ap client
-if options["apworld"]:
-    # TODO: generate to apworld aka zip named .apworld with all the required configuration files
-    ...
 
-# cli_randomizer but with a graphical interface and a button to install the apworld
-# Requires apworld to be compiled
-if options["randomizer"]:
-    # TODO: generate to executable of the machine's os
-    ...
-
-if options["tracker"]:
-    Popen([".\\build_tracker.ps1"], shell=True, cwd=os.path.join(os.getcwd(), "tracker"))
+if __name__ == "__main__":
+    main()

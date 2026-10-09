@@ -40,8 +40,10 @@ class AccessTests(unittest.TestCase):
 
     def test_every_selected_door_is_gated_in_a_multi_target_operation(self) -> None:
         places = (DoorPlace("door1", "room", "A01", "gf_one"), DoorPlace("door2", "room", "A01", "gf_two"))
-        plan = DeliveryPlan((GoalBlockReward("hei_5_00", "GF_WM_A01_A02", NativeReward(NativeRewardKind.DOOR_ACCESS, "door1")),),
-                            starting_rewards=(NativeReward(NativeRewardKind.DOOR_ACCESS, "door2"),))
+        plan = DeliveryPlan(
+            (GoalBlockReward("hei_5_00", "GF_WM_A01_A02", NativeReward(NativeRewardKind.DOOR_ACCESS, "door1")),),
+            starting_rewards=(NativeReward(NativeRewardKind.DOOR_ACCESS, "door2"),),
+        )
         source = "public input() {\n" + "decal_dokodemo_mario_control_main();\n" * 3 + "}\n"
         gated = gate_door_fit(source, plan, places)
         self.assertEqual(gated.count("pepalyze_is_now_play_unlock*("), 2)
@@ -52,19 +54,28 @@ class AccessTests(unittest.TestCase):
     def test_exact_door_rewards_do_not_unlock_other_places_in_the_same_stage(self) -> None:
         places = (DoorPlace("door1", "hei_5_06", "A01", "gf_done"), DoorPlace("door2", "hei_5_07", "A01", "gf_other"))
         source = "public decal_dokodemo() {\n" + "decal_dokodemo_mario_control_main();\n" * 3 + "}\n"
-        plan = DeliveryPlan((GoalBlockReward("hei_5_00", "GF_WM_A01_A02", NativeReward(NativeRewardKind.DOOR_ACCESS, "door1")),))
+        plan = DeliveryPlan(
+            (GoalBlockReward("hei_5_00", "GF_WM_A01_A02", NativeReward(NativeRewardKind.DOOR_ACCESS, "door1")),)
+        )
         result = gate_door_fit(source, plan, places)
         self.assertIn("gf_rando_door_door1 == false", result)
         self.assertIn('pepalyze_is_now_play_unlock*("door1")', result)
         self.assertNotIn('pepalyze_is_now_play_unlock*("door2")', result)
         self.assertIn("gf_rando_door_door1 *= true", plan.delivery_body())
         from dataclasses import replace
-        for rewards in ((NativeReward(NativeRewardKind.DOOR_ACCESS, "A01"),), (NativeReward(NativeRewardKind.DOOR_ACCESS, "unknown"),)):
+
+        for rewards in (
+            (NativeReward(NativeRewardKind.DOOR_ACCESS, "A01"),),
+            (NativeReward(NativeRewardKind.DOOR_ACCESS, "unknown"),),
+        ):
             with self.assertRaises(ValueError):
                 gate_door_fit(source, replace(plan, starting_rewards=rewards), places)
 
     def test_remote_gate_receipts_do_not_open_routes_or_grant_stickers(self) -> None:
-        rewards = tuple(RemoteReward(index, NativeReward(kind, "A01")) for index, kind in enumerate((NativeRewardKind.STAGE_ACCESS, NativeRewardKind.DOOR_ACCESS), 1))
+        rewards = tuple(
+            RemoteReward(index, NativeReward(kind, "A01"))
+            for index, kind in enumerate((NativeRewardKind.STAGE_ACCESS, NativeRewardKind.DOOR_ACCESS), 1)
+        )
         checks = (GoalBlockReward("hei_5_00", "GF_WM_A01_A02", NativeReward(NativeRewardKind.COINS, 10)),)
         plan = DeliveryPlan(checks, remote_rewards=rewards, remote_session=RemoteSession("seed", 0, 1, "a" * 64))
         source = remote_function(rewards)
@@ -75,7 +86,7 @@ class AccessTests(unittest.TestCase):
         self.assertLess(source.index("gf_rando_door_a01 *= true"), source.index("gf_rando_rpc_ack_ready_00 *= true"))
 
     def test_startup_marks_tutorial_complete_without_progression_grants(self) -> None:
-        source = "private sw_bero_enter_evt()  {\n\titem_try_addpouch*(\"IC_HAMMER\", true);\n}\n"
+        source = 'private sw_bero_enter_evt()  {\n\titem_try_addpouch*("IC_HAMMER", true);\n}\n'
         result = post_tutorial_start(source)
         for flag in STARTUP_FLAGS:
             self.assertIn(f"{flag} *= true", result)

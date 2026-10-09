@@ -32,7 +32,11 @@ def door_places(data: bytes, world_stages: tuple[Stage, ...]) -> tuple[DoorPlace
                 continue
             map_name = text(fields[11])
             prefix = map_name.rsplit("_", 1)[0]
-            matches = [stage for stage in numbered if prefix in {stage.map_name.rsplit("_", 1)[0], stage.alternate_map.rsplit("_", 1)[0]}]
+            matches = [
+                stage
+                for stage in numbered
+                if prefix in {stage.map_name.rsplit("_", 1)[0], stage.alternate_map.rsplit("_", 1)[0]}
+            ]
             if len(matches) != 1:
                 raise ValueError(f"Secret Door map does not identify one native stage: {map_name}")
             result.append(DoorPlace(text(fields[0]), map_name, matches[0].code, text(fields[44]).lower()))
@@ -66,17 +70,30 @@ def gate_door_fit(source: str, plan: DeliveryPlan, places: tuple[DoorPlace, ...]
     if len(re.findall(pattern, source)) != 3:
         raise ValueError("Paperization control flow no longer matches the inspected revision")
     source = re.sub(pattern, "rando_door_control*()", source)
-    lines = ["private rando_door_control()  {", "\ttemp tempVar0 = decal_dokodemo_mario_control_main*();",
-             "\ttemp tempVar1 = pepalyze_get_mode*();", "\tif ( tempVar1 != pepalyze_mode_unlock ) {\n\t\treturn* tempVar0;\n\t}",
-             "\tif ( tempVar0 == pepalyze_select_cancel || tempVar0 == pepalyze_cancel || tempVar0 == pepalyze_miss || tempVar0 == pepalyze_area_out_miss || tempVar0 == pepalyze_miss_mappiece ) {\n\t\treturn* tempVar0;\n\t}",
-             "\ttempVar1 = rando_seed_valid*();", "\tif ( tempVar1 == false ) {\n\t\treturn* pepalyze_miss;\n\t}",
-             "\ttemp tempVar2 = pouch_get_map_name*();"]
+    lines = [
+        "private rando_door_control()  {",
+        "\ttemp tempVar0 = decal_dokodemo_mario_control_main*();",
+        "\ttemp tempVar1 = pepalyze_get_mode*();",
+        "\tif ( tempVar1 != pepalyze_mode_unlock ) {\n\t\treturn* tempVar0;\n\t}",
+        "\tif ( tempVar0 == pepalyze_select_cancel || tempVar0 == pepalyze_"
+        "cancel || tempVar0 == pepalyze_miss || tempVar0 == pepalyze_area_"
+        "out_miss || tempVar0 == pepalyze_miss_mappiece ) {\n\t\treturn* temp"
+        "Var0;\n\t}",
+        "\ttempVar1 = rando_seed_valid*();",
+        "\tif ( tempVar1 == false ) {\n\t\treturn* pepalyze_miss;\n\t}",
+        "\ttemp tempVar2 = pouch_get_map_name*();",
+    ]
     for place in places:
         key = door_access_key(plan, place)
         if key is None:
             continue
-        lines.extend([f'\tif ( tempVar2 == "{place.map_name}" && gf_rando_door_{key.lower()} == false ) {{',
-                      f'\t\ttempVar1 = pepalyze_is_now_play_unlock*("{place.lock_id}");',
-                      "\t\tif ( tempVar1 ) {\n\t\t\treturn* pepalyze_miss;\n\t\t}", "\t}"])
+        lines.extend(
+            [
+                f'\tif ( tempVar2 == "{place.map_name}" && gf_rando_door_{key.lower()} == false ) {{',
+                f'\t\ttempVar1 = pepalyze_is_now_play_unlock*("{place.lock_id}");',
+                "\t\tif ( tempVar1 ) {\n\t\t\treturn* pepalyze_miss;\n\t\t}",
+                "\t}",
+            ]
+        )
     lines.extend(["\treturn* tempVar0;", "}"])
     return source + "\n" + "\n".join(lines) + "\n" + ("" if shared_seed else plan.seed_function())

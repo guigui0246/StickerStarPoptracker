@@ -50,19 +50,32 @@ def validate_function_contracts(source: str, canonical: str) -> None:
     original = set(re.findall(pattern, source, re.MULTILINE))
     rebuilt = set(re.findall(pattern, canonical, re.MULTILINE))
     if original != rebuilt:
-        raise ValueError(f"Script compilation changed named function contracts: missing {sorted(original - rebuilt)}, added {sorted(rebuilt - original)}")
+        raise ValueError(
+            "Script compilation changed named function contracts: mi"
+            "ssing "
+            f"{sorted(original - rebuilt)}"
+            ", added "
+            f"{sorted(rebuilt - original)}"
+        )
 
 
 def validate_runtime_calls(source: str, canonical: str) -> None:
     """Reject compiler round trips that silently drop injected helper calls."""
     pattern = r"\b(rando_[A-Za-z0-9_]+)\*?\s*\("
+
     def calls(text: str) -> Counter[str]:
         code = "".join(re.split(r'("(?:[^"\\]|\\.)*"|//[^\n]*)', text)[::2])
         return Counter(re.findall(pattern, code))
+
     original = calls(source)
     rebuilt = calls(canonical)
     if original != rebuilt:
-        raise ValueError(f"Script compilation changed randomizer calls: missing {dict(original - rebuilt)}, added {dict(rebuilt - original)}")
+        raise ValueError(
+            "Script compilation changed randomizer calls: missing "
+            f"{dict(original - rebuilt)}"
+            ", added "
+            f"{dict(rebuilt - original)}"
+        )
 
 
 def lower_temporary_registers(source: str) -> str:
@@ -155,7 +168,9 @@ def add_declarations(header: str, flags: tuple[str, ...], native_imports: dict[s
     return header + "\n"
 
 
-def compile_checked(script: ScriptSource, compiler: Path, flags: tuple[str, ...], required_function: str | None = "rando_deliver") -> bytes:
+def compile_checked(
+    script: ScriptSource, compiler: Path, flags: tuple[str, ...], required_function: str | None = "rando_deliver"
+) -> bytes:
     source = lower_temporary_registers(script.source.read_text(encoding="utf-8"))
     script.source.write_text(source, encoding="utf-8")
     compile_script(compiler, script.source)

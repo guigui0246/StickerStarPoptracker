@@ -43,17 +43,27 @@ def main() -> None:
         raise ValueError("Use the isolated priority-capability pending-peel fixture")
     profile = NativeProfile.load(args.patch_report)
     session = profile.session
-    wanted = (NativeReward(NativeRewardKind.ITEM, report["checks"][0]["source_item"]),
-              NativeReward(NativeRewardKind.ABILITY, "paperization"),
-              NativeReward(NativeRewardKind.STAGE_ACCESS, "X00"),
-              NativeReward(NativeRewardKind.ABILITY, "hammer"))
-    identifiers = [next(identifier for identifier, reward in profile.selector_rewards.items() if reward == expected)
-                   for expected in wanted]
-    incoming = tuple((index, ReceivedItem(identifier, 98000 + index, 2, 1))
-                     for index, identifier in enumerate(identifiers))
+    wanted = (
+        NativeReward(NativeRewardKind.ITEM, report["checks"][0]["source_item"]),
+        NativeReward(NativeRewardKind.ABILITY, "paperization"),
+        NativeReward(NativeRewardKind.STAGE_ACCESS, "X00"),
+        NativeReward(NativeRewardKind.ABILITY, "hammer"),
+    )
+    identifiers = [
+        next(identifier for identifier, reward in profile.selector_rewards.items() if reward == expected)
+        for expected in wanted
+    ]
+    incoming = tuple((index, ReceivedItem(identifier, 98000 + index, 2, 1)) for index, identifier in enumerate(identifiers))
     with CitraMemory(timeout=1) as memory:
-        game = NativeGame(memory, profile, session.seed, session.team, session.slot, session.catalog_hash,
-                          {identifier: 95000 + index for index, identifier in enumerate(profile.checks)})
+        game = NativeGame(
+            memory,
+            profile,
+            session.seed,
+            session.team,
+            session.slot,
+            session.catalog_hash,
+            {identifier: 95000 + index for index, identifier in enumerate(profile.checks)},
+        )
         identity = game.identity()
         _, data = game.snapshot()
         if not game.bit(data, profile.flags["gf_rando_peel_probe_pending_held"]):

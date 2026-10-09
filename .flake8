@@ -1,0 +1,7 @@
+[flake8]
+max-line-length = 127
+extend-ignore = E203, E704, W503
+exclude = .git, .validation, .lint-tools, build, dist, generated, lua_definition, __pycache__
+# Direct tool entry points insert the repository root before importing its packages.
+per-file-ignores =
+    tools/*.py: E402

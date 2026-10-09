@@ -22,15 +22,24 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=45987)
     args = parser.parse_args()
     profile = NativeProfile.load(args.patch_report)
-    expected = {100: NativeReward(NativeRewardKind.COINS, 25),
-                101: NativeReward(NativeRewardKind.ABILITY, "hammer"),
-                102: NativeReward(NativeRewardKind.ABILITY, "paperization")}
+    expected = {
+        100: NativeReward(NativeRewardKind.COINS, 25),
+        101: NativeReward(NativeRewardKind.ABILITY, "hammer"),
+        102: NativeReward(NativeRewardKind.ABILITY, "paperization"),
+    }
     if profile.session.seed != "native-rpc-ability-v2" or profile.selector_rewards != expected:
         raise ValueError("Run only against the dedicated fresh-save ability mailbox fixture")
     locations = {identifier: index for index, identifier in enumerate(profile.checks, 1000)}
     with CitraMemory(port=args.port, timeout=1) as memory:
-        game = NativeGame(memory, profile, profile.session.seed, profile.session.team,
-                          profile.session.slot, profile.session.catalog_hash, locations)
+        game = NativeGame(
+            memory,
+            profile,
+            profile.session.seed,
+            profile.session.team,
+            profile.session.slot,
+            profile.session.catalog_hash,
+            locations,
+        )
         identity = game.identity()  # verifies code guards and seed before any write
         original_checks = game.collected()
         pouch = memory.read_u32(0x4327F0)
@@ -51,7 +60,9 @@ def main() -> None:
             assert game.deliver(receipt, item), "Replay lost a native receipt"
             assert game.identity() == identity, "Mailbox altered save identity"
         assert game.collected() == original_checks, "Incoming items marked source checks"
-        print("Eight native album pages, mailbox receipts, Hammer/Paperization accessories, replay and check separation passed.")
+        print(
+            "Eight native album pages, mailbox receipts, Hammer/Paperization accessories, replay and check separation passed."
+        )
         print("Save-file persistence and source check collection still require separate gameplay tests.")
 
 

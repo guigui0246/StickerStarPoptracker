@@ -58,11 +58,7 @@ class KsmDocument:
         if self.version not in {0x00010300, 0x00010302}:
             raise ValueError("Unsupported KSM version")
         self.sections = tuple(value * 4 for value in struct.unpack_from("<8I", data, 8))
-        if (
-            list(self.sections) != sorted(self.sections)
-            or self.sections[0] < 44
-            or self.sections[-1] + 4 > len(data)
-        ):
+        if list(self.sections) != sorted(self.sections) or self.sections[0] < 44 or self.sections[-1] + 4 > len(data):
             raise ValueError("Invalid KSM section offsets")
         self.statics = self.variables(2)
         self.constants = self.variables(4)
@@ -90,9 +86,7 @@ class KsmDocument:
         for _ in range(self.word(self.sections[section])):
             if cursor + 16 > end:
                 raise ValueError("Truncated KSM variable")
-            marker, identifier, flags, raw = struct.unpack_from(
-                "<4I", self.data, cursor
-            )
+            marker, identifier, flags, raw = struct.unpack_from("<4I", self.data, cursor)
             if marker not in {0, 0xFFFFFFFF}:
                 raise ValueError("Invalid KSM variable name marker")
             kind = KsmValueType(flags & 0xFF)
@@ -109,20 +103,14 @@ class KsmDocument:
                 value_offset = cursor + 4
                 value, cursor, capacity = self.string(cursor, end)
             elif kind == KsmValueType.FLOAT:
-                value = cast(
-                    float, struct.unpack_from("<f", self.data, value_offset)[0]
-                )
+                value = cast(float, struct.unpack_from("<f", self.data, value_offset)[0])
             elif kind == KsmValueType.INTEGER:
                 value = raw if raw < 0x80000000 else raw - 0x100000000
             elif kind == KsmValueType.BOOLEAN:
                 if raw not in {0, 1}:
                     raise ValueError("Invalid KSM boolean")
                 value = bool(raw)
-            result.append(
-                KsmVariable(
-                    identifier, name, kind, flags, value, value_offset, capacity
-                )
-            )
+            result.append(KsmVariable(identifier, name, kind, flags, value, value_offset, capacity))
         if cursor != end:
             raise ValueError("KSM variable count does not match section size")
         if len({variable.id for variable in result}) != len(result):
@@ -173,7 +161,7 @@ class KsmDocument:
             encoded = replacement.encode("utf-8")
             if b"\0" in encoded or len(encoded) + 1 > variable.string_capacity:
                 raise ValueError("Replacement exceeds the original constant capacity")
-            result[
-                variable.value_offset : variable.value_offset + variable.string_capacity
-            ] = encoded + bytes(variable.string_capacity - len(encoded))
+            result[variable.value_offset : variable.value_offset + variable.string_capacity] = encoded + bytes(
+                variable.string_capacity - len(encoded)
+            )
         return bytes(result)

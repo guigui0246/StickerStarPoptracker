@@ -36,7 +36,9 @@ def enemy_types(data: bytes) -> tuple[EnemyType, ...]:
         script = text(fields[3])
         if not script.startswith("Enemy/"):
             continue
-        result.append(EnemyType(text(fields[0]), text(fields[1]), "Script/Battle/" + script + ".bin", text(fields[16]), text(fields[4])))
+        result.append(
+            EnemyType(text(fields[0]), text(fields[1]), "Script/Battle/" + script + ".bin", text(fields[16]), text(fields[4]))
+        )
     if not result or len({enemy.unit_id for enemy in result}) != len(result):
         raise ValueError("Native enemy identities are missing or duplicated")
     return tuple(result)
@@ -73,19 +75,30 @@ def group_enemy_checks(native: tuple[EnemyType, ...], checks: tuple[EnemyReward,
     for label, variants in sorted(groups.items()):
         variants.sort(key=lambda variant: variant.unit_id)
         first = variants[0]
-        result.append(EnemyReward(first.unit_id, first.script_file, first.function, rewards[label], label, tuple(variants[1:])))
+        result.append(
+            EnemyReward(first.unit_id, first.script_file, first.function, rewards[label], label, tuple(variants[1:]))
+        )
     return tuple(result)
 
 
 def death_hook(source: str, function: str, checks: list[tuple[int, EnemyReward]], plan: DeliveryPlan) -> str:
-    lines = ["\ttemp tempVar90 = rando_seed_valid*();", "\tif ( tempVar90 ) {",
-             "\t\ttemp tempVar91 = battle_unit_get_hp*(self);", "\t\tif ( tempVar91 <= 0 ) {",
-             "\t\t\ttemp tempVar92 = battle_unit_get_unit_data_id*(self);"]
+    lines = [
+        "\ttemp tempVar90 = rando_seed_valid*();",
+        "\tif ( tempVar90 ) {",
+        "\t\ttemp tempVar91 = battle_unit_get_hp*(self);",
+        "\t\tif ( tempVar91 <= 0 ) {",
+        "\t\t\ttemp tempVar92 = battle_unit_get_unit_data_id*(self);",
+    ]
     for index, check in checks:
         for hook in check.hooks:
             if hook.function == function:
-                lines.extend([f"\t\t\tif ( tempVar92 == {json.dumps(hook.unit_id, ensure_ascii=False)} ) {{",
-                              f"\t\t\t\trando_enemy_mark*({index});", "\t\t\t}"])
+                lines.extend(
+                    [
+                        f"\t\t\tif ( tempVar92 == {json.dumps(hook.unit_id, ensure_ascii=False)} ) {{",
+                        f"\t\t\t\trando_enemy_mark*({index});",
+                        "\t\t\t}",
+                    ]
+                )
     lines.extend(["\t\t}", "\t}"])
     return prepend_body(source, function, "\n".join(lines) + "\n")
 
@@ -98,12 +111,23 @@ def reset_hook(source: str, plan: DeliveryPlan) -> str:
 
 
 def victory_hook(source: str, plan: DeliveryPlan) -> str:
-    lines = ["\ttemp tempVar90 = rando_seed_valid*();", "\tif ( tempVar90 ) {",
-             "\t\ttempVar90 = battle_is_museum*();", "\t\tif ( tempVar90 == false ) {"]
+    lines = [
+        "\ttemp tempVar90 = rando_seed_valid*();",
+        "\tif ( tempVar90 ) {",
+        "\t\ttempVar90 = battle_is_museum*();",
+        "\t\tif ( tempVar90 == false ) {",
+    ]
     for index, check in enumerate(plan.checks):
         if isinstance(check, EnemyReward):
             checked, _ = plan.receipt(index)
-            lines.extend([f"\t\t\ttemp tempVar91 = rando_enemy_get*({index});", "\t\t\tif ( tempVar91 ) {", f"\t\t\t\t{checked} *= true;", "\t\t\t}"])
+            lines.extend(
+                [
+                    f"\t\t\ttemp tempVar91 = rando_enemy_get*({index});",
+                    "\t\t\tif ( tempVar91 ) {",
+                    f"\t\t\t\t{checked} *= true;",
+                    "\t\t\t}",
+                ]
+            )
     lines.append("\t\t}")
     lines.append("\t\trando_enemy_reset*();")
     lines.append("\t}")

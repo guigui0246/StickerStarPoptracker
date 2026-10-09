@@ -15,8 +15,15 @@ def main() -> None:
     parser.add_argument("--code", type=Path, required=True)
     args = parser.parse_args()
     sys.path.insert(0, str(args.arm_runtime.resolve()))
-    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE, UC_HOOK_MEM_WRITE
-    from unicorn.arm_const import UC_ARM_REG_R0, UC_ARM_REG_R1, UC_ARM_REG_SP, UC_ARM_REG_LR, UC_ARM_REG_PC
+    from unicorn import Uc, UC_ARCH_ARM, UC_MODE_ARM, UC_HOOK_CODE, UC_HOOK_MEM_WRITE  # pyright: ignore[reportMissingImports]
+    from unicorn.arm_const import (  # pyright: ignore[reportMissingImports]
+        UC_ARM_REG_R0,
+        UC_ARM_REG_R1,
+        UC_ARM_REG_SP,
+        UC_ARM_REG_LR,
+        UC_ARM_REG_PC,
+    )
+
     code = args.code.read_bytes()
     patch = expand_variable_pool(code)
     pool_global = struct.unpack_from("<I", code, 0x1B4208)[0]
@@ -62,11 +69,13 @@ def main() -> None:
     raw = bytes(uc.mem_read(arena, EXPANDED_LIMIT * CELL_SIZE))
     assert all(struct.unpack_from("<I", raw, index * CELL_SIZE + 8)[0] == 13 for index in range(EXPANDED_LIMIT))
 
-    cases = ((False, ORIGINAL_LIMIT, ORIGINAL_LIMIT, None),
-             (True, ORIGINAL_LIMIT, ORIGINAL_LIMIT, ORIGINAL_LIMIT),
-             (True, EXPANDED_LIMIT - 1, EXPANDED_LIMIT - 1, EXPANDED_LIMIT - 1),
-             (True, EXPANDED_LIMIT, 0, 0),
-             (True, 0, None, None))
+    cases = (
+        (False, ORIGINAL_LIMIT, ORIGINAL_LIMIT, None),
+        (True, ORIGINAL_LIMIT, ORIGINAL_LIMIT, ORIGINAL_LIMIT),
+        (True, EXPANDED_LIMIT - 1, EXPANDED_LIMIT - 1, EXPANDED_LIMIT - 1),
+        (True, EXPANDED_LIMIT, 0, 0),
+        (True, 0, None, None),
+    )
     for expanded, cursor, free, expected in cases:
         uc = machine(expanded)
         limit = EXPANDED_LIMIT if expanded else ORIGINAL_LIMIT

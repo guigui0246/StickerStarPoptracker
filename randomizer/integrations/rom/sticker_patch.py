@@ -37,30 +37,20 @@ def build_sticker_patch(source: bytes, seed: str | int) -> StickerPatch:
         for pickup in item_pickups(document)
         if pickup.item_name.startswith("SL_")
         and pickup.item_name != "SL_DOOR"
-        and pickup.map_name.startswith(
-            ("w2_", "w3_", "w4_", "w5_", "w6_", "hei_", "iwa_")
-        )
+        and pickup.map_name.startswith(("w2_", "w3_", "w4_", "w5_", "w6_", "hei_", "iwa_"))
         and pickup.map_name not in {"hei_2_00", "hei_2_01", "hei_2_HANA"}
     )
     if not pickups:
         raise ValueError("No supported combat-sticker pickups found")
     rewards = [pickup.item_name for pickup in pickups]
     Random(str(seed)).shuffle(rewards)
-    changes = tuple(
-        PickupChange(pickup, reward)
-        for pickup, reward in zip(pickups, rewards, strict=True)
-    )
-    patched = document.edit_strings(
-        {change.pickup.item_field_offset: change.reward for change in changes}
-    )
+    changes = tuple(PickupChange(pickup, reward) for pickup, reward in zip(pickups, rewards, strict=True))
+    patched = document.edit_strings({change.pickup.item_field_offset: change.reward for change in changes})
     # Re-parse to validate pointers, record shapes, names, and unchanged persistence flags.
     verified = {pickup.id: pickup for pickup in item_pickups(KdmDocument(patched))}
     for change in changes:
         actual = verified[change.pickup.id]
-        if (
-            actual.item_name != change.reward
-            or actual.collection_flag != change.pickup.collection_flag
-        ):
+        if actual.item_name != change.reward or actual.collection_flag != change.pickup.collection_flag:
             raise ValueError("Patch verification failed")
     return StickerPatch(
         str(seed),
@@ -71,9 +61,7 @@ def build_sticker_patch(source: bytes, seed: str | int) -> StickerPatch:
     )
 
 
-def write_sticker_patch(
-    project: RomProject, output: Path, seed: str | int
-) -> StickerPatch:
+def write_sticker_patch(project: RomProject, output: Path, seed: str | int) -> StickerPatch:
     filename = "Data/kdm_dispos_data.bin"
     patch = build_sticker_patch(project.read_file(filename), seed)
     report_path = output / "patch-report.json"

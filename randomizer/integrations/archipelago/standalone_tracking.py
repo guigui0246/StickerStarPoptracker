@@ -10,17 +10,33 @@ from .tracker_server import TrackingSnapshot
 class StandaloneObservation:
     def __init__(self, config: Json, profile: NativeProfile, game: NativeGame, report: Json) -> None:
         data = obj(config)
-        if set(data) != {"format_version", "seed", "catalog_hash", "save_seed_fingerprint", "locations", "rewards", "starting"} or type(data["format_version"]) is not int or data["format_version"] != 1:
+        if (
+            set(data)
+            != {"format_version", "seed", "catalog_hash", "save_seed_fingerprint", "locations", "rewards", "starting"}
+            or type(data["format_version"]) is not int
+            or data["format_version"] != 1
+        ):
             raise ValueError("Unsupported standalone tracking configuration")
-        if (data["seed"], data["catalog_hash"], data["save_seed_fingerprint"]) != (profile.session.seed, profile.session.catalog_hash, profile.fingerprint.hex()):
+        if (data["seed"], data["catalog_hash"], data["save_seed_fingerprint"]) != (
+            profile.session.seed,
+            profile.session.catalog_hash,
+            profile.fingerprint.hex(),
+        ):
             raise ValueError("Tracking configuration belongs to another seed")
         self.locations = {key: integer(value) for key, value in obj(data["locations"]).items()}
-        if set(self.locations) - profile.checks.keys() or {location: profile.checks[key] for key, location in self.locations.items()} != game.locations:
+        if (
+            set(self.locations) - profile.checks.keys()
+            or {location: profile.checks[key] for key, location in self.locations.items()} != game.locations
+        ):
             raise ValueError("Tracking locations do not match the native adapter")
         self.rewards: dict[str, ReceivedItem] = {}
         for key, raw in obj(data["rewards"]).items():
             entry = obj(raw)
-            if set(entry) != {"item", "reward"} or key not in self.locations or reward(entry["reward"]) != profile.check_rewards[key]:
+            if (
+                set(entry) != {"item", "reward"}
+                or key not in self.locations
+                or reward(entry["reward"]) != profile.check_rewards[key]
+            ):
                 raise ValueError("Tracking placement differs from the native reward")
             self.rewards[key] = ReceivedItem(integer(entry["item"]), self.locations[key], 1, 0)
         if set(self.rewards) != set(self.locations):
@@ -56,5 +72,8 @@ class StandaloneObservation:
         self.order.extend(sorted(receipts - set(self.order)))
         items = self.rewards | self.starting
         victory = self.profile.flags.get("gf_rando_victory")
-        return TrackingSnapshot(tuple(sorted(collected)), tuple(items[key] for key in self.order),
-                                victory is not None and self.game.bit(flags, victory))
+        return TrackingSnapshot(
+            tuple(sorted(collected)),
+            tuple(items[key] for key in self.order),
+            victory is not None and self.game.bit(flags, victory),
+        )

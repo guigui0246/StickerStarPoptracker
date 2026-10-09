@@ -80,9 +80,7 @@ class KdmDocument:
                 alignment = max(alignment, field_alignment)
             if identifier in self.structures or identifier < 21:
                 raise ValueError("Duplicate or reserved KDM structure ID")
-            self.structures[identifier] = KdmStructure(
-                identifier, fields, self.align(size, 4), max(alignment, 4)
-            )
+            self.structures[identifier] = KdmStructure(identifier, fields, self.align(size, 4), max(alignment, 4))
             cursor += 12 + count * 4
         if cursor != self.sections[5]:
             raise ValueError("KDM structure section size mismatch")
@@ -96,10 +94,7 @@ class KdmDocument:
         if cursor != self.sections[6]:
             raise ValueError("KDM data section size mismatch")
         count = self.u32(self.sections[6])
-        names = tuple(
-            self.string(self.u32(self.sections[6] + 4 + index * 4))
-            for index in range(count)
-        )
+        names = tuple(self.string(self.u32(self.sections[6] + 4 + index * 4)) for index in range(count))
         cursor = self.sections[6] + 4 + count * 4
         self.tables: dict[str, KdmArray] = {}
         for name in names:
@@ -170,9 +165,7 @@ class KdmDocument:
         end = address + byte_count
         if end > len(self.data):
             raise ValueError("KDM array exceeds file size")
-        values = tuple(
-            self.read_field(type_id, cursor) for cursor in range(address, end, size)
-        )
+        values = tuple(self.read_field(type_id, cursor) for cursor in range(address, end, size))
         return KdmArray(identifier, address, type_id, field_count, values), end
 
     def pointed_array(self, pointer: KdmPointer) -> KdmArray:
@@ -199,9 +192,7 @@ class KdmDocument:
         result = bytearray(self.data)
         for offset, value in replacements.items():
             if offset not in fields or value not in addresses:
-                raise ValueError(
-                    "String edit must target a known field and existing string"
-                )
+                raise ValueError("String edit must target a known field and existing string")
             struct.pack_into("<I", result, offset, addresses[value])
         return bytes(result)
 

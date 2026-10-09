@@ -1,3 +1,4 @@
+from typing import Any, cast
 import struct
 import hashlib
 import json
@@ -5,7 +6,14 @@ from dataclasses import asdict
 import unittest
 
 from ..integrations.rom.kdm import KdmDocument
-from ..integrations.rom.native_delivery import DeliveryPlan, FlagReward, GoalBlockReward, NativeReward, NativeRewardKind, PickupReward
+from ..integrations.rom.native_delivery import (
+    DeliveryPlan,
+    FlagReward,
+    GoalBlockReward,
+    NativeReward,
+    NativeRewardKind,
+    PickupReward,
+)
 from ..integrations.rom.script_build import replace_body
 from ..integrations.rom.switches import global_flags, register_flags
 from .test_rom_formats import small_kdm
@@ -33,7 +41,16 @@ def small_switch_registry() -> bytes:
     for name, index in (("gs_existing", 7), ("", 0)):
         tables.extend(struct.pack("<Ii", pointers.get(name, 0), index))
     sections.append(sections[-1] + len(tables))
-    return b"KDMR\x00\x01\x01\x00" + struct.pack("<8I", *(value // 4 for value in sections)) + strings + bytes(12) + definition + bytes(4) + tables + bytes(4)
+    return (
+        b"KDMR\x00\x01\x01\x00"
+        + struct.pack("<8I", *(value // 4 for value in sections))
+        + strings
+        + bytes(12)
+        + definition
+        + bytes(4)
+        + tables
+        + bytes(4)
+    )
 
 
 class SwitchRegistryTests(unittest.TestCase):
@@ -41,8 +58,8 @@ class SwitchRegistryTests(unittest.TestCase):
         original = KdmDocument(small_kdm())
         patched = KdmDocument(original.add_strings(("new_string", "new_string", "A")))
         reference = patched.tables["Table"].values[0].value
-        fields = patched.pointed_array(reference).values[0].value
-        self.assertEqual(tuple(field.value for field in fields), ("A", 7, "B"))
+        fields = patched.pointed_array(cast(Any, reference)).values[0].value
+        self.assertEqual(tuple(field.value for field in cast(Any, fields)), ("A", 7, "B"))
         self.assertEqual(len(patched.strings), len(original.strings) + 1)
         self.assertEqual(patched.add_strings(("A",)), patched.data)
         with self.assertRaises(ValueError):
@@ -55,11 +72,19 @@ class SwitchRegistryTests(unittest.TestCase):
         new = KdmDocument(patched)
         self.assertEqual(global_flags(new), global_flags(old) + allocated)
         self.assertEqual([flag.index for flag in allocated], [1, 2])
-        self.assertEqual(tuple(tuple(f.value for f in row.value) for row in old.tables["gsSwitchTable"].values), tuple(tuple(f.value for f in row.value) for row in new.tables["gsSwitchTable"].values))
+        self.assertEqual(
+            tuple(tuple(f.value for f in cast(Any, row).value) for row in old.tables["gsSwitchTable"].values),
+            tuple(tuple(f.value for f in cast(Any, row).value) for row in new.tables["gsSwitchTable"].values),
+        )
         self.assertEqual(register_flags(source, ()), (source, ()))
 
     def test_flag_capacity_and_names_are_checked(self) -> None:
-        for names in (("gf_existing",), ("gf_rando_x", "gf_rando_x"), ("gf_rando_x; injected",), tuple(f"gf_rando_{index}" for index in range(17))):
+        for names in (
+            ("gf_existing",),
+            ("gf_rando_x", "gf_rando_x"),
+            ("gf_rando_x; injected",),
+            tuple(f"gf_rando_{index}" for index in range(17)),
+        ):
             with self.assertRaises(ValueError):
                 register_flags(small_switch_registry(), names)
         patched, _ = register_flags(small_switch_registry(), ("gf_rando_x",))
@@ -70,8 +95,7 @@ class SwitchRegistryTests(unittest.TestCase):
 class NativeDeliveryTests(unittest.TestCase):
     def test_network_only_checks_use_no_local_delivery_storage(self) -> None:
         reward = NativeReward(NativeRewardKind.REMOTE, 2)
-        plan = DeliveryPlan((GoalBlockReward("map", "GF_WM_A01_A02", reward),
-                             FlagReward("event", "gf_native_event", reward)))
+        plan = DeliveryPlan((GoalBlockReward("map", "GF_WM_A01_A02", reward), FlagReward("event", "gf_native_event", reward)))
         self.assertEqual(len(plan.flags), 130)
         self.assertIn("gf_rando_check_0000", plan.flags)
         self.assertFalse(any(name.startswith("gf_rando_delivered_") for name in plan.flags))
@@ -91,6 +115,7 @@ class NativeDeliveryTests(unittest.TestCase):
         self.assertLess(body.index("localVar1 = gf_rando_check_0000"), body.index("if ( localVar1 == false )"))
         self.assertEqual(body.count("pouch_add_comet_num*();"), 1)
         self.assertIn("if ( tempVar3 == false )", body)
+
     def test_pickup_and_star_dispatch_keep_independent_receipt_indices(self) -> None:
         reward = NativeReward(NativeRewardKind.COINS, 20)
         pickup = PickupReward("hei_2_D1", "K_REAL", "REAL_BED", reward)
@@ -106,7 +131,14 @@ class NativeDeliveryTests(unittest.TestCase):
             PickupReward("hei_2_D1", 'K_REAL";bad', "REAL_BED", reward)
 
     def test_rewards_reject_code_injection_invalid_counts_and_unsafe_pages(self) -> None:
-        for kind, value in ((NativeRewardKind.ITEM, 'SL_JUMP"); injected();'), (NativeRewardKind.ITEM, "SL_PAGE"), (NativeRewardKind.COINS, True), (NativeRewardKind.COINS, 0), (NativeRewardKind.MINI_STAR, "GF_TUTORIAL"), (NativeRewardKind.ROYAL, 7)):
+        for kind, value in (
+            (NativeRewardKind.ITEM, 'SL_JUMP"); injected();'),
+            (NativeRewardKind.ITEM, "SL_PAGE"),
+            (NativeRewardKind.COINS, True),
+            (NativeRewardKind.COINS, 0),
+            (NativeRewardKind.MINI_STAR, "GF_TUTORIAL"),
+            (NativeRewardKind.ROYAL, 7),
+        ):
             with self.assertRaises(ValueError):
                 NativeReward(kind, value)
 
@@ -121,10 +153,12 @@ class NativeDeliveryTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             DeliveryPlan((source, source))
         with self.assertRaises(ValueError):
-            GoalBlockReward(None, "GF_WM_A01_A02", source.reward)
+            GoalBlockReward(cast(Any, None), "GF_WM_A01_A02", source.reward)
 
     def test_function_replacement_preserves_strings_and_other_functions(self) -> None:
-        source = 'public target(temp tempVar0)  {\n\ttext("}");\n\tif ( true ) { old(); }\n}\nprivate untouched()  { keep(); }\n'
+        source = (
+            'public target(temp tempVar0)  {\n\ttext("}");\n\tif ( true ) { old(); }\n}\nprivate untouched()  { keep(); }\n'
+        )
         result = replace_body(source, "target", "\tnew();")
         self.assertIn("public target(temp tempVar0)  {\n\tnew();\n}", result)
         self.assertIn("private untouched()  { keep(); }", result)

@@ -35,9 +35,14 @@ class NativeRecipe:
 
     def encode(self) -> bytes:
         payload: dict[str, Json] = {
-            "format_version": 2, "algorithm": "native-rewards-v1", "mode": "experimental_native_rewards",
-            "title_id": TITLE_ID, "seed": self.seed, "rom_sha256": self.rom_sha256,
-            "plan": encode_plan(self.plan), "save_seed_fingerprint": self.plan.fingerprint.hex(),
+            "format_version": 2,
+            "algorithm": "native-rewards-v1",
+            "mode": "experimental_native_rewards",
+            "title_id": TITLE_ID,
+            "seed": self.seed,
+            "rom_sha256": self.rom_sha256,
+            "plan": encode_plan(self.plan),
+            "save_seed_fingerprint": self.plan.fingerprint.hex(),
         }
         payload["recipe_sha256"] = digest(canonical(payload))
         return canonical(payload) + b"\n"
@@ -50,11 +55,30 @@ def decode_native_recipe(data: bytes) -> NativeRecipe:
         payload = obj(json.loads(data, object_pairs_hook=unique_object))
     except (UnicodeError, json.JSONDecodeError, RecursionError) as error:
         raise ValueError("Invalid native stickerpatch JSON") from error
-    keys(payload, {"format_version", "algorithm", "mode", "title_id", "seed", "rom_sha256", "plan", "save_seed_fingerprint", "recipe_sha256"})
+    keys(
+        payload,
+        {
+            "format_version",
+            "algorithm",
+            "mode",
+            "title_id",
+            "seed",
+            "rom_sha256",
+            "plan",
+            "save_seed_fingerprint",
+            "recipe_sha256",
+        },
+    )
     checksum = sha256(payload.pop("recipe_sha256"))
     if checksum != digest(canonical(payload)):
         raise ValueError("Native stickerpatch checksum mismatch")
-    if type(payload["format_version"]) is not int or payload["format_version"] != 2 or payload["algorithm"] != "native-rewards-v1" or payload["mode"] != "experimental_native_rewards" or payload["title_id"] != TITLE_ID:
+    if (
+        type(payload["format_version"]) is not int
+        or payload["format_version"] != 2
+        or payload["algorithm"] != "native-rewards-v1"
+        or payload["mode"] != "experimental_native_rewards"
+        or payload["title_id"] != TITLE_ID
+    ):
         raise ValueError("Unsupported native stickerpatch version or target")
     seed = string(payload["seed"])
     if not seed or len(seed) > 1024:
@@ -71,6 +95,7 @@ def decode_native_recipe(data: bytes) -> NativeRecipe:
 
 def create_native_recipe(project: RomProject, seed: str, plan: DeliveryPlan) -> NativeRecipe:
     from .mailbox import fit_mailbox
+
     rewards = plan.rewards
     if any(reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} for reward in rewards):
         policy = sticker_policy(project.read_file("Data/kdm_item_data.bin"))

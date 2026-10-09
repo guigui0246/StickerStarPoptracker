@@ -21,15 +21,8 @@ class Rules:
         if self.operator not in {"all", "any", "item"}:
             raise ValueError("Unknown rule operator")
         if self.operator == "item":
-            if (
-                not self.item_id
-                or type(self.amount) is not int
-                or self.amount < 1
-                or self.children
-            ):
-                raise ValueError(
-                    "Item rules need an ID, a positive count, and no children"
-                )
+            if not self.item_id or type(self.amount) is not int or self.amount < 1 or self.children:
+                raise ValueError("Item rules need an ID, a positive count, and no children")
         elif self.item_id or self.amount != 1:
             raise ValueError("Composite rules cannot contain an item predicate")
 

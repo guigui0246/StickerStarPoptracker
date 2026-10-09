@@ -8,12 +8,30 @@ import re
 import tempfile
 
 from .kdm import KdmDocument
-from .native_delivery import BannerReward, DeliveryPlan, EnemyReward, FlagReward, GoalBlockReward, NativeRewardKind, PickupReward, ContainerReward, PeelReward, ScriptReward
+from .native_delivery import (
+    BannerReward,
+    DeliveryPlan,
+    EnemyReward,
+    FlagReward,
+    GoalBlockReward,
+    NativeRewardKind,
+    PickupReward,
+    ContainerReward,
+    PeelReward,
+    ScriptReward,
+)
 from .pickups import item_pickups, record, text
 from .project import RomProject, publish_directory
 from .script_build import add_declarations, compile_checked, decompile, prepend_body, replace_body
 from .switches import SaveSwitch, global_flags, register_flags, register_saved_bytes
-from .royal_patch import FINAL_BOSS, INTERMISSIONS, ROYAL_GATE_SCRIPT, disable_book_restoration, suppress_royal_grant, shuffled_royal_gate
+from .royal_patch import (
+    FINAL_BOSS,
+    INTERMISSIONS,
+    ROYAL_GATE_SCRIPT,
+    disable_book_restoration,
+    suppress_royal_grant,
+    shuffled_royal_gate,
+)
 from .tutorial_skip import compile_script
 from .compression import decompress_code
 from .stickers import sticker_policy, patch_shops, patch_sticker_initializers
@@ -31,7 +49,13 @@ from .runtime_pool import expand_variable_pool
 from .scraps import scripted_scraps
 from .containers import TREASURE_SCRIPT, container_sources, hook_treasure_acquisition
 from .peels import PeelSource, resolve_peels, suppress_peel_grants, hook_peel_callback, gate_peel_selection
-from .things import SCRIPTED_THING_SCRIPTS, scripted_things, thing_effect_scripts, hook_thing_initialization, hook_thing_effects
+from .things import (
+    SCRIPTED_THING_SCRIPTS,
+    scripted_things,
+    thing_effect_scripts,
+    hook_thing_initialization,
+    hook_thing_effects,
+)
 
 
 def apply_event_hooks(source: str, hooks: list[tuple[int, ScriptReward]], plan: DeliveryPlan) -> str:
@@ -39,7 +63,12 @@ def apply_event_hooks(source: str, hooks: list[tuple[int, ScriptReward]], plan: 
         checked, _ = plan.receipt(index)
         body = "\ttemp tempVar90 = rando_seed_valid*();\n\tif ( tempVar90 == false ) {\n\t\treturn*;\n\t}\n"
         if check.reward.kind == NativeRewardKind.VICTORY:
-            body += f"\ttempVar90 = battle_get_result*();\n\tif ( tempVar90 == result_win ) {{\n\t\t{checked} *= true;\n\t\trando_deliver*();\n\t}}\n"
+            body += (
+                "\ttempVar90 = battle_get_result*();\n\tif ( tempVar90 == r"
+                "esult_win ) {\n\t\t"
+                f"{checked}"
+                " *= true;\n\t\trando_deliver*();\n\t}\n"
+            )
         else:
             body += f"\t{checked} *= true;\n\trando_deliver*();\n"
         source = prepend_body(source, check.function, body)
@@ -73,7 +102,9 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         raise ValueError("Hammer rewards must use the shuffled ability capability")
     if plan.ability_mode and set(STARTUP_FLAGS) - known_flags:
         raise ValueError("Required original tutorial completion flags are missing")
-    if plan.ability_mode and any(isinstance(check, ScriptReward) and check.script_file == STARTUP_SCRIPT for check in plan.checks):
+    if plan.ability_mode and any(
+        isinstance(check, ScriptReward) and check.script_file == STARTUP_SCRIPT for check in plan.checks
+    ):
         raise ValueError("Startup script cannot also be a check hook")
     if any(reward.kind in {NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} for reward in rewards):
         observed_policy = sticker_policy(item_source)
@@ -84,8 +115,7 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             if reward.kind == NativeRewardKind.ITEM and reward.value in observed_policy.generic:
                 raise ValueError("Generic rewards must explicitly be sticker_unlock or sticker_copy")
     known_items = {
-        text(record(row, 19)[0]) for array in item_table.arrays.values()
-        if array.type_id == 30 for row in array.values
+        text(record(row, 19)[0]) for array in item_table.arrays.values() if array.type_id == 30 for row in array.values
     }
     for check in plan.checks:
         if isinstance(check, ScriptReward) and check.category == "shop":
@@ -96,29 +126,46 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             raise ValueError(f"Unknown event flag: {check.source_flag}")
         if isinstance(check, GoalBlockReward) and check.source_flag.lower() not in known_flags:
             raise ValueError(f"Unknown source route flag: {check.source_flag}")
-        if check.reward.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} and check.reward.value not in known_items:
+        if (
+            check.reward.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}
+            and check.reward.value not in known_items
+        ):
             raise ValueError(f"Unknown reward item: {check.reward.value}")
         if check.reward.kind == NativeRewardKind.MINI_STAR and str(check.reward.value).lower() not in known_flags:
             raise ValueError(f"Unknown received route flag: {check.reward.value}")
     for entry in plan.remote_rewards:
-        if entry.reward.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} and entry.reward.value not in known_items:
+        if (
+            entry.reward.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}
+            and entry.reward.value not in known_items
+        ):
             raise ValueError("Remote selector references an unknown native item")
         if entry.reward.kind == NativeRewardKind.MINI_STAR and str(entry.reward.value).lower() not in known_flags:
             raise ValueError("Remote selector references an unknown route")
     for reward in plan.starting_rewards:
-        if reward.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY} and reward.value not in known_items:
+        if (
+            reward.kind in {NativeRewardKind.ITEM, NativeRewardKind.STICKER_UNLOCK, NativeRewardKind.STICKER_COPY}
+            and reward.value not in known_items
+        ):
             raise ValueError("Starting inventory references an unknown native item")
         if reward.kind == NativeRewardKind.MINI_STAR and str(reward.value).lower() not in known_flags:
             raise ValueError("Starting inventory references an unknown route")
     pickup_checks = tuple(check for check in plan.checks if isinstance(check, PickupReward))
     container_checks = tuple(check for check in plan.checks if isinstance(check, ContainerReward))
-    observed_containers = container_sources(KdmDocument(project.read_file("Data/kdm_dispos_data.bin"))) if container_checks else ()
+    observed_containers = (
+        container_sources(KdmDocument(project.read_file("Data/kdm_dispos_data.bin"))) if container_checks else ()
+    )
     native_containers = {(entry.map_name, entry.object_name): entry for entry in observed_containers}
     for check in container_checks:
         observed_container = native_containers.get((check.map_name, check.object_name))
-        if observed_container is None or (observed_container.source_item, observed_container.container_type) != (check.source_item, check.container_type):
+        if observed_container is None or (observed_container.source_item, observed_container.container_type) != (
+            check.source_item,
+            check.container_type,
+        ):
             raise ValueError("Container check does not match one deterministic native reward")
-        if any(isinstance(other, PickupReward) and other.map_name == check.map_name and other.source_item == check.source_item for other in plan.checks):
+        if any(
+            isinstance(other, PickupReward) and other.map_name == check.map_name and other.source_item == check.source_item
+            for other in plan.checks
+        ):
             raise ValueError("Container reward duplicates a field stand-in in the same map")
     peel_table = KdmDocument(project.read_file("Data/kdm_pepalyze.bin"))
     peel_checks = resolve_peels(peel_table, plan)
@@ -126,11 +173,20 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
     for peel_index, check, observed_source in peel_checks:
         if any(hook.source_item not in known_items for hook in check.hooks):
             raise ValueError("Peel source references an unknown native scrap")
-        candidates = [entry.name for entry in project.inspection.romfs if entry.name.startswith("Script/Map/") and entry.name.endswith(f"/{check.map_name}.bin")]
+        candidates = [
+            entry.name
+            for entry in project.inspection.romfs
+            if entry.name.startswith("Script/Map/") and entry.name.endswith(f"/{check.map_name}.bin")
+        ]
         if len(candidates) != 1:
             raise ValueError("Peel source does not identify one original map script")
         peel_scripts.setdefault(candidates[0], []).append((peel_index, check, observed_source))
-        if any(isinstance(other, ScriptReward) and other.script_file == candidates[0] and other.function == observed_source.callback for other in plan.checks):
+        if any(
+            isinstance(other, ScriptReward)
+            and other.script_file == candidates[0]
+            and other.function == observed_source.callback
+            for other in plan.checks
+        ):
             raise ValueError("Peel callback cannot also be an independent script check")
     enemy_checks = tuple((index, check) for index, check in enumerate(plan.checks) if isinstance(check, EnemyReward))
     if enemy_checks:
@@ -138,7 +194,11 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         for _, check in enemy_checks:
             for hook in check.hooks:
                 enemy = observed_enemies.get(hook.unit_id)
-                if enemy is None or not enemy.death_function or (enemy.script_file, enemy.death_function) != (hook.script_file, hook.function):
+                if (
+                    enemy is None
+                    or not enemy.death_function
+                    or (enemy.script_file, enemy.death_function) != (hook.script_file, hook.function)
+                ):
                     raise ValueError("Enemy hook does not match the native unit definition")
                 if check.type_id is not None and enemy.name_label != check.type_id:
                     raise ValueError("Enemy variant does not belong to this native type label")
@@ -156,12 +216,18 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                 with tempfile.TemporaryDirectory(prefix=".thing-source-") as directory:
                     original = decompile(project, filename, Path(directory), compiler)
                     scripted_thing = scripted_things(check.map_name, original.source.read_text(encoding="utf-8"))
-                if not any((entry.object_name, entry.source_item) == (check.object_name, check.source_item) for entry in scripted_thing):
+                if not any(
+                    (entry.object_name, entry.source_item) == (check.object_name, check.source_item)
+                    for entry in scripted_thing
+                ):
                     raise ValueError(f"Scripted Thing does not match its native acquisition: {check.id}")
                 continue
             if not matches and check.source_item.startswith("PK_FIELD_"):
-                candidates = [entry.name for entry in project.inspection.romfs
-                              if entry.name.startswith("Script/Map/") and entry.name.endswith(f"/{check.map_name}.bin")]
+                candidates = [
+                    entry.name
+                    for entry in project.inspection.romfs
+                    if entry.name.startswith("Script/Map/") and entry.name.endswith(f"/{check.map_name}.bin")
+                ]
                 if len(candidates) != 1:
                     raise ValueError("Scripted scrap has no unique original map script")
                 with tempfile.TemporaryDirectory(prefix=".scrap-source-") as directory:
@@ -184,26 +250,44 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
     flag_indices = {flag.name: flag.index for flag in (*global_flags(KdmDocument(switch_source)), *allocated)}
     if plan.checks:
         code = decompress_code(project.read_exefs(".code"))
-        if len(code) != 0x34E000 or int.from_bytes(code[0x920A0:0x920A4], "little") != 0x43C190 or int.from_bytes(code[0x182D74:0x182D78], "little") != 0xE5912144:
+        if (
+            len(code) != 0x34E000
+            or int.from_bytes(code[0x920A0:0x920A4], "little") != 0x43C190
+            or int.from_bytes(code[0x182D74:0x182D78], "little") != 0xE5912144
+        ):
             raise ValueError("Executable does not match the inspected GF memory layout")
-        rpc_profile = {"pointer_address": 0x43C190, "global_flags_offset": 0x144, "flag_count": 3072,
-                       "signature_address": 0x282C98, "signature_size": 0x160,
-                       "signature_sha256": hashlib.sha256(code[0x182C98:0x182DF8]).hexdigest()}
+        rpc_profile = {
+            "pointer_address": 0x43C190,
+            "global_flags_offset": 0x144,
+            "flag_count": 3072,
+            "signature_address": 0x282C98,
+            "signature_size": 0x160,
+            "signature_sha256": hashlib.sha256(code[0x182C98:0x182DF8]).hexdigest(),
+        }
         if plan.saved_bytes:
             if int.from_bytes(code[0x194068:0x19406C], "little") != 0xA5C04004:
                 raise ValueError("Executable does not match the native GS byte setter")
             rpc_profile["saved_bytes_offset"] = 4
             rpc_profile["saved_bytes_count"] = 256
-            rpc_profile["saved_byte_signature"] = {"address": 0x29404C, "size": 0x24,
-                                                    "sha256": hashlib.sha256(code[0x19404C:0x194070]).hexdigest()}
+            rpc_profile["saved_byte_signature"] = {
+                "address": 0x29404C,
+                "size": 0x24,
+                "sha256": hashlib.sha256(code[0x19404C:0x194070]).hexdigest(),
+            }
         if plan.ability_mode or plan.sticker_policy:
             if project.codeset_layout() != ((0x100000, 0x2D7, 0x2D6BB8), (0x3D7000, 0x41, 0x40D2C), (0x418000, 0x36, 0x35CF4)):
                 raise ValueError("Executable segment layout does not match the bounded native hooks")
         if plan.ability_mode:
             code_patch = ability_patch(code, flag_indices, plan.fingerprint)
         if plan.sticker_policy:
-            code_patch = sticker_guard_patch(code, flag_indices, plan.fingerprint, plan.sticker_policy,
-                                             generic_save_indices(item_source, plan.sticker_policy), code_patch)
+            code_patch = sticker_guard_patch(
+                code,
+                flag_indices,
+                plan.fingerprint,
+                plan.sticker_policy,
+                generic_save_indices(item_source, plan.sticker_policy),
+                code_patch,
+            )
         code_patch = expand_variable_pool(code, code_patch)
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix=".native-rewards-", dir=output.parent) as temporary:
@@ -232,7 +316,11 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         for check in plan.checks:
             if not isinstance(check, GoalBlockReward):
                 continue
-            candidates = [entry.name for entry in project.inspection.romfs if entry.name.startswith("Script/Map/") and entry.name.endswith(f"/{check.map_name}.bin")]
+            candidates = [
+                entry.name
+                for entry in project.inspection.romfs
+                if entry.name.startswith("Script/Map/") and entry.name.endswith(f"/{check.map_name}.bin")
+            ]
             if len(candidates) != 1:
                 raise ValueError(f"Cannot identify source map script: {check.map_name}")
             filename = candidates[0]
@@ -248,38 +336,113 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         item_script = decompile(project, "Script/ksm_item.bin", work, compiler)
         map_scripts["Script/ksm_item.bin"] = item_script
         field_script = decompile(project, "Script/ksm_field.bin", work, compiler)
-        album_scripts = (decompile(project, "Script/Map/W3_SAR/w3_sar_00.bin", work, compiler),) if plan.album_pages is not None else ()
+        album_scripts = (
+            (decompile(project, "Script/Map/W3_SAR/w3_sar_00.bin", work, compiler),) if plan.album_pages is not None else ()
+        )
         banner_checks = tuple(check for check in plan.checks if isinstance(check, BannerReward))
         banner_scripts = (decompile(project, "Script/Map/MAC/mac_1_F.bin", work, compiler),) if banner_checks else ()
-        final_scripts = (decompile(project, FINAL_BOSS, work, compiler),) if any(isinstance(check, ScriptReward) and check.script_file == FINAL_BOSS for check in plan.checks) else ()
-        battle_scripts = tuple(decompile(project, filename, work, compiler) for filename in (
-            "Script/Battle/Player/btl_mario_balloon.bin", "Script/Battle/ksm_btl_event.bin", "Script/Battle/ksm_btl_ui.bin")) if enemy_checks else ()
-        ability_scripts = tuple(decompile(project, filename, work, compiler) for filename in (
-            "Script/Map/MAC/mac_1_31.bin", "Script/Map/W3_SAR/w3_sar_00.bin", "Script/Map/W3_BEA/w3_bea_01.bin")) if plan.ability_mode else ()
-        boss_import_scripts = (decompile(project, BOSS_GATES["w4"].script_file, work, compiler),) if plan.boss_pending_flags else ()
+        final_scripts = (
+            (decompile(project, FINAL_BOSS, work, compiler),)
+            if any(isinstance(check, ScriptReward) and check.script_file == FINAL_BOSS for check in plan.checks)
+            else ()
+        )
+        battle_scripts = (
+            tuple(
+                decompile(project, filename, work, compiler)
+                for filename in (
+                    "Script/Battle/Player/btl_mario_balloon.bin",
+                    "Script/Battle/ksm_btl_event.bin",
+                    "Script/Battle/ksm_btl_ui.bin",
+                )
+            )
+            if enemy_checks
+            else ()
+        )
+        ability_scripts = (
+            tuple(
+                decompile(project, filename, work, compiler)
+                for filename in (
+                    "Script/Map/MAC/mac_1_31.bin",
+                    "Script/Map/W3_SAR/w3_sar_00.bin",
+                    "Script/Map/W3_BEA/w3_bea_01.bin",
+                )
+            )
+            if plan.ability_mode
+            else ()
+        )
+        boss_import_scripts = (
+            (decompile(project, BOSS_GATES["w4"].script_file, work, compiler),) if plan.boss_pending_flags else ()
+        )
         peel_import_scripts = (decompile(project, DOOR_IMPORT_SCRIPT, work, compiler),) if peel_checks else ()
         imports: dict[str, str] = {}
-        for script in (*map_scripts.values(), coin_script, item_script, field_script, *album_scripts, *banner_scripts, *final_scripts, *battle_scripts, *ability_scripts, *boss_import_scripts, *peel_import_scripts):
+        for script in (
+            *map_scripts.values(),
+            coin_script,
+            item_script,
+            field_script,
+            *album_scripts,
+            *banner_scripts,
+            *final_scripts,
+            *battle_scripts,
+            *ability_scripts,
+            *boss_import_scripts,
+            *peel_import_scripts,
+        ):
             header = script.header.read_text(encoding="utf-8")
             for declaration in header.splitlines():
                 match = re.match(r"#import (?:function|int) ([a-zA-Z0-9_]+) from .*;", declaration)
                 if match:
                     imports.setdefault(match[1], declaration)
-        required = {"item_try_addpouch", "pouch_add_coin", "pouch_set_royal_seal", "mobj_set_gf", "wm_set_gf", "pouch_get_map_name"}
-        required.update(f"pouch_royal_w{check.reward.value}" for check in plan.checks if check.reward.kind == NativeRewardKind.ROYAL)
-        required.update(f"pouch_royal_w{entry.reward.value}" for entry in plan.remote_rewards if entry.reward.kind == NativeRewardKind.ROYAL)
-        required.update(f"pouch_royal_w{reward.value}" for reward in plan.starting_rewards if reward.kind == NativeRewardKind.ROYAL)
+        required = {
+            "item_try_addpouch",
+            "pouch_add_coin",
+            "pouch_set_royal_seal",
+            "mobj_set_gf",
+            "wm_set_gf",
+            "pouch_get_map_name",
+        }
+        required.update(
+            f"pouch_royal_w{check.reward.value}" for check in plan.checks if check.reward.kind == NativeRewardKind.ROYAL
+        )
+        required.update(
+            f"pouch_royal_w{entry.reward.value}"
+            for entry in plan.remote_rewards
+            if entry.reward.kind == NativeRewardKind.ROYAL
+        )
+        required.update(
+            f"pouch_royal_w{reward.value}" for reward in plan.starting_rewards if reward.kind == NativeRewardKind.ROYAL
+        )
         if banner_checks:
             required.update(("pouch_honor_get_value", "pouch_honor_get_max"))
             required.update(f"honor_id_{check.honor}" for check in banner_checks)
         if any(check.reward.kind == NativeRewardKind.VICTORY for check in plan.checks):
             required.update(("battle_get_result", "result_win"))
         if plan.sticker_policy:
-            required.update(("item_set_flg", "item_flg_add_pouch", "item_set_itemget_event", "item_get_item_id", "character_hide", "item_delete", "pouch_already_get_real_item_debug"))
+            required.update(
+                (
+                    "item_set_flg",
+                    "item_flg_add_pouch",
+                    "item_set_itemget_event",
+                    "item_get_item_id",
+                    "character_hide",
+                    "item_delete",
+                    "pouch_already_get_real_item_debug",
+                )
+            )
         if enemy_checks:
             required.update(("battle_unit_get_hp", "battle_unit_get_unit_data_id", "battle_is_museum"))
         if plan.ability_mode:
-            required.update(("pouch_attach_accessory", "pouch_detach_accessory", "pouch_hammer", "pouch_lucie", "player_set_ignore_key", "player_hammer_button", "player_pepalyze_button"))
+            required.update(
+                (
+                    "pouch_attach_accessory",
+                    "pouch_detach_accessory",
+                    "pouch_hammer",
+                    "pouch_lucie",
+                    "player_set_ignore_key",
+                    "player_hammer_button",
+                    "player_pepalyze_button",
+                )
+            )
             required.update(("map_exit_event", "ui_enable_open_status_all"))
         if peel_import_scripts:
             required.update(("pepalyze_get_now_play_unlock_num", "pepalyze_get_access_number"))
@@ -294,7 +457,11 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             donor = decompile(project, DOOR_IMPORT_SCRIPT, work, compiler)
             door_imports = {}
             for declaration in donor.header.read_text(encoding="utf-8").splitlines():
-                match = re.match(r"#import function (pepalyze_get_now_play_unlock_num|pepalyze_get_access_number|pepalyze_is_now_play_unlock) from .*;", declaration)
+                match = re.match(
+                    "#import function (pepalyze_get_now_play_unlock_num|pepalyze_get_a"
+                    "ccess_number|pepalyze_is_now_play_unlock) from .*;",
+                    declaration,
+                )
                 if match:
                     door_imports[match[1]] = declaration
             if len(door_imports) != 3:
@@ -307,15 +474,29 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             if peel_checks:
                 selection_source = gate_peel_selection(selection_source, plan, peel_table)
             script.source.write_text(selection_source, encoding="utf-8")
-            required_flags = tuple(f"gf_rando_door_{code.lower()}" for code in plan.door_access_codes if any(code in (place.stage_code, place.lock_id) for place in observed_doors))
-            script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), required_flags, door_imports | shared_imports()), encoding="utf-8")
-            data = compile_checked(script, compiler, required_flags, required_function="rando_peel_control" if peel_checks else "rando_door_control")
+            required_flags = tuple(
+                f"gf_rando_door_{code.lower()}"
+                for code in plan.door_access_codes
+                if any(code in (place.stage_code, place.lock_id) for place in observed_doors)
+            )
+            script.header.write_text(
+                add_declarations(script.header.read_text(encoding="utf-8"), required_flags, door_imports | shared_imports()),
+                encoding="utf-8",
+            )
+            data = compile_checked(
+                script,
+                compiler,
+                required_flags,
+                required_function="rando_peel_control" if peel_checks else "rando_door_control",
+            )
             project.write_override(staging, PAPERIZATION_SCRIPT, data)
             emitted[PAPERIZATION_SCRIPT] = hashlib.sha256(data).hexdigest()
         if container_checks:
             script = decompile(project, TREASURE_SCRIPT, work, compiler)
             script.source.write_text(hook_treasure_acquisition(script.source.read_text(encoding="utf-8")), encoding="utf-8")
-            script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), (), shared_imports()), encoding="utf-8")
+            script.header.write_text(
+                add_declarations(script.header.read_text(encoding="utf-8"), (), shared_imports()), encoding="utf-8"
+            )
             data = compile_checked(script, compiler, (), required_function="rando_container_collect")
             project.write_override(staging, TREASURE_SCRIPT, data)
             emitted[TREASURE_SCRIPT] = hashlib.sha256(data).hexdigest()
@@ -338,7 +519,12 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                     for function, death_checks in enemy_scripts[filename].items():
                         source = death_hook(source, function, death_checks, plan)
                 script.source.write_text(source, encoding="utf-8")
-                script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), required_flags, native_imports | shared_imports()), encoding="utf-8")
+                script.header.write_text(
+                    add_declarations(
+                        script.header.read_text(encoding="utf-8"), required_flags, native_imports | shared_imports()
+                    ),
+                    encoding="utf-8",
+                )
                 data = compile_checked(script, compiler, required_flags, required_function="rando_seed_valid")
                 project.write_override(staging, filename, data)
                 emitted[filename] = hashlib.sha256(data).hexdigest()
@@ -369,7 +555,9 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                     source = suppress_royal_grant(filename, source)
                 script.source.write_text(source, encoding="utf-8")
                 data = compile_checked(script, compiler, (), required_function=None)
-                if plan.album_pages is not None and "SL_PAGE" in script.binary.with_suffix(".re.cksm").read_text(encoding="utf-8"):
+                if plan.album_pages is not None and "SL_PAGE" in script.binary.with_suffix(".re.cksm").read_text(
+                    encoding="utf-8"
+                ):
                     raise ValueError("Compiled script retained a vanilla page grant")
                 project.write_override(staging, filename, data)
                 emitted[filename] = hashlib.sha256(data).hexdigest()
@@ -401,12 +589,22 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                 source = suppress_royal_grant(filename, source)
             source = apply_event_hooks(source, hooks, plan)
             script.source.write_text(source, encoding="utf-8")
-            script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), plan.references, native_imports | shared_imports()), encoding="utf-8")
+            script.header.write_text(
+                add_declarations(
+                    script.header.read_text(encoding="utf-8"), plan.references, native_imports | shared_imports()
+                ),
+                encoding="utf-8",
+            )
             required_flags = tuple(plan.receipt(index)[0] for index, _ in hooks)
             data = compile_checked(script, compiler, required_flags)
             project.write_override(staging, filename, data)
             emitted[filename] = hashlib.sha256(data).hexdigest()
-        delivery_scripts: tuple[str, ...] = ("Script/ksm_mobj.bin", "Script/ksm_map.bin", "Script/Map/MAC/mac_1_00.bin", RUNTIME_SCRIPT)
+        delivery_scripts: tuple[str, ...] = (
+            "Script/ksm_mobj.bin",
+            "Script/ksm_map.bin",
+            "Script/Map/MAC/mac_1_00.bin",
+            RUNTIME_SCRIPT,
+        )
         if plan.ability_mode or plan.stage_access_codes:
             delivery_scripts += (WORLD_MAP_SCRIPT,)
         if plan.ability_mode:
@@ -446,12 +644,38 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
                 if pickup_checks or container_checks:
                     if any(check.source_item.startswith("REAL_") for check in pickup_checks):
                         source = hook_thing_initialization(source)
-                    source = prepend_body(source, "item_get_evt_real", '\ttemp tempVar90 = rando_pickup*(tempVar0);\n\tif ( tempVar90 == -1 ) {\n\t\treturn*;\n\t}\n\tif ( tempVar90 ) {\n\t\tcharacter_hide*(tempVar0);\n\t\titem_delete*(tempVar0, 0);\n\t\treturn*;\n\t}\n')
-                    source = prepend_body(source, "item_get_real_name", '\ttemp tempVar90 = rando_pickup*(tempVar0);\n\tif ( tempVar90 == -1 ) {\n\t\treturn*;\n\t}\n\tif ( tempVar90 ) {\n\t\tcharacter_hide*(tempVar0);\n\t\titem_delete*(tempVar0, 0);\n\t\treturn*;\n\t}\n')
-                    source = prepend_body(source, "map_piece_get", '\ttemp tempVar90 = character_get_name*();\n\ttempVar90 = rando_pickup*(tempVar90);\n\tif ( tempVar90 == -1 ) {\n\t\treturn*;\n\t}\n\tif ( tempVar90 ) {\n\t\titem_delete_effect*(self, true);\n\t\tcharacter_hide*(self);\n\t\treturn*;\n\t}\n')
+                    source = prepend_body(
+                        source,
+                        "item_get_evt_real",
+                        "\ttemp tempVar90 = rando_pickup*(tempVar0);\n\tif ( tempVar90 == -1 "
+                        ") {\n\t\treturn*;\n\t}\n\tif ( tempVar90 ) {\n\t\tcharacter_hide*(tempVar0)"
+                        ";\n\t\titem_delete*(tempVar0, 0);\n\t\treturn*;\n\t}\n",
+                    )
+                    source = prepend_body(
+                        source,
+                        "item_get_real_name",
+                        "\ttemp tempVar90 = rando_pickup*(tempVar0);\n\tif ( tempVar90 == -1 "
+                        ") {\n\t\treturn*;\n\t}\n\tif ( tempVar90 ) {\n\t\tcharacter_hide*(tempVar0)"
+                        ";\n\t\titem_delete*(tempVar0, 0);\n\t\treturn*;\n\t}\n",
+                    )
+                    source = prepend_body(
+                        source,
+                        "map_piece_get",
+                        "\ttemp tempVar90 = character_get_name*();\n\ttempVar90 = rando_picku"
+                        "p*(tempVar90);\n\tif ( tempVar90 == -1 ) {\n\t\treturn*;\n\t}\n\tif ( temp"
+                        "Var90 ) {\n\t\titem_delete_effect*(self, true);\n\t\tcharacter_hide*(se"
+                        "lf);\n\t\treturn*;\n\t}\n",
+                    )
                     source += "\n" + plan.pickup_function()
-                    if any(check.source_item.startswith("PK_FIELD_") for check in pickup_checks) or any(check.source_item.startswith("PK_FIELD_") for check in container_checks):
-                        source = prepend_body(source, "item_get_evt_piece", '\ttemp tempVar90 = rando_piece_pickup*(tempVar0);\n\tif ( tempVar90 != false ) {\n\t\treturn*;\n\t}\n')
+                    if any(check.source_item.startswith("PK_FIELD_") for check in pickup_checks) or any(
+                        check.source_item.startswith("PK_FIELD_") for check in container_checks
+                    ):
+                        source = prepend_body(
+                            source,
+                            "item_get_evt_piece",
+                            "\ttemp tempVar90 = rando_piece_pickup*(tempVar0);\n\tif ( tempVar90 "
+                            "!= false ) {\n\t\treturn*;\n\t}\n",
+                        )
                         source += "\n" + plan.piece_pickup_function()
                 if plan.sticker_policy:
                     source += "\n" + plan.sticker_policy.pickup_functions()
@@ -473,20 +697,39 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             if filename == RUNTIME_SCRIPT:
                 source += runtime_functions(plan)
             script.source.write_text(source, encoding="utf-8")
-            script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), plan.references, native_imports if filename == RUNTIME_SCRIPT else native_imports | shared_imports()), encoding="utf-8")
+            script.header.write_text(
+                add_declarations(
+                    script.header.read_text(encoding="utf-8"),
+                    plan.references,
+                    native_imports if filename == RUNTIME_SCRIPT else native_imports | shared_imports(),
+                ),
+                encoding="utf-8",
+            )
             if filename == RUNTIME_SCRIPT:
                 with script.header.open("a", encoding="utf-8") as header:
                     header.write("".join(f"static bool {flag} = false;\n" for flag in plan.enemy_pending_flags))
                     if peel_checks:
                         header.write("static int rando_peel_reserve = 0;\n")
             if filename == STARTUP_SCRIPT:
-                script.header.write_text(add_declarations(script.header.read_text(encoding="utf-8"), STARTUP_FLAGS, {}), encoding="utf-8")
-            required_flags = (plan.required_references + (plan.sticker_policy.flags if plan.sticker_policy else ())) if filename == RUNTIME_SCRIPT else tuple(flag for flag in plan.references if re.search(r"\b" + re.escape(flag) + r"\b", source))
+                script.header.write_text(
+                    add_declarations(script.header.read_text(encoding="utf-8"), STARTUP_FLAGS, {}), encoding="utf-8"
+                )
+            required_flags = (
+                (plan.required_references + (plan.sticker_policy.flags if plan.sticker_policy else ()))
+                if filename == RUNTIME_SCRIPT
+                else tuple(flag for flag in plan.references if re.search(r"\b" + re.escape(flag) + r"\b", source))
+            )
             if filename in boss_scripts and boss_scripts[filename].case_name:
                 required_flags += (f"gf_rando_boss_pending_{boss_scripts[filename].code}",)
-            required_function = "rando_deliver" if "rando_deliver" in source else (
-                "rando_thing_source_collected" if "rando_thing_source_collected" in source else (
-                    "real_obj_init" if filename in source_effect_scripts else "rando_peel_collect"))
+            required_function = (
+                "rando_deliver"
+                if "rando_deliver" in source
+                else (
+                    "rando_thing_source_collected"
+                    if "rando_thing_source_collected" in source
+                    else ("real_obj_init" if filename in source_effect_scripts else "rando_peel_collect")
+                )
+            )
             data = compile_checked(script, compiler, required_flags, required_function=required_function)
             project.write_override(staging, filename, data)
             emitted[filename] = hashlib.sha256(data).hexdigest()
@@ -494,10 +737,16 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
         if peel_checks:
             project.write_override(staging, "Data/kdm_pepalyze.bin", suppress_peel_grants(peel_table, plan))
         if plan.ability_mode:
-            project.write_override(staging, "Data/kdm_link_data.bin", route_start_to_world_map(project.read_file("Data/kdm_link_data.bin")))
+            project.write_override(
+                staging, "Data/kdm_link_data.bin", route_start_to_world_map(project.read_file("Data/kdm_link_data.bin"))
+            )
         if plan.sticker_policy:
-            project.write_override(staging, "Data/kdm_item_data.bin", patch_sticker_initializers(item_source, plan.sticker_policy))
-            project.write_override(staging, "Data/kdm_shop.bin", patch_shops(project.read_file("Data/kdm_shop.bin"), plan.sticker_policy))
+            project.write_override(
+                staging, "Data/kdm_item_data.bin", patch_sticker_initializers(item_source, plan.sticker_policy)
+            )
+            project.write_override(
+                staging, "Data/kdm_shop.bin", patch_shops(project.read_file("Data/kdm_shop.bin"), plan.sticker_policy)
+            )
         if code_patch:
             (staging / "exefs").mkdir()
             (staging / "exefs" / "code.ips").write_bytes(code_patch.ips())
@@ -505,9 +754,12 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             if plan.ability_mode:
                 (staging / "exefs" / "abilities.S").write_text(code_patch.assembly, encoding="utf-8")
         report = {
-            "format_version": 1, "mode": "native_goal_block_rewards",
-            "shared_runtime_script": RUNTIME_SCRIPT, "script_variable_pool_limit": VARIABLE_POOL_LIMIT,
-            "complete_randomizer": False, "emulator_verified": False,
+            "format_version": 1,
+            "mode": "native_goal_block_rewards",
+            "shared_runtime_script": RUNTIME_SCRIPT,
+            "script_variable_pool_limit": VARIABLE_POOL_LIMIT,
+            "complete_randomizer": False,
+            "emulator_verified": False,
             "title_id": project.inspection.title_id,
             "save_seed_fingerprint": plan.fingerprint.hex(),
             "seed_name": plan.seed_name,
@@ -522,22 +774,51 @@ def build_reward_mod(project: RomProject, plan: DeliveryPlan, compiler: Path, ou
             "door_places": [asdict(place) for place in observed_doors],
             "shuffle_royals": plan.shuffle_royals,
             "sticker_policy": asdict(plan.sticker_policy) if plan.sticker_policy else None,
-            "presentation": {"skip_opening": plan.skip_opening, "skip_dialogue": plan.skip_dialogue, "gameplay_verified": False},
-            "startup": {"post_tutorial_world_map": plan.ability_mode, "grants_shuffled_abilities": False, "gameplay_verified": False},
+            "presentation": {
+                "skip_opening": plan.skip_opening,
+                "skip_dialogue": plan.skip_dialogue,
+                "gameplay_verified": False,
+            },
+            "startup": {
+                "post_tutorial_world_map": plan.ability_mode,
+                "grants_shuffled_abilities": False,
+                "gameplay_verified": False,
+            },
             "remote_rewards": [asdict(entry) for entry in plan.remote_rewards],
             "remote_session": asdict(plan.remote_session) if plan.remote_session else None,
             "peeled_scrap_sources": [asdict(observed_source) for _, _, observed_source in peel_checks],
-            "container_sources": [asdict(native_containers[(check.map_name, check.object_name)]) for check in container_checks],
+            "container_sources": [
+                asdict(native_containers[(check.map_name, check.object_name)]) for check in container_checks
+            ],
             "saved_byte_mailbox": plan.saved_byte_mailbox,
             "priority_pages": plan.priority_pages,
             "priority_capabilities": plan.priority_pages,
             "allocated_saved_bytes": [asdict(slot) for slot in saved_allocated],
             "rpc_memory_profile": rpc_profile,
-            "code_patch": {"source_sha256": code_patch.source_sha256, "patched_sha256": code_patch.patched_sha256, "signatures": code_patch.signatures} if code_patch else None,
+            "code_patch": (
+                {
+                    "source_sha256": code_patch.source_sha256,
+                    "patched_sha256": code_patch.patched_sha256,
+                    "signatures": code_patch.signatures,
+                }
+                if code_patch
+                else None
+            ),
             "suppressed_vanilla_page_grants": suppressed_pages,
             "checks": [asdict(check) for check in plan.checks],
             "allocated_flags": [asdict(flag) for flag in allocated],
-            "check_flags": [{"id": check.id, "checked": flag_indices[plan.receipt(index)[0]], "delivered": None if check.reward.kind in {NativeRewardKind.REMOTE, NativeRewardKind.EVENT} else flag_indices[plan.receipt(index)[1]]} for index, check in enumerate(plan.checks)],
+            "check_flags": [
+                {
+                    "id": check.id,
+                    "checked": flag_indices[plan.receipt(index)[0]],
+                    "delivered": (
+                        None
+                        if check.reward.kind in {NativeRewardKind.REMOTE, NativeRewardKind.EVENT}
+                        else flag_indices[plan.receipt(index)[1]]
+                    ),
+                }
+                for index, check in enumerate(plan.checks)
+            ],
             "source_map_scripts": sorted(sources),
             "script_event_hooks": sorted(hooked_scripts),
             "enemy_victory_hooks": [check.id for _, check in enemy_checks],

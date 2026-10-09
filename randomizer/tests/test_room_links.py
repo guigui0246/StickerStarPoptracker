@@ -6,18 +6,21 @@ from ..integrations.rom.room_links import room_links
 
 def fixture() -> KdmDocument:
     document = KdmDocument.__new__(KdmDocument)
-    document.structures = {21: KdmStructure(21, (1, 1, 1, 3, 3, 3, 3, 3, 3), 36, 4),
-                           22: KdmStructure(22, (3, 20, 1), 12, 4)}
+    document.structures = {21: KdmStructure(21, (1, 1, 1, 3, 3, 3, 3, 3, 3), 36, 4), 22: KdmStructure(22, (3, 20, 1), 12, 4)}
     values = (2, 0, 0, "room_a", "door_01", "room_b", "af_s_bero", "enter_a", "exit_a")
-    row = tuple(KdmField(100 + index * 4, 1 if index < 3 else 3, value)
-                for index, value in enumerate(values))
+    row = tuple(KdmField(100 + index * 4, 1 if index < 3 else 3, value) for index, value in enumerate(values))
     document.arrays = {
         100: KdmArray(1, 100, 21, 9, (KdmField(100, 21, row),)),
         200: KdmArray(2, 200, 15, 1, (KdmField(200, 15, KdmPointer(100, 15)),)),
-        300: KdmArray(3, 300, 22, 3, (KdmField(300, 22, (
-            KdmField(300, 3, "room_a"), KdmField(304, 20, KdmPointer(200, 20)), KdmField(308, 1, 1))),))}
-    document.tables = {"link_data_all": KdmArray(4, 400, 15, 1, (
-        KdmField(400, 15, KdmPointer(300, 15)),))}
+        300: KdmArray(
+            3,
+            300,
+            22,
+            3,
+            (KdmField(300, 22, (KdmField(300, 3, "room_a"), KdmField(304, 20, KdmPointer(200, 20)), KdmField(308, 1, 1))),),
+        ),
+    }
+    document.tables = {"link_data_all": KdmArray(4, 400, 15, 1, (KdmField(400, 15, KdmPointer(300, 15)),))}
     return document
 
 
@@ -40,8 +43,7 @@ class RoomLinksTests(unittest.TestCase):
         document = fixture()
         row = document.arrays[300].values[0].value
         assert isinstance(row, tuple)
-        document.arrays[300] = KdmArray(3, 300, 22, 3, (
-            KdmField(300, 22, (*row[:2], KdmField(308, 1, 2))),))
+        document.arrays[300] = KdmArray(3, 300, 22, 3, (KdmField(300, 22, (*row[:2], KdmField(308, 1, 2))),))
         with self.assertRaisesRegex(ValueError, "count"):
             room_links(document)
 
@@ -49,7 +51,9 @@ class RoomLinksTests(unittest.TestCase):
         document = fixture()
         row = document.arrays[100].values[0].value
         assert isinstance(row, tuple)
-        changed = tuple(KdmField(field.offset, field.type_id, "null" if index in (5, 6) else field.value)
-                        for index, field in enumerate(row))
+        changed = tuple(
+            KdmField(field.offset, field.type_id, "null" if index in (5, 6) else field.value)
+            for index, field in enumerate(row)
+        )
         document.arrays[100] = KdmArray(1, 100, 21, 9, (KdmField(100, 21, changed),))
         self.assertFalse(room_links(document)[0].has_destination)

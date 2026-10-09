@@ -98,14 +98,11 @@ class SeedTests(unittest.TestCase):
                 with self.subTest(settings=settings, seed=i):
                     result = generate(catalog, i, settings)
                     self.assertEqual(result, generate(catalog, i, settings))
-                    _, unreachable, goal = playthrough(
-                        catalog, result["checks"], result["placements"]
-                    )
+                    _, unreachable, goal = playthrough(catalog, result["checks"], result["placements"])
                     self.assertEqual(unreachable, [])
                     self.assertTrue(goal)
                     self.assertEqual(
-                        Counter(result["placements"].values())
-                        & Counter(catalog["progression_pool"]),
+                        Counter(result["placements"].values()) & Counter(catalog["progression_pool"]),
                         Counter(catalog["progression_pool"]),
                     )
 
@@ -115,14 +112,10 @@ class SeedTests(unittest.TestCase):
             [c["id"] for c in enabled_checks(fixture(), Settings(False))],
         )
         checks = enabled_checks(fixture(), Settings(True, 10))
-        self.assertEqual(
-            next(c for c in checks if c["id"] == "excellent")["threshold"], 20
-        )
+        self.assertEqual(next(c for c in checks if c["id"] == "excellent")["threshold"], 20)
         catalog = fixture()
         catalog["checks"][-1]["threshold"] = 201
-        self.assertEqual(
-            enabled_checks(catalog, Settings(True, 10))[-1]["threshold"], 21
-        )
+        self.assertEqual(enabled_checks(catalog, Settings(True, 10))[-1]["threshold"], 21)
 
     def test_missing_references_and_duplicate_checks_fail(self) -> None:
         catalog = fixture()
@@ -143,14 +136,8 @@ class SeedTests(unittest.TestCase):
 
     def test_star_reward_and_door_requirements_are_distinct(self) -> None:
         checks = {c["id"]: c for c in fixture()["checks"]}
-        self.assertFalse(
-            requirement_met(checks["stage_1_2"]["requires"], Counter({"clear_w1_1": 1}))
-        )
-        self.assertTrue(
-            requirement_met(
-                checks["stage_1_2"]["requires"], Counter({"star_1_1_exit": 1})
-            )
-        )
+        self.assertFalse(requirement_met(checks["stage_1_2"]["requires"], Counter({"clear_w1_1": 1})))
+        self.assertTrue(requirement_met(checks["stage_1_2"]["requires"], Counter({"star_1_1_exit": 1})))
         full = Counter(paperization=1, door_place_1_2=1, door_sticker=1)
         self.assertTrue(requirement_met(checks["door"]["requires"], full))
         for item in full:

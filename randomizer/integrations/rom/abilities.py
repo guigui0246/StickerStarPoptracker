@@ -49,19 +49,26 @@ class CodePatch:
 
     @property
     def signatures(self) -> list[dict[str, str | int]]:
-        return [{"address": CODE_BASE + offset, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()} for offset, data in self.records]
+        return [
+            {"address": CODE_BASE + offset, "size": len(data), "sha256": hashlib.sha256(data).hexdigest()}
+            for offset, data in self.records
+        ]
 
 
 def ability_patch(code: bytes, flags: dict[str, int], fingerprint: bytes) -> CodePatch:
-    if len(code) != 0x34E000 or code[ATTACH_FUNCTION - CODE_BASE:ATTACH_FUNCTION - CODE_BASE + 16] != ORIGINAL_ATTACH:
+    if len(code) != 0x34E000 or code[ATTACH_FUNCTION - CODE_BASE : ATTACH_FUNCTION - CODE_BASE + 16] != ORIGINAL_ATTACH:
         raise ValueError("Unsupported native accessory function revision")
-    if len(fingerprint) != 16 or any(code[TEXT_END - CODE_BASE:TEXT_LIMIT - CODE_BASE]):
+    if len(fingerprint) != 16 or any(code[TEXT_END - CODE_BASE : TEXT_LIMIT - CODE_BASE]):
         raise ValueError("Executable padding is occupied or seed identity is invalid")
     expected_flags = [flags[f"gf_rando_seed_{index:02d}"] for index in range(128)]
     if expected_flags != list(range(expected_flags[0], expected_flags[0] + 128)):
         raise ValueError("Native fingerprint flags must be contiguous")
-    required = [flags["gf_rando_seed_initialized"], *expected_flags,
-                flags["gf_rando_ability_hammer"], flags["gf_rando_ability_paperization"]]
+    required = [
+        flags["gf_rando_seed_initialized"],
+        *expected_flags,
+        flags["gf_rando_ability_hammer"],
+        flags["gf_rando_ability_paperization"],
+    ]
     if any(type(index) is not int or not 0 <= index < 2560 for index in required):
         raise ValueError("Ability flags must remain outside native reserved item flags")
     words: list[int] = []
@@ -130,26 +137,34 @@ def ability_patch(code: bytes, flags: dict[str, int], fingerprint: bytes) -> Cod
     cave = struct.pack(f"<{len(words)}I", *words)
     if TEXT_END + len(cave) > TEXT_LIMIT:
         raise ValueError("Ability guard exceeds existing executable padding")
-    records = ((ATTACH_FUNCTION - CODE_BASE, struct.pack("<I", branch(ATTACH_FUNCTION, TEXT_END))),
-               (TEXT_END - CODE_BASE, cave))
+    records = (
+        (ATTACH_FUNCTION - CODE_BASE, struct.pack("<I", branch(ATTACH_FUNCTION, TEXT_END))),
+        (TEXT_END - CODE_BASE, cave),
+    )
     result = bytearray(code)
     for offset, data in records:
-        result[offset:offset + len(data)] = data
+        result[offset : offset + len(data)] = data
     # Emit the exact instruction words used by IPS, including seed-specific
     # literal pools. No disassembler or ARM toolchain is required by users.
     literal_start = len(words) - len(literals)
     literal_positions = {position: (register, value) for position, register, value in literals}
     branch_positions = {position: (label, condition) for position, label, condition in branches}
     names = {position: name for name, position in labels.items()}
-    lines = ["/* Generated ARM source: exact words used by exefs/code.ips.",
-             " * Sections must be placed at the addresses stated below.",
-             " * GF owner + 0x144 is persistent storage; +0x404 is area storage.",
-             " * Seed-specific constants are data, not instructions. */",
-             ".syntax unified", ".arm", '.section .rando_hook,"ax",%progbits',
-             f"/* Place at 0x{ATTACH_FUNCTION:08x}. */", "rando_attach_hook:",
-             f"    .word 0x{struct.unpack('<I', records[0][1])[0]:08x} /* b rando_attach_guard */",
-             '.section .rando_guard,"ax",%progbits',
-             f"/* Place at 0x{TEXT_END:08x}. */", "rando_attach_guard:"]
+    lines = [
+        "/* Generated ARM source: exact words used by exefs/code.ips.",
+        " * Sections must be placed at the addresses stated below.",
+        " * GF owner + 0x144 is persistent storage; +0x404 is area storage.",
+        " * Seed-specific constants are data, not instructions. */",
+        ".syntax unified",
+        ".arm",
+        '.section .rando_hook,"ax",%progbits',
+        f"/* Place at 0x{ATTACH_FUNCTION:08x}. */",
+        "rando_attach_hook:",
+        f"    .word 0x{struct.unpack('<I', records[0][1])[0]:08x} /* b rando_attach_guard */",
+        '.section .rando_guard,"ax",%progbits',
+        f"/* Place at 0x{TEXT_END:08x}. */",
+        "rando_attach_guard:",
+    ]
     for position, word in enumerate(words):
         if position in names:
             lines.append(f"rando_{names[position]}:")
@@ -157,10 +172,11 @@ def ability_patch(code: bytes, flags: dict[str, int], fingerprint: bytes) -> Cod
             description = "literal data"
         elif position in literal_positions:
             register, value = literal_positions[position]
-            description = f"ldr r{register}, [pc, #{word & 0xfff}] ; literal 0x{value:08x}"
+            description = f"ldr r{register}, [pc, #{word & 0xFFF}] ; literal 0x{value:08x}"
         elif position in branch_positions:
             name, condition = branch_positions[position]
-            description = f"b{ {0: 'eq', 1: 'ne', 14: ''}[condition]} rando_{name}"
+            condition_name = {0: "eq", 1: "ne", 14: ""}[condition]
+            description = f"b{condition_name} rando_{name}"
         else:
             description = _instruction_description(word)
         lines.append(f"    .word 0x{word:08x} /* 0x{TEXT_END + position * 4:08x}: {description} */")
@@ -168,18 +184,24 @@ def ability_patch(code: bytes, flags: dict[str, int], fingerprint: bytes) -> Cod
 
 
 def _instruction_description(word: int) -> str:
-    fixed = {0xE5922000: "ldr r2, [r2]", 0xE3520000: "cmp r2, #0",
-             0xE003300C: "and r3, r3, r12", 0xE153000C: "cmp r3, r12",
-             0xE3C11005: "bic r1, r1, #5", 0xE590213C: "ldr r2, [r0, #0x13c]",
-             0xE1811002: "orr r1, r1, r2", 0xE580113C: "str r1, [r0, #0x13c]",
-             0xE12FFF1E: "bx lr"}
+    fixed = {
+        0xE5922000: "ldr r2, [r2]",
+        0xE3520000: "cmp r2, #0",
+        0xE003300C: "and r3, r3, r12",
+        0xE153000C: "cmp r3, r12",
+        0xE3C11005: "bic r1, r1, #5",
+        0xE590213C: "ldr r2, [r0, #0x13c]",
+        0xE1811002: "orr r1, r1, r2",
+        0xE580113C: "str r1, [r0, #0x13c]",
+        0xE12FFF1E: "bx lr",
+    }
     if word in fixed:
         return fixed[word]
     if word & 0xFFFFF000 == 0xE5923000:
-        return f"ldr r3, [r2, #0x{word & 0xfff:x}]"
+        return f"ldr r3, [r2, #0x{word & 0xFFF:x}]"
     shift = ((word >> 8) & 15) * 2
     value = word & 255
-    value = ((value >> shift) | (value << (32 - shift))) & 0xffffffff if shift else value
+    value = ((value >> shift) | (value << (32 - shift))) & 0xFFFFFFFF if shift else value
     operations = {0xE3130000: "tst r3", 0xE2033000: "and r3, r3", 0x03C11000: "biceq r1, r1"}
     operation = operations.get(word & 0xFFFFF000)
     if operation is None:

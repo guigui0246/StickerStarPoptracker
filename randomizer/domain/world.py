@@ -68,20 +68,10 @@ class GameDefinition:
 
     @property
     def start(self) -> StartingRegion:
-        return next(
-            region for region in self.regions if isinstance(region, StartingRegion)
-        )
+        return next(region for region in self.regions if isinstance(region, StartingRegion))
 
     @property
     def fixed_rewards(self) -> dict[str, str]:
-        result = {
-            loc.id: loc.item.id for loc in self.locations if isinstance(loc, Goal)
-        }
-        result.update(
-            {
-                item.location_id: item.id
-                for item in self.items
-                if isinstance(item, Event)
-            }
-        )
+        result = {loc.id: loc.item.id for loc in self.locations if isinstance(loc, Goal)}
+        result.update({item.location_id: item.id for item in self.items if isinstance(item, Event)})
         return result

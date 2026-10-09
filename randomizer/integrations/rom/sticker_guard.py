@@ -30,36 +30,68 @@ def generic_save_indices(data: bytes, policy: StickerPolicy) -> dict[str, int]:
     document = KdmDocument(data)
     if document.structures[30].size != 68:
         raise ValueError("Unsupported native item descriptor layout")
-    rows = {text(fields[0]): fields for array in document.arrays.values() if array.type_id == 30
-            for row in array.values for fields in [record(row, 19)]}
+    rows = {
+        text(fields[0]): fields
+        for array in document.arrays.values()
+        if array.type_id == 30
+        for row in array.values
+        for fields in [record(row, 19)]
+    }
     result = {}
     for item in policy.generic:
         fields = rows[item]
-        if integer(fields[18]) != 4 or fields[17].offset - fields[0].offset != 0x3C or fields[18].offset - fields[0].offset != 0x40:
+        if (
+            integer(fields[18]) != 4
+            or fields[17].offset - fields[0].offset != 0x3C
+            or fields[18].offset - fields[0].offset != 0x40
+        ):
             raise ValueError("Generic item does not match the verified runtime schema")
         result[item] = integer(fields[17])
     return result
 
 
-def sticker_guard_patch(code: bytes, flags: dict[str, int], fingerprint: bytes,
-                        policy: StickerPolicy, indices: dict[str, int],
-                        ability: CodePatch | None = None) -> CodePatch:
-    if len(code) != 0x34E000 or len(fingerprint) != 16 or any(code[TEXT_END - CODE_BASE:TEXT_LIMIT - CODE_BASE]):
+def sticker_guard_patch(
+    code: bytes,
+    flags: dict[str, int],
+    fingerprint: bytes,
+    policy: StickerPolicy,
+    indices: dict[str, int],
+    ability: CodePatch | None = None,
+) -> CodePatch:
+    if len(code) != 0x34E000 or len(fingerprint) != 16 or any(code[TEXT_END - CODE_BASE : TEXT_LIMIT - CODE_BASE]):
         raise ValueError("Unsupported executable or occupied ARM padding")
-    for address, original in ((NORMAL_ADD, NORMAL_PREFIX), (FORCED_ADD, FORCED_PREFIX), (COMMIT_ADD, COMMIT_PREFIX), (ALBUM_ADD, ALBUM_PREFIX), (ITEM_LOOKUP, LOOKUP_PREFIX)):
-        if code[address - CODE_BASE:address - CODE_BASE + len(original)] != original:
+    for address, original in (
+        (NORMAL_ADD, NORMAL_PREFIX),
+        (FORCED_ADD, FORCED_PREFIX),
+        (COMMIT_ADD, COMMIT_PREFIX),
+        (ALBUM_ADD, ALBUM_PREFIX),
+        (ITEM_LOOKUP, LOOKUP_PREFIX),
+    ):
+        if code[address - CODE_BASE : address - CODE_BASE + len(original)] != original:
             raise ValueError("Unsupported native sticker insertion revision")
-    if set(indices) != set(policy.generic) or len(set(indices.values())) != len(indices) or any(type(index) is not int or not 0 <= index <= 200 for index in indices.values()):
+    if (
+        set(indices) != set(policy.generic)
+        or len(set(indices.values())) != len(indices)
+        or any(type(index) is not int or not 0 <= index <= 200 for index in indices.values())
+    ):
         raise ValueError("Generic save indices must be distinct and within the verified range")
     ownership = [flags[policy.flag(item)] for item in policy.generic]
-    if len(ownership) >= 255 or ownership != list(range(ownership[0], ownership[0] + len(ownership))) or not 1446 <= ownership[0] <= ownership[-1] < 2560:
+    if (
+        len(ownership) >= 255
+        or ownership != list(range(ownership[0], ownership[0] + len(ownership)))
+        or not 1446 <= ownership[0] <= ownership[-1] < 2560
+    ):
         raise ValueError("Native generic ownership flags must be contiguous and save-safe")
     seed = [flags[f"gf_rando_seed_{bit:02d}"] for bit in range(128)]
-    if seed != list(range(seed[0], seed[0] + 128)) or any(not 0 <= index < 2560 for index in [*seed, flags["gf_rando_seed_initialized"]]):
+    if seed != list(range(seed[0], seed[0] + 128)) or any(
+        not 0 <= index < 2560 for index in [*seed, flags["gf_rando_seed_initialized"]]
+    ):
         raise ValueError("Invalid seed flag layout")
     previous = ability.records if ability else ()
     start = TEXT_END + (len(ability.records[1][1]) if ability else 0)
-    if ability and (ability.source_sha256 != hashlib.sha256(code).hexdigest() or ability.records[1][0] != TEXT_END - CODE_BASE):
+    if ability and (
+        ability.source_sha256 != hashlib.sha256(code).hexdigest() or ability.records[1][0] != TEXT_END - CODE_BASE
+    ):
         raise ValueError("Ability and sticker guards must share the same original executable")
     words: list[int] = []
     descriptions: list[str] = []
@@ -76,7 +108,8 @@ def sticker_guard_patch(code: bytes, flags: dict[str, int], fingerprint: bytes,
 
     def jump(name: str, *, link: bool = False, condition: int = 14) -> None:
         fixups.append((len(words), name, link, condition))
-        emit(0, f"b{'l' if link else ''}{ {0: 'eq', 1: 'ne', 8: 'hi', 14: ''}[condition]} rando_sticker_{name}")
+        condition_name = {0: "eq", 1: "ne", 8: "hi", 14: ""}[condition]
+        emit(0, f"b{'l' if link else ''}{condition_name} rando_sticker_{name}")
 
     def call(address: int) -> None:
         emit(branch(start + len(words) * 4, address) | 0x01000000, f"bl 0x{address:08x}")
@@ -85,8 +118,12 @@ def sticker_guard_patch(code: bytes, flags: dict[str, int], fingerprint: bytes,
         literals.append((len(words), register, value))
         emit(0, f"ldr r{register}, [pc, literal]")
 
-    entries = (("normal", NORMAL_ADD, NORMAL_PREFIX, True), ("forced", FORCED_ADD, FORCED_PREFIX, False),
-               ("commit", COMMIT_ADD, COMMIT_PREFIX, True), ("album", ALBUM_ADD, ALBUM_PREFIX, True))
+    entries = (
+        ("normal", NORMAL_ADD, NORMAL_PREFIX, True),
+        ("forced", FORCED_ADD, FORCED_PREFIX, False),
+        ("commit", COMMIT_ADD, COMMIT_PREFIX, True),
+        ("album", ALBUM_ADD, ALBUM_PREFIX, True),
+    )
     for name, entry, original, string_input in entries:
         label(name)
         emit(0xE92D401F, "push {r0-r4, lr}")
@@ -186,15 +223,22 @@ def sticker_guard_patch(code: bytes, flags: dict[str, int], fingerprint: bytes,
     cave = struct.pack(f"<{len(words)}I", *words)
     if start + len(cave) > TEXT_LIMIT:
         raise ValueError("Combined native guards exceed existing executable padding")
-    hooks = tuple((entry - CODE_BASE, struct.pack("<I", branch(entry, start + labels[name] * 4))) for name, entry, _, _ in entries)
+    hooks = tuple(
+        (entry - CODE_BASE, struct.pack("<I", branch(entry, start + labels[name] * 4))) for name, entry, _, _ in entries
+    )
     records = previous + hooks + ((start - CODE_BASE, cave),)
     result = bytearray(code)
     for offset, data in records:
-        result[offset:offset + len(data)] = data
+        result[offset : offset + len(data)] = data
     assembly = [ability.assembly if ability else ".syntax unified\n.arm\n"]
     for (name, _, _, _), (offset, data) in zip(entries, hooks, strict=True):
-        assembly.extend([f'.section .rando_sticker_hook_{name},"ax",%progbits', f"/* Place at 0x{CODE_BASE + offset:08x}. */",
-                         f"    .word 0x{struct.unpack('<I', data)[0]:08x} /* b rando_sticker_{name} */"])
+        assembly.extend(
+            [
+                f'.section .rando_sticker_hook_{name},"ax",%progbits',
+                f"/* Place at 0x{CODE_BASE + offset:08x}. */",
+                f"    .word 0x{struct.unpack('<I', data)[0]:08x} /* b rando_sticker_{name} */",
+            ]
+        )
     assembly.extend(['.section .rando_sticker_guard,"ax",%progbits', f"/* Place at 0x{start:08x}. */"])
     names = {position: name for name, position in labels.items()}
     for position, (word, description) in enumerate(zip(words, descriptions, strict=True)):

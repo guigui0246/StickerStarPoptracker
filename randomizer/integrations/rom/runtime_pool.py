@@ -32,14 +32,16 @@ def expand_variable_pool(code: bytes, previous: CodePatch | None = None) -> Code
     assembly = previous.assembly if previous else ".syntax unified\n.arm\n"
     for address, original, value, mnemonic in POOL_SITES:
         offset = address - CODE_BASE
-        if code[offset:offset + 4] != struct.pack("<I", original):
+        if code[offset : offset + 4] != struct.pack("<I", original):
             raise ValueError(f"Unsupported variable-pool instruction at 0x{address:08x}")
         if any(offset < start + len(data) and start < offset + 4 for start, data in records):
             raise ValueError("Variable-pool patch overlaps another executable patch")
         word = (original & ~0xFFF) | immediate(value)
         records.append((offset, struct.pack("<I", word)))
-        assembly += f"\n.section .text.rando_pool_{address:x}, \"ax\"\n.org 0x{address:08x}\n    .word 0x{word:08x} // {mnemonic}\n"
+        assembly += (
+            f'\n.section .text.rando_pool_{address:x}, "ax"\n.org 0x{address:08x}\n    .word 0x{word:08x} // {mnemonic}\n'
+        )
     patched = bytearray(code)
     for offset, data in records:
-        patched[offset:offset + len(data)] = data
+        patched[offset : offset + len(data)] = data
     return CodePatch(tuple(records), digest, hashlib.sha256(patched).hexdigest(), assembly)

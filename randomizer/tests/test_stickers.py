@@ -1,3 +1,4 @@
+from typing import Any, cast
 import struct
 import unittest
 
@@ -30,7 +31,16 @@ def shop_fixture() -> bytes:
     for index, name in enumerate(names[2:]):
         tables.extend(struct.pack("<4HII", 24 + index, 2, 15, 2, record_addresses[int(name == "SHOP_MONO")], 0))
     sections.append(sections[6] + len(tables))
-    return b"KDMR\x00\x01\x01\x00" + struct.pack("<8I", *(offset // 4 for offset in sections)) + strings + bytes(12) + definition + data + tables + bytes(4)
+    return (
+        b"KDMR\x00\x01\x01\x00"
+        + struct.pack("<8I", *(offset // 4 for offset in sections))
+        + strings
+        + bytes(12)
+        + definition
+        + data
+        + tables
+        + bytes(4)
+    )
 
 
 class StickerTests(unittest.TestCase):
@@ -40,12 +50,15 @@ class StickerTests(unittest.TestCase):
         source = KdmDocument(shop_fixture())
         result = KdmDocument(patch_shops(source.data, self.policy))
         for name, table in result.tables.items():
-            contents = [tuple(text(field) for field in record(result.pointed_array(pointer.value).values[0], 5)[:2]) for pointer in table.values[:-1]]
+            contents = [
+                tuple(text(field) for field in record(result.pointed_array(cast(Any, pointer).value).values[0], 5)[:2])
+                for pointer in table.values[:-1]
+            ]
             if name == "SHOP_MONO":
                 self.assertEqual(contents, [("SL_FAN", "")])
             else:
                 self.assertEqual(contents, [(item, self.policy.flag(item)) for item in self.policy.generic])
-            self.assertEqual(table.values[-1].value.address, 0)
+            self.assertEqual(cast(Any, table.values[-1].value).address, 0)
 
     def test_copies_convert_without_unlocking_and_successful_unlocks_bypass_conversion(self) -> None:
         copy = "\n".join(self.policy.grant("SL_JUMP", unlock=False, result="result"))

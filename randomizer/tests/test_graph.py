@@ -14,12 +14,8 @@ from ..standalone.generation import (
 class GraphTests(unittest.TestCase):
     def test_menu_is_the_only_unconditionally_reachable_region(self) -> None:
         game = example_game()
-        self.assertEqual(
-            reachable_regions(game, InventoryState(Counter())), {"map", "field"}
-        )
-        self.assertNotIn(
-            "town", reachable_regions(game, InventoryState(Counter(hammer=1)))
-        )
+        self.assertEqual(reachable_regions(game, InventoryState(Counter())), {"map", "field"})
+        self.assertNotIn("town", reachable_regions(game, InventoryState(Counter(hammer=1))))
 
     def test_directional_requirements(self) -> None:
         game = example_game()
@@ -50,43 +46,33 @@ class GraphTests(unittest.TestCase):
             },
         )
         self.assertTrue(result.won)
-        sphere_index = {
-            key: index for index, sphere in enumerate(result.spheres) for key in sphere
-        }
+        sphere_index = {key: index for index, sphere in enumerate(result.spheres) for key in sphere}
         self.assertLess(sphere_index["rescue"], sphere_index["boss"])
         self.assertLess(sphere_index["boss"], sphere_index["end"])
 
     def test_invalid_worlds_and_pools_fail(self) -> None:
         game = example_game()
         with self.assertRaises(ValueError):
-            replace(
-                game, regions=game.regions + (StartingRegion("other", "Other Menu"),)
-            )
+            replace(game, regions=game.regions + (StartingRegion("other", "Other Menu"),))
         with self.assertRaises(ValueError):
             replace(game, pool=("toad_rescued", "hammer", "coins"))
         with self.assertRaises(ValueError):
             replace(
                 game,
-                locations=tuple(
-                    loc for loc in game.locations if not isinstance(loc, EndGoal)
-                ),
+                locations=tuple(loc for loc in game.locations if not isinstance(loc, EndGoal)),
             )
         with self.assertRaises(ValueError):
             playthrough(game, {})
 
     def test_counted_and_alternative_rules(self) -> None:
-        rule = Rules.all_of(
-            Rules.has("star", 2), Rules.any_of(Rules.has("hammer"), Rules.has("fan"))
-        )
+        rule = Rules.all_of(Rules.has("star", 2), Rules.any_of(Rules.has("hammer"), Rules.has("fan")))
         self.assertFalse(rule.allows(InventoryState(Counter(star=1, hammer=1))))
         self.assertTrue(rule.allows(InventoryState(Counter(star=2, fan=1))))
 
     def test_unreachable_graph_cannot_generate(self) -> None:
         game = example_game()
         locations = tuple(
-            replace(loc, rules=Rules.has("hammer"))
-            if loc.id in {"map_gift", "field_pickup"}
-            else loc
+            replace(loc, rules=Rules.has("hammer")) if loc.id in {"map_gift", "field_pickup"} else loc
             for loc in game.locations
         )
         with self.assertRaises(ValueError):

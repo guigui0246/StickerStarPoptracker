@@ -1,3 +1,4 @@
+from typing import Any, cast
 import struct
 import unittest
 from dataclasses import replace
@@ -19,26 +20,26 @@ class SavedMemory(test_native_bridge.FakeMemory):
     def read(self, address, size):
         offset = address - self.pointer - 4
         if 0 <= offset < offset + size <= 256:
-            return bytes(self.saved[offset:offset + size])
+            return bytes(self.saved[offset : offset + size])
         return super().read(address, size)
 
     def write(self, address, data):
         offset = address - self.pointer - 4
         if 0 <= offset < offset + len(data) <= 256:
             self.writes.append((address, data))
-            self.saved[offset:offset + len(data)] = data
+            self.saved[offset : offset + len(data)] = data
             return
         super().write(address, data)
 
     def native_word(self, name, value):
         offset = (self.profile.word_index(name) - 3072) // 8
-        self.saved[offset:offset + self.profile.word_size(name)] = value.to_bytes(self.profile.word_size(name), "little")
+        self.saved[offset : offset + self.profile.word_size(name)] = value.to_bytes(self.profile.word_size(name), "little")
 
 
 class SavedByteMailboxTests(unittest.TestCase):
     def test_saved_byte_allocation_preserves_native_tables_and_rejects_overflow(self):
         source = bytearray(test_native_delivery.small_switch_registry())
-        field = KdmDocument(bytes(source)).tables["gsSwitchTable"].values[0].value[1]
+        field = cast(Any, KdmDocument(bytes(source)).tables["gsSwitchTable"].values[0]).value[1]
         struct.pack_into("<i", source, field.offset, 219)
         patched, allocated = register_saved_bytes(bytes(source), saved_mailbox_bytes())
         self.assertEqual(len(allocated), 28)
@@ -51,8 +52,11 @@ class SavedByteMailboxTests(unittest.TestCase):
 
     def test_large_local_placement_uses_saved_bytes_without_losing_receipts(self):
         coin = NativeReward(NativeRewardKind.COINS, 25)
-        plan = DeliveryPlan(tuple(GoalBlockReward(f"room{i}", "GF_WM_A01_A02", coin) for i in range(425)),
-                            remote_rewards=(RemoteReward(100, coin),), remote_session=RemoteSession("seed", 0, 1, "a" * 64))
+        plan = DeliveryPlan(
+            tuple(GoalBlockReward(f"room{i}", "GF_WM_A01_A02", coin) for i in range(425)),
+            remote_rewards=(RemoteReward(100, coin),),
+            remote_session=RemoteSession("seed", 0, 1, "a" * 64),
+        )
         self.assertGreater(len(plan.flags), 1114)
         fitted = fit_mailbox(plan)
         self.assertTrue(fitted.saved_byte_mailbox)
@@ -72,8 +76,11 @@ class SavedByteMailboxTests(unittest.TestCase):
     def test_host_writes_only_request_bytes_and_ack_survives_snapshot(self):
         fixture = test_native_bridge.NativeBridgeTests()
         fixture.setUp()
-        profile = replace(fixture.profile, flags={name: value for name, value in fixture.profile.flags.items() if not name.startswith("gf_rando_rpc_")},
-                          saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes())})
+        profile = replace(
+            fixture.profile,
+            flags={name: value for name, value in fixture.profile.flags.items() if not name.startswith("gf_rando_rpc_")},
+            saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes())},
+        )
         profile.validate_word_ownership()
         memory = SavedMemory(profile)
         game = NativeGame(memory, profile, "seed", 0, 1, "a" * 64, {"star": 200})
@@ -97,12 +104,19 @@ class SavedByteMailboxTests(unittest.TestCase):
         flags = {name: value for name, value in fixture.profile.flags.items() if not name.startswith("gf_rando_rpc_")}
         flags.update({f"gf_rando_remote_page_{index}": 2200 + index for index in range(6)})
         page = NativeReward(NativeRewardKind.PAGE, 1)
-        profile = replace(fixture.profile, flags=flags, saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes(True))},
-                          selectors={100: 1, 101: 2}, selector_rewards={101: page}, priority_pages=True)
+        profile = replace(
+            fixture.profile,
+            flags=flags,
+            saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes(True))},
+            selectors={100: 1, 101: 2},
+            selector_rewards={101: page},
+            priority_pages=True,
+        )
         profile.validate_word_ownership()
         memory = SavedMemory(profile)
         game = NativeGame(memory, profile, "seed", 0, 1, "a" * 64, {"star": 200})
         from ..integrations.archipelago.runtime import ReceivedItem
+
         sticker, upgrade = ReceivedItem(100, 210, 2, 0), ReceivedItem(101, 211, 2, 1)
         game.prepare_pages(((0, sticker), (1, upgrade)))
         self.assertFalse(game.deliver("ap/0", sticker))
@@ -125,10 +139,17 @@ class SavedByteMailboxTests(unittest.TestCase):
 
     def test_page_plans_select_independent_receipts_and_no_prefix_ack_on_priority(self):
         from ..settings import AlbumPages
+
         coin, page = NativeReward(NativeRewardKind.COINS, 25), NativeReward(NativeRewardKind.PAGE, 1)
-        plan = fit_mailbox(DeliveryPlan((GoalBlockReward("room", "GF_WM_A01_A02", coin),), album_pages=AlbumPages.RANDOMIZED,
-                           remote_rewards=(RemoteReward(100, page),), remote_session=RemoteSession("seed", 0, 1, "a" * 64),
-                           starting_rewards=(page,) * 6))
+        plan = fit_mailbox(
+            DeliveryPlan(
+                (GoalBlockReward("room", "GF_WM_A01_A02", coin),),
+                album_pages=AlbumPages.RANDOMIZED,
+                remote_rewards=(RemoteReward(100, page),),
+                remote_session=RemoteSession("seed", 0, 1, "a" * 64),
+                starting_rewards=(page,) * 6,
+            )
+        )
         self.assertTrue(plan.priority_pages)
         self.assertEqual(len(plan.saved_bytes), 29)
         self.assertEqual(len(plan.remote_page_flags), 6)
@@ -146,10 +167,15 @@ class SavedByteMailboxTests(unittest.TestCase):
         flags["gf_rando_ability_paperization"] = 2210
         page = NativeReward(NativeRewardKind.PAGE, 1)
         ability = NativeReward(NativeRewardKind.ABILITY, "paperization")
-        profile = replace(fixture.profile, flags=flags,
-                          saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes(True))},
-                          selectors={100: 1, 101: 2, 102: 3}, selector_rewards={101: page, 102: ability},
-                          priority_pages=True, priority_capabilities=True)
+        profile = replace(
+            fixture.profile,
+            flags=flags,
+            saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes(True))},
+            selectors={100: 1, 101: 2, 102: 3},
+            selector_rewards={101: page, 102: ability},
+            priority_pages=True,
+            priority_capabilities=True,
+        )
         profile.validate_word_ownership()
         memory = SavedMemory(profile)
         game = NativeGame(memory, profile, "seed", 0, 1, "a" * 64, {"star": 200})
@@ -174,10 +200,12 @@ class SavedByteMailboxTests(unittest.TestCase):
             game.prepare_pages(((2, unlock),))
 
     def test_priority_runtime_accepts_only_inventory_free_idempotent_entitlements(self):
-        rewards = (RemoteReward(100, NativeReward(NativeRewardKind.PAGE, 1)),
-                   RemoteReward(101, NativeReward(NativeRewardKind.ABILITY, "paperization")),
-                   RemoteReward(102, NativeReward(NativeRewardKind.COINS, 25)),
-                   RemoteReward(103, NativeReward(NativeRewardKind.ITEM, "PK_HEI_5_BRIDGE")))
+        rewards = (
+            RemoteReward(100, NativeReward(NativeRewardKind.PAGE, 1)),
+            RemoteReward(101, NativeReward(NativeRewardKind.ABILITY, "paperization")),
+            RemoteReward(102, NativeReward(NativeRewardKind.COINS, 25)),
+            RemoteReward(103, NativeReward(NativeRewardKind.ITEM, "PK_HEI_5_BRIDGE")),
+        )
         source = remote_function(rewards, saved_bytes=True, priority_pages=True)
         self.assertIn("== 2 && ( tempVar2 == 1 || tempVar2 == 2 ) == false", source)
         self.assertLess(source.index("if ( gs_rando_rpc_ready_00 == 2 )"), source.index("gs_rando_rpc_ack_ready_00 *= 0"))
@@ -185,10 +213,12 @@ class SavedByteMailboxTests(unittest.TestCase):
     def test_game_owned_pending_byte_cannot_share_a_host_mailbox_slot(self):
         fixture = test_native_bridge.NativeBridgeTests()
         fixture.setUp()
-        profile = replace(fixture.profile,
-                          flags={name: value for name, value in fixture.profile.flags.items() if not name.startswith("gf_rando_rpc_")},
-                          saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes())},
-                          game_saved_bytes={"gs_rando_peel_pending": 248})
+        profile = replace(
+            fixture.profile,
+            flags={name: value for name, value in fixture.profile.flags.items() if not name.startswith("gf_rando_rpc_")},
+            saved_bytes={name: 220 + index for index, name in enumerate(saved_mailbox_bytes())},
+            game_saved_bytes={"gs_rando_peel_pending": 248},
+        )
         profile.validate_word_ownership()
         with self.assertRaisesRegex(ValueError, "Game-owned"):
             replace(profile, game_saved_bytes={"gs_rando_peel_pending": 220}).validate_word_ownership()
