@@ -393,12 +393,14 @@ LOCATIONS: tuple[Location, ...] = (
         Rules.all_of(),
     ),
     Location(
+        # TODO: logic to any of those levels: 1-1
         'enemy/type/enemy_name_KUR',
         'enemy/type/enemy name goomba',
         regions.CHECKS_ENEMY.id,
         Rules.all_of(),
     ),
     Location(
+        # TODO: logic to any of those levels: 1-1
         'enemy/type/enemy_name_KUR_K',
         'enemy/type/enemy name shiny goomba',
         regions.CHECKS_ENEMY.id,
@@ -1938,7 +1940,8 @@ LOCATIONS: tuple[Location, ...] = (
         'pickup/hei_5_11/item_piece',
         'World 1-1: Bridge Scrap',
         regions.ROOM_HEI_5_11.id,
-        Rules.all_of(),
+        # Requires beating boswer junior, any sticker that can do 20 damages.
+        Rules.any_of(*(Rules('item', item_id=x.id) for x in items.THINGS)),
     ),
     Location(
         'pickup/hei_5_D1/K_REAL',

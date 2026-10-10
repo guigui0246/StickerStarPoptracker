@@ -1,7 +1,13 @@
 """NO-LOGIC placeholders: replace Menu spokes with real physical paths."""
 
 from ...domain import Path, Rules, Vector
-from . import regions
+from . import regions, items
+
+
+DOOR_RULE = Rules.all_of(
+    Rules("item", item_id=items.STICKER_UNLOCK_SL_DOOR.id),
+    Rules("item", item_id=items.STAGE_ACCESS_C10.id)  # TODO: verify if this is 3-6
+)
 
 
 PATHS: tuple[Path, ...] = (
@@ -398,14 +404,17 @@ PATHS: tuple[Path, ...] = (
     Path(
         'room/hei_5_07',
         Vector(
-            regions.MENU.id,
+            regions.ROOM_HEI_5_11.id,
             regions.ROOM_HEI_5_07.id,
-            Rules.all_of(),
+            Rules.all_of(
+                Rules.any_of(*(Rules('item', item_id=x.id) for x in items.THINGS)),
+                Rules("item", item_id='item/PK_HEI_5_BRIDGE')
+            ),
         ),
         Vector(
             regions.ROOM_HEI_5_07.id,
-            regions.MENU.id,
-            Rules.all_of(),
+            regions.ROOM_HEI_5_11.id,
+            Rules("item", item_id='item/PK_HEI_5_BRIDGE'),
         ),
     ),
     Path(
@@ -413,7 +422,7 @@ PATHS: tuple[Path, ...] = (
         Vector(
             regions.MENU.id,
             regions.ROOM_HEI_5_11.id,
-            Rules.all_of(),
+            Rules("item", item_id=items.STAGE_ACCESS_A01.id),
         ),
         Vector(
             regions.ROOM_HEI_5_11.id,
@@ -424,13 +433,16 @@ PATHS: tuple[Path, ...] = (
     Path(
         'room/hei_5_D1',
         Vector(
-            regions.MENU.id,
+            regions.ROOM_HEI_5_07.id,
             regions.ROOM_HEI_5_D1.id,
-            Rules.all_of(),
+            Rules.all_of(
+                Rules("item", item_id=items.DOOR_ACCESS_HEI_5_SECRET_DOOR_1.id),
+                DOOR_RULE,
+            ),
         ),
         Vector(
             regions.ROOM_HEI_5_D1.id,
-            regions.MENU.id,
+            regions.ROOM_HEI_5_07.id,
             Rules.all_of(),
         ),
     ),
