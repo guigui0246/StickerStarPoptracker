@@ -1,3 +1,5 @@
+# WARNING: This code was made by AI and not yet human verified
+
 # Sticker Star tools
 
 The repository contains a PopTracker pack, a standalone randomizer engine,
